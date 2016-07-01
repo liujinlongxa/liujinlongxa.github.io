@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion">
+<html class="theme-next pisces use-motion">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -74,6 +74,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="liujinlongxa的技术博客" type="application/atom+xml" />
+
 
 
 
@@ -84,25 +86,28 @@
 
 
 
+<meta name="description" content="生命永不息，Coding永不止">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="liujinlongxa的技术博客">
 <meta property="og:url" content="http://yoursite.com/page/3/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="liujinlongxa的技术博客">
+<meta property="og:description" content="生命永不息，Coding永不止">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="liujinlongxa的技术博客">
+<meta name="twitter:description" content="生命永不息，Coding永不止">
 
 
 
 <script type="text/javascript" id="hexo.configuration">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Muse',
+    scheme: 'Pisces',
     sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
       userId: 0,
-      author: 'Author'
+      author: '博主'
     }
   };
 </script>
@@ -112,10 +117,10 @@
 
   <link rel="canonical" href="http://yoursite.com/page/3/"/>
 
-  <title> Hexo </title>
+  <title> liujinlongxa的技术博客 </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -145,7 +150,7 @@
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Hexo</span>
+      <span class="site-title">liujinlongxa的技术博客</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -172,7 +177,17 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
           </a>
         </li>
       
@@ -182,7 +197,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            归档
           </a>
         </li>
       
@@ -192,7 +207,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            Tags
+            标签
           </a>
         </li>
       
@@ -235,8 +250,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/10/05/2015-10-05-《图解HTTP》读书笔记(1)/" itemprop="url">
-                  《图解HTTP》读书笔记(1)
+                <a class="post-title-link" href="/2015/10/06/《图解HTTP》读书笔记(2)/" itemprop="url">
+                  《图解HTTP》读书笔记(2)
                 </a>
               
             
@@ -248,9 +263,9 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-10-05T14:06:49+08:00" content="2015-10-05">
-              2015-10-05
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-06T00:00:00+08:00" content="2015-10-06">
+              2015-10-06
             </time>
           </span>
 
@@ -260,7 +275,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/读书笔记/" itemprop="url" rel="index">
@@ -276,6 +291,366 @@
           
 
           
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/06/《图解HTTP》读书笔记(2)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/06/《图解HTTP》读书笔记(2)/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>toc<br>{:toc}</li>
+</ul>
+<h2 id="第三章-HTTP报文内的HTTP信息"><a href="#第三章-HTTP报文内的HTTP信息" class="headerlink" title="第三章 HTTP报文内的HTTP信息"></a>第三章 HTTP报文内的HTTP信息</h2><h3 id="HTTP报文"><a href="#HTTP报文" class="headerlink" title="HTTP报文"></a>HTTP报文</h3><p>HTTP报文分为请求报文和响应报文两种，主要是由报文首部和报文主体两部分组成。</p>
+<h3 id="编码提升传输速率"><a href="#编码提升传输速率" class="headerlink" title="编码提升传输速率"></a>编码提升传输速率</h3><p>为了提升传输速率，HTTP协议通常会对要传输的实体进行压缩，即内容编码。<br>内容编码致指明应用在实体内容上的编码格式，并保持实体信息原样压缩。内容编码后的实体由客户端接收并负责解码。常见的编码有：</p>
+<ul>
+<li>gzip (GNU zip)</li>
+<li>compress (UNIX系统标准压缩)</li>
+<li>deflate (zlib)</li>
+<li>identity (不进行编码)</li>
+</ul>
+<p><strong>分块编码</strong> 对于实体数据过大时，通常会把实体数据进行分块传输。分块编码会将实体主体分成多个部分快，客户端在接收到之后自行解码拼接。</p>
+<h3 id="发送多种数据类型"><a href="#发送多种数据类型" class="headerlink" title="发送多种数据类型"></a>发送多种数据类型</h3><p>一个HTTP请求中可能还有文字，图片，视频等多种不同的数据类型，HTTP协议通过多部分对象集合，使得一份报文中可以含有多类型实体。通常实在上传图片或文本时使用。</p>
+<p>多部分对象集合包含的对象：</p>
+<ul>
+<li>multipart/form-data : 表单文件上传</li>
+<li>multipart/byteranges : 状态码为206，响应报文中包含了多个范围的内容</li>
+</ul>
+<p>多部分对象集合中的每个部分都含有首部字段，另外，还可以在某个部分中嵌套使用对象集合。</p>
+<h3 id="获取部分内容的范围请求"><a href="#获取部分内容的范围请求" class="headerlink" title="获取部分内容的范围请求"></a>获取部分内容的范围请求</h3><p>执行范围请求，需要在首部加上Range字段，例如</p>
+<ul>
+<li><code>Range: bytes=500-1000</code>，表示只请求500-1000的字节范围的数据。</li>
+<li><code>Range: bytes=1000-</code>，表示请求1000字节以后的全部数据</li>
+<li><code>Range: bytes=-300, 500-1000</code>，表示请求0-300和500-1000两部分数据</li>
+</ul>
+<p>请求成功，服务器会返回<code>206 Partial Content</code>状态码，表示请求部分数据成功，如何数据已经全部请求完成，则返回200</p>
+<p>例如：一个资源大小为200 bytes，HTTP请求的Range字段为<code>Range: bytes=-300</code>，则一次请求就可以请求到全部数据，因此返回200，不会返回206</p>
+<p>范围请求通常用于断点下载等操作。</p>
+<h3 id="内容协商返回最合适的内容"><a href="#内容协商返回最合适的内容" class="headerlink" title="内容协商返回最合适的内容"></a>内容协商返回最合适的内容</h3><p>同一个页面服务器可能存在多份，比如英文页面，中文页面等。服务器会根据请求报文中的某些字段（语言，字符集，编码方式等）作为判断基准，返回最合适的页面。</p>
+<p>相关的首部字段有</p>
+<ul>
+<li>Accept</li>
+<li>Accept-Charset</li>
+<li>Accept-Encoding</li>
+<li>Accept-Language</li>
+<li>Content-Language</li>
+</ul>
+<h2 id="第四章-返回结果的HTTP状态码"><a href="#第四章-返回结果的HTTP状态码" class="headerlink" title="第四章 返回结果的HTTP状态码"></a>第四章 返回结果的HTTP状态码</h2><p>状态码的职责是当客户端发送请求时，描述返回的请求结果。状态码和状态不一致的现象也很常见。</p>
+<h3 id="2XX-OK"><a href="#2XX-OK" class="headerlink" title="2XX OK"></a>2XX OK</h3><ul>
+<li><strong>200 OK</strong> 正常处理，HEAD请求成功，不返回内容实体，状态码也是200</li>
+<li><strong>204 No Content</strong> 请求已处理成功，但没有资源返回</li>
+<li><strong>206 Partial Content</strong> 请求成功，返回资源的某一部分</li>
+</ul>
+<h3 id="3XX-重定向"><a href="#3XX-重定向" class="headerlink" title="3XX 重定向"></a>3XX 重定向</h3><ul>
+<li><strong>301 Moved Permanently</strong> 永久重定向，资源的URI已经更新</li>
+<li><strong>302 Found</strong> 临时重定向，URI已经更新，希望本次使用新的URI进行请求</li>
+<li><strong>303 See Other</strong> 资源的URI已经更新，请使用GET方法从新的URI获取资源。302和303功能类似，但303明确告诉客户端应该使用GET方法请求另一个URI。实际应用中，当301，302，303状态码返回时，几乎所有的浏览器都会把POST改为GET，<br>然后重新请求。</li>
+<li><strong>304 Not Modified</strong> 资源已找到，但未符合条件请求。<strong>条件请求</strong> 是指在首部添加<code>If-Match, If-Modified-Since, If-None-Match,If-Range,-IfUnmodified-Since</code><br>中的任何一个</li>
+<li><strong>307 TemporaryRedirect</strong> 临时重定向。与302有相同的含义。</li>
+</ul>
+<h3 id="4XX-客户端错误"><a href="#4XX-客户端错误" class="headerlink" title="4XX 客户端错误"></a>4XX 客户端错误</h3><ul>
+<li><strong>400 Bad Request</strong> 请求报文中存在语法错误，服务器无法理解。</li>
+<li><strong>401 Unauthorized</strong> 发送的请求需要通过HTTP认证。当浏览器接受到401时，会弹出认证窗口，让用户填写用户名和密码</li>
+<li><strong>403 Forbidden</strong> 不允许访问该资源</li>
+<li><strong>404 Not Found</strong> 没有找到请求的资源</li>
+</ul>
+<h3 id="5XX-服务器错误"><a href="#5XX-服务器错误" class="headerlink" title="5XX 服务器错误"></a>5XX 服务器错误</h3><ul>
+<li><strong>500 Internal Server Error</strong> 服务器发生错误</li>
+<li><strong>503 Service Unavailable</strong> 表示服务器暂时处于超负载或正在停机维护，现在无法处理请求。</li>
+</ul>
+<h2 id="第五章-与HTTP协作的Web服务器"><a href="#第五章-与HTTP协作的Web服务器" class="headerlink" title="第五章 与HTTP协作的Web服务器"></a>第五章 与HTTP协作的Web服务器</h2><h3 id="用单台虚拟主机实现多个域名"><a href="#用单台虚拟主机实现多个域名" class="headerlink" title="用单台虚拟主机实现多个域名"></a>用单台虚拟主机实现多个域名</h3><p>同一台服务器可以搭建多个Web站点，这是利用了虚拟主机的功能。但是这就会导致多个域名在经过DNS解析后映射到了同一个IP地址。为了确定到底是访问那个域名，<br>HTTP请求中，必须在首部的Host字段完整的指定主机名或域名的URI</p>
+<h3 id="通信数据转发程序：代理，网关，隧道"><a href="#通信数据转发程序：代理，网关，隧道" class="headerlink" title="通信数据转发程序：代理，网关，隧道"></a>通信数据转发程序：代理，网关，隧道</h3><ul>
+<li><strong>代理</strong>：代理是一种有转发功能的应用程序，他接收由客户端发送的请求并转发给服务器，同时也接收服务器返回的响应并转发给客户端<ul>
+<li>代理不会改变请求的URI，会直接发送给前方持有资源的目标服务器，即源服务器。</li>
+<li>在HTTP请求中可以级联多台代理服务器</li>
+<li>代理服务器的用途：<ul>
+<li>利用缓存技术减少网络带宽流量</li>
+<li>组织内部针对特定网站的访问控制</li>
+</ul>
+</li>
+<li>代理的种类<ul>
+<li>缓存代理：将源服务器的资源副本保存在代理服务器上，这样当代理再次接到相同的请求是，就不需要从源服务器那里再次获取资源了</li>
+<li>透明代理和非透明代理：不对报文进行加工，成为透明代理，否则成为非透明代理</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>网关</strong>：转发其他服务器通信数据的服务器<ul>
+<li>网关与代理类似，但它可以提供非HTTP服务，即经过网关可以向非HTTP服务器请求数据</li>
+<li>利用网关能提高通信的安全性</li>
+</ul>
+</li>
+<li><strong>隧道</strong>：在相隔甚远的客户端和服务器两者之间进行中转，并保持双方通信连接的应用程序<ul>
+<li>隧道可按要求建立起一条与其他服务器的通信线路，届时可以使用SSL等加密手段进行通信。</li>
+<li>隧道的目的是确保通信的安全性</li>
+<li>隧道本身不会解析HTTP请求，不会到HTTP请求进行修改</li>
+</ul>
+</li>
+</ul>
+<h3 id="保存资源的缓存"><a href="#保存资源的缓存" class="headerlink" title="保存资源的缓存"></a>保存资源的缓存</h3><p>缓存是指资源的副本，利用缓存可以减少对源服务器的访问，从而节省通信流量和通信时间。</p>
+<p>缓存服务器是代理服务器的一种，用于实现缓存。除了缓存服务器外，也可以包缓存保存在客户端的浏览器中。缓存都是有有效期的，<br>过了有效期就应该重新向源服务器请求最新的资源。</p>
+<h2 id="第六章-HTTP首部"><a href="#第六章-HTTP首部" class="headerlink" title="第六章 HTTP首部"></a>第六章 HTTP首部</h2><h3 id="HTTP报文首部字段"><a href="#HTTP报文首部字段" class="headerlink" title="HTTP报文首部字段"></a>HTTP报文首部字段</h3><ul>
+<li>字段结构：<code>首部字段名:字段值</code>，例如<code>Content-Type: text/html</code>，单个字段也可以有多个只，例如<code>Keep-Alive: timeout=15, max=10</code></li>
+<li>如果首部字段重复，即出现两个同名的字段，则有的浏览器处理第一次出现的字段，有的浏览器处理最后一次出现的首部字段，这个在规范中没有明确指出。</li>
+<li>4种HTTP首部字段类型<ul>
+<li>通用首部字段：请求报文和响应报文都会使用的字段</li>
+<li>请求首部字段：请求报文中使用的首部字段</li>
+<li>响应首部字段：响应报文中使用的首部字段</li>
+<li>实体首部字段：实体部分使用的首部字段</li>
+</ul>
+</li>
+</ul>
+<h3 id="通用首部字段"><a href="#通用首部字段" class="headerlink" title="通用首部字段"></a>通用首部字段</h3><ul>
+<li>Cache-Control：指定缓存的工作机制</li>
+<li>Connection：控制不在转发给代理的首部字段，管理持久链接</li>
+<li>Date：表明创建HTTP报文的时间</li>
+<li>Pragma：指定是否允许代理服务器返回缓存资源，这是历史遗留字段，</li>
+<li>Trailer：说明在报文主体后会记录哪些首部字段，应用于分块传输编码</li>
+<li>Transfer-Encoding：规定了传输报文主体时采用的编码方式</li>
+<li>Upgrade：用于检测HTTP协议及其他协议是否可使用更高版本进行通信，该字段仅限于客户端与邻接服务器，因此需要在Connection中指定Upgrade</li>
+<li>Via：追踪客户端与服务器之间请求和响应的传输路径</li>
+<li>Warning：告知用于一些与缓存相关的问题的警告<br>*</li>
+</ul>
+<h3 id="请求首部字段"><a href="#请求首部字段" class="headerlink" title="请求首部字段"></a>请求首部字段</h3><ul>
+<li>Accept：通知服务器应该返回的资源类型以及类型的优先级，格式为<code>type/subtype</code>，例如<code>text/html, image/jpeg</code></li>
+<li>Accept-Charset：通知服务器客户端支持的字符集及优先级</li>
+<li>Accept-Encoding：通知服务器客户端支持的内容编码及优先级</li>
+<li>Accept-Language：通知服务器客户端支持的语言及优先级</li>
+<li>Authorization：客户端的认证信息</li>
+<li>Form：告知服务器客户端的用户的电子邮箱地址，也可把电子邮箱记录在User-Agent中</li>
+<li>Host：告知服务器资源所处的主机名和端口号</li>
+<li>If-Match：告知服务器匹配资源所有的实体标记(ETag)，只有资源的ETag与该字段值匹配，服务器才会返回请求，否则返回412</li>
+<li>If-Modified-Since：指定更新日期，如果在指定的日期之后资源有更新，则服务器处理请求，返回资源，否则返回304</li>
+<li>If-None-Match：与If-Match相反，只有资源的ETag与该字段值不匹配，服务器才会返回请求，否则返回412</li>
+<li>If-Range：告知服务器若If-Range的字段值（ETag或时间）和请求资源的ETag值或时间相一致时，作为范围请求处理，否则返回全体资源</li>
+<li>If-Unmodified-Since：与If-Modified-Since相反，如果在指定的日期之后资源无更新，则服务器处理请求，返回资源，否则返回412</li>
+<li>Max-Forwards：指定可经过的服务器最大数目，</li>
+<li>Proxy-Authorization：代理认证信息，与Authorization不同之处在于他是客户端与代理服务器之间的认证，而Authorization是客户端与源服务器之间的认证信息</li>
+<li>Range：请求资源的范围</li>
+<li>Referer：告知服务器请求的原始资源的URI</li>
+<li>TE：告知服务器客户端能够处理的响应的编码方式及优先级</li>
+<li>User-Agent：告知服务器浏览器的种类和用户名称等信息</li>
+</ul>
+<h3 id="响应首部字段"><a href="#响应首部字段" class="headerlink" title="响应首部字段"></a>响应首部字段</h3><ul>
+<li>Accept-Range：告知客户端服务器是否能处理范围请求，可以处理则字段值为bytes，反之则为none</li>
+<li>Age：告知客户端该响应是在多久前创建的，如果是缓存服务器，则必须加上Age字段，告知客户端该资源是多久前从源服务器获取的</li>
+<li>ETag：告知客户端实体的标识<ul>
+<li>强ETag值：无论实体发生多么细微的变化，都会改变ETag的值</li>
+<li>弱ETag值：只有资源发生根本改变，产生差异时才会改变ETag值</li>
+</ul>
+</li>
+<li>Location：告知客户端重定向的地址</li>
+<li>Proxy-Authenticate：告知客户端适用于代理服务器的认证方案</li>
+<li>Retry-After：告知客户端多久之后再次发送请求，主要配合503响应或3XX响应</li>
+<li>Server：告知客户端HTTP服务器的应用程序信息</li>
+<li>Vary：源服务器告知代理服务器，必须具有同Vary指定的字段相同的同的值的请求才能直接返回缓存，否则必须从源服务器上获取资源</li>
+<li>WWW-Authenticate：告知客户端适用于服务器的认证方案</li>
+</ul>
+<h3 id="实体首部字段"><a href="#实体首部字段" class="headerlink" title="实体首部字段"></a>实体首部字段</h3><ul>
+<li>Allow：告知客户端服务器能够支持的所有HTTP方法</li>
+<li>Content-Encoding：告知客户端服务器对实体的主体部分选用的编码方式</li>
+<li>Content-Language：告知客户端实体主体使用的自然语言</li>
+<li>Content-Length：告知客户端实体主体的大小（字节）</li>
+<li>Content-Location：报文主体返回资源对应的URI</li>
+<li>Content-MD5：报文主体部分的MD5值，用于校验主体部分是否完整</li>
+<li>Content-Range：告知客户端返回的实体是整个资源的那一部分，格式<code>500-1000/1000</code></li>
+<li>Content-Type：说明实体内对象的类型</li>
+<li>Expires：告知客户端或代理服务器资源失效的日期</li>
+<li>Last-Modified：指明资源最终修改的时间</li>
+</ul>
+<h3 id="为Cookie服务器的首部字段"><a href="#为Cookie服务器的首部字段" class="headerlink" title="为Cookie服务器的首部字段"></a>为Cookie服务器的首部字段</h3><ul>
+<li>Set-Cookie：告知客户端各种状态信息以及Cookie的设置信息</li>
+<li>Cookie：告知服务器当前客户端的各种状态信息</li>
+</ul>
+<h3 id="其他首部字段"><a href="#其他首部字段" class="headerlink" title="其他首部字段"></a>其他首部字段</h3><ul>
+<li>X-Frame-Options：控制网站内容在其他Web网站的Frame标签内显示的问题，可防止点击劫持攻击</li>
+<li>X-XSS-Protection：控制浏览器XSS防护机制的开关</li>
+<li>DNT：告知服务器客户端拒绝提供个人信息</li>
+<li>P3P：让Web网站上的个人隐私变成一种仅供程序可理解的形式</li>
+</ul>
+<h2 id="第七章-确保Web安全的HTTPS"><a href="#第七章-确保Web安全的HTTPS" class="headerlink" title="第七章 确保Web安全的HTTPS"></a>第七章 确保Web安全的HTTPS</h2><h3 id="HTTP的缺点"><a href="#HTTP的缺点" class="headerlink" title="HTTP的缺点"></a>HTTP的缺点</h3><ul>
+<li><strong>通信使用明文可能会被窃听</strong><ul>
+<li>TCP/IP是可能被窃听的网络</li>
+<li>使用加密处理防止被窃听<ul>
+<li>通信加密：对整个通信线路加密，通过SSL或TSL加密HTTP的通信内容，与SSL组合使用的HTTP成为HTTPS（超文本传输安全协议）</li>
+<li>内容加密：对实体内容加密，客户端服务器要有相应的加密和解密机制</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>不验证通信方的身份就可能遭遇伪装</strong><ul>
+<li>任何人都可能发起请求</li>
+<li>查明对手的证书<ul>
+<li>SSL不仅提供加密处理，还使用了证书手段，用于确定对方的身份</li>
+<li>证书由值得信任的第三方机构颁发，用于证明服务器和客户端是实际存在的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>无法证明报文完整性，可能已遭篡改</strong></li>
+</ul>
+<h3 id="HTTP-加密-认证-完整性保护-HTTPS"><a href="#HTTP-加密-认证-完整性保护-HTTPS" class="headerlink" title="HTTP+加密+认证+完整性保护=HTTPS"></a>HTTP+加密+认证+完整性保护=HTTPS</h3><ul>
+<li>HTTP加上加密处理和认证以及完整性保护就是HTTPS</li>
+<li>HTTPS是身披SSL外壳的HTTP<ul>
+<li>HTTPS并非一种新的协议，只是HTTP通信接口部分用SSL和TLS协议代替而已</li>
+<li>SSL是独立于HTTP的协议，所以不光是HTTP协议，其他运行在应用层的协议也可以配合SSL协议使用，SSL是当今世界应用最为广泛的网络安全技术</li>
+</ul>
+</li>
+<li>加密技术<ul>
+<li>共享密钥：即加密和解密使用同一个密钥的方式，也称为对称密钥加密<ul>
+<li>优点：速度快</li>
+<li>缺点：密钥可能被劫持</li>
+</ul>
+</li>
+<li>公开密钥：使用两个密钥，公有密钥和私有密钥，公有密钥加密，私有密钥解密，又称为非对称加密<ul>
+<li>优点：安全性高，密钥不会被劫持</li>
+<li>缺点：处理速度慢</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>HTTPS采用混合加密机制，即共享密钥和公开密钥混合的方式，一般情况下是使用公开密钥的方式传输共享密钥的密钥，当共享密钥的密钥被安全送达后，就可以<br>使用共享密钥来加密普通数据。</li>
+</ul>
+<h3 id="证明公开密钥正确性的证书"><a href="#证明公开密钥正确性的证书" class="headerlink" title="证明公开密钥正确性的证书"></a>证明公开密钥正确性的证书</h3><ul>
+<li>问题：如何确保公开密钥中的共有密钥在传输过程中不被篡改</li>
+<li>解决方案：使用数字证书确保共有密钥的正确性</li>
+<li>基本流程：<ol>
+<li>服务器从数字证书认证机构那里申请公钥证书，公钥证书包含服务器的公开密钥和数字证书认证机构的数字签名。</li>
+<li>申请到公钥证书之后把这份公钥证书发送给用户</li>
+<li>用户在拿到公钥证书后使用数字证书认证机构的公开密钥（一般浏览器都会内置常用认证机构的公开密钥）对证书进行验证</li>
+<li>一旦认证通过就表示公钥证书中的服务器公钥是真实可靠的。</li>
+</ol>
+</li>
+<li>其他的一些概念<ul>
+<li>EV SSL证书：用来证明服务器是否符合规范，服务器背后的运营企业是否真实存在的证书</li>
+<li>客户端证书：用来证明客户端实际存在的证书</li>
+<li>自签名证书：使用OpenSSL可以构建自己的证书认证机构，自己给自己颁发服务器证书，该证书一般不被浏览器信赖</li>
+</ul>
+</li>
+</ul>
+<h3 id="HTTPS的安全通信机制"><a href="#HTTPS的安全通信机制" class="headerlink" title="HTTPS的安全通信机制"></a>HTTPS的安全通信机制</h3><ul>
+<li>SSL和TLS：TLS是在SSL基础上开发的协议。</li>
+<li>HTTPS会比相应的HTTP请求要慢，因为要做加密处理。所以除非敏感信息，否则一般情况下使用HTTP就可以了。</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/10/05/《图解HTTP》读书笔记(1)/" itemprop="url">
+                  《图解HTTP》读书笔记(1)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-05T00:00:00+08:00" content="2015-10-05">
+              2015-10-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/05/《图解HTTP》读书笔记(1)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/05/《图解HTTP》读书笔记(1)/" itemprop="commentsCount"></span>
+                </a>
+              </span>
             
           
 
@@ -397,7 +772,272 @@
             
               
                 
-                <a class="post-title-link" href="/2015/10/04/2015-10-04-使用jekyll+GithubPage搭建个人博客系统/" itemprop="url">
+                <a class="post-title-link" href="/2015/10/04/适配iOS9（ATS问题）/" itemprop="url">
+                  适配iOS9（ATS问题）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-04T00:00:00+08:00" content="2015-10-04">
+              2015-10-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/04/适配iOS9（ATS问题）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/04/适配iOS9（ATS问题）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>##前言<br>今天下了XCode7 Beta版，跑了一下自家的APP，结果发现所有服务器请求都返回失败，明明网络正常，怎么会返回失败呢？起初我以为是AFNetworking的问题，于是我写了个demo，去掉AFNetworking，直接用NSURLSession请求数据，也是请求失败。于是乎一顿Google，原来是iOS9（XCode7的模拟器默认是iOS9）的新特性——ATS搞的鬼。</p>
+<p>##简介<br>ATS全称为App Transport Security，它是iOS9的一个新特性，旨在提高iOS设备与服务器交互的安全性。简单地说，ATS会阻止未注册的网络请求。你可以在info.plist文件中注册相应的host，这样该host的网络请求就不会被阻止。你也可以设置不阻止任何host的网络请求。</p>
+<p>##详细设置<br>如果你想设置不阻止任何网络，只需要在info.plist文件中加入以下内容即可</p>
+<p><img src="http://img.blog.csdn.net/20150619164549061" alt="这里写图片描述"></p>
+<p>如果你想设置只允许特定host的网络请求，在info.plist文件中加入以下内容</p>
+<p><img src="http://img.blog.csdn.net/20150619164722416" alt="这里写图片描述"></p>
+<p>这样，你在发往<code>baike.baidu.com</code>这个host的请求就都不会被阻止了，你可以注册多个域名。</p>
+<p>##参考资料<br><a href="https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html#//apple_ref/doc/uid/TP40016198-DontLinkElementID_13" target="_blank" rel="external">What’s New in iOS9</a><br><a href="http://stackoverflow.com/questions/30739473/nsurlsession-nsurlconnection-http-load-failed" target="_blank" rel="external">NSURLSession/NSURLConnection HTTP load failed</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/10/04/NSURLProtocol的使用/" itemprop="url">
+                  NSURLProtocol的使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-04T00:00:00+08:00" content="2015-10-04">
+              2015-10-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/04/NSURLProtocol的使用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/04/NSURLProtocol的使用/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>###NSURLProtocol的使用</p>
+<p>NSURLProtocol可以拦截所有由<a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/URLLoadingSystem/URLLoadingSystem.html#//apple_ref/doc/uid/10000165i" target="_blank" rel="external">URL Loading System</a>发起的请求，可用于实现以下功能：</p>
+<ul>
+<li>重定向网络请求，实现代理等功能</li>
+<li>实现网络缓存</li>
+<li>全局设置网络请求</li>
+<li>自定义网络请求返回结果</li>
+</ul>
+<p>具体的实现步骤如下：</p>
+<p><strong>第一步</strong> 创建NSURLProtocol的子类，重写以下方法</p>
+<p><code>+ (BOOL)canInitWithRequest:(NSURLRequest *)request</code>这个方法用来返回是否需要处理这个请求，如果需要处理，返回YES，否则返回NO。在该方法中可以对不需要处理的请求进行过滤。</p>
+<p><code>+ (NSURLRequest *)canonicalRequestForRequest:(NSURLRequest *)request</code>重写该方法，可以对请求进行修改，例如添加新的头部信息，修改，修改url等，返回修改后的请求。</p>
+<p><code>+ (BOOL)requestIsCacheEquivalent:(NSURLRequest *)a toRequest:(NSURLRequest *)b</code>该方法主要用来判断两个请求是否是同一个请求，如果是，则可以使用缓存数据，通常只需要调用父类的实现即可</p>
+<p><code>- (void)startLoading</code>重写该方法，需要在该方法中发起一个请求，对于NSURLConnection来说，就是创建一个NSURLConnection，对于NSURLSession，就是发起一个NSURLSessionTask</p>
+<p><code>- (void)stopLoading</code>重写该方法，需要停止响应的请求</p>
+<p><strong>第二步</strong> 实现相应的协议代理方法，对NSURLConnection来说，要实现NSURLConnectionDataDelegate代理方法，对于NSURLSession来说，需要实现NSURLSessionTaskDelegate代理方法。在这些代理方法中，需要使用NSURLProtocolClient来通知URL Loading System。具体实现方式详见示例代码。</p>
+<p><strong>第三步</strong> 在合适的位置注册自定义的NSURLProtocol子类。调用<code>[NSURLProtocol registerClass:[MyURLProtocol class]]</code>进行注册，调用<code>[NSURLProtocol unregisterClass:[MyURLProtocol class]]</code>可以注销。注意，代码中可以注册多个NSURLProtocol子类，每个子类可以</p>
+<p>以上就是整个实现过程，详细内容可以参见代码。</p>
+<p>代码地址:<a href="https://github.com/liujinlongxa/NSURLProtocolDemo" target="_blank" rel="external">NSURLProtocolDemo</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/10/04/使用jekyll+GithubPage搭建个人博客系统/" itemprop="url">
                   使用jekyll+Github Pages搭建个人博客
                 </a>
               
@@ -410,8 +1050,8 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-10-04T16:18:46+08:00" content="2015-10-04">
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-04T00:00:00+08:00" content="2015-10-04">
               2015-10-04
             </time>
           </span>
@@ -422,7 +1062,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/其他/" itemprop="url" rel="index">
@@ -438,6 +1078,13 @@
           
 
           
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/04/使用jekyll+GithubPage搭建个人博客系统/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/04/使用jekyll+GithubPage搭建个人博客系统/" itemprop="commentsCount"></span>
+                </a>
+              </span>
             
           
 
@@ -577,258 +1224,7 @@
             
               
                 
-                <a class="post-title-link" href="/2015/10/04/2015-10-04-NSURLProtocol的使用/" itemprop="url">
-                  NSURLProtocol的使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-10-04T12:12:24+08:00" content="2015-10-04">
-              2015-10-04
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS开发</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>###NSURLProtocol的使用</p>
-<p>NSURLProtocol可以拦截所有由<a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/URLLoadingSystem/URLLoadingSystem.html#//apple_ref/doc/uid/10000165i" target="_blank" rel="external">URL Loading System</a>发起的请求，可用于实现以下功能：</p>
-<ul>
-<li>重定向网络请求，实现代理等功能</li>
-<li>实现网络缓存</li>
-<li>全局设置网络请求</li>
-<li>自定义网络请求返回结果</li>
-</ul>
-<p>具体的实现步骤如下：</p>
-<p><strong>第一步</strong> 创建NSURLProtocol的子类，重写以下方法</p>
-<p><code>+ (BOOL)canInitWithRequest:(NSURLRequest *)request</code>这个方法用来返回是否需要处理这个请求，如果需要处理，返回YES，否则返回NO。在该方法中可以对不需要处理的请求进行过滤。</p>
-<p><code>+ (NSURLRequest *)canonicalRequestForRequest:(NSURLRequest *)request</code>重写该方法，可以对请求进行修改，例如添加新的头部信息，修改，修改url等，返回修改后的请求。</p>
-<p><code>+ (BOOL)requestIsCacheEquivalent:(NSURLRequest *)a toRequest:(NSURLRequest *)b</code>该方法主要用来判断两个请求是否是同一个请求，如果是，则可以使用缓存数据，通常只需要调用父类的实现即可</p>
-<p><code>- (void)startLoading</code>重写该方法，需要在该方法中发起一个请求，对于NSURLConnection来说，就是创建一个NSURLConnection，对于NSURLSession，就是发起一个NSURLSessionTask</p>
-<p><code>- (void)stopLoading</code>重写该方法，需要停止响应的请求</p>
-<p><strong>第二步</strong> 实现相应的协议代理方法，对NSURLConnection来说，要实现NSURLConnectionDataDelegate代理方法，对于NSURLSession来说，需要实现NSURLSessionTaskDelegate代理方法。在这些代理方法中，需要使用NSURLProtocolClient来通知URL Loading System。具体实现方式详见示例代码。</p>
-<p><strong>第三步</strong> 在合适的位置注册自定义的NSURLProtocol子类。调用<code>[NSURLProtocol registerClass:[MyURLProtocol class]]</code>进行注册，调用<code>[NSURLProtocol unregisterClass:[MyURLProtocol class]]</code>可以注销。注意，代码中可以注册多个NSURLProtocol子类，每个子类可以</p>
-<p>以上就是整个实现过程，详细内容可以参见代码。</p>
-<p>代码地址:<a href="https://github.com/liujinlongxa/NSURLProtocolDemo" target="_blank" rel="external">NSURLProtocolDemo</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/04/2015-10-04-适配iOS9（ATS问题）/" itemprop="url">
-                  适配iOS9（ATS问题）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-10-04T12:11:08+08:00" content="2015-10-04">
-              2015-10-04
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS开发</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>##前言<br>今天下了XCode7 Beta版，跑了一下自家的APP，结果发现所有服务器请求都返回失败，明明网络正常，怎么会返回失败呢？起初我以为是AFNetworking的问题，于是我写了个demo，去掉AFNetworking，直接用NSURLSession请求数据，也是请求失败。于是乎一顿Google，原来是iOS9（XCode7的模拟器默认是iOS9）的新特性——ATS搞的鬼。</p>
-<p>##简介<br>ATS全称为App Transport Security，它是iOS9的一个新特性，旨在提高iOS设备与服务器交互的安全性。简单地说，ATS会阻止未注册的网络请求。你可以在info.plist文件中注册相应的host，这样该host的网络请求就不会被阻止。你也可以设置不阻止任何host的网络请求。</p>
-<p>##详细设置<br>如果你想设置不阻止任何网络，只需要在info.plist文件中加入以下内容即可</p>
-<p><img src="http://img.blog.csdn.net/20150619164549061" alt="这里写图片描述"></p>
-<p>如果你想设置只允许特定host的网络请求，在info.plist文件中加入以下内容</p>
-<p><img src="http://img.blog.csdn.net/20150619164722416" alt="这里写图片描述"></p>
-<p>这样，你在发往<code>baike.baidu.com</code>这个host的请求就都不会被阻止了，你可以注册多个域名。</p>
-<p>##参考资料<br><a href="https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html#//apple_ref/doc/uid/TP40016198-DontLinkElementID_13" target="_blank" rel="external">What’s New in iOS9</a><br><a href="http://stackoverflow.com/questions/30739473/nsurlsession-nsurlconnection-http-load-failed" target="_blank" rel="external">NSURLSession/NSURLConnection HTTP load failed</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/04/2015-10-04-iOS运行时初探-使用运行时机制向Category中添加属性/" itemprop="url">
+                <a class="post-title-link" href="/2015/10/04/iOS运行时初探-使用运行时机制向Category中添加属性/" itemprop="url">
                   iOS运行时初探 使用运行时机制向Category中添加属性
                 </a>
               
@@ -841,8 +1237,8 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-10-04T12:09:30+08:00" content="2015-10-04">
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-04T00:00:00+08:00" content="2015-10-04">
               2015-10-04
             </time>
           </span>
@@ -853,7 +1249,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/iOS开发/" itemprop="url" rel="index">
@@ -869,6 +1265,13 @@
           
 
           
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/04/iOS运行时初探-使用运行时机制向Category中添加属性/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/04/iOS运行时初探-使用运行时机制向Category中添加属性/" itemprop="commentsCount"></span>
+                </a>
+              </span>
             
           
 
@@ -947,8 +1350,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/10/04/2015-10-04-iOS中的多线程编程/" itemprop="url">
-                  iOS中的多线程编程
+                <a class="post-title-link" href="/2015/10/04/iOS中的富文本技术(2)CoreText框架/" itemprop="url">
+                  iOS中的富文本技术(2)CoreText框架
                 </a>
               
             
@@ -960,8 +1363,8 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-10-04T11:58:51+08:00" content="2015-10-04">
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-04T00:00:00+08:00" content="2015-10-04">
               2015-10-04
             </time>
           </span>
@@ -972,7 +1375,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/iOS开发/" itemprop="url" rel="index">
@@ -988,6 +1391,153 @@
           
 
           
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/04/iOS中的富文本技术(2)CoreText框架/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/04/iOS中的富文本技术(2)CoreText框架/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前一篇介绍了iOS7新出的TextKit，这一篇打算介绍一下更底层的CoreText框架</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>CoreText是iOS3.2推出的一套文字排版和渲染框架，可以实现图文混排，富文本显示等效果。CoreText中的几个重要的概念：</p>
+<ul>
+<li>CTFrameRef：画布，包含多个CTLine</li>
+<li>CTLineRef：每一行就是一个CTLine</li>
+<li>CTRunRef：每一行可以分为多个属性相同的小段，每一个小段就是一个CTRun<br>如下图展示了这三者的关系：</li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20150403235844681" alt="这里写图片描述"></p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>废话不多说，直接看示例，第一个示例展示了一些常规属性的的设置，效果图如下：</p>
+<p><img src="http://img.blog.csdn.net/20150404001114995" alt="这里写图片描述"></p>
+<p>代码如下，这里使用了一个自定义View，然后把要展示的内容绘制在view上，注意代码中使用了很多CoreFoundation框架的类（实际上是结构体），需要使用__bridge进行桥接：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"DisplayView.h"</span></span></div><div class="line"><span class="keyword">@import</span> CoreText;</div><div class="line"></div><div class="line"><span class="built_in">NSString</span> * str4 = <span class="string">@"asfasfa阿斯顿发生大发撒放大离开家撒旦法按时付款就阿里；双方均asfasdfasfdalkjsflakj阿斯顿发生大发撒旦法asdfasdfaasfdaasa撒旦法；拉斯克奖发了奥斯卡奖罚洛杉矶的法律；看见谁发的阿斯利康就发；了数据库等法律按实际开发；阿里就开始放到了；安家费阿里山科技发达了开始将对方拉开始交电费了卡双方的空间啊发送卡飞机阿里开始就放暑假了罚款就是浪费"</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">DisplayView</span> ()</span></div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">DisplayView</span></span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)drawRect:(<span class="built_in">CGRect</span>)rect &#123;</div><div class="line"></div><div class="line">    [<span class="keyword">super</span> drawRect:rect];</div><div class="line"></div><div class="line">    <span class="built_in">CGContextRef</span> context = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line"></div><div class="line">    <span class="comment">//变换坐标</span></div><div class="line">    <span class="built_in">CGContextSetTextMatrix</span>(context, <span class="built_in">CGAffineTransformIdentity</span>);</div><div class="line">    <span class="built_in">CGContextTranslateCTM</span>(context, <span class="number">0</span>, <span class="keyword">self</span>.bounds.size.height);</div><div class="line">    <span class="built_in">CGContextScaleCTM</span>(context, <span class="number">1.0</span>, <span class="number">-1.0</span>);</div><div class="line"></div><div class="line">    <span class="comment">//设置绘制的路径</span></div><div class="line">    <span class="built_in">CGMutablePathRef</span> path = <span class="built_in">CGPathCreateMutable</span>();</div><div class="line">    <span class="built_in">CGPathAddRect</span>(path, <span class="literal">NULL</span>, <span class="keyword">self</span>.bounds);</div><div class="line"></div><div class="line">    <span class="comment">//创建属性字符串</span></div><div class="line">    <span class="built_in">NSMutableAttributedString</span> * attStr = [[<span class="built_in">NSMutableAttributedString</span> alloc] initWithString:str4];</div><div class="line"></div><div class="line">    <span class="comment">//颜色</span></div><div class="line">    [attStr addAttribute:(__bridge <span class="built_in">NSString</span> *)kCTForegroundColorAttributeName value:(__bridge <span class="keyword">id</span>)[<span class="built_in">UIColor</span> redColor].CGColor range:<span class="built_in">NSMakeRange</span>(<span class="number">5</span>, <span class="number">10</span>)];</div><div class="line"></div><div class="line">    <span class="comment">//字体</span></div><div class="line">    <span class="built_in">UIFont</span> * font = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">25</span>];</div><div class="line">    <span class="built_in">CTFontRef</span> fontRef = <span class="built_in">CTFontCreateWithName</span>((__bridge <span class="built_in">CFStringRef</span>)font.fontName, <span class="number">25</span>, <span class="literal">NULL</span>);</div><div class="line">    [attStr addAttribute:(__bridge <span class="built_in">NSString</span> *)kCTFontAttributeName value:(__bridge <span class="keyword">id</span>)fontRef range:<span class="built_in">NSMakeRange</span>(<span class="number">20</span>, <span class="number">10</span>)];</div><div class="line"></div><div class="line">    <span class="comment">//空心字</span></div><div class="line">    [attStr addAttribute:(__bridge <span class="built_in">NSString</span> *)kCTStrokeWidthAttributeName value:@(<span class="number">3</span>) range:<span class="built_in">NSMakeRange</span>(<span class="number">36</span>, <span class="number">5</span>)];</div><div class="line">    [attStr addAttribute:(__bridge <span class="built_in">NSString</span> *)kCTStrokeColorAttributeName value:(__bridge <span class="keyword">id</span>)[<span class="built_in">UIColor</span> blueColor].CGColor range:<span class="built_in">NSMakeRange</span>(<span class="number">37</span>, <span class="number">10</span>)];</div><div class="line"></div><div class="line">    <span class="comment">//下划线</span></div><div class="line">    [attStr addAttribute:(__bridge <span class="built_in">NSString</span> *)kCTUnderlineStyleAttributeName value:@(kCTUnderlineStyleSingle | kCTUnderlinePatternDot) range:<span class="built_in">NSMakeRange</span>(<span class="number">45</span>, <span class="number">15</span>)];</div><div class="line"></div><div class="line"></div><div class="line">    <span class="built_in">CTFramesetterRef</span> framesetter = <span class="built_in">CTFramesetterCreateWithAttributedString</span>((<span class="built_in">CFAttributedStringRef</span>)attStr);</div><div class="line">    <span class="built_in">CTFrameRef</span> frame = <span class="built_in">CTFramesetterCreateFrame</span>(framesetter, <span class="built_in">CFRangeMake</span>(<span class="number">0</span>, attStr.length), path, <span class="literal">NULL</span>);</div><div class="line"></div><div class="line">    <span class="comment">//绘制内容</span></div><div class="line">    <span class="built_in">CTFrameDraw</span>(frame, context);</div><div class="line"></div><div class="line">    <span class="built_in">CFRelease</span>(fontRef);</div><div class="line">    <span class="built_in">CFRelease</span>(frame);</div><div class="line">    <span class="built_in">CFRelease</span>(path);</div><div class="line">    <span class="built_in">CFRelease</span>(framesetter);</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p>第二个示例展示了一个带表情符号的文本，效果图如下：</p>
+<p><img src="http://img.blog.csdn.net/20150404002937477" alt="这里写图片描述"></p>
+<p>先介绍一下CoreText实现表情混排的原理，在简介中介绍过，一个CTLine代表一行，而一个CTLine又由多个CTRun组成，这里实现表情混排的原理其实就是把CTLine中的某一个CTRun替换成空白字符，然后再根据这个CTRun的具体位置，把图片绘制到这个位置上，下面是具体代码：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"ImageDisplayView.h"</span></span></div><div class="line"><span class="keyword">@import</span> CoreText;</div><div class="line"></div><div class="line"><span class="built_in">NSString</span> * str5 = <span class="string">@"asfasfa阿斯顿发生大发撒放大离开家撒旦法按时付款就阿里；双方均asfasdfasfdalkjsflakj阿斯顿发生大发撒旦法asdfasdfaasfdaasa撒旦法；拉斯克奖发了奥斯卡奖罚洛杉矶的法律；看见谁发的阿斯利康就发；了数据库等法律按实际开发；阿里就开始放到了；安家费阿里山科技发达了开始将对方拉开始交电费了卡双方的空间啊发送卡飞机阿里开始就放暑假了罚款就是浪费"</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ImageDisplayView</span> ()</span></div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSAttributedString</span> * attStr;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="comment">//回调方法，返回要替换的CTRun的下边缘距离本行文字下边缘的高度</span></div><div class="line"><span class="keyword">static</span> <span class="built_in">CGFloat</span> descentCallback(<span class="keyword">void</span> *ref)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//回调方法，返回要替换的CTRun的上边缘距离本行文字上边缘的高度</span></div><div class="line"><span class="keyword">static</span> <span class="built_in">CGFloat</span> ascentCallback(<span class="keyword">void</span> *ref)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">30</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//回调方法，返回要替换的CTRun的宽</span></div><div class="line"><span class="keyword">static</span> <span class="built_in">CGFloat</span> widthCallback(<span class="keyword">void</span> *ref)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">30</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ImageDisplayView</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">CTRunDelegateRef</span> _delegate;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">instancetype</span>)initWithFrame:(<span class="built_in">CGRect</span>)frame</div><div class="line">&#123;</div><div class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> initWithFrame:frame];</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>) &#123;</div><div class="line">        <span class="built_in">NSString</span> * name = <span class="string">@"010"</span>;</div><div class="line">        <span class="keyword">unichar</span> objectReplacementChar           = <span class="number">0xFFFC</span>;<span class="comment">//占位字符</span></div><div class="line">        <span class="built_in">NSString</span> *objectReplacementString       = [<span class="built_in">NSString</span> stringWithCharacters:&amp;objectReplacementChar length:<span class="number">1</span>];</div><div class="line">        <span class="built_in">NSMutableAttributedString</span> *attachText   = [[<span class="built_in">NSMutableAttributedString</span> alloc]initWithString:objectReplacementString];</div><div class="line"></div><div class="line">        <span class="comment">//创建CTRun代理回调</span></div><div class="line">        <span class="built_in">CTRunDelegateCallbacks</span> callbacks;</div><div class="line">        callbacks.version       = kCTRunDelegateVersion1;</div><div class="line">        callbacks.getAscent     = ascentCallback;</div><div class="line">        callbacks.getDescent    = descentCallback;</div><div class="line">        callbacks.getWidth      = widthCallback;</div><div class="line"></div><div class="line">        <span class="comment">//给属性字符串添加代理回调</span></div><div class="line">        <span class="built_in">CTRunDelegateRef</span> delegate = <span class="built_in">CTRunDelegateCreate</span>(&amp;callbacks, (<span class="keyword">void</span> *)name);</div><div class="line">        <span class="built_in">NSDictionary</span> *attr = [<span class="built_in">NSDictionary</span> dictionaryWithObjectsAndKeys:(__bridge <span class="keyword">id</span>)delegate,kCTRunDelegateAttributeName, <span class="literal">nil</span>];</div><div class="line">        [attachText setAttributes:attr range:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, <span class="number">1</span>)];</div><div class="line">        <span class="keyword">self</span>.attStr = attachText;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)drawRect:(<span class="built_in">CGRect</span>)rect &#123;</div><div class="line"></div><div class="line">    [<span class="keyword">super</span> drawRect:rect];</div><div class="line"></div><div class="line">    <span class="built_in">CGContextRef</span> context = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line"></div><div class="line">    <span class="comment">//变换坐标</span></div><div class="line">    <span class="built_in">CGContextSetTextMatrix</span>(context, <span class="built_in">CGAffineTransformIdentity</span>);</div><div class="line">    <span class="built_in">CGContextTranslateCTM</span>(context, <span class="number">0</span>, <span class="keyword">self</span>.bounds.size.height);</div><div class="line">    <span class="built_in">CGContextScaleCTM</span>(context, <span class="number">1.0</span>, <span class="number">-1.0</span>);</div><div class="line"></div><div class="line">    <span class="comment">//设置文本绘制的路径</span></div><div class="line">    <span class="built_in">CGMutablePathRef</span> path = <span class="built_in">CGPathCreateMutable</span>();</div><div class="line">    <span class="built_in">CGPathAddRect</span>(path, <span class="literal">NULL</span>, <span class="keyword">self</span>.bounds);</div><div class="line"></div><div class="line">    <span class="built_in">NSMutableAttributedString</span> * attStr = [[<span class="built_in">NSMutableAttributedString</span> alloc] initWithString:str5];</div><div class="line">    [attStr insertAttributedString:<span class="keyword">self</span>.attStr atIndex:<span class="number">50</span>];</div><div class="line"></div><div class="line">    <span class="built_in">CTFramesetterRef</span> framesetter = <span class="built_in">CTFramesetterCreateWithAttributedString</span>((<span class="built_in">CFAttributedStringRef</span>)attStr);</div><div class="line">    <span class="built_in">CTFrameRef</span> frame = <span class="built_in">CTFramesetterCreateFrame</span>(framesetter, <span class="built_in">CFRangeMake</span>(<span class="number">0</span>, attStr.length), path, <span class="literal">NULL</span>);</div><div class="line"></div><div class="line">    <span class="comment">//计算要替换的CTRun的具体位置</span></div><div class="line">    <span class="built_in">NSArray</span> * lines = (<span class="built_in">NSArray</span> *)<span class="built_in">CTFrameGetLines</span>(frame);</div><div class="line">    <span class="built_in">NSUInteger</span> lineCount = lines.count;</div><div class="line">    <span class="built_in">CGPoint</span> lineOrigins[lineCount];</div><div class="line">    <span class="built_in">CTFrameGetLineOrigins</span>(frame, <span class="built_in">CFRangeMake</span>(<span class="number">0</span>, <span class="number">0</span>), lineOrigins);</div><div class="line">    <span class="comment">//循环遍历每一个CTLine中的每一个CTRun，找到要替换的那个CTRun，并且计算它的位置</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; lineCount; i++) &#123;</div><div class="line">        <span class="built_in">CTLineRef</span> line = (__bridge <span class="built_in">CTLineRef</span>)lines[i];</div><div class="line">        <span class="built_in">CFArrayRef</span> runs = <span class="built_in">CTLineGetGlyphRuns</span>(line);</div><div class="line">        <span class="built_in">CFIndex</span> runCount = <span class="built_in">CFArrayGetCount</span>(runs);</div><div class="line">        <span class="built_in">CGPoint</span> lineOrigin = lineOrigins[i];</div><div class="line">        <span class="built_in">CGFloat</span> lineAscent;</div><div class="line">        <span class="built_in">CGFloat</span> lineDescent;</div><div class="line">        <span class="built_in">CTLineGetTypographicBounds</span>(line, &amp;lineAscent, &amp;lineDescent, <span class="literal">NULL</span>);</div><div class="line">        <span class="keyword">for</span> (<span class="built_in">CFIndex</span> k = <span class="number">0</span>; k &lt; runCount; k++)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">CTRunRef</span> run = <span class="built_in">CFArrayGetValueAtIndex</span>(runs, k);</div><div class="line">            <span class="built_in">NSDictionary</span> *runAttributes = (<span class="built_in">NSDictionary</span> *)<span class="built_in">CTRunGetAttributes</span>(run);</div><div class="line">            <span class="built_in">CTRunDelegateRef</span> delegate = (__bridge <span class="built_in">CTRunDelegateRef</span>)[runAttributes valueForKey:(<span class="keyword">id</span>)kCTRunDelegateAttributeName];</div><div class="line">            <span class="keyword">if</span> (<span class="literal">nil</span> == delegate)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="built_in">CGFloat</span> xOffset = <span class="built_in">CTLineGetOffsetForStringIndex</span>(line, <span class="built_in">CTRunGetStringRange</span>(run).location, <span class="literal">nil</span>);</div><div class="line">            <span class="built_in">CGRect</span> rect = <span class="built_in">CGRectMake</span>(lineOrigin.x + xOffset, lineOrigin.y - lineDescent, <span class="number">30</span>, <span class="number">30</span>);</div><div class="line"></div><div class="line">            <span class="comment">//绘制图片</span></div><div class="line">            <span class="built_in">CGContextDrawImage</span>(context, rect, [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"010"</span>].CGImage);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">CTFrameDraw</span>(frame, context);</div><div class="line"></div><div class="line">    <span class="built_in">CFRelease</span>(frame);</div><div class="line">    <span class="built_in">CFRelease</span>(path);</div><div class="line">    <span class="built_in">CFRelease</span>(framesetter);</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>下面总结一下CoreText的优缺点：</p>
+<ul>
+<li>优点：功能强大，支持iOS3.2以后的所有系统</li>
+<li>缺点：纯C的接口，使用复杂，需要自己管理内存</li>
+</ul>
+<p>CoreText更加详细的介绍推荐大家可以看看唐巧大神的《iOS开发进阶》第十七章的内容。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/10/04/iOS中的多线程编程/" itemprop="url">
+                  iOS中的多线程编程
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-04T00:00:00+08:00" content="2015-10-04">
+              2015-10-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/04/iOS中的多线程编程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/04/iOS中的多线程编程/" itemprop="commentsCount"></span>
+                </a>
+              </span>
             
           
 
@@ -1205,140 +1755,7 @@
             
               
                 
-                <a class="post-title-link" href="/2015/10/04/2015-10-04-iOS中的富文本技术(2)CoreText框架/" itemprop="url">
-                  iOS中的富文本技术(2)CoreText框架
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-10-04T11:21:33+08:00" content="2015-10-04">
-              2015-10-04
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS开发</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前一篇介绍了iOS7新出的TextKit，这一篇打算介绍一下更底层的CoreText框架</p>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>CoreText是iOS3.2推出的一套文字排版和渲染框架，可以实现图文混排，富文本显示等效果。CoreText中的几个重要的概念：</p>
-<ul>
-<li>CTFrameRef：画布，包含多个CTLine</li>
-<li>CTLineRef：每一行就是一个CTLine</li>
-<li>CTRunRef：每一行可以分为多个属性相同的小段，每一个小段就是一个CTRun<br>如下图展示了这三者的关系：</li>
-</ul>
-<p><img src="http://img.blog.csdn.net/20150403235844681" alt="这里写图片描述"></p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>废话不多说，直接看示例，第一个示例展示了一些常规属性的的设置，效果图如下：</p>
-<p><img src="http://img.blog.csdn.net/20150404001114995" alt="这里写图片描述"></p>
-<p>代码如下，这里使用了一个自定义View，然后把要展示的内容绘制在view上，注意代码中使用了很多CoreFoundation框架的类（实际上是结构体），需要使用__bridge进行桥接：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"DisplayView.h"</span></span></div><div class="line"><span class="keyword">@import</span> CoreText;</div><div class="line"></div><div class="line"><span class="built_in">NSString</span> * str4 = <span class="string">@"asfasfa阿斯顿发生大发撒放大离开家撒旦法按时付款就阿里；双方均asfasdfasfdalkjsflakj阿斯顿发生大发撒旦法asdfasdfaasfdaasa撒旦法；拉斯克奖发了奥斯卡奖罚洛杉矶的法律；看见谁发的阿斯利康就发；了数据库等法律按实际开发；阿里就开始放到了；安家费阿里山科技发达了开始将对方拉开始交电费了卡双方的空间啊发送卡飞机阿里开始就放暑假了罚款就是浪费"</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">DisplayView</span> ()</span></div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">DisplayView</span></span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)drawRect:(<span class="built_in">CGRect</span>)rect &#123;</div><div class="line"></div><div class="line">    [<span class="keyword">super</span> drawRect:rect];</div><div class="line"></div><div class="line">    <span class="built_in">CGContextRef</span> context = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line"></div><div class="line">    <span class="comment">//变换坐标</span></div><div class="line">    <span class="built_in">CGContextSetTextMatrix</span>(context, <span class="built_in">CGAffineTransformIdentity</span>);</div><div class="line">    <span class="built_in">CGContextTranslateCTM</span>(context, <span class="number">0</span>, <span class="keyword">self</span>.bounds.size.height);</div><div class="line">    <span class="built_in">CGContextScaleCTM</span>(context, <span class="number">1.0</span>, <span class="number">-1.0</span>);</div><div class="line"></div><div class="line">    <span class="comment">//设置绘制的路径</span></div><div class="line">    <span class="built_in">CGMutablePathRef</span> path = <span class="built_in">CGPathCreateMutable</span>();</div><div class="line">    <span class="built_in">CGPathAddRect</span>(path, <span class="literal">NULL</span>, <span class="keyword">self</span>.bounds);</div><div class="line"></div><div class="line">    <span class="comment">//创建属性字符串</span></div><div class="line">    <span class="built_in">NSMutableAttributedString</span> * attStr = [[<span class="built_in">NSMutableAttributedString</span> alloc] initWithString:str4];</div><div class="line"></div><div class="line">    <span class="comment">//颜色</span></div><div class="line">    [attStr addAttribute:(__bridge <span class="built_in">NSString</span> *)kCTForegroundColorAttributeName value:(__bridge <span class="keyword">id</span>)[<span class="built_in">UIColor</span> redColor].CGColor range:<span class="built_in">NSMakeRange</span>(<span class="number">5</span>, <span class="number">10</span>)];</div><div class="line"></div><div class="line">    <span class="comment">//字体</span></div><div class="line">    <span class="built_in">UIFont</span> * font = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">25</span>];</div><div class="line">    <span class="built_in">CTFontRef</span> fontRef = <span class="built_in">CTFontCreateWithName</span>((__bridge <span class="built_in">CFStringRef</span>)font.fontName, <span class="number">25</span>, <span class="literal">NULL</span>);</div><div class="line">    [attStr addAttribute:(__bridge <span class="built_in">NSString</span> *)kCTFontAttributeName value:(__bridge <span class="keyword">id</span>)fontRef range:<span class="built_in">NSMakeRange</span>(<span class="number">20</span>, <span class="number">10</span>)];</div><div class="line"></div><div class="line">    <span class="comment">//空心字</span></div><div class="line">    [attStr addAttribute:(__bridge <span class="built_in">NSString</span> *)kCTStrokeWidthAttributeName value:@(<span class="number">3</span>) range:<span class="built_in">NSMakeRange</span>(<span class="number">36</span>, <span class="number">5</span>)];</div><div class="line">    [attStr addAttribute:(__bridge <span class="built_in">NSString</span> *)kCTStrokeColorAttributeName value:(__bridge <span class="keyword">id</span>)[<span class="built_in">UIColor</span> blueColor].CGColor range:<span class="built_in">NSMakeRange</span>(<span class="number">37</span>, <span class="number">10</span>)];</div><div class="line"></div><div class="line">    <span class="comment">//下划线</span></div><div class="line">    [attStr addAttribute:(__bridge <span class="built_in">NSString</span> *)kCTUnderlineStyleAttributeName value:@(kCTUnderlineStyleSingle | kCTUnderlinePatternDot) range:<span class="built_in">NSMakeRange</span>(<span class="number">45</span>, <span class="number">15</span>)];</div><div class="line"></div><div class="line"></div><div class="line">    <span class="built_in">CTFramesetterRef</span> framesetter = <span class="built_in">CTFramesetterCreateWithAttributedString</span>((<span class="built_in">CFAttributedStringRef</span>)attStr);</div><div class="line">    <span class="built_in">CTFrameRef</span> frame = <span class="built_in">CTFramesetterCreateFrame</span>(framesetter, <span class="built_in">CFRangeMake</span>(<span class="number">0</span>, attStr.length), path, <span class="literal">NULL</span>);</div><div class="line"></div><div class="line">    <span class="comment">//绘制内容</span></div><div class="line">    <span class="built_in">CTFrameDraw</span>(frame, context);</div><div class="line"></div><div class="line">    <span class="built_in">CFRelease</span>(fontRef);</div><div class="line">    <span class="built_in">CFRelease</span>(frame);</div><div class="line">    <span class="built_in">CFRelease</span>(path);</div><div class="line">    <span class="built_in">CFRelease</span>(framesetter);</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
-<p>第二个示例展示了一个带表情符号的文本，效果图如下：</p>
-<p><img src="http://img.blog.csdn.net/20150404002937477" alt="这里写图片描述"></p>
-<p>先介绍一下CoreText实现表情混排的原理，在简介中介绍过，一个CTLine代表一行，而一个CTLine又由多个CTRun组成，这里实现表情混排的原理其实就是把CTLine中的某一个CTRun替换成空白字符，然后再根据这个CTRun的具体位置，把图片绘制到这个位置上，下面是具体代码：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"ImageDisplayView.h"</span></span></div><div class="line"><span class="keyword">@import</span> CoreText;</div><div class="line"></div><div class="line"><span class="built_in">NSString</span> * str5 = <span class="string">@"asfasfa阿斯顿发生大发撒放大离开家撒旦法按时付款就阿里；双方均asfasdfasfdalkjsflakj阿斯顿发生大发撒旦法asdfasdfaasfdaasa撒旦法；拉斯克奖发了奥斯卡奖罚洛杉矶的法律；看见谁发的阿斯利康就发；了数据库等法律按实际开发；阿里就开始放到了；安家费阿里山科技发达了开始将对方拉开始交电费了卡双方的空间啊发送卡飞机阿里开始就放暑假了罚款就是浪费"</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ImageDisplayView</span> ()</span></div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSAttributedString</span> * attStr;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="comment">//回调方法，返回要替换的CTRun的下边缘距离本行文字下边缘的高度</span></div><div class="line"><span class="keyword">static</span> <span class="built_in">CGFloat</span> descentCallback(<span class="keyword">void</span> *ref)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//回调方法，返回要替换的CTRun的上边缘距离本行文字上边缘的高度</span></div><div class="line"><span class="keyword">static</span> <span class="built_in">CGFloat</span> ascentCallback(<span class="keyword">void</span> *ref)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">30</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//回调方法，返回要替换的CTRun的宽</span></div><div class="line"><span class="keyword">static</span> <span class="built_in">CGFloat</span> widthCallback(<span class="keyword">void</span> *ref)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">30</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ImageDisplayView</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">CTRunDelegateRef</span> _delegate;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">instancetype</span>)initWithFrame:(<span class="built_in">CGRect</span>)frame</div><div class="line">&#123;</div><div class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> initWithFrame:frame];</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>) &#123;</div><div class="line">        <span class="built_in">NSString</span> * name = <span class="string">@"010"</span>;</div><div class="line">        <span class="keyword">unichar</span> objectReplacementChar           = <span class="number">0xFFFC</span>;<span class="comment">//占位字符</span></div><div class="line">        <span class="built_in">NSString</span> *objectReplacementString       = [<span class="built_in">NSString</span> stringWithCharacters:&amp;objectReplacementChar length:<span class="number">1</span>];</div><div class="line">        <span class="built_in">NSMutableAttributedString</span> *attachText   = [[<span class="built_in">NSMutableAttributedString</span> alloc]initWithString:objectReplacementString];</div><div class="line"></div><div class="line">        <span class="comment">//创建CTRun代理回调</span></div><div class="line">        <span class="built_in">CTRunDelegateCallbacks</span> callbacks;</div><div class="line">        callbacks.version       = kCTRunDelegateVersion1;</div><div class="line">        callbacks.getAscent     = ascentCallback;</div><div class="line">        callbacks.getDescent    = descentCallback;</div><div class="line">        callbacks.getWidth      = widthCallback;</div><div class="line"></div><div class="line">        <span class="comment">//给属性字符串添加代理回调</span></div><div class="line">        <span class="built_in">CTRunDelegateRef</span> delegate = <span class="built_in">CTRunDelegateCreate</span>(&amp;callbacks, (<span class="keyword">void</span> *)name);</div><div class="line">        <span class="built_in">NSDictionary</span> *attr = [<span class="built_in">NSDictionary</span> dictionaryWithObjectsAndKeys:(__bridge <span class="keyword">id</span>)delegate,kCTRunDelegateAttributeName, <span class="literal">nil</span>];</div><div class="line">        [attachText setAttributes:attr range:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, <span class="number">1</span>)];</div><div class="line">        <span class="keyword">self</span>.attStr = attachText;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)drawRect:(<span class="built_in">CGRect</span>)rect &#123;</div><div class="line"></div><div class="line">    [<span class="keyword">super</span> drawRect:rect];</div><div class="line"></div><div class="line">    <span class="built_in">CGContextRef</span> context = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line"></div><div class="line">    <span class="comment">//变换坐标</span></div><div class="line">    <span class="built_in">CGContextSetTextMatrix</span>(context, <span class="built_in">CGAffineTransformIdentity</span>);</div><div class="line">    <span class="built_in">CGContextTranslateCTM</span>(context, <span class="number">0</span>, <span class="keyword">self</span>.bounds.size.height);</div><div class="line">    <span class="built_in">CGContextScaleCTM</span>(context, <span class="number">1.0</span>, <span class="number">-1.0</span>);</div><div class="line"></div><div class="line">    <span class="comment">//设置文本绘制的路径</span></div><div class="line">    <span class="built_in">CGMutablePathRef</span> path = <span class="built_in">CGPathCreateMutable</span>();</div><div class="line">    <span class="built_in">CGPathAddRect</span>(path, <span class="literal">NULL</span>, <span class="keyword">self</span>.bounds);</div><div class="line"></div><div class="line">    <span class="built_in">NSMutableAttributedString</span> * attStr = [[<span class="built_in">NSMutableAttributedString</span> alloc] initWithString:str5];</div><div class="line">    [attStr insertAttributedString:<span class="keyword">self</span>.attStr atIndex:<span class="number">50</span>];</div><div class="line"></div><div class="line">    <span class="built_in">CTFramesetterRef</span> framesetter = <span class="built_in">CTFramesetterCreateWithAttributedString</span>((<span class="built_in">CFAttributedStringRef</span>)attStr);</div><div class="line">    <span class="built_in">CTFrameRef</span> frame = <span class="built_in">CTFramesetterCreateFrame</span>(framesetter, <span class="built_in">CFRangeMake</span>(<span class="number">0</span>, attStr.length), path, <span class="literal">NULL</span>);</div><div class="line"></div><div class="line">    <span class="comment">//计算要替换的CTRun的具体位置</span></div><div class="line">    <span class="built_in">NSArray</span> * lines = (<span class="built_in">NSArray</span> *)<span class="built_in">CTFrameGetLines</span>(frame);</div><div class="line">    <span class="built_in">NSUInteger</span> lineCount = lines.count;</div><div class="line">    <span class="built_in">CGPoint</span> lineOrigins[lineCount];</div><div class="line">    <span class="built_in">CTFrameGetLineOrigins</span>(frame, <span class="built_in">CFRangeMake</span>(<span class="number">0</span>, <span class="number">0</span>), lineOrigins);</div><div class="line">    <span class="comment">//循环遍历每一个CTLine中的每一个CTRun，找到要替换的那个CTRun，并且计算它的位置</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; lineCount; i++) &#123;</div><div class="line">        <span class="built_in">CTLineRef</span> line = (__bridge <span class="built_in">CTLineRef</span>)lines[i];</div><div class="line">        <span class="built_in">CFArrayRef</span> runs = <span class="built_in">CTLineGetGlyphRuns</span>(line);</div><div class="line">        <span class="built_in">CFIndex</span> runCount = <span class="built_in">CFArrayGetCount</span>(runs);</div><div class="line">        <span class="built_in">CGPoint</span> lineOrigin = lineOrigins[i];</div><div class="line">        <span class="built_in">CGFloat</span> lineAscent;</div><div class="line">        <span class="built_in">CGFloat</span> lineDescent;</div><div class="line">        <span class="built_in">CTLineGetTypographicBounds</span>(line, &amp;lineAscent, &amp;lineDescent, <span class="literal">NULL</span>);</div><div class="line">        <span class="keyword">for</span> (<span class="built_in">CFIndex</span> k = <span class="number">0</span>; k &lt; runCount; k++)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">CTRunRef</span> run = <span class="built_in">CFArrayGetValueAtIndex</span>(runs, k);</div><div class="line">            <span class="built_in">NSDictionary</span> *runAttributes = (<span class="built_in">NSDictionary</span> *)<span class="built_in">CTRunGetAttributes</span>(run);</div><div class="line">            <span class="built_in">CTRunDelegateRef</span> delegate = (__bridge <span class="built_in">CTRunDelegateRef</span>)[runAttributes valueForKey:(<span class="keyword">id</span>)kCTRunDelegateAttributeName];</div><div class="line">            <span class="keyword">if</span> (<span class="literal">nil</span> == delegate)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="built_in">CGFloat</span> xOffset = <span class="built_in">CTLineGetOffsetForStringIndex</span>(line, <span class="built_in">CTRunGetStringRange</span>(run).location, <span class="literal">nil</span>);</div><div class="line">            <span class="built_in">CGRect</span> rect = <span class="built_in">CGRectMake</span>(lineOrigin.x + xOffset, lineOrigin.y - lineDescent, <span class="number">30</span>, <span class="number">30</span>);</div><div class="line"></div><div class="line">            <span class="comment">//绘制图片</span></div><div class="line">            <span class="built_in">CGContextDrawImage</span>(context, rect, [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"010"</span>].CGImage);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">CTFrameDraw</span>(frame, context);</div><div class="line"></div><div class="line">    <span class="built_in">CFRelease</span>(frame);</div><div class="line">    <span class="built_in">CFRelease</span>(path);</div><div class="line">    <span class="built_in">CFRelease</span>(framesetter);</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>下面总结一下CoreText的优缺点：</p>
-<ul>
-<li>优点：功能强大，支持iOS3.2以后的所有系统</li>
-<li>缺点：纯C的接口，使用复杂，需要自己管理内存</li>
-</ul>
-<p>CoreText更加详细的介绍推荐大家可以看看唐巧大神的《iOS开发进阶》第十七章的内容。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/04/2015-10-04-iOS中的富文本技术(1)TextKit简介/" itemprop="url">
+                <a class="post-title-link" href="/2015/10/04/iOS中的富文本技术(1)TextKit简介/" itemprop="url">
                   iOS中的富文本技术(1)TextKit简介
                 </a>
               
@@ -1351,8 +1768,8 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-10-04T11:09:22+08:00" content="2015-10-04">
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-04T00:00:00+08:00" content="2015-10-04">
               2015-10-04
             </time>
           </span>
@@ -1363,7 +1780,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/iOS开发/" itemprop="url" rel="index">
@@ -1379,6 +1796,13 @@
           
 
           
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/04/iOS中的富文本技术(1)TextKit简介/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/04/iOS中的富文本技术(1)TextKit简介/" itemprop="commentsCount"></span>
+                </a>
+              </span>
             
           
 
@@ -1461,7 +1885,7 @@
             
               
                 
-                <a class="post-title-link" href="/2015/10/04/2015-10-04-iOS中Emoji表情的判断/" itemprop="url">
+                <a class="post-title-link" href="/2015/10/04/iOS中Emoji表情的判断/" itemprop="url">
                   iOS中Emoji表情的判断
                 </a>
               
@@ -1474,8 +1898,8 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-10-04T09:26:04+08:00" content="2015-10-04">
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-04T00:00:00+08:00" content="2015-10-04">
               2015-10-04
             </time>
           </span>
@@ -1486,7 +1910,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/iOS开发/" itemprop="url" rel="index">
@@ -1502,6 +1926,13 @@
           
 
           
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/04/iOS中Emoji表情的判断/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/04/iOS中Emoji表情的判断/" itemprop="commentsCount"></span>
+                </a>
+              </span>
             
           
 
@@ -1561,126 +1992,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/04/2015-10-03-博客新家/" itemprop="url">
-                  博客新家
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-10-04T09:14:09+08:00" content="2015-10-04">
-              2015-10-04
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/其他/" itemprop="url" rel="index">
-                    <span itemprop="name">其他</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>终于有了自己的个人博客，以后要坚持写博客，记录自己的学习，生活，工作。</p>
-<p>以前写的博客会陆续搬过来。</p>
-<p>来段代码吧！！！<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSString</span> * str = <span class="string">@"I love coding!!"</span>;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, str);</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1713,35 +2029,87 @@
       <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="John Doe" />
-          <p class="site-author-name" itemprop="name">John Doe</p>
-          <p class="site-description motion-element" itemprop="description"></p>
+               src="/images/smallhead.png"
+               alt="liujinlongxa" />
+          <p class="site-author-name" itemprop="name">liujinlongxa</p>
+          <p class="site-description motion-element" itemprop="description">生命永不息，Coding永不止</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
-              <span class="site-state-item-name">posts</span>
+              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           
             <div class="site-state-item site-state-categories">
-              
+              <a href="/categories">
                 <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">categories</span>
-              
+                <span class="site-state-item-name">分类</span>
+              </a>
             </div>
           
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/liujinlongxa" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/JaylonLiu" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1523828165/home" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.douban.com/people/2470188/" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
           
         </div>
 
@@ -1772,17 +2140,17 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">liujinlongxa</span>
 </div>
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
-  Theme -
+  主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Pisces
   </a>
 </div>
 
@@ -1848,6 +2216,13 @@
   
   
 
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
   
 
   
@@ -1859,9 +2234,28 @@
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"liujinlongxa"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
   
+    
+  
+
+
 
 
 
