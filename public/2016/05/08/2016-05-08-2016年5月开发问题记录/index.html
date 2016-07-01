@@ -1,0 +1,628 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="这是我最近工作中遇到的问题，做一个简单的记录。
+设置导航栏透明项目中有一个界面的导航栏是透明的，效果如下：
+
+我首先想到的是:
+1self.navigationController.navigationBar.barTintColor = [UIColor clearColor];
+但是设置了没有效果，然后又是一顿Google，找到了如下的解决方案：
+123456// 设置导航栏背景图为一个透明的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2016年5月开发问题记录">
+<meta property="og:url" content="http://yoursite.com/2016/05/08/2016-05-08-2016年5月开发问题记录/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="这是我最近工作中遇到的问题，做一个简单的记录。
+设置导航栏透明项目中有一个界面的导航栏是透明的，效果如下：
+
+我首先想到的是:
+1self.navigationController.navigationBar.barTintColor = [UIColor clearColor];
+但是设置了没有效果，然后又是一顿Google，找到了如下的解决方案：
+123456// 设置导航栏背景图为一个透明的">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/d2b06aad44ccf25b3088bf3268f6de26.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/664bd5d66be86fc7d0327fa63c0b8958.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/dab95307496966b3e7f51b6f8fa22308.png">
+<meta property="og:updated_time" content="2016-07-01T05:49:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2016年5月开发问题记录">
+<meta name="twitter:description" content="这是我最近工作中遇到的问题，做一个简单的记录。
+设置导航栏透明项目中有一个界面的导航栏是透明的，效果如下：
+
+我首先想到的是:
+1self.navigationController.navigationBar.barTintColor = [UIColor clearColor];
+但是设置了没有效果，然后又是一顿Google，找到了如下的解决方案：
+123456// 设置导航栏背景图为一个透明的">
+<meta name="twitter:image" content="http://7xn88v.com1.z0.glb.clouddn.com/d2b06aad44ccf25b3088bf3268f6de26.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/05/08/2016-05-08-2016年5月开发问题记录/"/>
+
+  <title> 2016年5月开发问题记录 | Hexo </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                2016年5月开发问题记录
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-05-08T08:44:14+08:00" content="2016-05-08">
+              2016-05-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这是我最近工作中遇到的问题，做一个简单的记录。</p>
+<h2 id="设置导航栏透明"><a href="#设置导航栏透明" class="headerlink" title="设置导航栏透明"></a>设置导航栏透明</h2><p>项目中有一个界面的导航栏是透明的，效果如下：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/d2b06aad44ccf25b3088bf3268f6de26.png" alt="1-1"></p>
+<p>我首先想到的是:</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">self</span>.navigationController.navigationBar.barTintColor = [<span class="built_in">UIColor</span> clearColor];</div></pre></td></tr></table></figure>
+<p>但是设置了没有效果，然后又是一顿Google，找到了如下的解决方案：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 设置导航栏背景图为一个透明的空图片</span></div><div class="line">[<span class="keyword">self</span>.lmrNavigationBar setBackgroundImage:[<span class="built_in">UIImage</span> new] forBarMetrics:<span class="built_in">UIBarMetricsDefault</span>];</div><div class="line"><span class="comment">// 设置导航栏的阴影背景图为一个透明的空图片</span></div><div class="line"><span class="keyword">self</span>.lmrNavigationBar.shadowImage = [<span class="built_in">UIImage</span> new];</div><div class="line"><span class="comment">// 设置导航栏为半透明</span></div><div class="line"><span class="keyword">self</span>.lmrNavigationBar.translucent = <span class="literal">YES</span>;</div></pre></td></tr></table></figure>
+<h2 id="设置UIPageControl左对齐"><a href="#设置UIPageControl左对齐" class="headerlink" title="设置UIPageControl左对齐"></a>设置UIPageControl左对齐</h2><p>UIPageControl默认是居中对齐的，要设置它左对齐，需要进行在布局是，根据UIPageControl点的个数，计算UIPageControl的中心点X的坐标。代码如下：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)layoutSubviews &#123;</div><div class="line">    <span class="built_in">CGSize</span> pageSize = [<span class="keyword">self</span>.pageControl sizeForNumberOfPages:<span class="keyword">self</span>.pageControl.numberOfPages];</div><div class="line">    [<span class="keyword">self</span>.pageControl setCenterX:<span class="number">20</span> + pageSize.width / <span class="number">2</span>];</div><div class="line">    [<span class="keyword">self</span>.pageControl setOriginY:<span class="built_in">CGRectGetHeight</span>(<span class="keyword">self</span>.frame) - <span class="number">14</span> - <span class="built_in">CGRectGetHeight</span>(<span class="keyword">self</span>.pageControl.frame)];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/664bd5d66be86fc7d0327fa63c0b8958.png" alt="2-1"></p>
+<h2 id="设置UILabel的内边距"><a href="#设置UILabel的内边距" class="headerlink" title="设置UILabel的内边距"></a>设置UILabel的内边距</h2><p>项目中要实现如下的一个标签（不可点击）：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/dab95307496966b3e7f51b6f8fa22308.png" alt="3-1"></p>
+<p>一种方案是直接使用UIButton来实现，因为UIButton有titleEdgeInsets属性，可以设置文字的内边距，我这里尝试使用了UILabel来实现，UILabel默认是不可以设置内边距的，但是可以通过自定义Label来实现，实现代码如下：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"LMRPaddingLabel.h"</span></span></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">LMRPaddingLabel</span></span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)drawTextInRect:(<span class="built_in">CGRect</span>)rect &#123;</div><div class="line">    <span class="built_in">UIEdgeInsets</span> insets = &#123;<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>&#125;;</div><div class="line">    [<span class="keyword">super</span> drawTextInRect:<span class="built_in">UIEdgeInsetsInsetRect</span>(rect, insets)];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">CGSize</span>)intrinsicContentSize &#123;</div><div class="line">    <span class="built_in">CGSize</span> size = [<span class="keyword">super</span> intrinsicContentSize];</div><div class="line">    <span class="keyword">return</span> <span class="built_in">CGSizeMake</span>(size.width + <span class="number">4</span>, size.height + <span class="number">4</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p>这样，LMRPaddingLabel就会有2个点的内边距，相关问题可参考：<a href="http://stackoverflow.com/questions/19437579/ios-add-left-padding-to-uilabel" target="_blank" rel="external">ios add left padding to uilabel</a></p>
+<h2 id="长按手势默认会触发两次"><a href="#长按手势默认会触发两次" class="headerlink" title="长按手势默认会触发两次"></a>长按手势默认会触发两次</h2><p>给一个View添加了一个UILongPressGestureRecognizer，长按这个View，默认会触发两次，一次是经过了minimumPressDuration长的时间，另一次是手指离开时，可以通过手势的state属性来区分，代码如下：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">-  (<span class="keyword">void</span>)handleLongPress:(<span class="built_in">UILongPressGestureRecognizer</span>*)sender &#123;</div><div class="line">    <span class="keyword">if</span> (sender.state == <span class="built_in">UIGestureRecognizerStateEnded</span>) &#123;</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@"UIGestureRecognizerStateEnded"</span>);</div><div class="line">    <span class="comment">//Do Whatever You want on End of Gesture</span></div><div class="line">     &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (sender.state == <span class="built_in">UIGestureRecognizerStateBegan</span>)&#123;</div><div class="line">       <span class="built_in">NSLog</span>(<span class="string">@"UIGestureRecognizerStateBegan."</span>);</div><div class="line">   <span class="comment">//Do Whatever You want on Began of Gesture</span></div><div class="line">     &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>相关问题可参考：<a href="http://stackoverflow.com/questions/3319591/uilongpressgesturerecognizer-gets-called-twice-when-pressing-down" target="_blank" rel="external">UILongPressGestureRecognizer gets called twice when pressing down</a></p>
+<h2 id="使用RAC绑定可重用的Cell"><a href="#使用RAC绑定可重用的Cell" class="headerlink" title="使用RAC绑定可重用的Cell"></a>使用RAC绑定可重用的Cell</h2><p>一般来讲，我们会为每一个复杂View创建一个对应的ViewModel，然后使用RAC（ReactiveCocoa）对View与ViewModel进行绑定（Binding），View与ViewModel之间始终是一一对应的，但是在UITableview中就有问题了，由于UITableviewCell的重用机制，实际创建的Cell个数要少于对应的ViewModel的数量，这样如果还是使用RAC进行简单的数据绑定的话，就会出现重复绑定的问题。</p>
+<p>解决方案就是在Cell发生重用后，解除Cell与之前的ViewModel的绑定，然后把Cell与新的ViewModel进行绑定。RAC中有一个方法<code>takeUntil</code>可以实现在指定信号发出前，一直订阅某一信号，一旦指定信号发出，就不再订阅某一信号，就相当于接触绑定。</p>
+<p>实例代码如下：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- (<span class="built_in">UITableViewCell</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</div><div class="line">&#123;    </div><div class="line">    <span class="built_in">UITableViewCell</span> *cell =</div><div class="line">        [tableView dequeueReusableCellWithIdentifier:REUSABLE_CELL_ID];</div><div class="line"></div><div class="line">    <span class="built_in">UILabel</span> *label = (<span class="built_in">UILabel</span> *)[cell viewWithTag:VIEW_TAG];</div><div class="line">    Model *someModel = [<span class="keyword">self</span> getModelFromIndexPath:indexPath];</div><div class="line"></div><div class="line">    <span class="comment">//  `takeUntil:` makes the RACObserve() signal complete (and thus breaks the subscription)</span></div><div class="line">    <span class="comment">//  when the cell is recycled.</span></div><div class="line"></div><div class="line">    RAC(label, text) = [RACObserve(someModel, someKey)</div><div class="line">                            takeUntil:cell.rac_prepareForReuseSignal];</div><div class="line"></div><div class="line">    <span class="keyword">return</span> cell;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里信号rac_prepareForReuseSignal即为Cell发生重用时发出的信号。</p>
+<p>相关问题可参考：<a href="https://gist.github.com/bunnyhero/9988574" target="_blank" rel="external">Example of Reactive Cocoa binding for a reusable cell.</a></p>
+<h2 id="使用NSURLSession发送同步请求"><a href="#使用NSURLSession发送同步请求" class="headerlink" title="使用NSURLSession发送同步请求"></a>使用NSURLSession发送同步请求</h2><p>最近项目中用到了同步请求，使用NSURLConnection发送同步请求非常简单，直接调用NSURLConnection的类方法<code>+sendSynchronousRequest:</code>就可以了，不过由于苹果官方不建议使用NSURLConnection，而NSURLSession又没有直接的同步请求的方法，所以就查了一下如何使用NSURLSession发送同步请求，结果如下，可以使用下面的方法发送同步请求：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"NSURLSession+SynchronousTask.h"</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSURLSession</span> (<span class="title">SynchronousTask</span>)</span></div><div class="line"></div><div class="line"><span class="meta">#pragma mark - NSURLSessionDataTask</span></div><div class="line"></div><div class="line">- (<span class="keyword">nullable</span> <span class="built_in">NSData</span> *)sendSynchronousDataTaskWithURL:(<span class="keyword">nonnull</span> <span class="built_in">NSURL</span> *)url returningResponse:(<span class="built_in">NSURLResponse</span> *_Nullable*_Nullable)response error:(<span class="built_in">NSError</span> *_Nullable*_Nullable)error &#123;</div><div class="line">    <span class="keyword">return</span> [<span class="keyword">self</span> sendSynchronousDataTaskWithRequest:[<span class="built_in">NSURLRequest</span> requestWithURL:url] returningResponse:response error:error];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">nullable</span> <span class="built_in">NSData</span> *)sendSynchronousDataTaskWithRequest:(<span class="keyword">nonnull</span> <span class="built_in">NSURLRequest</span> *)request returningResponse:(<span class="built_in">NSURLResponse</span> *_Nullable*_Nullable)response error:(<span class="built_in">NSError</span> *_Nullable*_Nullable)error &#123;</div><div class="line">    dispatch_semaphore_t semaphore = dispatch_semaphore_create(<span class="number">0</span>);</div><div class="line">    __block <span class="built_in">NSData</span> *data = <span class="literal">nil</span>;</div><div class="line">    [[<span class="keyword">self</span> dataTaskWithRequest:request completionHandler:^(<span class="built_in">NSData</span> *taskData, <span class="built_in">NSURLResponse</span> *taskResponse, <span class="built_in">NSError</span> *taskError) &#123;</div><div class="line">        data = taskData;</div><div class="line">        <span class="keyword">if</span> (response) &#123;</div><div class="line">            *response = taskResponse;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (error) &#123;</div><div class="line">            *error = taskError;</div><div class="line">        &#125;</div><div class="line">        dispatch_semaphore_signal(semaphore);</div><div class="line">    &#125;] resume];</div><div class="line">    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> data;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p>这里使用的GCD的信号量做同步，使用时直接调用NSURLSession的这个分类的方法即可实现同步请求。</p>
+<h2 id="iOS7上自动布局的坑：Assertion-failure-in-UITableView-layoutSublayersOfLayer-的错误"><a href="#iOS7上自动布局的坑：Assertion-failure-in-UITableView-layoutSublayersOfLayer-的错误" class="headerlink" title="iOS7上自动布局的坑：Assertion failure in -[UITableView layoutSublayersOfLayer:]的错误"></a>iOS7上自动布局的坑：Assertion failure in -[UITableView layoutSublayersOfLayer:]的错误</h2><p>最近在开发中遇到了“Assertion failure in -[UITableView layoutSublayersOfLayer:]”错误，而且只在iOS7上出现，iOS8及以上都是正常了，于是一阵Google，发现原来这个iOS7上自动布局的一个坑，造成这个错误主要有两个原因：</p>
+<ol>
+<li>在添加UITableviewCell的子视图时，加在了Cell上而不是加在Cell的ContentView上，并且使用自动布局来布局</li>
+<li>给UITableview添加了子视图，并且使用自动布局来布局，即<code>[tableView addSubview:someView]</code></li>
+</ol>
+<p>对于第一个问题比较好解决，一般Cell的子视图都是加在Cell的ContentView上的，如果有那个视图没有加在ContentView上，改过来就可以了，只不过找起来可能比较麻烦。</p>
+<p>第二个问题就比较麻烦了，有时候我们确实需要给UITableview上加一个子视图，例如，加一个ErrorView或LoadingView等，这是如果使用自动布局设置了这个子视图与Tableview之间的约束，就会出现这个错误。解决方法就是不要使用自动布局，改用Frame的方法去设置子视图的位置，这样就不会报错了。针对iSO7专门做一下适配，如果大于iOS7可以继续使用自动布局。</p>
+<p>因为自动布局是在iOS6上才出现的，所以iOS6，包括iOS7上的自动布局都不是很成熟，有很多坑，这就需要我们不多的总结，才能避免再次掉进坑里。</p>
+<h2 id="Masonry不能用来更新XIB上设置的约束"><a href="#Masonry不能用来更新XIB上设置的约束" class="headerlink" title="Masonry不能用来更新XIB上设置的约束"></a>Masonry不能用来更新XIB上设置的约束</h2><p>使用XIB加载的视图，如果在XIB上设置了自动布局的约束，在代码中想更新约束，是不能使用Masonry的mas_updateConstraints方法来更新约束的。解决方法就是把要更新的约束通过IBOutlet连接到代码中，然后在代码里更新这个约束，不过这个方法比较麻烦，暂时还没有找到其他更好的方法。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/10/2016-04-10-2016年4月开发问题记录/" rel="next" title="2016年4月开发问题记录">
+                <i class="fa fa-chevron-left"></i> 2016年4月开发问题记录
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/09/2016-05-09-MVVMTutorialwithReactiveCocoaPart2(翻译)/" rel="prev" title="【翻译】MVVM Tutorial with ReactiveCocoa Part 2">
+                【翻译】MVVM Tutorial with ReactiveCocoa Part 2 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#设置导航栏透明"><span class="nav-number">1.</span> <span class="nav-text">设置导航栏透明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置UIPageControl左对齐"><span class="nav-number">2.</span> <span class="nav-text">设置UIPageControl左对齐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置UILabel的内边距"><span class="nav-number">3.</span> <span class="nav-text">设置UILabel的内边距</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#长按手势默认会触发两次"><span class="nav-number">4.</span> <span class="nav-text">长按手势默认会触发两次</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用RAC绑定可重用的Cell"><span class="nav-number">5.</span> <span class="nav-text">使用RAC绑定可重用的Cell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用NSURLSession发送同步请求"><span class="nav-number">6.</span> <span class="nav-text">使用NSURLSession发送同步请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iOS7上自动布局的坑：Assertion-failure-in-UITableView-layoutSublayersOfLayer-的错误"><span class="nav-number">7.</span> <span class="nav-text">iOS7上自动布局的坑：Assertion failure in -[UITableView layoutSublayersOfLayer:]的错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Masonry不能用来更新XIB上设置的约束"><span class="nav-number">8.</span> <span class="nav-text">Masonry不能用来更新XIB上设置的约束</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
