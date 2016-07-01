@@ -70,8 +70,9 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: git@github.com:liujinlongxa/liujinlongxa.github.io.git
-  branch: master
+  repository:
+      github: git@github.com:liujinlongxa/liujinlongxa.github.io.git,master
+      gitcafe: git@git.coding.net:jianxin2008/HexoBlog.git,master
 
 # 多说评论
 duoshuo_shortname: liujinlongxa

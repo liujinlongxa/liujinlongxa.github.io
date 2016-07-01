@@ -634,8 +634,8 @@ TCP/IP的分层管理发送端逐层向下传输，接收端逐层向上传输�
             
               
                 
-                <a class="post-title-link" href="/2015/10/04/iOS中Emoji表情的判断/" itemprop="url">
-                  iOS中Emoji表情的判断
+                <a class="post-title-link" href="/2015/10/04/NSURLProtocol的使用/" itemprop="url">
+                  NSURLProtocol的使用
                 </a>
               
             
@@ -678,8 +678,8 @@ TCP/IP的分层管理发送端逐层向下传输，接收端逐层向上传输�
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/10/04/iOS中Emoji表情的判断/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/04/iOS中Emoji表情的判断/" itemprop="commentsCount"></span>
+                <a href="/2015/10/04/NSURLProtocol的使用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/04/NSURLProtocol的使用/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -704,138 +704,20 @@ TCP/IP的分层管理发送端逐层向下传输，接收端逐层向上传输�
       
         
           
-          ##问题服务器端不支持Emoji表情，因此客户端在上传用户输入时，不能包含Emoji表情。
-##解决方案在客户端发送请求前，判断用户输入中是否含有表情，如果含有表情，则提示用户重新输入。这个过程关键是如何判断字符串中是否含有Emoji表情。要判断是否含有Emoji表情，必须先了解什么是Emoji。
+          ###NSURLProtocol的使用
+NSURLProtocol可以拦截所有由URL Loading System发起的请求，可用于实现以下功能：
 
+重定向网络请求，实现代理等功能
+实现网络缓存
+全局设置网络请求
+自定义网络请求返回结果
+
+具体的实现步骤如下：
+第一步 创建NSURLProtoco
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/10/04/iOS中Emoji表情的判断/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/04/iOS运行时初探-使用运行时机制向Category中添加属性/" itemprop="url">
-                  iOS运行时初探 使用运行时机制向Category中添加属性
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-04T00:00:00+08:00" content="2015-10-04">
-              2015-10-04
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS开发</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/04/iOS运行时初探-使用运行时机制向Category中添加属性/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/04/iOS运行时初探-使用运行时机制向Category中添加属性/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          ##前言了解OC的都应该知道，在一般情况下，我们是不能向Category中添加属性的，只能添加方法，但有些情况向，我们确实需要向Category中添加属性，而且很多系统的API也有一些在Category添加属性的情况，例如我们属性的UITableView的section和row属性，就是定义在一个名
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/10/04/iOS运行时初探-使用运行时机制向Category中添加属性/#more" rel="contents">
+            <a class="btn" href="/2015/10/04/NSURLProtocol的使用/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -968,6 +850,131 @@ TCP/IP的分层管理发送端逐层向下传输，接收端逐层向上传输�
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/10/04/使用jekyll+GithubPage搭建个人博客系统/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/10/04/iOS运行时初探-使用运行时机制向Category中添加属性/" itemprop="url">
+                  iOS运行时初探 使用运行时机制向Category中添加属性
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-04T00:00:00+08:00" content="2015-10-04">
+              2015-10-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/04/iOS运行时初探-使用运行时机制向Category中添加属性/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/04/iOS运行时初探-使用运行时机制向Category中添加属性/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          ##前言了解OC的都应该知道，在一般情况下，我们是不能向Category中添加属性的，只能添加方法，但有些情况向，我们确实需要向Category中添加属性，而且很多系统的API也有一些在Category添加属性的情况，例如我们属性的UITableView的section和row属性，就是定义在一个名
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/10/04/iOS运行时初探-使用运行时机制向Category中添加属性/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1404,8 +1411,8 @@ CTLineRe
             
               
                 
-                <a class="post-title-link" href="/2015/10/04/NSURLProtocol的使用/" itemprop="url">
-                  NSURLProtocol的使用
+                <a class="post-title-link" href="/2015/10/04/iOS中Emoji表情的判断/" itemprop="url">
+                  iOS中Emoji表情的判断
                 </a>
               
             
@@ -1448,8 +1455,8 @@ CTLineRe
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/10/04/NSURLProtocol的使用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/04/NSURLProtocol的使用/" itemprop="commentsCount"></span>
+                <a href="/2015/10/04/iOS中Emoji表情的判断/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/04/iOS中Emoji表情的判断/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1474,20 +1481,13 @@ CTLineRe
       
         
           
-          ###NSURLProtocol的使用
-NSURLProtocol可以拦截所有由URL Loading System发起的请求，可用于实现以下功能：
+          ##问题服务器端不支持Emoji表情，因此客户端在上传用户输入时，不能包含Emoji表情。
+##解决方案在客户端发送请求前，判断用户输入中是否含有表情，如果含有表情，则提示用户重新输入。这个过程关键是如何判断字符串中是否含有Emoji表情。要判断是否含有Emoji表情，必须先了解什么是Emoji。
 
-重定向网络请求，实现代理等功能
-实现网络缓存
-全局设置网络请求
-自定义网络请求返回结果
-
-具体的实现步骤如下：
-第一步 创建NSURLProtoco
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/10/04/NSURLProtocol的使用/#more" rel="contents">
+            <a class="btn" href="/2015/10/04/iOS中Emoji表情的判断/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
