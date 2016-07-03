@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-07-03T10:42:42.000Z</updated>
+  <updated>2016-07-03T10:58:16.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,55 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>用XCode8打开Xib后项目不能在XCode7上运行</title>
+    <link href="http://yoursite.com/2016/07/03/%E7%94%A8XCode8%E6%89%93%E5%BC%80Xib%E5%90%8E%E9%A1%B9%E7%9B%AE%E4%B8%8D%E8%83%BD%E5%9C%A8XCode7%E4%B8%8A%E8%BF%90%E8%A1%8C/"/>
+    <id>http://yoursite.com/2016/07/03/用XCode8打开Xib后项目不能在XCode7上运行/</id>
+    <published>2016-07-03T10:56:06.000Z</published>
+    <updated>2016-07-03T10:58:16.000Z</updated>
+    
+    <content type="html">&lt;p&gt;可以设置xib以Xcode7.x的方法打开，参考如下&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/37851459/the-document-main-storyboard-requires-xcode-8-0-or-later&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;The document Main.storyboard requires Xcode 8.0 or later&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;可以设置xib以Xcode7.x的方法打开，参考如下&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/37851459/the-document-main-storyboard-requires-xcode-8-0-or
+    
+    </summary>
+    
+      <category term="iOS Tips" scheme="http://yoursite.com/categories/iOS-Tips/"/>
+    
+    
+      <category term="其他" scheme="http://yoursite.com/tags/%E5%85%B6%E4%BB%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Could not load the xxx image referenced from a nib in the bundle with identifier xxxx问题</title>
+    <link href="http://yoursite.com/2016/07/03/Could-not-load-the-xxx-image-referenced-from-a-nib-in-the-bundle-with-identifier-xxxx%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2016/07/03/Could-not-load-the-xxx-image-referenced-from-a-nib-in-the-bundle-with-identifier-xxxx问题/</id>
+    <published>2016-07-03T10:51:49.000Z</published>
+    <updated>2016-07-03T10:52:32.000Z</updated>
+    
+    <content type="html">&lt;p&gt;出现在非retina的屏幕上，不能正确加载xib上的图片，只能通过代码重新设置图片。还没有找到其他解决办法。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;出现在非retina的屏幕上，不能正确加载xib上的图片，只能通过代码重新设置图片。还没有找到其他解决办法。&lt;/p&gt;
+
+    
+    </summary>
+    
+      <category term="iOS Tips" scheme="http://yoursite.com/categories/iOS-Tips/"/>
+    
+    
+      <category term="其他" scheme="http://yoursite.com/tags/%E5%85%B6%E4%BB%96/"/>
+    
+  </entry>
   
   <entry>
     <title>设置富文本字间距，文字不能居中对齐</title>
@@ -750,63 +799,6 @@
   </entry>
   
   <entry>
-    <title>《ios核心动画高级技巧》阅读笔记(3)</title>
-    <link href="http://yoursite.com/2015/12/27/%E3%80%8Aios%E6%A0%B8%E5%BF%83%E5%8A%A8%E7%94%BB%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(3)/"/>
-    <id>http://yoursite.com/2015/12/27/《ios核心动画高级技巧》阅读笔记(3)/</id>
-    <published>2015-12-26T16:00:00.000Z</published>
-    <updated>2016-07-01T12:43:36.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;第四章-视觉效果&quot;&gt;&lt;a href=&quot;#第四章-视觉效果&quot; class=&quot;headerlink&quot; title=&quot;第四章 视觉效果&quot;&gt;&lt;/a&gt;第四章 视觉效果&lt;/h2&gt;&lt;h3 id=&quot;圆角&quot;&gt;&lt;a href=&quot;#圆角&quot; class=&quot;headerlink&quot; title=&quot;圆角&quot;&gt;&lt;/a&gt;圆角&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;设置CALayer的cornerRadius属性来设置圆角，并且要把maskToBounds设置为YES&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;边框&quot;&gt;&lt;a href=&quot;#边框&quot; class=&quot;headerlink&quot; title=&quot;边框&quot;&gt;&lt;/a&gt;边框&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;设置CALayer的borderColor和borderWidth可以设置边框的颜色和宽度&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;阴影&quot;&gt;&lt;a href=&quot;#阴影&quot; class=&quot;headerlink&quot; title=&quot;阴影&quot;&gt;&lt;/a&gt;阴影&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;shadowColor:阴影的颜色&lt;/li&gt;
-&lt;li&gt;shadowOpacity:阴影的透明度&lt;/li&gt;
-&lt;li&gt;shadowOffset:阴影的偏移&lt;/li&gt;
-&lt;li&gt;shadowRadius:阴影的模糊度，即模糊半径&lt;/li&gt;
-&lt;li&gt;如果设置了maskToBounds，则阴影就不会显示了，因为阴影已经被裁减调了。要解决这个问题，可以再创建一个frame一样的View，给这个view设置阴影，而设置原本的view的maskToBounds，这样阴影就不会被裁减掉了。&lt;/li&gt;
-&lt;li&gt;shadowPath:指定阴影的路径。&lt;/li&gt;
-&lt;li&gt;设置ImageView,label等的阴影，并不是设置他们边界的阴影，而是设置里面内容的阴影，例如设置label的阴影，设置的是label中文字的阴影。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)viewDidAppear:(&lt;span class=&quot;built_in&quot;&gt;BOOL&lt;/span&gt;)animated &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [&lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt; viewDidAppear:animated];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.buleView.hidden = &lt;span class=&quot;literal&quot;&gt;YES&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.layer.shadowColor = [&lt;span class=&quot;built_in&quot;&gt;UIColor&lt;/span&gt; redColor].CGColor;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.layer.shadowOpacity = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.layer.shadowRadius = &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGMutablePathRef&lt;/span&gt; path = &lt;span class=&quot;built_in&quot;&gt;CGPathCreateMutable&lt;/span&gt;();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGPathAddEllipseInRect&lt;/span&gt;(path, &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.bounds);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.layer.shadowPath = path;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGPathRelease&lt;/span&gt;(path);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;图层蒙版&quot;&gt;&lt;a href=&quot;#图层蒙版&quot; class=&quot;headerlink&quot; title=&quot;图层蒙版&quot;&gt;&lt;/a&gt;图层蒙版&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;mask:CALayer的mask属性定义了父图层的部分可见区域，父图层与mask的关系如下图&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/87291a0061be6a254bd4937851ecf4d8.png&quot; alt=&quot;mask&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;虽然设置了mask，但是视图的事件响应区域任然是原视图的区域&lt;/li&gt;
-&lt;li&gt;mask是可以动态设置的，只要改变mask的大小，就可以对视图的显示区域进行动画&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)viewDidAppear:(&lt;span class=&quot;built_in&quot;&gt;BOOL&lt;/span&gt;)animated &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [&lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt; viewDidAppear:animated];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CAShapeLayer&lt;/span&gt; *mask = [&lt;span class=&quot;built_in&quot;&gt;CAShapeLayer&lt;/span&gt; layer];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;UIBezierPath&lt;/span&gt; *path = [&lt;span class=&quot;built_in&quot;&gt;UIBezierPath&lt;/span&gt; bezierPathWithOvalInRect:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.greenBtn.bounds];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    mask.path = path.CGPath;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.greenBtn.layer.mask = mask;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)touchesBegan:(&lt;span class=&quot;built_in&quot;&gt;NSSet&lt;/span&gt;&amp;lt;&lt;span class=&quot;built_in&quot;&gt;UITouch&lt;/span&gt; *&amp;gt; *)touches withEvent:(&lt;span class=&quot;built_in&quot;&gt;UIEvent&lt;/span&gt; *)event &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;UIBezierPath&lt;/span&gt; *endPath = [&lt;span class=&quot;built_in&quot;&gt;UIBezierPath&lt;/span&gt; bezierPathWithRect:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.greenBtn.bounds];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CAShapeLayer&lt;/span&gt; *layer = (&lt;span class=&quot;built_in&quot;&gt;CAShapeLayer&lt;/span&gt; *)&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.greenBtn.layer.mask;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 动画&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CABasicAnimation&lt;/span&gt; *animation = [&lt;span class=&quot;built_in&quot;&gt;CABasicAnimation&lt;/span&gt; animationWithKeyPath:&lt;span class=&quot;string&quot;&gt;@&quot;path&quot;&lt;/span&gt;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    animation.duration = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    animation.fromValue = (&lt;span class=&quot;keyword&quot;&gt;id&lt;/span&gt;)layer.path;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    animation.toValue = (__bridge &lt;span class=&quot;keyword&quot;&gt;id&lt;/span&gt; _Nullable)(endPath.CGPath);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    animation.removedOnCompletion = &lt;span class=&quot;literal&quot;&gt;NO&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    animation.fillMode = kCAFillModeForwards;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [layer addAnimation:animation forKey:&lt;span class=&quot;string&quot;&gt;@&quot;shapeLayerPath&quot;&lt;/span&gt;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;拉伸过滤&quot;&gt;&lt;a href=&quot;#拉伸过滤&quot; class=&quot;headerlink&quot; title=&quot;拉伸过滤&quot;&gt;&lt;/a&gt;拉伸过滤&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;minificationFilter:缩小图片的拉伸算法&lt;/li&gt;
-&lt;li&gt;magnificationFilter:方法图片的拉伸算法&lt;/li&gt;
-&lt;li&gt;三个值：kCAFilterNearest，kCAFilterLinear，kCAFilterTrilinear&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;组透明&quot;&gt;&lt;a href=&quot;#组透明&quot; class=&quot;headerlink&quot; title=&quot;组透明&quot;&gt;&lt;/a&gt;组透明&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;改变视图或图层的透明度，其子视图或子图层的透明度也会跟着改变，但是经过叠加后，原本颜色相同的父子视图，变成了不同的视图，如下图：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/dda57bde043a3358e1cbc03af4fcbcf1.png&quot; alt=&quot;group-opacity&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;为了解决这种问题，可以在plist中添加”Renders with group opacity”为YES（目前ios9中默认就为YES），或者设置CALayer的shouldRasterize为YES也可以达到相同的效果。&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;第四章-视觉效果&quot;&gt;&lt;a href=&quot;#第四章-视觉效果&quot; class=&quot;headerlink&quot; title=&quot;第四章 视觉效果&quot;&gt;&lt;/a&gt;第四章 视觉效果&lt;/h2&gt;&lt;h3 id=&quot;圆角&quot;&gt;&lt;a href=&quot;#圆角&quot; class=&quot;headerlink&quot; titl
-    
-    </summary>
-    
-      <category term="读书笔记" scheme="http://yoursite.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>《ios核心动画高级技巧》阅读笔记(2)</title>
     <link href="http://yoursite.com/2015/12/27/%E3%80%8Aios%E6%A0%B8%E5%BF%83%E5%8A%A8%E7%94%BB%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(2)/"/>
     <id>http://yoursite.com/2015/12/27/《ios核心动画高级技巧》阅读笔记(2)/</id>
@@ -857,6 +849,63 @@
     <summary type="html">
     
       &lt;h2 id=&quot;第三章-图层集合学&quot;&gt;&lt;a href=&quot;#第三章-图层集合学&quot; class=&quot;headerlink&quot; title=&quot;第三章 图层集合学&quot;&gt;&lt;/a&gt;第三章 图层集合学&lt;/h2&gt;&lt;h3 id=&quot;布局&quot;&gt;&lt;a href=&quot;#布局&quot; class=&quot;headerlink&quot; 
+    
+    </summary>
+    
+      <category term="读书笔记" scheme="http://yoursite.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>《ios核心动画高级技巧》阅读笔记(3)</title>
+    <link href="http://yoursite.com/2015/12/27/%E3%80%8Aios%E6%A0%B8%E5%BF%83%E5%8A%A8%E7%94%BB%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(3)/"/>
+    <id>http://yoursite.com/2015/12/27/《ios核心动画高级技巧》阅读笔记(3)/</id>
+    <published>2015-12-26T16:00:00.000Z</published>
+    <updated>2016-07-01T12:43:36.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;第四章-视觉效果&quot;&gt;&lt;a href=&quot;#第四章-视觉效果&quot; class=&quot;headerlink&quot; title=&quot;第四章 视觉效果&quot;&gt;&lt;/a&gt;第四章 视觉效果&lt;/h2&gt;&lt;h3 id=&quot;圆角&quot;&gt;&lt;a href=&quot;#圆角&quot; class=&quot;headerlink&quot; title=&quot;圆角&quot;&gt;&lt;/a&gt;圆角&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;设置CALayer的cornerRadius属性来设置圆角，并且要把maskToBounds设置为YES&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;边框&quot;&gt;&lt;a href=&quot;#边框&quot; class=&quot;headerlink&quot; title=&quot;边框&quot;&gt;&lt;/a&gt;边框&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;设置CALayer的borderColor和borderWidth可以设置边框的颜色和宽度&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;阴影&quot;&gt;&lt;a href=&quot;#阴影&quot; class=&quot;headerlink&quot; title=&quot;阴影&quot;&gt;&lt;/a&gt;阴影&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;shadowColor:阴影的颜色&lt;/li&gt;
+&lt;li&gt;shadowOpacity:阴影的透明度&lt;/li&gt;
+&lt;li&gt;shadowOffset:阴影的偏移&lt;/li&gt;
+&lt;li&gt;shadowRadius:阴影的模糊度，即模糊半径&lt;/li&gt;
+&lt;li&gt;如果设置了maskToBounds，则阴影就不会显示了，因为阴影已经被裁减调了。要解决这个问题，可以再创建一个frame一样的View，给这个view设置阴影，而设置原本的view的maskToBounds，这样阴影就不会被裁减掉了。&lt;/li&gt;
+&lt;li&gt;shadowPath:指定阴影的路径。&lt;/li&gt;
+&lt;li&gt;设置ImageView,label等的阴影，并不是设置他们边界的阴影，而是设置里面内容的阴影，例如设置label的阴影，设置的是label中文字的阴影。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)viewDidAppear:(&lt;span class=&quot;built_in&quot;&gt;BOOL&lt;/span&gt;)animated &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [&lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt; viewDidAppear:animated];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.buleView.hidden = &lt;span class=&quot;literal&quot;&gt;YES&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.layer.shadowColor = [&lt;span class=&quot;built_in&quot;&gt;UIColor&lt;/span&gt; redColor].CGColor;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.layer.shadowOpacity = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.layer.shadowRadius = &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGMutablePathRef&lt;/span&gt; path = &lt;span class=&quot;built_in&quot;&gt;CGPathCreateMutable&lt;/span&gt;();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGPathAddEllipseInRect&lt;/span&gt;(path, &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.bounds);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.layer.shadowPath = path;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGPathRelease&lt;/span&gt;(path);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;图层蒙版&quot;&gt;&lt;a href=&quot;#图层蒙版&quot; class=&quot;headerlink&quot; title=&quot;图层蒙版&quot;&gt;&lt;/a&gt;图层蒙版&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;mask:CALayer的mask属性定义了父图层的部分可见区域，父图层与mask的关系如下图&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/87291a0061be6a254bd4937851ecf4d8.png&quot; alt=&quot;mask&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;虽然设置了mask，但是视图的事件响应区域任然是原视图的区域&lt;/li&gt;
+&lt;li&gt;mask是可以动态设置的，只要改变mask的大小，就可以对视图的显示区域进行动画&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)viewDidAppear:(&lt;span class=&quot;built_in&quot;&gt;BOOL&lt;/span&gt;)animated &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [&lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt; viewDidAppear:animated];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CAShapeLayer&lt;/span&gt; *mask = [&lt;span class=&quot;built_in&quot;&gt;CAShapeLayer&lt;/span&gt; layer];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;UIBezierPath&lt;/span&gt; *path = [&lt;span class=&quot;built_in&quot;&gt;UIBezierPath&lt;/span&gt; bezierPathWithOvalInRect:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.greenBtn.bounds];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    mask.path = path.CGPath;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.greenBtn.layer.mask = mask;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)touchesBegan:(&lt;span class=&quot;built_in&quot;&gt;NSSet&lt;/span&gt;&amp;lt;&lt;span class=&quot;built_in&quot;&gt;UITouch&lt;/span&gt; *&amp;gt; *)touches withEvent:(&lt;span class=&quot;built_in&quot;&gt;UIEvent&lt;/span&gt; *)event &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;UIBezierPath&lt;/span&gt; *endPath = [&lt;span class=&quot;built_in&quot;&gt;UIBezierPath&lt;/span&gt; bezierPathWithRect:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.greenBtn.bounds];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CAShapeLayer&lt;/span&gt; *layer = (&lt;span class=&quot;built_in&quot;&gt;CAShapeLayer&lt;/span&gt; *)&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.greenBtn.layer.mask;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 动画&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CABasicAnimation&lt;/span&gt; *animation = [&lt;span class=&quot;built_in&quot;&gt;CABasicAnimation&lt;/span&gt; animationWithKeyPath:&lt;span class=&quot;string&quot;&gt;@&quot;path&quot;&lt;/span&gt;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    animation.duration = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    animation.fromValue = (&lt;span class=&quot;keyword&quot;&gt;id&lt;/span&gt;)layer.path;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    animation.toValue = (__bridge &lt;span class=&quot;keyword&quot;&gt;id&lt;/span&gt; _Nullable)(endPath.CGPath);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    animation.removedOnCompletion = &lt;span class=&quot;literal&quot;&gt;NO&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    animation.fillMode = kCAFillModeForwards;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [layer addAnimation:animation forKey:&lt;span class=&quot;string&quot;&gt;@&quot;shapeLayerPath&quot;&lt;/span&gt;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;拉伸过滤&quot;&gt;&lt;a href=&quot;#拉伸过滤&quot; class=&quot;headerlink&quot; title=&quot;拉伸过滤&quot;&gt;&lt;/a&gt;拉伸过滤&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;minificationFilter:缩小图片的拉伸算法&lt;/li&gt;
+&lt;li&gt;magnificationFilter:方法图片的拉伸算法&lt;/li&gt;
+&lt;li&gt;三个值：kCAFilterNearest，kCAFilterLinear，kCAFilterTrilinear&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;组透明&quot;&gt;&lt;a href=&quot;#组透明&quot; class=&quot;headerlink&quot; title=&quot;组透明&quot;&gt;&lt;/a&gt;组透明&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;改变视图或图层的透明度，其子视图或子图层的透明度也会跟着改变，但是经过叠加后，原本颜色相同的父子视图，变成了不同的视图，如下图：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/dda57bde043a3358e1cbc03af4fcbcf1.png&quot; alt=&quot;group-opacity&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;为了解决这种问题，可以在plist中添加”Renders with group opacity”为YES（目前ios9中默认就为YES），或者设置CALayer的shouldRasterize为YES也可以达到相同的效果。&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;第四章-视觉效果&quot;&gt;&lt;a href=&quot;#第四章-视觉效果&quot; class=&quot;headerlink&quot; title=&quot;第四章 视觉效果&quot;&gt;&lt;/a&gt;第四章 视觉效果&lt;/h2&gt;&lt;h3 id=&quot;圆角&quot;&gt;&lt;a href=&quot;#圆角&quot; class=&quot;headerlink&quot; titl
     
     </summary>
     
@@ -1181,82 +1230,6 @@
     <summary type="html">
     
       &lt;p&gt;最近在使用Autolayout遇到了一个问题，我设置了一个UILabel的宽度约束，希望这个UILabel在显示时，如果内容宽度没有超过约束的宽度，则以约束的宽度显示，如果&lt;br&gt;内容宽度超过约束的宽度，则以内容的宽度显示，这时，如果只设置宽度约束，UILabel会始终以约
-    
-    </summary>
-    
-      <category term="iOS开发" scheme="http://yoursite.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>UIScrollView与Autolayout</title>
-    <link href="http://yoursite.com/2015/10/27/UIScrollView%E4%B8%8EAutolayout/"/>
-    <id>http://yoursite.com/2015/10/27/UIScrollView与Autolayout/</id>
-    <published>2015-10-26T16:00:00.000Z</published>
-    <updated>2016-07-01T12:43:36.000Z</updated>
-    
-    <content type="html">&lt;p&gt;在Autolayout中应用UIScrollView一直以来都是一个难点或易错点，本文是我在参考了很多资料后，总结的两种在Autolayout中正确使用UIScrollView的方法。本文主要以两个&lt;br&gt;Demo为例，讲解一下如何在Autolayout中应用UIScrollView，希望对大家能有帮助。&lt;/p&gt;
-&lt;p&gt;先看一下最终的效果吧！&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/AutolayoutDemo.gif&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;使用Storyboard布局&quot;&gt;&lt;a href=&quot;#使用Storyboard布局&quot; class=&quot;headerlink&quot; title=&quot;使用Storyboard布局&quot;&gt;&lt;/a&gt;使用Storyboard布局&lt;/h2&gt;&lt;p&gt;首先创建一个Single View Application项目，然后在Storyboard中完成如下布局。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-10-27%20at%2022.29.54.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
-&lt;p&gt;第三个Controller就是我们要实现的界面（以下简称主界面），然后向主界面中拖入一个UIScrollView和一个UIView（姑且叫做A），并且设置UIScrollView的约束如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-10-27%20at%2022.38.34.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
-&lt;p&gt;设置A的约束如下，注意不要添加底边距，或者高度约束&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-10-27%20at%2022.45.57.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;注意，这个A和UIScrollView是同一级的，并不是父子视图的关系。A主要是用来辅助计算UIScrollView中内容的高度的。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;此时设置完成后会有约束冲突（A缺少高度约束），先不用在意。接着向UIScrollView中拖入一个UIView（姑且叫做B），然后设置B的宽度和高度约束与A相等，如下图，可以在左侧&lt;br&gt;导航视图中拖线设置。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-10-27%20at%2022.56.15.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
-&lt;p&gt;然后设置B的边界约束如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-10-27%20at%2022.38.34.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
-&lt;p&gt;设置完成后，此时的主界面的结构如下图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-10-27%20at%2022.58.06.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;B其实就是作为UIScrollView的contentView存在的，把所有原本是UIScrollView中的子控件都应该放在B中。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;接下里就是布局主要界面，像最终效果图那样，拖入三个UIImageView和一个UILabel，并且设置对应的约束。（此处设置省略，具体可以参考我项目中的设置）注意不要设置UILabel&lt;br&gt;的高度约束，并且要设置底部两个UIImageView的下边距约束，这样B就会根据显示的内容自适应高度，并且UIScrollView也会根据B的高度设置contentSize。&lt;/p&gt;
-&lt;p&gt;整个过程过程的关键点就在于A，B两个UIView，A作为一个辅助视图，辅助UIScrollView计算UIScrollView中内容的高度。B的作用是分离UIScrollView和其子控件之间的关系，&lt;br&gt;使得UIScrollView仅与B产生约束关系。&lt;/p&gt;
-&lt;h2 id=&quot;使用Masonry进行布局&quot;&gt;&lt;a href=&quot;#使用Masonry进行布局&quot; class=&quot;headerlink&quot; title=&quot;使用Masonry进行布局&quot;&gt;&lt;/a&gt;使用Masonry进行布局&lt;/h2&gt;&lt;p&gt;下面使用第三方框架Masonry进行布局，完成上述功能。&lt;/p&gt;
-&lt;p&gt;首先使用CocoaPods安装Masonry，然后在UItableViewController中添加一个cell，并在SB中创建一个新的UIViewController，绑定对应的类AutolayoutViewController，&lt;br&gt;如下图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-10-28%20at%2000.05.28.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
-&lt;p&gt;在AutolayoutViewController中添加代码，核心代码如下&lt;/p&gt;
-&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;26&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;27&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;28&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;29&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;30&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;31&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;32&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;33&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;34&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;35&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;36&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;37&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;38&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;39&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;40&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;41&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;42&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;43&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;44&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;45&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;46&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;47&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;48&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;49&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;50&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;51&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;52&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;53&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;54&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;55&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;56&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;57&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;58&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;59&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;60&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;61&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;62&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;63&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;64&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;65&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;66&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)viewDidLoad &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [&lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt; viewDidLoad];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.scrollView = [[&lt;span class=&quot;built_in&quot;&gt;UIScrollView&lt;/span&gt; alloc] init];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.view addSubview:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.scrollView];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 把所有子视图都放在containerView中，然后把containerView加在UIScrollView中&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.containerView = [[&lt;span class=&quot;built_in&quot;&gt;UIView&lt;/span&gt; alloc] init];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.scrollView addSubview:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.containerView];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.topImage = [[&lt;span class=&quot;built_in&quot;&gt;UIImageView&lt;/span&gt; alloc] init];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.topImage.image = [&lt;span class=&quot;built_in&quot;&gt;UIImage&lt;/span&gt; imageNamed:&lt;span class=&quot;string&quot;&gt;@&quot;1.JPG&quot;&lt;/span&gt;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.containerView addSubview:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.topImage];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.descLabel = [[&lt;span class=&quot;built_in&quot;&gt;UILabel&lt;/span&gt; alloc] init];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.descLabel.numberOfLines = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.descLabel.text = &lt;span class=&quot;string&quot;&gt;@&quot;aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&quot;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.containerView addSubview:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.descLabel];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.leftImage = [[&lt;span class=&quot;built_in&quot;&gt;UIImageView&lt;/span&gt; alloc] init];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.leftImage.image = [&lt;span class=&quot;built_in&quot;&gt;UIImage&lt;/span&gt; imageNamed:&lt;span class=&quot;string&quot;&gt;@&quot;2.JPG&quot;&lt;/span&gt;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.containerView addSubview:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.leftImage];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.rightImage = [[&lt;span class=&quot;built_in&quot;&gt;UIImageView&lt;/span&gt; alloc] init];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.rightImage.image = [&lt;span class=&quot;built_in&quot;&gt;UIImage&lt;/span&gt; imageNamed:&lt;span class=&quot;string&quot;&gt;@&quot;3.JPG&quot;&lt;/span&gt;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.containerView addSubview:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.rightImage];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.scrollView mas_updateConstraints:^(MASConstraintMaker *make) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        make.edges.equalTo(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.view);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.containerView mas_updateConstraints:^(MASConstraintMaker *make) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        make.edges.equalTo(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.scrollView);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        make.width.equalTo(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.scrollView);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.topImage mas_updateConstraints:^(MASConstraintMaker *make) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        make.top.mas_equalTo(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.containerView).offset(&lt;span class=&quot;number&quot;&gt;20&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        make.left.mas_equalTo(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.containerView).offset(&lt;span class=&quot;number&quot;&gt;20&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        make.right.mas_equalTo(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.containerView).offset(&lt;span class=&quot;number&quot;&gt;-20&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        make.height.mas_equalTo(&lt;span class=&quot;number&quot;&gt;200&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 注意不要设置descLabel的高度约束&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.descLabel mas_updateConstraints:^(MASConstraintMaker *make) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        make.left.equalTo(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.topImage);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        make.right.equalTo(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.topImage);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        make.top.mas_equalTo(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.topImage.mas_bottom).offset(&lt;span class=&quot;number&quot;&gt;20&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.leftImage mas_updateConstraints:^(MASConstraintMaker *make) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        make.size.equalTo(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.rightImage);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        make.left.equalTo(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.topImage);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        make.right.mas_equalTo(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.rightImage.mas_left).offset(&lt;span class=&quot;number&quot;&gt;20&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        make.top.mas_equalTo(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.descLabel.mas_bottom).offset(&lt;span class=&quot;number&quot;&gt;20&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        make.height.mas_equalTo(&lt;span class=&quot;number&quot;&gt;150&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        make.bottom.mas_equalTo(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.containerView.mas_bottom).offset(&lt;span class=&quot;number&quot;&gt;-20&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.rightImage mas_updateConstraints:^(MASConstraintMaker *make) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        make.top.equalTo(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.leftImage);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        make.right.mas_equalTo(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.containerView.mas_right).offset(&lt;span class=&quot;number&quot;&gt;-20&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;这里的关键点是那个containerView，它分离了UIScrollView和子视图的关系。&lt;/p&gt;
-&lt;p&gt;以上就是本人总结的关于在Autolayout中应用UIScrollView的方法，如果有什么错误欢迎指出。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/liujinlongxa/AutolayoutDemo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;代码在这里&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在Autolayout中应用UIScrollView一直以来都是一个难点或易错点，本文是我在参考了很多资料后，总结的两种在Autolayout中正确使用UIScrollView的方法。本文主要以两个&lt;br&gt;Demo为例，讲解一下如何在Autolayout中应用UIScrol
-    
-    </summary>
-    
-      <category term="iOS开发" scheme="http://yoursite.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>最近开发中遇到的一些问题</title>
-    <link href="http://yoursite.com/2015/10/16/%E6%9C%80%E8%BF%91%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/"/>
-    <id>http://yoursite.com/2015/10/16/最近开发中遇到的一些问题/</id>
-    <published>2015-10-15T16:00:00.000Z</published>
-    <updated>2016-07-01T12:43:36.000Z</updated>
-    
-    <content type="html">&lt;p&gt;本文主要记录了我近期在开发中遇到的一些问题以及解决方法。&lt;/p&gt;
-&lt;h2 id=&quot;问题1-TTTAttributedLabel卡顿&quot;&gt;&lt;a href=&quot;#问题1-TTTAttributedLabel卡顿&quot; class=&quot;headerlink&quot; title=&quot;问题1: TTTAttributedLabel卡顿&quot;&gt;&lt;/a&gt;问题1: TTTAttributedLabel卡顿&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;问题描述&lt;/strong&gt; 项目中用到了TTTAttributedLabel，用于实现在Label中点击链接跳转，在实际使用过程中，出现了如果Label内容很多，通过UIScrollView滑动Label时非常卡&lt;br&gt;的问题。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;解决方案&lt;/strong&gt; TTTAttributedLabel中有一个&lt;code&gt;extendsLinkTouchArea&lt;/code&gt;属性，指示是否在一个较大的范围内检测链接的Label的Touch事件，默认是YES，设置成NO，表示不检测，&lt;br&gt;这样可以提高TTTAttributedLabel的性能&lt;/p&gt;
-&lt;h2 id=&quot;问题2-dyld-Symbol-not-found-CTRadioAccessTechnologyEdge问题&quot;&gt;&lt;a href=&quot;#问题2-dyld-Symbol-not-found-CTRadioAccessTechnologyEdge问题&quot; class=&quot;headerlink&quot; title=&quot;问题2: dyld: Symbol not found: _CTRadioAccessTechnologyEdge问题&quot;&gt;&lt;/a&gt;问题2: &lt;code&gt;dyld: Symbol not found: _CTRadioAccessTechnologyEdge&lt;/code&gt;问题&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;问题描述&lt;/strong&gt; 项目中了Reachability用于检测3G/4G/Wifi，之前一直使用正常，最近突然不知什么原因在iOS6上出现了如下图的问题，重新添加CoreTelephone框架也没有用。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-10-15%20at%2009.33.53.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;解决方案&lt;/strong&gt; 需要将CoreTelephone框架的状态设置为Optional，如下图，这样就不会有上述问题了。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-10-16%20at%2022.15.38.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
-&lt;p&gt;具体原因我也不是非常清楚，如果有哪位朋友清楚欢迎分享。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文主要记录了我近期在开发中遇到的一些问题以及解决方法。&lt;/p&gt;
-&lt;h2 id=&quot;问题1-TTTAttributedLabel卡顿&quot;&gt;&lt;a href=&quot;#问题1-TTTAttributedLabel卡顿&quot; class=&quot;headerlink&quot; title=&quot;问题1: TTT
     
     </summary>
     
