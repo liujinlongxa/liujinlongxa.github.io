@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-07-03T09:47:15.000Z</updated>
+  <updated>2016-07-03T10:42:42.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,72 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>设置富文本字间距，文字不能居中对齐</title>
+    <link href="http://yoursite.com/2016/07/03/%E8%AE%BE%E7%BD%AE%E5%AF%8C%E6%96%87%E6%9C%AC%E5%AD%97%E9%97%B4%E8%B7%9D%EF%BC%8C%E6%96%87%E5%AD%97%E4%B8%8D%E8%83%BD%E5%B1%85%E4%B8%AD%E5%AF%B9%E9%BD%90/"/>
+    <id>http://yoursite.com/2016/07/03/设置富文本字间距，文字不能居中对齐/</id>
+    <published>2016-07-03T10:40:19.000Z</published>
+    <updated>2016-07-03T10:42:42.000Z</updated>
+    
+    <content type="html">&lt;p&gt;最近有一个需求，需要设置一个UILabel的字间距，我马上就想到了富文本，于是就写了下面的代码&lt;/p&gt;
+&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt; *str = &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.label.text;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSDictionary&lt;/span&gt; *attribute = @&amp;#123;&lt;span class=&quot;built_in&quot;&gt;NSKernAttributeName&lt;/span&gt;:@(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;),&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                            &lt;span class=&quot;built_in&quot;&gt;NSFontAttributeName&lt;/span&gt;:[&lt;span class=&quot;built_in&quot;&gt;UIFont&lt;/span&gt; systemFontOfSize:&lt;span class=&quot;number&quot;&gt;15&lt;/span&gt;]&amp;#125;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSAttributedString&lt;/span&gt; *attStr = [[&lt;span class=&quot;built_in&quot;&gt;NSAttributedString&lt;/span&gt; alloc] initWithString:str attributes:attribute];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.label.attributedText = attStr;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;其中NSKernAttributeName属性就是设置文字的字间距。但是，现在就有一个问题，设置字间距后，原本居中显示的文字，不能居中显示了。&lt;/p&gt;
+&lt;p&gt;这是我设置字间距之前的label&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/3cba47225e6b1a02cfad6885a67d83ed.png&quot; alt=&quot;1&quot;&gt;&lt;/p&gt;
+&lt;p&gt;这是我设置了字间距后的label&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/424954a63f3e38514b84ab7277269336.png&quot; alt=&quot;2&quot;&gt;&lt;/p&gt;
+&lt;p&gt;“你”字距左边距明显要比”鸿”字的右边距要大。&lt;/p&gt;
+&lt;p&gt;经过一阵Google，在StackOverflow上找到了相同的问题，链接是&lt;a href=&quot;http://stackoverflow.com/questions/23741850/nsstring-drawinrectwithattributes-not-correctly-centered-when-using-nskernattr&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://stackoverflow.com/questions/23741850/nsstring-drawinrectwithattributes-not-correctly-centered-when-using-nskernattr&lt;/a&gt;，根据问题回答里的做法，我把代码做了修改，如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt; *str = &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.label.text;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSMutableAttributedString&lt;/span&gt; *mutAttStr = [[&lt;span class=&quot;built_in&quot;&gt;NSMutableAttributedString&lt;/span&gt; alloc] initWithString:str];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;[mutAttStr addAttribute:&lt;span class=&quot;built_in&quot;&gt;NSKernAttributeName&lt;/span&gt; value:@(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;) range:&lt;span class=&quot;built_in&quot;&gt;NSMakeRange&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, str.length - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;)];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;[mutAttStr addAttribute:&lt;span class=&quot;built_in&quot;&gt;NSFontAttributeName&lt;/span&gt; value:[&lt;span class=&quot;built_in&quot;&gt;UIFont&lt;/span&gt; systemFontOfSize:&lt;span class=&quot;number&quot;&gt;15&lt;/span&gt;] range:&lt;span class=&quot;built_in&quot;&gt;NSMakeRange&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, str.length)];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.label.attributedText = [mutAttStr &lt;span class=&quot;keyword&quot;&gt;copy&lt;/span&gt;];&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;修改后效果如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/35b1f58bf08aa3dc7b827edb1da01e80.png&quot; alt=&quot;3&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近有一个需求，需要设置一个UILabel的字间距，我马上就想到了富文本，于是就写了下面的代码&lt;/p&gt;
+&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;l
+    
+    </summary>
+    
+      <category term="iOS Tips" scheme="http://yoursite.com/categories/iOS-Tips/"/>
+    
+    
+      <category term="UILabel" scheme="http://yoursite.com/tags/UILabel/"/>
+    
+      <category term="NSAttributedString" scheme="http://yoursite.com/tags/NSAttributedString/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UILabel设置lineBreakMode属性无效</title>
+    <link href="http://yoursite.com/2016/07/03/UILabel%E8%AE%BE%E7%BD%AElineBreakMode%E5%B1%9E%E6%80%A7%E6%97%A0%E6%95%88/"/>
+    <id>http://yoursite.com/2016/07/03/UILabel设置lineBreakMode属性无效/</id>
+    <published>2016-07-03T10:09:30.000Z</published>
+    <updated>2016-07-03T10:42:21.000Z</updated>
+    
+    <content type="html">&lt;p&gt;UILabel的lineBreakMode属性用于设置文字的截断方式，我在使用过程中，发现了一个问题，当我设置lineBreakMode为NSLineBreakByCharWrapping或NSLineBreakByWordWrapping时，有时会没有效果，它依然以NSLineBreakByClipping方式显示。&lt;/p&gt;
+&lt;p&gt;经过一番Google，原来，要设置NSLineBreakByCharWrapping或NSLineBreakByWordWrapping，UILabel的numberOfLines必须是0，否则就会无效。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;UILabel的lineBreakMode属性用于设置文字的截断方式，我在使用过程中，发现了一个问题，当我设置lineBreakMode为NSLineBreakByCharWrapping或NSLineBreakByWordWrapping时，有时会没有效果，它依然以NSL
+    
+    </summary>
+    
+      <category term="iOS Tips" scheme="http://yoursite.com/categories/iOS-Tips/"/>
+    
+    
+      <category term="UILabel" scheme="http://yoursite.com/tags/UILabel/"/>
+    
+  </entry>
+  
+  <entry>
     <title>从jekyll迁移到hexo</title>
     <link href="http://yoursite.com/2016/07/01/%E4%BB%8Ejekyll%E8%BF%81%E7%A7%BB%E5%88%B0hexo/"/>
     <id>http://yoursite.com/2016/07/01/从jekyll迁移到hexo/</id>
     <published>2016-07-01T13:24:50.000Z</published>
-    <updated>2016-07-03T09:47:15.000Z</updated>
+    <updated>2016-07-03T10:37:17.000Z</updated>
     
     <content type="html">&lt;p&gt;最近公司项目不是很忙，所以想把自己的博客好好整整，下面就是我从原先的jekyll迁移的hexo的整个过程的记录以及中间遇到的一些问题。&lt;/p&gt;
 &lt;h2 id=&quot;安装Hexo&quot;&gt;&lt;a href=&quot;#安装Hexo&quot; class=&quot;headerlink&quot; title=&quot;安装Hexo&quot;&gt;&lt;/a&gt;安装Hexo&lt;/h2&gt;&lt;p&gt;打开终端，执行命令：&lt;/p&gt;
@@ -102,6 +163,8 @@
 &lt;h2 id=&quot;安装Hexo&quot;&gt;&lt;a href=&quot;#安装Hexo&quot; class=&quot;headerlink&quot; title=&quot;安装Hex
     
     </summary>
+    
+      <category term="其他" scheme="http://yoursite.com/categories/%E5%85%B6%E4%BB%96/"/>
     
     
       <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
@@ -216,7 +279,7 @@
     <link href="http://yoursite.com/2016/06/05/2016%E5%B9%B46%E6%9C%88%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
     <id>http://yoursite.com/2016/06/05/2016年6月开发问题记录/</id>
     <published>2016-06-04T16:00:00.000Z</published>
-    <updated>2016-07-01T12:43:36.000Z</updated>
+    <updated>2016-07-03T10:18:35.000Z</updated>
     
     <content type="html">&lt;p&gt;继续记录6月份开发中遇到的问题。&lt;/p&gt;
 &lt;h2 id=&quot;UIBarButtonItem点击区域的问题&quot;&gt;&lt;a href=&quot;#UIBarButtonItem点击区域的问题&quot; class=&quot;headerlink&quot; title=&quot;UIBarButtonItem点击区域的问题&quot;&gt;&lt;/a&gt;UIBarButtonItem点击区域的问题&lt;/h2&gt;&lt;p&gt;今天在定制导航上的返回按钮遇到了一个问题，顺便记录一下。&lt;/p&gt;
@@ -273,7 +336,7 @@
     
     </summary>
     
-      <category term="iOS开发" scheme="http://yoursite.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
+      <category term="iOS Tips" scheme="http://yoursite.com/categories/iOS-Tips/"/>
     
     
   </entry>
@@ -540,7 +603,7 @@
     <link href="http://yoursite.com/2016/05/08/2016%E5%B9%B45%E6%9C%88%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
     <id>http://yoursite.com/2016/05/08/2016年5月开发问题记录/</id>
     <published>2016-05-07T16:00:00.000Z</published>
-    <updated>2016-07-01T12:43:36.000Z</updated>
+    <updated>2016-07-03T10:02:43.000Z</updated>
     
     <content type="html">&lt;p&gt;这是我最近工作中遇到的问题，做一个简单的记录。&lt;/p&gt;
 &lt;h2 id=&quot;设置导航栏透明&quot;&gt;&lt;a href=&quot;#设置导航栏透明&quot; class=&quot;headerlink&quot; title=&quot;设置导航栏透明&quot;&gt;&lt;/a&gt;设置导航栏透明&lt;/h2&gt;&lt;p&gt;项目中有一个界面的导航栏是透明的，效果如下：&lt;/p&gt;
@@ -588,7 +651,7 @@
     
     </summary>
     
-      <category term="iOS开发" scheme="http://yoursite.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
+      <category term="iOS Tips" scheme="http://yoursite.com/categories/iOS-Tips/"/>
     
     
   </entry>
@@ -627,43 +690,6 @@
     
       &lt;p&gt;最近帮公司申请了企业开发者证书，中间也遇到了不少坑，下面是整个过程的一个完整记录，包括申请邓白氏编码的过程，希望对大家有所帮助。&lt;/p&gt;
 &lt;h3 id=&quot;申请邓白氏编码&quot;&gt;&lt;a href=&quot;#申请邓白氏编码&quot; class=&quot;headerlink&quot; title=&quot;申请邓白氏编
-    
-    </summary>
-    
-      <category term="iOS开发" scheme="http://yoursite.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>2016年4月开发问题记录</title>
-    <link href="http://yoursite.com/2016/04/10/2016%E5%B9%B44%E6%9C%88%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
-    <id>http://yoursite.com/2016/04/10/2016年4月开发问题记录/</id>
-    <published>2016-04-09T16:00:00.000Z</published>
-    <updated>2016-07-01T12:43:36.000Z</updated>
-    
-    <content type="html">&lt;p&gt;决定每个月用一篇博客将自己这一个月在工作或者学习中遇到的问题记录下来，大部分都是一些零碎的知识点。这是2016年4月份的问题记录，现在是4月10日，如果后续还有问题，会更新到这篇博客中。&lt;/p&gt;
-&lt;h2 id=&quot;UILabel设置lineBreakMode属性无效&quot;&gt;&lt;a href=&quot;#UILabel设置lineBreakMode属性无效&quot; class=&quot;headerlink&quot; title=&quot;UILabel设置lineBreakMode属性无效&quot;&gt;&lt;/a&gt;UILabel设置lineBreakMode属性无效&lt;/h2&gt;&lt;p&gt;Tag: UILabel, lineBreakMode&lt;/p&gt;
-&lt;p&gt;UILabel的lineBreakMode属性用于设置文字的截断方式，我在使用过程中，发现了一个问题，当我设置lineBreakMode为NSLineBreakByCharWrapping或NSLineBreakByWordWrapping时，有时会没有效果，它依然以NSLineBreakByClipping方式显示。&lt;/p&gt;
-&lt;p&gt;经过一番Google，原来，要设置NSLineBreakByCharWrapping或NSLineBreakByWordWrapping，UILabel的numberOfLines必须是0，否则就会无效。&lt;/p&gt;
-&lt;h2 id=&quot;设置富文本字间距，文字不能居中对齐&quot;&gt;&lt;a href=&quot;#设置富文本字间距，文字不能居中对齐&quot; class=&quot;headerlink&quot; title=&quot;设置富文本字间距，文字不能居中对齐&quot;&gt;&lt;/a&gt;设置富文本字间距，文字不能居中对齐&lt;/h2&gt;&lt;p&gt;最近有一个需求，需要设置一个UILabel的字间距，我马上就想到了富文本，于是就写了下面的代码&lt;/p&gt;
-&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt; *str = &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.label.text;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSDictionary&lt;/span&gt; *attribute = @&amp;#123;&lt;span class=&quot;built_in&quot;&gt;NSKernAttributeName&lt;/span&gt;:@(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;),&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                            &lt;span class=&quot;built_in&quot;&gt;NSFontAttributeName&lt;/span&gt;:[&lt;span class=&quot;built_in&quot;&gt;UIFont&lt;/span&gt; systemFontOfSize:&lt;span class=&quot;number&quot;&gt;15&lt;/span&gt;]&amp;#125;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSAttributedString&lt;/span&gt; *attStr = [[&lt;span class=&quot;built_in&quot;&gt;NSAttributedString&lt;/span&gt; alloc] initWithString:str attributes:attribute];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.label.attributedText = attStr;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;其中NSKernAttributeName属性就是设置文字的字间距。但是，现在就有一个问题，设置字间距后，原本居中显示的文字，不能居中显示了。&lt;/p&gt;
-&lt;p&gt;这是我设置字间距之前的label&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/3cba47225e6b1a02cfad6885a67d83ed.png&quot; alt=&quot;1&quot;&gt;&lt;/p&gt;
-&lt;p&gt;这是我设置了字间距后的label&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/424954a63f3e38514b84ab7277269336.png&quot; alt=&quot;2&quot;&gt;&lt;/p&gt;
-&lt;p&gt;“你”字距左边距明显要比”鸿”字的右边距要大。&lt;/p&gt;
-&lt;p&gt;经过一阵Google，在StackOverflow上找到了相同的问题，链接是&lt;a href=&quot;http://stackoverflow.com/questions/23741850/nsstring-drawinrectwithattributes-not-correctly-centered-when-using-nskernattr&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://stackoverflow.com/questions/23741850/nsstring-drawinrectwithattributes-not-correctly-centered-when-using-nskernattr&lt;/a&gt;，根据问题回答里的做法，我把代码做了修改，如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt; *str = &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.label.text;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSMutableAttributedString&lt;/span&gt; *mutAttStr = [[&lt;span class=&quot;built_in&quot;&gt;NSMutableAttributedString&lt;/span&gt; alloc] initWithString:str];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;[mutAttStr addAttribute:&lt;span class=&quot;built_in&quot;&gt;NSKernAttributeName&lt;/span&gt; value:@(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;) range:&lt;span class=&quot;built_in&quot;&gt;NSMakeRange&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, str.length - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;)];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;[mutAttStr addAttribute:&lt;span class=&quot;built_in&quot;&gt;NSFontAttributeName&lt;/span&gt; value:[&lt;span class=&quot;built_in&quot;&gt;UIFont&lt;/span&gt; systemFontOfSize:&lt;span class=&quot;number&quot;&gt;15&lt;/span&gt;] range:&lt;span class=&quot;built_in&quot;&gt;NSMakeRange&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, str.length)];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.label.attributedText = [mutAttStr &lt;span class=&quot;keyword&quot;&gt;copy&lt;/span&gt;];&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;修改后效果如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/35b1f58bf08aa3dc7b827edb1da01e80.png&quot; alt=&quot;3&quot;&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;决定每个月用一篇博客将自己这一个月在工作或者学习中遇到的问题记录下来，大部分都是一些零碎的知识点。这是2016年4月份的问题记录，现在是4月10日，如果后续还有问题，会更新到这篇博客中。&lt;/p&gt;
-&lt;h2 id=&quot;UILabel设置lineBreakMode属性无效&quot;&gt;&lt;a 
     
     </summary>
     
@@ -1235,122 +1261,6 @@
     </summary>
     
       <category term="iOS开发" scheme="http://yoursite.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>《图解HTTP》读书笔记(3)</title>
-    <link href="http://yoursite.com/2015/10/07/%E3%80%8A%E5%9B%BE%E8%A7%A3HTTP%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0(3)/"/>
-    <id>http://yoursite.com/2015/10/07/《图解HTTP》读书笔记(3)/</id>
-    <published>2015-10-06T16:00:00.000Z</published>
-    <updated>2016-07-01T12:43:36.000Z</updated>
-    
-    <content type="html">&lt;ul&gt;
-&lt;li&gt;toc&lt;br&gt;{:toc}&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;第八章-确认访问身份的认证&quot;&gt;&lt;a href=&quot;#第八章-确认访问身份的认证&quot; class=&quot;headerlink&quot; title=&quot;第八章 确认访问身份的认证&quot;&gt;&lt;/a&gt;第八章 确认访问身份的认证&lt;/h2&gt;&lt;h3 id=&quot;何为认证&quot;&gt;&lt;a href=&quot;#何为认证&quot; class=&quot;headerlink&quot; title=&quot;何为认证&quot;&gt;&lt;/a&gt;何为认证&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;认证&lt;/strong&gt; 即为了弄清坐在电脑前的用户的真实身份，需要对用户的信息进行核实的过程&lt;/p&gt;
-&lt;p&gt;常见的几种认证方式：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;BASIC认证（基本认证）&lt;/li&gt;
-&lt;li&gt;DIGEST认证（摘要认证）&lt;/li&gt;
-&lt;li&gt;SSL客户端认证&lt;/li&gt;
-&lt;li&gt;FormBase认证（基于表单的认证）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;BASIC认证&quot;&gt;&lt;a href=&quot;#BASIC认证&quot; class=&quot;headerlink&quot; title=&quot;BASIC认证&quot;&gt;&lt;/a&gt;BASIC认证&lt;/h3&gt;&lt;p&gt;基本步骤&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;请求的资源需要BASIC认证时，服务器返回401，告知客户端需要认证信息&lt;/li&gt;
-&lt;li&gt;客户端在接收到401后，将用户名和密码组成&lt;code&gt;username:password&lt;/code&gt;形式，并进行Base64编码，然后以&lt;code&gt;BASIC &amp;lt;编码后的字符串&amp;gt;&lt;/code&gt;形式赋给请求头的&lt;br&gt;Authorization字段，然后再发送给服务器&lt;/li&gt;
-&lt;li&gt;服务器收到验证信息后，进行验证，如果验证通过，则返回200，并返回相应的资源&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Base64并非真正的加密，如果具有BASIC认证的请求被窃听，用户名和密钥泄露的几率还是很大的&lt;/p&gt;
-&lt;h3 id=&quot;DIGEST认证&quot;&gt;&lt;a href=&quot;#DIGEST认证&quot; class=&quot;headerlink&quot; title=&quot;DIGEST认证&quot;&gt;&lt;/a&gt;DIGEST认证&lt;/h3&gt;&lt;p&gt;DIGEST认证使用质询/响应的方式进行认证，但不会像BASIC认证那样明文传输密码。因此DIGEST认证的安全等级要高于BASIC认证。&lt;/p&gt;
-&lt;h3 id=&quot;SSL客户端认证&quot;&gt;&lt;a href=&quot;#SSL客户端认证&quot; class=&quot;headerlink&quot; title=&quot;SSL客户端认证&quot;&gt;&lt;/a&gt;SSL客户端认证&lt;/h3&gt;&lt;p&gt;SSL客户端认证是借由HTTPS的客户端证书完成认证的方式。&lt;/p&gt;
-&lt;h3 id=&quot;基于表单的认证&quot;&gt;&lt;a href=&quot;#基于表单的认证&quot; class=&quot;headerlink&quot; title=&quot;基于表单的认证&quot;&gt;&lt;/a&gt;基于表单的认证&lt;/h3&gt;&lt;p&gt;表单认证即我们通常用的在网页上输入密码和账号的认证方式&lt;/p&gt;
-&lt;p&gt;基本步骤：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;客户端将用户填写的用户名和密码（会做加密处理）发送给服务器，通常使用POST请求&lt;/li&gt;
-&lt;li&gt;服务器在接收到用户名和密码后，会去和已经登录在服务器上的用户名和密码做匹配，如果匹配通过，则服务器会在Set-Cookie字段中加入用以&lt;br&gt;识别用户的SessionID&lt;/li&gt;
-&lt;li&gt;客户端接收到SessionID会将其作为Cookie保存在本地，下次发送请求时会自动带上Cookie字段，这样服务器就能识别用户身份，不用重新登录认证了&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;第九章-基于HTTP的功能追加协议&quot;&gt;&lt;a href=&quot;#第九章-基于HTTP的功能追加协议&quot; class=&quot;headerlink&quot; title=&quot;第九章 基于HTTP的功能追加协议&quot;&gt;&lt;/a&gt;第九章 基于HTTP的功能追加协议&lt;/h2&gt;&lt;p&gt;随着时代的发展，HTTP协议上的限制和自身性能有限的缺点越来越明显，因此产生许多基于HTTP协议的功能追加协议&lt;/p&gt;
-&lt;h3 id=&quot;消除HTTP瓶颈的SPDY&quot;&gt;&lt;a href=&quot;#消除HTTP瓶颈的SPDY&quot; class=&quot;headerlink&quot; title=&quot;消除HTTP瓶颈的SPDY&quot;&gt;&lt;/a&gt;消除HTTP瓶颈的SPDY&lt;/h3&gt;&lt;p&gt;Google发布了SPDY，旨在消除HTTP的性能瓶颈。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;HTTP协议的瓶颈&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;一条连接上只可以发送一个请求&lt;/li&gt;
-&lt;li&gt;请求只能从客户端开始，客户端不可以接收除响应以外的任何指令&lt;/li&gt;
-&lt;li&gt;请求/响应未经压缩就发送，首部信息越多延迟越大&lt;/li&gt;
-&lt;li&gt;每次互相发送相同的首部造成浪费&lt;/li&gt;
-&lt;li&gt;可任意选择数据压缩格式，非强制压缩发送&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;解决方式&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Ajax（异步Javascript与XML技术）的解决方法&lt;ul&gt;
-&lt;li&gt;只更新一部分页面，因此传输的数据量大大减少&lt;/li&gt;
-&lt;li&gt;Ajax仍未解决HTTP协议本身存在的问题&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Comet的解决方式&lt;ul&gt;
-&lt;li&gt;一旦服务器有内容更新，Comet不会让请求等待，而是直接给客户端返回响应，这是一种延迟应答，模拟实现服务器向客户端推送的功能&lt;/li&gt;
-&lt;li&gt;客户端发送请求后，不会立即得到响应，相应的请求会在服务器挂起，等到有内容更新时，响应才会返回客户端&lt;/li&gt;
-&lt;li&gt;服务器为了维持链接会消耗更多资源&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;SPDY的目标&lt;ul&gt;
-&lt;li&gt;从协议层面消除HTTP的瓶颈&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;SPDY的设计与功能&quot;&gt;&lt;a href=&quot;#SPDY的设计与功能&quot; class=&quot;headerlink&quot; title=&quot;SPDY的设计与功能&quot;&gt;&lt;/a&gt;SPDY的设计与功能&lt;/h3&gt;&lt;p&gt;SPDY没有完全改写HTTP协议，而是在TCP和HTTP之间加入了一个会话层。SPDY的功能&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;多路复用&lt;/strong&gt; 单一的TCP链接可以处理多个HTTP请求&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;赋予请求优先级&lt;/strong&gt; 给请求追加优先级，解决因带宽低而导致响应变慢的问题&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;压缩HTTP首部&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;推送功能&lt;/strong&gt; 支持服务器主动向客户端推送数据的功能&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;服务器提示功能&lt;/strong&gt; 服务器可主动提示客户端请求所需的资源&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;使用浏览器进行双工通信的WebSocket&quot;&gt;&lt;a href=&quot;#使用浏览器进行双工通信的WebSocket&quot; class=&quot;headerlink&quot; title=&quot;使用浏览器进行双工通信的WebSocket&quot;&gt;&lt;/a&gt;使用浏览器进行双工通信的WebSocket&lt;/h3&gt;&lt;p&gt;一旦建立WebSocket链接，不论是服务器还是客户端，任何一方都可以直接向对方发送报文。&lt;/p&gt;
-&lt;p&gt;WebSocket的特定：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;推送功能&lt;/li&gt;
-&lt;li&gt;减少通信量，WebSocket的首部信息量很少&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;HTTP2-0&quot;&gt;&lt;a href=&quot;#HTTP2-0&quot; class=&quot;headerlink&quot; title=&quot;HTTP2.0&quot;&gt;&lt;/a&gt;HTTP2.0&lt;/h3&gt;&lt;h2 id=&quot;第十章-构建Web内容的技术&quot;&gt;&lt;a href=&quot;#第十章-构建Web内容的技术&quot; class=&quot;headerlink&quot; title=&quot;第十章 构建Web内容的技术&quot;&gt;&lt;/a&gt;第十章 构建Web内容的技术&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;HTML&lt;/li&gt;
-&lt;li&gt;CSS&lt;/li&gt;
-&lt;li&gt;动态HTML&lt;/li&gt;
-&lt;li&gt;Web应用&lt;/li&gt;
-&lt;li&gt;XML&lt;/li&gt;
-&lt;li&gt;JSON&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;第十一章-Web的攻击技术&quot;&gt;&lt;a href=&quot;#第十一章-Web的攻击技术&quot; class=&quot;headerlink&quot; title=&quot;第十一章 Web的攻击技术&quot;&gt;&lt;/a&gt;第十一章 Web的攻击技术&lt;/h2&gt;&lt;h3 id=&quot;针对Web的攻击技术&quot;&gt;&lt;a href=&quot;#针对Web的攻击技术&quot; class=&quot;headerlink&quot; title=&quot;针对Web的攻击技术&quot;&gt;&lt;/a&gt;针对Web的攻击技术&lt;/h3&gt;&lt;p&gt;攻击模式&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;主动攻击：SQL注入，OS命令注入&lt;/li&gt;
-&lt;li&gt;被动攻击：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;攻击方式&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;跨站脚本攻击&lt;/li&gt;
-&lt;li&gt;SQL注入攻击&lt;/li&gt;
-&lt;li&gt;OS命令注入攻击&lt;/li&gt;
-&lt;li&gt;HTTP首部注入攻击&lt;/li&gt;
-&lt;li&gt;邮件首部注入攻击&lt;/li&gt;
-&lt;li&gt;目录遍历攻击&lt;/li&gt;
-&lt;li&gt;远程文件包含漏洞&lt;br&gt;…&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;-&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;toc&lt;br&gt;{:toc}&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;第八章-确认访问身份的认证&quot;&gt;&lt;a href=&quot;#第八章-确认访问身份的认证&quot; class=&quot;headerlink&quot; title=&quot;第八章 确认访问身份的认证&quot;&gt;&lt;/a&gt;第八章 确认访问身份的认证
-    
-    </summary>
-    
-      <category term="读书笔记" scheme="http://yoursite.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
     
   </entry>

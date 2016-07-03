@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="UILabel,NSAttributedString," />
 
 
 
@@ -86,25 +86,22 @@
 
 
 
-<meta name="description" content="决定每个月用一篇博客将自己这一个月在工作或者学习中遇到的问题记录下来，大部分都是一些零碎的知识点。这是2016年4月份的问题记录，现在是4月10日，如果后续还有问题，会更新到这篇博客中。
-UILabel设置lineBreakMode属性无效Tag: UILabel, lineBreakMode
-UILabel的lineBreakMode属性用于设置文字的截断方式，我在使用过程中，发现了一个问题，当">
+<meta name="description" content="最近有一个需求，需要设置一个UILabel的字间距，我马上就想到了富文本，于是就写了下面的代码
+12345NSString *str = self.label.text;NSDictionary *attribute = @&amp;#123;NSKernAttributeName:@(10),                            NSFontAttributeName:[UIFont">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2016年4月开发问题记录">
-<meta property="og:url" content="http://yoursite.com/2016/04/10/2016年4月开发问题记录/index.html">
+<meta property="og:title" content="设置富文本字间距，文字不能居中对齐">
+<meta property="og:url" content="http://yoursite.com/2016/07/03/设置富文本字间距，文字不能居中对齐/index.html">
 <meta property="og:site_name" content="liujinlongxa的技术博客">
-<meta property="og:description" content="决定每个月用一篇博客将自己这一个月在工作或者学习中遇到的问题记录下来，大部分都是一些零碎的知识点。这是2016年4月份的问题记录，现在是4月10日，如果后续还有问题，会更新到这篇博客中。
-UILabel设置lineBreakMode属性无效Tag: UILabel, lineBreakMode
-UILabel的lineBreakMode属性用于设置文字的截断方式，我在使用过程中，发现了一个问题，当">
+<meta property="og:description" content="最近有一个需求，需要设置一个UILabel的字间距，我马上就想到了富文本，于是就写了下面的代码
+12345NSString *str = self.label.text;NSDictionary *attribute = @&amp;#123;NSKernAttributeName:@(10),                            NSFontAttributeName:[UIFont">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/3cba47225e6b1a02cfad6885a67d83ed.png">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/424954a63f3e38514b84ab7277269336.png">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/35b1f58bf08aa3dc7b827edb1da01e80.png">
-<meta property="og:updated_time" content="2016-07-01T12:43:36.000Z">
+<meta property="og:updated_time" content="2016-07-03T10:42:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2016年4月开发问题记录">
-<meta name="twitter:description" content="决定每个月用一篇博客将自己这一个月在工作或者学习中遇到的问题记录下来，大部分都是一些零碎的知识点。这是2016年4月份的问题记录，现在是4月10日，如果后续还有问题，会更新到这篇博客中。
-UILabel设置lineBreakMode属性无效Tag: UILabel, lineBreakMode
-UILabel的lineBreakMode属性用于设置文字的截断方式，我在使用过程中，发现了一个问题，当">
+<meta name="twitter:title" content="设置富文本字间距，文字不能居中对齐">
+<meta name="twitter:description" content="最近有一个需求，需要设置一个UILabel的字间距，我马上就想到了富文本，于是就写了下面的代码
+12345NSString *str = self.label.text;NSDictionary *attribute = @&amp;#123;NSKernAttributeName:@(10),                            NSFontAttributeName:[UIFont">
 <meta name="twitter:image" content="http://7xn88v.com1.z0.glb.clouddn.com/3cba47225e6b1a02cfad6885a67d83ed.png">
 
 
@@ -126,9 +123,9 @@ UILabel的lineBreakMode属性用于设置文字的截断方式，我在使用过
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/04/10/2016年4月开发问题记录/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/07/03/设置富文本字间距，文字不能居中对齐/"/>
 
-  <title> 2016年4月开发问题记录 | liujinlongxa的技术博客 </title>
+  <title> 设置富文本字间距，文字不能居中对齐 | liujinlongxa的技术博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -258,7 +255,7 @@ UILabel的lineBreakMode属性用于设置文字的截断方式，我在使用过
             
             
               
-                2016年4月开发问题记录
+                设置富文本字间距，文字不能居中对齐
               
             
           </h1>
@@ -270,8 +267,8 @@ UILabel的lineBreakMode属性用于设置文字的截断方式，我在使用过
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-10T00:00:00+08:00" content="2016-04-10">
-              2016-04-10
+            <time itemprop="dateCreated" datetime="2016-07-03T18:40:19+08:00" content="2016-07-03">
+              2016-07-03
             </time>
           </span>
 
@@ -284,8 +281,8 @@ UILabel的lineBreakMode属性用于设置文字的截断方式，我在使用过
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS开发</span>
+                  <a href="/categories/iOS-Tips/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS Tips</span>
                   </a>
                 </span>
 
@@ -300,8 +297,8 @@ UILabel的lineBreakMode属性用于设置文字的截断方式，我在使用过
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/10/2016年4月开发问题记录/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/10/2016年4月开发问题记录/" itemprop="commentsCount"></span>
+                <a href="/2016/07/03/设置富文本字间距，文字不能居中对齐/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/03/设置富文本字间距，文字不能居中对齐/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -324,11 +321,7 @@ UILabel的lineBreakMode属性用于设置文字的截断方式，我在使用过
       
 
       
-        <p>决定每个月用一篇博客将自己这一个月在工作或者学习中遇到的问题记录下来，大部分都是一些零碎的知识点。这是2016年4月份的问题记录，现在是4月10日，如果后续还有问题，会更新到这篇博客中。</p>
-<h2 id="UILabel设置lineBreakMode属性无效"><a href="#UILabel设置lineBreakMode属性无效" class="headerlink" title="UILabel设置lineBreakMode属性无效"></a>UILabel设置lineBreakMode属性无效</h2><p>Tag: UILabel, lineBreakMode</p>
-<p>UILabel的lineBreakMode属性用于设置文字的截断方式，我在使用过程中，发现了一个问题，当我设置lineBreakMode为NSLineBreakByCharWrapping或NSLineBreakByWordWrapping时，有时会没有效果，它依然以NSLineBreakByClipping方式显示。</p>
-<p>经过一番Google，原来，要设置NSLineBreakByCharWrapping或NSLineBreakByWordWrapping，UILabel的numberOfLines必须是0，否则就会无效。</p>
-<h2 id="设置富文本字间距，文字不能居中对齐"><a href="#设置富文本字间距，文字不能居中对齐" class="headerlink" title="设置富文本字间距，文字不能居中对齐"></a>设置富文本字间距，文字不能居中对齐</h2><p>最近有一个需求，需要设置一个UILabel的字间距，我马上就想到了富文本，于是就写了下面的代码</p>
+        <p>最近有一个需求，需要设置一个UILabel的字间距，我马上就想到了富文本，于是就写了下面的代码</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSString</span> *str = <span class="keyword">self</span>.label.text;</div><div class="line"><span class="built_in">NSDictionary</span> *attribute = @&#123;<span class="built_in">NSKernAttributeName</span>:@(<span class="number">10</span>),</div><div class="line">                            <span class="built_in">NSFontAttributeName</span>:[<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">15</span>]&#125;;</div><div class="line"><span class="built_in">NSAttributedString</span> *attStr = [[<span class="built_in">NSAttributedString</span> alloc] initWithString:str attributes:attribute];</div><div class="line"><span class="keyword">self</span>.label.attributedText = attStr;</div></pre></td></tr></table></figure>
 <p>其中NSKernAttributeName属性就是设置文字的字间距。但是，现在就有一个问题，设置字间距后，原本居中显示的文字，不能居中显示了。</p>
 <p>这是我设置字间距之前的label</p>
@@ -359,22 +352,26 @@ UILabel的lineBreakMode属性用于设置文字的截断方式，我在使用过
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/UILabel/" rel="tag">#UILabel</a>
+          
+            <a href="/tags/NSAttributedString/" rel="tag">#NSAttributedString</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/01/01/自动打包工具shenzhen使用简介/" rel="next" title="自动打包工具shenzhen使用简介">
-                <i class="fa fa-chevron-left"></i> 自动打包工具shenzhen使用简介
+              <a href="/2016/07/03/UILabel设置lineBreakMode属性无效/" rel="next" title="UILabel设置lineBreakMode属性无效">
+                <i class="fa fa-chevron-left"></i> UILabel设置lineBreakMode属性无效
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/10/iOS开发企业证书申请过程全记录/" rel="prev" title="iOS开发企业证书申请过程全记录">
-                iOS开发企业证书申请过程全记录 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -400,8 +397,8 @@ UILabel的lineBreakMode属性用于设置文字的截断方式，我在使用过
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/04/10/2016年4月开发问题记录/"
-           data-title="2016年4月开发问题记录" data-url="http://yoursite.com/2016/04/10/2016年4月开发问题记录/">
+      <div class="ds-thread" data-thread-key="2016/07/03/设置富文本字间距，文字不能居中对齐/"
+           data-title="设置富文本字间距，文字不能居中对齐" data-url="http://yoursite.com/2016/07/03/设置富文本字间距，文字不能居中对齐/">
       </div>
     
   </div>
@@ -446,7 +443,7 @@ UILabel的lineBreakMode属性用于设置文字的截断方式，我在使用过
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-count">32</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -454,7 +451,7 @@ UILabel的lineBreakMode属性用于设置文字的截断方式，我在使用过
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -463,7 +460,7 @@ UILabel的lineBreakMode属性用于设置文字的截断方式，我在使用过
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -537,7 +534,7 @@ UILabel的lineBreakMode属性用于设置文字的截断方式，我在使用过
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#UILabel设置lineBreakMode属性无效"><span class="nav-number">1.</span> <span class="nav-text">UILabel设置lineBreakMode属性无效</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置富文本字间距，文字不能居中对齐"><span class="nav-number">2.</span> <span class="nav-text">设置富文本字间距，文字不能居中对齐</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
