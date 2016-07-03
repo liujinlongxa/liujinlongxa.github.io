@@ -86,16 +86,42 @@
 
 
 
-<meta name="description" content="待填坑。">
+<meta name="description" content="最近公司项目不是很忙，所以想把自己的博客好好整整，下面就是我从原先的jekyll迁移的hexo的整个过程的记录以及中间遇到的一些问题。
+安装Hexo打开终端，执行命令：
+1$ npm install -g hexo-cli
+然后随便找个文件夹，执行命令：
+1$ hexo init .
+这个过程可能有些长，因为要安装很多依赖的包。
+执行完后，就会在这个文件中生成一些文件，如下图，这就是Hexo的主目">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从jekyll迁移到hexo">
 <meta property="og:url" content="http://yoursite.com/2016/07/01/从jekyll迁移到hexo/index.html">
 <meta property="og:site_name" content="liujinlongxa的技术博客">
-<meta property="og:description" content="待填坑。">
-<meta property="og:updated_time" content="2016-07-01T13:31:38.000Z">
+<meta property="og:description" content="最近公司项目不是很忙，所以想把自己的博客好好整整，下面就是我从原先的jekyll迁移的hexo的整个过程的记录以及中间遇到的一些问题。
+安装Hexo打开终端，执行命令：
+1$ npm install -g hexo-cli
+然后随便找个文件夹，执行命令：
+1$ hexo init .
+这个过程可能有些长，因为要安装很多依赖的包。
+执行完后，就会在这个文件中生成一些文件，如下图，这就是Hexo的主目">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/5f8ddbc140ff9ec8ecbd1bb8bb119b4a.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/81a90b7504bc5d934c642d1395dd63ed.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/d8627ec1356b590c21c2c6fba2cffd47.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/307f1cb10cc4a3286cc1dd01b0d4f0ce.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/69301b3770b43797bda6fbd110f08f87.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/f696d7662bef60f14f045484df43f22e.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/b371a047e69935cd2c92c11169483d00.png">
+<meta property="og:updated_time" content="2016-07-03T09:47:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从jekyll迁移到hexo">
-<meta name="twitter:description" content="待填坑。">
+<meta name="twitter:description" content="最近公司项目不是很忙，所以想把自己的博客好好整整，下面就是我从原先的jekyll迁移的hexo的整个过程的记录以及中间遇到的一些问题。
+安装Hexo打开终端，执行命令：
+1$ npm install -g hexo-cli
+然后随便找个文件夹，执行命令：
+1$ hexo init .
+这个过程可能有些长，因为要安装很多依赖的包。
+执行完后，就会在这个文件中生成一些文件，如下图，这就是Hexo的主目">
+<meta name="twitter:image" content="http://7xn88v.com1.z0.glb.clouddn.com/5f8ddbc140ff9ec8ecbd1bb8bb119b4a.png">
 
 
 
@@ -295,7 +321,78 @@
       
 
       
-        <p>待填坑。</p>
+        <p>最近公司项目不是很忙，所以想把自己的博客好好整整，下面就是我从原先的jekyll迁移的hexo的整个过程的记录以及中间遇到的一些问题。</p>
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>打开终端，执行命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo-cli</div></pre></td></tr></table></figure>
+<p>然后随便找个文件夹，执行命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init .</div></pre></td></tr></table></figure>
+<p>这个过程可能有些长，因为要安装很多依赖的包。</p>
+<p>执行完后，就会在这个文件中生成一些文件，如下图，这就是Hexo的主目录。然后执行命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install</div></pre></td></tr></table></figure>
+<p>这个命令一定要执行，否则后面在启动本地服务器预览是会出现“Get 404”错误。</p>
+<p>其他还要执行的命令有：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-renderer-ejs --save</div><div class="line">$ npm install hexo-renderer-stylus --save</div><div class="line">$ npm install hexo-renderer-marked --save</div><div class="line">$ npm install hexo-server --save</div></pre></td></tr></table></figure>
+<p>这样就完成了安装，然后执行命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo server</div></pre></td></tr></table></figure>
+<p>然后打开浏览器，输入<a href="http://127.0.0.1:4000/" target="_blank" rel="external">http://127.0.0.1:4000/</a>  ，就可以看到预览界面</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/5f8ddbc140ff9ec8ecbd1bb8bb119b4a.png" alt="1"></p>
+<h2 id="配置主题"><a href="#配置主题" class="headerlink" title="配置主题"></a>配置主题</h2><p>我选的是NexT主题，这个主题比较美观，而且最重要的是文档齐全，在<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">这里</a>可以找到关于这个主题的所有内容。</p>
+<p>安装主题的方法很简单，在hexo主目录执行命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure>
+<p>然后修改配置文件_config.yml，添加一下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">theme: next</div></pre></td></tr></table></figure>
+<p>然后开启预览，就可以看到主题已经换成了新的主题</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/81a90b7504bc5d934c642d1395dd63ed.png" alt="2"></p>
+<p>更详细的配置可以参考这个主题的<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">文档</a>。</p>
+<h2 id="数据迁移"><a href="#数据迁移" class="headerlink" title="数据迁移"></a>数据迁移</h2><p>Hexo的数据迁移很简单，只要要以前jekyll主目录下的<code>_post</code>文件夹里的所有文件拷贝到hexo目录下的<code>source/_posts</code>,然后在配置文件_config.yml中添加如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">new_post_name: :year-:month-:day-:title.md</div></pre></td></tr></table></figure>
+<p>这样就完成了数据迁移。其他框架的博客迁移到hexo可以参看<a href="https://hexo.io/zh-cn/docs/migration.html" target="_blank" rel="external">官方文档</a></p>
+<p>这里要注意的是，之前在jekyll中，代码块是这样的格式：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;% highlight objectiveC linenos %&#125;</div><div class="line"><span class="built_in">NSString</span> * str = <span class="string">@"I love coding!!"</span>;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, str);</div><div class="line">&#123;% endhighlight %&#125;</div></pre></td></tr></table></figure>
+<p>但是在hexo不支持这样的格式，所以要全部替换成标准的Markdown代码块，这是比较蛋疼的地方。</p>
+<p>做完这些之后，再次打开预览，就可以看到原来的博客啦。</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/d8627ec1356b590c21c2c6fba2cffd47.png" alt="3"></p>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>先安装hexo-deployer-git，执行命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+<p>然后在Github上创建一个仓库，然后开启Github Pages功能，可以参考<a href="http://jingpin.jikexueyuan.com/article/33505.html" target="_blank" rel="external">这篇文章</a></p>
+<p>然后修改配置文件_config.yml,添加如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repository: git@github.com:liujinlongxa/liujinlongxa.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
+<p>然后执行命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>这样就把博客部署到了github上</p>
+<h2 id="绑定独立域名"><a href="#绑定独立域名" class="headerlink" title="绑定独立域名"></a>绑定独立域名</h2><p>到万网购买了一个独立域名（后来才知道DNSPod的解析速度更快一些，后悔了），然后在hexo主目录下的source文件夹中创建一个名为CNAME的文件，里面填写你的独立域名，如下：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/307f1cb10cc4a3286cc1dd01b0d4f0ce.png" alt="4"></p>
+<p>然后重新部署一下，这样这个CNAME就会上传到Github仓库的根目录下。如下：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/69301b3770b43797bda6fbd110f08f87.png" alt="5"></p>
+<p>这里一定要注意，要把CNAME放在source文件夹里，如果直接从Github创建CNAME，重新部署博客后，会删掉添加的CNAME。</p>
+<p>然后就是添加域名解析，打开万网域名管理后台，添加如下解析</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/f696d7662bef60f14f045484df43f22e.png" alt="6"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">192.30.252.153</div><div class="line">192.30.252.154</div></pre></td></tr></table></figure>
+<p>这两个IP是Github的IP，设置完后，过一会，就可以用独立域名访问了。</p>
+<p>这样一个Hexo博客就搭建完成了。</p>
+<h2 id="写博客"><a href="#写博客" class="headerlink" title="写博客"></a>写博客</h2><p>Hexo自带命令可以生成生成一篇新的博客，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo new post &quot;helloworld&quot;</div></pre></td></tr></table></figure>
+<p>然后就会生成一篇名为”helloworld”的博客。</p>
+<p>写完博客后，然后执行下面三条命令发布博客。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo generate</div><div class="line">hexo deploy</div></pre></td></tr></table></figure>
+<p>这里可以写一个脚本，一次性执行这三条命令。</p>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><ul>
+<li>执行hexo deploy后，CNAME和README.md文件消失</li>
+</ul>
+<p>解决方法，把这两个文件放在source目录下，这样在部署时就会把这两个文件也放到github的根目录下</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/b371a047e69935cd2c92c11169483d00.png" alt="7"></p>
+<ul>
+<li>执行hexo deploy后，README.md被渲染成了README.html</li>
+</ul>
+<p>解决方法，在_config.yml中添加如下内容即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">skip_render: README.md</div></pre></td></tr></table></figure>
+<p>以上就是我从Jekyll迁移到Hexo的整个过程。</p>
+<p>参考资料：</p>
+<ul>
+<li><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">Hexo文档</a></li>
+<li><a href="http://theme-next.iissnan.com/" target="_blank" rel="external">NexT使用手册</a></li>
+<li><a href="http://blog.sunnyxx.com/2014/02/27/hexo_startup/" target="_blank" rel="external">hexo边搭边记</a></li>
+</ul>
 
       
     </div>
@@ -495,7 +592,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Hexo"><span class="nav-number">1.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置主题"><span class="nav-number">2.</span> <span class="nav-text">配置主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据迁移"><span class="nav-number">3.</span> <span class="nav-text">数据迁移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署"><span class="nav-number">4.</span> <span class="nav-text">部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绑定独立域名"><span class="nav-number">5.</span> <span class="nav-text">绑定独立域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写博客"><span class="nav-number">6.</span> <span class="nav-text">写博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到的问题"><span class="nav-number">7.</span> <span class="nav-text">遇到的问题</span></a></li></ol></div>
             
           </div>
         </section>
