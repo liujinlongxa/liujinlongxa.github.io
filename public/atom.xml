@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-07-10T10:32:38.000Z</updated>
+  <updated>2016-07-26T15:32:56.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>UIButton设置标题无效</title>
+    <link href="http://yoursite.com/2016/07/26/UIButton%E8%AE%BE%E7%BD%AE%E6%A0%87%E9%A2%98%E6%97%A0%E6%95%88/"/>
+    <id>http://yoursite.com/2016/07/26/UIButton设置标题无效/</id>
+    <published>2016-07-26T15:19:02.000Z</published>
+    <updated>2016-07-26T15:32:56.000Z</updated>
+    
+    <content type="html">&lt;p&gt;UIButton在使用&lt;code&gt;setAttributedTitle:forState:&lt;/code&gt;设置了富文本标题后，是使用&lt;code&gt;setTitle:forState:&lt;/code&gt;设置标题是没有效果的，解决方案是先把富文本去掉，然后再使用&lt;code&gt;setTitle:forState:&lt;/code&gt;设置标题，或者直接使用&lt;code&gt;setAttributedTitle:forState:&lt;/code&gt;重新设置不带属性的富文本。代码如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;[&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.payButton setAttributedTitle:&lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt; forState:&lt;span class=&quot;built_in&quot;&gt;UIControlStateNormal&lt;/span&gt;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;[&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.payButton setTitle:&lt;span class=&quot;string&quot;&gt;@&quot;余额不足，去充值&quot;&lt;/span&gt; forState:&lt;span class=&quot;built_in&quot;&gt;UIControlStateNormal&lt;/span&gt;];&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;UIButton在使用&lt;code&gt;setAttributedTitle:forState:&lt;/code&gt;设置了富文本标题后，是使用&lt;code&gt;setTitle:forState:&lt;/code&gt;设置标题是没有效果的，解决方案是先把富文本去掉，然后再使用&lt;code&gt;setTit
+    
+    </summary>
+    
+      <category term="iOS Tips" scheme="http://yoursite.com/categories/iOS-Tips/"/>
+    
+    
+      <category term="UIButton" scheme="http://yoursite.com/tags/UIButton/"/>
+    
+  </entry>
   
   <entry>
     <title>深入理解CoreAnimation的fillMode和isRemovedOnCompletion</title>
@@ -913,65 +937,6 @@
   </entry>
   
   <entry>
-    <title>《ios核心动画高级技巧》阅读笔记(2)</title>
-    <link href="http://yoursite.com/2015/12/27/%E3%80%8Aios%E6%A0%B8%E5%BF%83%E5%8A%A8%E7%94%BB%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(2)/"/>
-    <id>http://yoursite.com/2015/12/27/《ios核心动画高级技巧》阅读笔记(2)/</id>
-    <published>2015-12-26T16:00:00.000Z</published>
-    <updated>2016-07-01T12:43:36.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;第三章-图层集合学&quot;&gt;&lt;a href=&quot;#第三章-图层集合学&quot; class=&quot;headerlink&quot; title=&quot;第三章 图层集合学&quot;&gt;&lt;/a&gt;第三章 图层集合学&lt;/h2&gt;&lt;h3 id=&quot;布局&quot;&gt;&lt;a href=&quot;#布局&quot; class=&quot;headerlink&quot; title=&quot;布局&quot;&gt;&lt;/a&gt;布局&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;frame：图层的相对于父图层的外部坐标&lt;/li&gt;
-&lt;li&gt;bounds：内部坐标&lt;/li&gt;
-&lt;li&gt;center和position：相对于父图层anchorPoint所在的位置&lt;/li&gt;
-&lt;li&gt;设置视图的frame，bounds和center，也就是相当于设置图层的frame，bounds和position&lt;/li&gt;
-&lt;li&gt;一般情况下，frame中的size与bounds中的size是相同的，但是当视图旋转时，frame的size和bounds的size就不一样了，如下图&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/a592d9f689fe8a2818583430f5a8211d.png&quot; alt=&quot;frame&amp;amp;bounds&amp;amp;center&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;锚点&quot;&gt;&lt;a href=&quot;#锚点&quot; class=&quot;headerlink&quot; title=&quot;锚点&quot;&gt;&lt;/a&gt;锚点&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;锚点是相对于父图层anchorPoint所在的位置。&lt;/li&gt;
-&lt;li&gt;默认，锚点位于图层的中点，可以改变锚点的位置，描点改变，frame也会随之改变。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/99c7a6ddc1d2b162816b2a9ef5ff568f.png&quot; alt=&quot;anchorPoint&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;改变锚点，position不会改变，但是frame改变了。&lt;/li&gt;
-&lt;li&gt;anchorPoint是View在旋转是的轴点，如果想改变view的旋转轴点，改变anchorPoint即可&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;坐标系&quot;&gt;&lt;a href=&quot;#坐标系&quot; class=&quot;headerlink&quot; title=&quot;坐标系&quot;&gt;&lt;/a&gt;坐标系&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;与UIView一样，CALayer也提供了一套坐标变换的借口&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;built_in&quot;&gt;CGPoint&lt;/span&gt;)convertPoint:(&lt;span class=&quot;built_in&quot;&gt;CGPoint&lt;/span&gt;)p fromLayer:(&lt;span class=&quot;keyword&quot;&gt;nullable&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;CALayer&lt;/span&gt; *)l;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;built_in&quot;&gt;CGPoint&lt;/span&gt;)convertPoint:(&lt;span class=&quot;built_in&quot;&gt;CGPoint&lt;/span&gt;)p toLayer:(&lt;span class=&quot;keyword&quot;&gt;nullable&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;CALayer&lt;/span&gt; *)l;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;built_in&quot;&gt;CGRect&lt;/span&gt;)convertRect:(&lt;span class=&quot;built_in&quot;&gt;CGRect&lt;/span&gt;)r fromLayer:(&lt;span class=&quot;keyword&quot;&gt;nullable&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;CALayer&lt;/span&gt; *)l;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;built_in&quot;&gt;CGRect&lt;/span&gt;)convertRect:(&lt;span class=&quot;built_in&quot;&gt;CGRect&lt;/span&gt;)r toLayer:(&lt;span class=&quot;keyword&quot;&gt;nullable&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;CALayer&lt;/span&gt; *)l;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;翻转的几何结构&quot;&gt;&lt;a href=&quot;#翻转的几何结构&quot; class=&quot;headerlink&quot; title=&quot;翻转的几何结构&quot;&gt;&lt;/a&gt;翻转的几何结构&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;ios上坐标系原点为左上角，macOS上坐标系原点为左下角。&lt;/li&gt;
-&lt;li&gt;CALayer的&lt;code&gt;geometryFlipped&lt;/code&gt;属性决定了图层的坐标是否相对于父图层翻转。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;z坐标轴&quot;&gt;&lt;a href=&quot;#z坐标轴&quot; class=&quot;headerlink&quot; title=&quot;z坐标轴&quot;&gt;&lt;/a&gt;z坐标轴&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;zPosition：表示图层空间z轴上的位置&lt;/li&gt;
-&lt;li&gt;zPosition除了可以改变z轴的位置，还可以用来改变图层的先后顺序，如图，如果设置了绿色view的zPosition，绿色View就可以覆盖在蓝色view之上。但是通过这种方法改变视图的层次，是不能改变视图的响应事件的顺序的。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/d673bc31fdbe28367ad557ac739a60fd.png&quot; alt=&quot;zPositon&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;anchorPointZ表示z轴上锚点的位置&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;Hit-Testing&quot;&gt;&lt;a href=&quot;#Hit-Testing&quot; class=&quot;headerlink&quot; title=&quot;Hit Testing&quot;&gt;&lt;/a&gt;Hit Testing&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;CALayer不能处理点击事件，但是他有一系列方法帮你处理事件。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;- (BOOL)containsPoint:(CGPoint)p;&lt;/code&gt;用于判断一个点是否属于一个图层&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;- (nullable CALayer *)hitTest:(CGPoint)p;&lt;/code&gt;返回被点击的图层&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)touchesBegan:(&lt;span class=&quot;built_in&quot;&gt;NSSet&lt;/span&gt;&amp;lt;&lt;span class=&quot;built_in&quot;&gt;UITouch&lt;/span&gt; *&amp;gt; *)touches withEvent:(&lt;span class=&quot;built_in&quot;&gt;UIEvent&lt;/span&gt; *)event &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;UITouch&lt;/span&gt; *touch = [touches anyObject];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGPoint&lt;/span&gt; point = [touch locationInView:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.view];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    point = [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView convertPoint:point fromView:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.view];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;BOOL&lt;/span&gt; ret = [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.layer containsPoint:point];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (ret) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;green&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    point = [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.buleView convertPoint:point fromView:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ret = [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.buleView.layer containsPoint:point];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (ret) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;blue&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CALayer&lt;/span&gt; *layer = [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.view.layer hitTest:point];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (layer == &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.layer) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;green&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(layer == &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.buleView.layer) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;blue&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;第三章-图层集合学&quot;&gt;&lt;a href=&quot;#第三章-图层集合学&quot; class=&quot;headerlink&quot; title=&quot;第三章 图层集合学&quot;&gt;&lt;/a&gt;第三章 图层集合学&lt;/h2&gt;&lt;h3 id=&quot;布局&quot;&gt;&lt;a href=&quot;#布局&quot; class=&quot;headerlink&quot; 
-    
-    </summary>
-    
-      <category term="读书笔记" scheme="http://yoursite.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>《ios核心动画高级技巧》阅读笔记(1)</title>
     <link href="http://yoursite.com/2015/12/27/%E3%80%8Aios%E6%A0%B8%E5%BF%83%E5%8A%A8%E7%94%BB%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(1)/"/>
     <id>http://yoursite.com/2015/12/27/《ios核心动画高级技巧》阅读笔记(1)/</id>
@@ -1042,6 +1007,65 @@
     <summary type="html">
     
       &lt;h2 id=&quot;第一章-图层树&quot;&gt;&lt;a href=&quot;#第一章-图层树&quot; class=&quot;headerlink&quot; title=&quot;第一章 图层树&quot;&gt;&lt;/a&gt;第一章 图层树&lt;/h2&gt;&lt;h3 id=&quot;CoreAnimation简介&quot;&gt;&lt;a href=&quot;#CoreAnimation简介&quot; c
+    
+    </summary>
+    
+      <category term="读书笔记" scheme="http://yoursite.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>《ios核心动画高级技巧》阅读笔记(2)</title>
+    <link href="http://yoursite.com/2015/12/27/%E3%80%8Aios%E6%A0%B8%E5%BF%83%E5%8A%A8%E7%94%BB%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(2)/"/>
+    <id>http://yoursite.com/2015/12/27/《ios核心动画高级技巧》阅读笔记(2)/</id>
+    <published>2015-12-26T16:00:00.000Z</published>
+    <updated>2016-07-01T12:43:36.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;第三章-图层集合学&quot;&gt;&lt;a href=&quot;#第三章-图层集合学&quot; class=&quot;headerlink&quot; title=&quot;第三章 图层集合学&quot;&gt;&lt;/a&gt;第三章 图层集合学&lt;/h2&gt;&lt;h3 id=&quot;布局&quot;&gt;&lt;a href=&quot;#布局&quot; class=&quot;headerlink&quot; title=&quot;布局&quot;&gt;&lt;/a&gt;布局&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;frame：图层的相对于父图层的外部坐标&lt;/li&gt;
+&lt;li&gt;bounds：内部坐标&lt;/li&gt;
+&lt;li&gt;center和position：相对于父图层anchorPoint所在的位置&lt;/li&gt;
+&lt;li&gt;设置视图的frame，bounds和center，也就是相当于设置图层的frame，bounds和position&lt;/li&gt;
+&lt;li&gt;一般情况下，frame中的size与bounds中的size是相同的，但是当视图旋转时，frame的size和bounds的size就不一样了，如下图&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/a592d9f689fe8a2818583430f5a8211d.png&quot; alt=&quot;frame&amp;amp;bounds&amp;amp;center&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;锚点&quot;&gt;&lt;a href=&quot;#锚点&quot; class=&quot;headerlink&quot; title=&quot;锚点&quot;&gt;&lt;/a&gt;锚点&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;锚点是相对于父图层anchorPoint所在的位置。&lt;/li&gt;
+&lt;li&gt;默认，锚点位于图层的中点，可以改变锚点的位置，描点改变，frame也会随之改变。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/99c7a6ddc1d2b162816b2a9ef5ff568f.png&quot; alt=&quot;anchorPoint&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;改变锚点，position不会改变，但是frame改变了。&lt;/li&gt;
+&lt;li&gt;anchorPoint是View在旋转是的轴点，如果想改变view的旋转轴点，改变anchorPoint即可&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;坐标系&quot;&gt;&lt;a href=&quot;#坐标系&quot; class=&quot;headerlink&quot; title=&quot;坐标系&quot;&gt;&lt;/a&gt;坐标系&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;与UIView一样，CALayer也提供了一套坐标变换的借口&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;built_in&quot;&gt;CGPoint&lt;/span&gt;)convertPoint:(&lt;span class=&quot;built_in&quot;&gt;CGPoint&lt;/span&gt;)p fromLayer:(&lt;span class=&quot;keyword&quot;&gt;nullable&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;CALayer&lt;/span&gt; *)l;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;built_in&quot;&gt;CGPoint&lt;/span&gt;)convertPoint:(&lt;span class=&quot;built_in&quot;&gt;CGPoint&lt;/span&gt;)p toLayer:(&lt;span class=&quot;keyword&quot;&gt;nullable&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;CALayer&lt;/span&gt; *)l;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;built_in&quot;&gt;CGRect&lt;/span&gt;)convertRect:(&lt;span class=&quot;built_in&quot;&gt;CGRect&lt;/span&gt;)r fromLayer:(&lt;span class=&quot;keyword&quot;&gt;nullable&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;CALayer&lt;/span&gt; *)l;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;built_in&quot;&gt;CGRect&lt;/span&gt;)convertRect:(&lt;span class=&quot;built_in&quot;&gt;CGRect&lt;/span&gt;)r toLayer:(&lt;span class=&quot;keyword&quot;&gt;nullable&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;CALayer&lt;/span&gt; *)l;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;翻转的几何结构&quot;&gt;&lt;a href=&quot;#翻转的几何结构&quot; class=&quot;headerlink&quot; title=&quot;翻转的几何结构&quot;&gt;&lt;/a&gt;翻转的几何结构&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ios上坐标系原点为左上角，macOS上坐标系原点为左下角。&lt;/li&gt;
+&lt;li&gt;CALayer的&lt;code&gt;geometryFlipped&lt;/code&gt;属性决定了图层的坐标是否相对于父图层翻转。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;z坐标轴&quot;&gt;&lt;a href=&quot;#z坐标轴&quot; class=&quot;headerlink&quot; title=&quot;z坐标轴&quot;&gt;&lt;/a&gt;z坐标轴&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;zPosition：表示图层空间z轴上的位置&lt;/li&gt;
+&lt;li&gt;zPosition除了可以改变z轴的位置，还可以用来改变图层的先后顺序，如图，如果设置了绿色view的zPosition，绿色View就可以覆盖在蓝色view之上。但是通过这种方法改变视图的层次，是不能改变视图的响应事件的顺序的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/d673bc31fdbe28367ad557ac739a60fd.png&quot; alt=&quot;zPositon&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;anchorPointZ表示z轴上锚点的位置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Hit-Testing&quot;&gt;&lt;a href=&quot;#Hit-Testing&quot; class=&quot;headerlink&quot; title=&quot;Hit Testing&quot;&gt;&lt;/a&gt;Hit Testing&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;CALayer不能处理点击事件，但是他有一系列方法帮你处理事件。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;- (BOOL)containsPoint:(CGPoint)p;&lt;/code&gt;用于判断一个点是否属于一个图层&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;- (nullable CALayer *)hitTest:(CGPoint)p;&lt;/code&gt;返回被点击的图层&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)touchesBegan:(&lt;span class=&quot;built_in&quot;&gt;NSSet&lt;/span&gt;&amp;lt;&lt;span class=&quot;built_in&quot;&gt;UITouch&lt;/span&gt; *&amp;gt; *)touches withEvent:(&lt;span class=&quot;built_in&quot;&gt;UIEvent&lt;/span&gt; *)event &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;UITouch&lt;/span&gt; *touch = [touches anyObject];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGPoint&lt;/span&gt; point = [touch locationInView:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.view];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    point = [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView convertPoint:point fromView:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.view];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;BOOL&lt;/span&gt; ret = [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.layer containsPoint:point];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (ret) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;green&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    point = [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.buleView convertPoint:point fromView:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ret = [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.buleView.layer containsPoint:point];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (ret) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;blue&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CALayer&lt;/span&gt; *layer = [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.view.layer hitTest:point];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (layer == &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.layer) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;green&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(layer == &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.buleView.layer) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;blue&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;第三章-图层集合学&quot;&gt;&lt;a href=&quot;#第三章-图层集合学&quot; class=&quot;headerlink&quot; title=&quot;第三章 图层集合学&quot;&gt;&lt;/a&gt;第三章 图层集合学&lt;/h2&gt;&lt;h3 id=&quot;布局&quot;&gt;&lt;a href=&quot;#布局&quot; class=&quot;headerlink&quot; 
     
     </summary>
     
@@ -1181,62 +1205,6 @@
     <summary type="html">
     
       &lt;h2 id=&quot;第六章-动画&quot;&gt;&lt;a href=&quot;#第六章-动画&quot; class=&quot;headerlink&quot; title=&quot;第六章 动画&quot;&gt;&lt;/a&gt;第六章 动画&lt;/h2&gt;&lt;h3 id=&quot;动画类&quot;&gt;&lt;a href=&quot;#动画类&quot; class=&quot;headerlink&quot; title=&quot;动画类
-    
-    </summary>
-    
-      <category term="读书笔记" scheme="http://yoursite.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>CoreAnimation编程指南学习笔记(1)</title>
-    <link href="http://yoursite.com/2015/12/06/CoreAnimation%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(1)/"/>
-    <id>http://yoursite.com/2015/12/06/CoreAnimation编程指南学习笔记(1)/</id>
-    <published>2015-12-05T16:00:00.000Z</published>
-    <updated>2016-07-01T12:43:36.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;第一章：核心动画概念&quot;&gt;&lt;a href=&quot;#第一章：核心动画概念&quot; class=&quot;headerlink&quot; title=&quot;第一章：核心动画概念&quot;&gt;&lt;/a&gt;第一章：核心动画概念&lt;/h2&gt;&lt;p&gt;CoreAnimation框架中类的分类&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;提供显示内容的图层类&lt;/li&gt;
-&lt;li&gt;动画和计时类&lt;/li&gt;
-&lt;li&gt;布局和约束类&lt;/li&gt;
-&lt;li&gt;事务类，在原子更新的时候组合图层类&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;图层类（Layer-Classes）&quot;&gt;&lt;a href=&quot;#图层类（Layer-Classes）&quot; class=&quot;headerlink&quot; title=&quot;图层类（Layer Classes）&quot;&gt;&lt;/a&gt;图层类（Layer Classes）&lt;/h3&gt;&lt;p&gt;CALayer是所有层类的父类，几个常见的图层子类：CAScrollLayer,CATextLayer,CATiledLayer等&lt;/p&gt;
-&lt;h3 id=&quot;动画类和计时类&quot;&gt;&lt;a href=&quot;#动画类和计时类&quot; class=&quot;headerlink&quot; title=&quot;动画类和计时类&quot;&gt;&lt;/a&gt;动画类和计时类&lt;/h3&gt;&lt;p&gt;CAAnimation是动画类的基类，他实现了CAMediaTiming协议，提供了动画的持续时间，速度，和重复计数等。他也实现了CAAction协议，该协议为图层触发一个动画动作提供了标准化响应。&lt;/p&gt;
-&lt;p&gt;动画类同时定义了一个使用贝塞尔曲线来描述动画改变的时间函数。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;CATransition：提供了一个图层改变的过渡效果，他能影响图层的整个内容。&lt;/li&gt;
-&lt;li&gt;CAAnimationGroup:组动画&lt;/li&gt;
-&lt;li&gt;CAPropertyAnimation:属性动画&lt;/li&gt;
-&lt;li&gt;CABasicAnimation:基础动画&lt;/li&gt;
-&lt;li&gt;CAKeyframeAnimation:关键帧动画&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;布局管理类&quot;&gt;&lt;a href=&quot;#布局管理类&quot; class=&quot;headerlink&quot; title=&quot;布局管理类&quot;&gt;&lt;/a&gt;布局管理类&lt;/h3&gt;&lt;p&gt;CAConstraint类是一个布局管理类，他可以指定子图层类限制于你指定的约束集合。&lt;/p&gt;
-&lt;h3 id=&quot;事务管理类&quot;&gt;&lt;a href=&quot;#事务管理类&quot; class=&quot;headerlink&quot; title=&quot;事务管理类&quot;&gt;&lt;/a&gt;事务管理类&lt;/h3&gt;&lt;p&gt;CATransaction是核心动画里面负责协调多个动画原子更新显示操作。事务支持嵌套使用。核心动画支持两种事务：隐式事务和显式事务。&lt;/p&gt;
-&lt;h2 id=&quot;第二章：渲染架构&quot;&gt;&lt;a href=&quot;#第二章：渲染架构&quot; class=&quot;headerlink&quot; title=&quot;第二章：渲染架构&quot;&gt;&lt;/a&gt;第二章：渲染架构&lt;/h2&gt;&lt;p&gt;每个可见的图层树由两个相应的树组成，一个是呈现树，一个是渲染树。修改图层的一个属性，图层树里相应的值会被马上更新，但是呈现树里面的值在将要显示给用户的时候才会被更新为新值。&lt;/p&gt;
-&lt;h2 id=&quot;第三章：几何变换&quot;&gt;&lt;a href=&quot;#第三章：几何变换&quot; class=&quot;headerlink&quot; title=&quot;第三章：几何变换&quot;&gt;&lt;/a&gt;第三章：几何变换&lt;/h2&gt;&lt;p&gt;anchorPoint:锚点，他指定了bounds相对于position的值，同时也作为变换时候的支点。在Autolayout设置约束时，锚点的值也会影响视图显示的位置。&lt;/p&gt;
-&lt;p&gt;几何变换：CATransform3D，可以使用变换函数进行变换，例如CATransform3DMakeTranslation，CATransform3DTranslate等，也可以通过键值路径修改变换。&lt;/p&gt;
-&lt;h2 id=&quot;第四章：图层树结构&quot;&gt;&lt;a href=&quot;#第四章：图层树结构&quot; class=&quot;headerlink&quot; title=&quot;第四章：图层树结构&quot;&gt;&lt;/a&gt;第四章：图层树结构&lt;/h2&gt;&lt;p&gt;图层树与视图的结构很类似：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;每个图层定义了一个基于其父图层的坐标系的坐标系，当一个图层变换的时候，他的子图层同样变换&lt;/li&gt;
-&lt;li&gt;一个动态的图层树，可以在程序运行的时候重新设置，图层可以添加，也可以删除&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;ios中，每个UIView的实例会自动创建一个CALayer类的实体，视图为图层提供了底层的事件处理，图层为视图提供了显示的内容。&lt;/p&gt;
-&lt;h2 id=&quot;第五章：图层的内容&quot;&gt;&lt;a href=&quot;#第五章：图层的内容&quot; class=&quot;headerlink&quot; title=&quot;第五章：图层的内容&quot;&gt;&lt;/a&gt;第五章：图层的内容&lt;/h2&gt;&lt;p&gt;使用CALayer无需创建继承子类，直接设置CALayer的contents属性即可，contents属性是一个CGImageRef类型，这样子创建比使用UIImageView效率要高&lt;/p&gt;
-&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.myLayer = [[&lt;span class=&quot;built_in&quot;&gt;CALayer&lt;/span&gt; alloc] init];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.myLayer.bounds = &lt;span class=&quot;built_in&quot;&gt;CGRectMake&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.myLayer.position = &lt;span class=&quot;built_in&quot;&gt;CGPointMake&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.myLayer.backgroundColor = [&lt;span class=&quot;built_in&quot;&gt;UIColor&lt;/span&gt; redColor].CGColor;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;UIImage&lt;/span&gt; *image = [&lt;span class=&quot;built_in&quot;&gt;UIImage&lt;/span&gt; imageNamed:&lt;span class=&quot;string&quot;&gt;@&quot;1.JPG&quot;&lt;/span&gt;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.myLayer.contents = (__bridge &lt;span class=&quot;keyword&quot;&gt;id&lt;/span&gt; _Nullable)(image.CGImage);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;[&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.view.layer addSublayer:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.myLayer];&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;也可以通过代理方法，提供CALayer的内容，有两个代理方法：&lt;code&gt;- (void)displayLayer:(CALayer *)theLayer&lt;/code&gt;与&lt;code&gt;- (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx&lt;/code&gt;, 要通知系统重绘图层，只需要调用CALayer的&lt;code&gt;setNeedsDisplay&lt;/code&gt;或者&lt;code&gt;setNeedsDisplayInRect:&lt;/code&gt;方法或者把图层的needsDisplayOnBoundsChange属性值设置为YES即可。&lt;/p&gt;
-&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)drawLayer:(&lt;span class=&quot;built_in&quot;&gt;CALayer&lt;/span&gt; *)layer inContext:(&lt;span class=&quot;built_in&quot;&gt;CGContextRef&lt;/span&gt;)ctx &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGMutablePathRef&lt;/span&gt; thePath = &lt;span class=&quot;built_in&quot;&gt;CGPathCreateMutable&lt;/span&gt;();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGPathMoveToPoint&lt;/span&gt;(thePath,&lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;15.0&lt;/span&gt;f,&lt;span class=&quot;number&quot;&gt;15.&lt;/span&gt;f);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGPathAddCurveToPoint&lt;/span&gt;(thePath,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                          &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                          &lt;span class=&quot;number&quot;&gt;15.&lt;/span&gt;f,&lt;span class=&quot;number&quot;&gt;250.0&lt;/span&gt;f,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                          &lt;span class=&quot;number&quot;&gt;295.0&lt;/span&gt;f,&lt;span class=&quot;number&quot;&gt;250.0&lt;/span&gt;f,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                          &lt;span class=&quot;number&quot;&gt;295.0&lt;/span&gt;f,&lt;span class=&quot;number&quot;&gt;15.0&lt;/span&gt;f);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGContextBeginPath&lt;/span&gt;(ctx);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGContextAddPath&lt;/span&gt;(ctx, thePath );&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGContextSetLineWidth&lt;/span&gt;(ctx, &lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGContextStrokePath&lt;/span&gt;(ctx);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// release the path&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CFRelease&lt;/span&gt;(thePath);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)displayLayer:(&lt;span class=&quot;built_in&quot;&gt;CALayer&lt;/span&gt; *)layer &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;UIImage&lt;/span&gt; *image = [&lt;span class=&quot;built_in&quot;&gt;UIImage&lt;/span&gt; imageNamed:&lt;span class=&quot;string&quot;&gt;@&quot;1.JPG&quot;&lt;/span&gt;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    layer.contents = (__bridge &lt;span class=&quot;keyword&quot;&gt;id&lt;/span&gt; _Nullable)(image.CGImage);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;除了设置代理方法，也可以通过继承CALayer，重写&lt;code&gt;display&lt;/code&gt;方法或&lt;code&gt;- (void)drawInContext:(CGContextRef)theContext&lt;/code&gt;方法来自定义图层&lt;/p&gt;
-&lt;p&gt;CALayer的contentsGravity属性相当于UIView的contentMode属性。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;第一章：核心动画概念&quot;&gt;&lt;a href=&quot;#第一章：核心动画概念&quot; class=&quot;headerlink&quot; title=&quot;第一章：核心动画概念&quot;&gt;&lt;/a&gt;第一章：核心动画概念&lt;/h2&gt;&lt;p&gt;CoreAnimation框架中类的分类&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;提供显示
     
     </summary>
     
