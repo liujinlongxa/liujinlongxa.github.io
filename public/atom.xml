@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-07-26T15:32:56.000Z</updated>
+  <updated>2016-07-30T03:42:29.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,47 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用HTTPS方法clone下来的Git仓库push时报错</title>
+    <link href="http://yoursite.com/2016/07/30/%E4%BD%BF%E7%94%A8HTTPS%E6%96%B9%E6%B3%95clone%E4%B8%8B%E6%9D%A5%E7%9A%84Git%E4%BB%93%E5%BA%93push%E6%97%B6%E6%8A%A5%E9%94%99/"/>
+    <id>http://yoursite.com/2016/07/30/使用HTTPS方法clone下来的Git仓库push时报错/</id>
+    <published>2016-07-30T03:22:55.000Z</published>
+    <updated>2016-07-30T03:42:29.000Z</updated>
+    
+    <content type="html">&lt;p&gt;昨天在使用Git时遇到了一个问题，今天记录一下。&lt;/p&gt;
+&lt;p&gt;一般我在克隆Github的项目时都是使用ssh的方式进行的，这样只要你的ssh-key配置正确，就没有问题。昨天心血来潮试了一下https克隆了一个项目，修改完后，准备push的时候需要了问题，问题如下：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;remote: Permission to liujinlongxa/Spoon-Knife.git denied to xxxx.&lt;br&gt;fatal: unable to access ‘&lt;a href=&quot;https://github.com/liujinlongxa/Spoon-Knife.git/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/liujinlongxa/Spoon-Knife.git/&lt;/a&gt;‘: The requested URL returned error: 403&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;解决方案是修改git的配置文件，&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;vim .git/config&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;将&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[remote “origin”]&lt;br&gt;        url = &lt;a href=&quot;https://github.com/liujinlongxa/Spoon-Knife.git&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/liujinlongxa/Spoon-Knife.git&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;改为&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[remote “origin”]&lt;br&gt;        url = &lt;a href=&quot;https://liujinlongxa@github.com/liujinlongxa/Spoon-Knife.git&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://liujinlongxa@github.com/liujinlongxa/Spoon-Knife.git&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;即前面加上用户名，这样就可以正常的push，或者直接运行命令&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;git config --local remote.origin.url https://liujinlongxa@github.com/liujinlongxa/Spoon-Knife.git&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;也可以达到相同的效果。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;昨天在使用Git时遇到了一个问题，今天记录一下。&lt;/p&gt;
+&lt;p&gt;一般我在克隆Github的项目时都是使用ssh的方式进行的，这样只要你的ssh-key配置正确，就没有问题。昨天心血来潮试了一下https克隆了一个项目，修改完后，准备push的时候需要了问题，问题如下：&lt;/p
+    
+    </summary>
+    
+      <category term="其他" scheme="http://yoursite.com/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+      <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
+    
+  </entry>
   
   <entry>
     <title>UIButton设置标题无效</title>
@@ -880,63 +921,6 @@
   </entry>
   
   <entry>
-    <title>《ios核心动画高级技巧》阅读笔记(3)</title>
-    <link href="http://yoursite.com/2015/12/27/%E3%80%8Aios%E6%A0%B8%E5%BF%83%E5%8A%A8%E7%94%BB%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(3)/"/>
-    <id>http://yoursite.com/2015/12/27/《ios核心动画高级技巧》阅读笔记(3)/</id>
-    <published>2015-12-26T16:00:00.000Z</published>
-    <updated>2016-07-01T12:43:36.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;第四章-视觉效果&quot;&gt;&lt;a href=&quot;#第四章-视觉效果&quot; class=&quot;headerlink&quot; title=&quot;第四章 视觉效果&quot;&gt;&lt;/a&gt;第四章 视觉效果&lt;/h2&gt;&lt;h3 id=&quot;圆角&quot;&gt;&lt;a href=&quot;#圆角&quot; class=&quot;headerlink&quot; title=&quot;圆角&quot;&gt;&lt;/a&gt;圆角&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;设置CALayer的cornerRadius属性来设置圆角，并且要把maskToBounds设置为YES&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;边框&quot;&gt;&lt;a href=&quot;#边框&quot; class=&quot;headerlink&quot; title=&quot;边框&quot;&gt;&lt;/a&gt;边框&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;设置CALayer的borderColor和borderWidth可以设置边框的颜色和宽度&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;阴影&quot;&gt;&lt;a href=&quot;#阴影&quot; class=&quot;headerlink&quot; title=&quot;阴影&quot;&gt;&lt;/a&gt;阴影&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;shadowColor:阴影的颜色&lt;/li&gt;
-&lt;li&gt;shadowOpacity:阴影的透明度&lt;/li&gt;
-&lt;li&gt;shadowOffset:阴影的偏移&lt;/li&gt;
-&lt;li&gt;shadowRadius:阴影的模糊度，即模糊半径&lt;/li&gt;
-&lt;li&gt;如果设置了maskToBounds，则阴影就不会显示了，因为阴影已经被裁减调了。要解决这个问题，可以再创建一个frame一样的View，给这个view设置阴影，而设置原本的view的maskToBounds，这样阴影就不会被裁减掉了。&lt;/li&gt;
-&lt;li&gt;shadowPath:指定阴影的路径。&lt;/li&gt;
-&lt;li&gt;设置ImageView,label等的阴影，并不是设置他们边界的阴影，而是设置里面内容的阴影，例如设置label的阴影，设置的是label中文字的阴影。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)viewDidAppear:(&lt;span class=&quot;built_in&quot;&gt;BOOL&lt;/span&gt;)animated &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [&lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt; viewDidAppear:animated];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.buleView.hidden = &lt;span class=&quot;literal&quot;&gt;YES&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.layer.shadowColor = [&lt;span class=&quot;built_in&quot;&gt;UIColor&lt;/span&gt; redColor].CGColor;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.layer.shadowOpacity = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.layer.shadowRadius = &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGMutablePathRef&lt;/span&gt; path = &lt;span class=&quot;built_in&quot;&gt;CGPathCreateMutable&lt;/span&gt;();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGPathAddEllipseInRect&lt;/span&gt;(path, &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.bounds);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.layer.shadowPath = path;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGPathRelease&lt;/span&gt;(path);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;图层蒙版&quot;&gt;&lt;a href=&quot;#图层蒙版&quot; class=&quot;headerlink&quot; title=&quot;图层蒙版&quot;&gt;&lt;/a&gt;图层蒙版&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;mask:CALayer的mask属性定义了父图层的部分可见区域，父图层与mask的关系如下图&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/87291a0061be6a254bd4937851ecf4d8.png&quot; alt=&quot;mask&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;虽然设置了mask，但是视图的事件响应区域任然是原视图的区域&lt;/li&gt;
-&lt;li&gt;mask是可以动态设置的，只要改变mask的大小，就可以对视图的显示区域进行动画&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)viewDidAppear:(&lt;span class=&quot;built_in&quot;&gt;BOOL&lt;/span&gt;)animated &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [&lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt; viewDidAppear:animated];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CAShapeLayer&lt;/span&gt; *mask = [&lt;span class=&quot;built_in&quot;&gt;CAShapeLayer&lt;/span&gt; layer];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;UIBezierPath&lt;/span&gt; *path = [&lt;span class=&quot;built_in&quot;&gt;UIBezierPath&lt;/span&gt; bezierPathWithOvalInRect:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.greenBtn.bounds];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    mask.path = path.CGPath;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.greenBtn.layer.mask = mask;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)touchesBegan:(&lt;span class=&quot;built_in&quot;&gt;NSSet&lt;/span&gt;&amp;lt;&lt;span class=&quot;built_in&quot;&gt;UITouch&lt;/span&gt; *&amp;gt; *)touches withEvent:(&lt;span class=&quot;built_in&quot;&gt;UIEvent&lt;/span&gt; *)event &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;UIBezierPath&lt;/span&gt; *endPath = [&lt;span class=&quot;built_in&quot;&gt;UIBezierPath&lt;/span&gt; bezierPathWithRect:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.greenBtn.bounds];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CAShapeLayer&lt;/span&gt; *layer = (&lt;span class=&quot;built_in&quot;&gt;CAShapeLayer&lt;/span&gt; *)&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.greenBtn.layer.mask;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 动画&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CABasicAnimation&lt;/span&gt; *animation = [&lt;span class=&quot;built_in&quot;&gt;CABasicAnimation&lt;/span&gt; animationWithKeyPath:&lt;span class=&quot;string&quot;&gt;@&quot;path&quot;&lt;/span&gt;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    animation.duration = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    animation.fromValue = (&lt;span class=&quot;keyword&quot;&gt;id&lt;/span&gt;)layer.path;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    animation.toValue = (__bridge &lt;span class=&quot;keyword&quot;&gt;id&lt;/span&gt; _Nullable)(endPath.CGPath);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    animation.removedOnCompletion = &lt;span class=&quot;literal&quot;&gt;NO&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    animation.fillMode = kCAFillModeForwards;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [layer addAnimation:animation forKey:&lt;span class=&quot;string&quot;&gt;@&quot;shapeLayerPath&quot;&lt;/span&gt;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;拉伸过滤&quot;&gt;&lt;a href=&quot;#拉伸过滤&quot; class=&quot;headerlink&quot; title=&quot;拉伸过滤&quot;&gt;&lt;/a&gt;拉伸过滤&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;minificationFilter:缩小图片的拉伸算法&lt;/li&gt;
-&lt;li&gt;magnificationFilter:方法图片的拉伸算法&lt;/li&gt;
-&lt;li&gt;三个值：kCAFilterNearest，kCAFilterLinear，kCAFilterTrilinear&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;组透明&quot;&gt;&lt;a href=&quot;#组透明&quot; class=&quot;headerlink&quot; title=&quot;组透明&quot;&gt;&lt;/a&gt;组透明&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;改变视图或图层的透明度，其子视图或子图层的透明度也会跟着改变，但是经过叠加后，原本颜色相同的父子视图，变成了不同的视图，如下图：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/dda57bde043a3358e1cbc03af4fcbcf1.png&quot; alt=&quot;group-opacity&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;为了解决这种问题，可以在plist中添加”Renders with group opacity”为YES（目前ios9中默认就为YES），或者设置CALayer的shouldRasterize为YES也可以达到相同的效果。&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;第四章-视觉效果&quot;&gt;&lt;a href=&quot;#第四章-视觉效果&quot; class=&quot;headerlink&quot; title=&quot;第四章 视觉效果&quot;&gt;&lt;/a&gt;第四章 视觉效果&lt;/h2&gt;&lt;h3 id=&quot;圆角&quot;&gt;&lt;a href=&quot;#圆角&quot; class=&quot;headerlink&quot; titl
-    
-    </summary>
-    
-      <category term="读书笔记" scheme="http://yoursite.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>《ios核心动画高级技巧》阅读笔记(1)</title>
     <link href="http://yoursite.com/2015/12/27/%E3%80%8Aios%E6%A0%B8%E5%BF%83%E5%8A%A8%E7%94%BB%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(1)/"/>
     <id>http://yoursite.com/2015/12/27/《ios核心动画高级技巧》阅读笔记(1)/</id>
@@ -1007,6 +991,63 @@
     <summary type="html">
     
       &lt;h2 id=&quot;第一章-图层树&quot;&gt;&lt;a href=&quot;#第一章-图层树&quot; class=&quot;headerlink&quot; title=&quot;第一章 图层树&quot;&gt;&lt;/a&gt;第一章 图层树&lt;/h2&gt;&lt;h3 id=&quot;CoreAnimation简介&quot;&gt;&lt;a href=&quot;#CoreAnimation简介&quot; c
+    
+    </summary>
+    
+      <category term="读书笔记" scheme="http://yoursite.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>《ios核心动画高级技巧》阅读笔记(3)</title>
+    <link href="http://yoursite.com/2015/12/27/%E3%80%8Aios%E6%A0%B8%E5%BF%83%E5%8A%A8%E7%94%BB%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(3)/"/>
+    <id>http://yoursite.com/2015/12/27/《ios核心动画高级技巧》阅读笔记(3)/</id>
+    <published>2015-12-26T16:00:00.000Z</published>
+    <updated>2016-07-01T12:43:36.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;第四章-视觉效果&quot;&gt;&lt;a href=&quot;#第四章-视觉效果&quot; class=&quot;headerlink&quot; title=&quot;第四章 视觉效果&quot;&gt;&lt;/a&gt;第四章 视觉效果&lt;/h2&gt;&lt;h3 id=&quot;圆角&quot;&gt;&lt;a href=&quot;#圆角&quot; class=&quot;headerlink&quot; title=&quot;圆角&quot;&gt;&lt;/a&gt;圆角&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;设置CALayer的cornerRadius属性来设置圆角，并且要把maskToBounds设置为YES&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;边框&quot;&gt;&lt;a href=&quot;#边框&quot; class=&quot;headerlink&quot; title=&quot;边框&quot;&gt;&lt;/a&gt;边框&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;设置CALayer的borderColor和borderWidth可以设置边框的颜色和宽度&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;阴影&quot;&gt;&lt;a href=&quot;#阴影&quot; class=&quot;headerlink&quot; title=&quot;阴影&quot;&gt;&lt;/a&gt;阴影&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;shadowColor:阴影的颜色&lt;/li&gt;
+&lt;li&gt;shadowOpacity:阴影的透明度&lt;/li&gt;
+&lt;li&gt;shadowOffset:阴影的偏移&lt;/li&gt;
+&lt;li&gt;shadowRadius:阴影的模糊度，即模糊半径&lt;/li&gt;
+&lt;li&gt;如果设置了maskToBounds，则阴影就不会显示了，因为阴影已经被裁减调了。要解决这个问题，可以再创建一个frame一样的View，给这个view设置阴影，而设置原本的view的maskToBounds，这样阴影就不会被裁减掉了。&lt;/li&gt;
+&lt;li&gt;shadowPath:指定阴影的路径。&lt;/li&gt;
+&lt;li&gt;设置ImageView,label等的阴影，并不是设置他们边界的阴影，而是设置里面内容的阴影，例如设置label的阴影，设置的是label中文字的阴影。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)viewDidAppear:(&lt;span class=&quot;built_in&quot;&gt;BOOL&lt;/span&gt;)animated &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [&lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt; viewDidAppear:animated];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.buleView.hidden = &lt;span class=&quot;literal&quot;&gt;YES&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.layer.shadowColor = [&lt;span class=&quot;built_in&quot;&gt;UIColor&lt;/span&gt; redColor].CGColor;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.layer.shadowOpacity = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.layer.shadowRadius = &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGMutablePathRef&lt;/span&gt; path = &lt;span class=&quot;built_in&quot;&gt;CGPathCreateMutable&lt;/span&gt;();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGPathAddEllipseInRect&lt;/span&gt;(path, &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.bounds);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.layer.shadowPath = path;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGPathRelease&lt;/span&gt;(path);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;图层蒙版&quot;&gt;&lt;a href=&quot;#图层蒙版&quot; class=&quot;headerlink&quot; title=&quot;图层蒙版&quot;&gt;&lt;/a&gt;图层蒙版&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;mask:CALayer的mask属性定义了父图层的部分可见区域，父图层与mask的关系如下图&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/87291a0061be6a254bd4937851ecf4d8.png&quot; alt=&quot;mask&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;虽然设置了mask，但是视图的事件响应区域任然是原视图的区域&lt;/li&gt;
+&lt;li&gt;mask是可以动态设置的，只要改变mask的大小，就可以对视图的显示区域进行动画&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)viewDidAppear:(&lt;span class=&quot;built_in&quot;&gt;BOOL&lt;/span&gt;)animated &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [&lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt; viewDidAppear:animated];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CAShapeLayer&lt;/span&gt; *mask = [&lt;span class=&quot;built_in&quot;&gt;CAShapeLayer&lt;/span&gt; layer];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;UIBezierPath&lt;/span&gt; *path = [&lt;span class=&quot;built_in&quot;&gt;UIBezierPath&lt;/span&gt; bezierPathWithOvalInRect:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.greenBtn.bounds];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    mask.path = path.CGPath;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.greenBtn.layer.mask = mask;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)touchesBegan:(&lt;span class=&quot;built_in&quot;&gt;NSSet&lt;/span&gt;&amp;lt;&lt;span class=&quot;built_in&quot;&gt;UITouch&lt;/span&gt; *&amp;gt; *)touches withEvent:(&lt;span class=&quot;built_in&quot;&gt;UIEvent&lt;/span&gt; *)event &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;UIBezierPath&lt;/span&gt; *endPath = [&lt;span class=&quot;built_in&quot;&gt;UIBezierPath&lt;/span&gt; bezierPathWithRect:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.greenBtn.bounds];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CAShapeLayer&lt;/span&gt; *layer = (&lt;span class=&quot;built_in&quot;&gt;CAShapeLayer&lt;/span&gt; *)&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.greenBtn.layer.mask;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 动画&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CABasicAnimation&lt;/span&gt; *animation = [&lt;span class=&quot;built_in&quot;&gt;CABasicAnimation&lt;/span&gt; animationWithKeyPath:&lt;span class=&quot;string&quot;&gt;@&quot;path&quot;&lt;/span&gt;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    animation.duration = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    animation.fromValue = (&lt;span class=&quot;keyword&quot;&gt;id&lt;/span&gt;)layer.path;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    animation.toValue = (__bridge &lt;span class=&quot;keyword&quot;&gt;id&lt;/span&gt; _Nullable)(endPath.CGPath);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    animation.removedOnCompletion = &lt;span class=&quot;literal&quot;&gt;NO&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    animation.fillMode = kCAFillModeForwards;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [layer addAnimation:animation forKey:&lt;span class=&quot;string&quot;&gt;@&quot;shapeLayerPath&quot;&lt;/span&gt;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;拉伸过滤&quot;&gt;&lt;a href=&quot;#拉伸过滤&quot; class=&quot;headerlink&quot; title=&quot;拉伸过滤&quot;&gt;&lt;/a&gt;拉伸过滤&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;minificationFilter:缩小图片的拉伸算法&lt;/li&gt;
+&lt;li&gt;magnificationFilter:方法图片的拉伸算法&lt;/li&gt;
+&lt;li&gt;三个值：kCAFilterNearest，kCAFilterLinear，kCAFilterTrilinear&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;组透明&quot;&gt;&lt;a href=&quot;#组透明&quot; class=&quot;headerlink&quot; title=&quot;组透明&quot;&gt;&lt;/a&gt;组透明&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;改变视图或图层的透明度，其子视图或子图层的透明度也会跟着改变，但是经过叠加后，原本颜色相同的父子视图，变成了不同的视图，如下图：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/dda57bde043a3358e1cbc03af4fcbcf1.png&quot; alt=&quot;group-opacity&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;为了解决这种问题，可以在plist中添加”Renders with group opacity”为YES（目前ios9中默认就为YES），或者设置CALayer的shouldRasterize为YES也可以达到相同的效果。&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;第四章-视觉效果&quot;&gt;&lt;a href=&quot;#第四章-视觉效果&quot; class=&quot;headerlink&quot; title=&quot;第四章 视觉效果&quot;&gt;&lt;/a&gt;第四章 视觉效果&lt;/h2&gt;&lt;h3 id=&quot;圆角&quot;&gt;&lt;a href=&quot;#圆角&quot; class=&quot;headerlink&quot; titl
     
     </summary>
     
@@ -1174,41 +1215,6 @@
     </summary>
     
       <category term="iOS开发" scheme="http://yoursite.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>CoreAnimation编程指南学习笔记(2)</title>
-    <link href="http://yoursite.com/2015/12/13/CoreAnimation%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(2)/"/>
-    <id>http://yoursite.com/2015/12/13/CoreAnimation编程指南学习笔记(2)/</id>
-    <published>2015-12-12T16:00:00.000Z</published>
-    <updated>2016-07-01T12:43:36.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;第六章-动画&quot;&gt;&lt;a href=&quot;#第六章-动画&quot; class=&quot;headerlink&quot; title=&quot;第六章 动画&quot;&gt;&lt;/a&gt;第六章 动画&lt;/h2&gt;&lt;h3 id=&quot;动画类&quot;&gt;&lt;a href=&quot;#动画类&quot; class=&quot;headerlink&quot; title=&quot;动画类&quot;&gt;&lt;/a&gt;动画类&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;CABasicAnimation提供了在图层的属性值间简单的插入。&lt;/li&gt;
-&lt;li&gt;CAKeyframeAnimation提供支持关键帧动画。你指定动画的一个图层属性的关键路径，一个表示在动画的每个阶段的价值的数组，还有一个关键帧时间的数组和时间函数。&lt;/li&gt;
-&lt;li&gt;CATransition提供了一个影响整个图层的内容过渡效果。在动画显示过程中采用淡出（fade）、推出(push)、显露(reveal)图层的内容。 常用的过渡效果可以通过提供你自己定制的核心图像滤镜来扩展。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;隐式动画&quot;&gt;&lt;a href=&quot;#隐式动画&quot; class=&quot;headerlink&quot; title=&quot;隐式动画&quot;&gt;&lt;/a&gt;隐式动画&lt;/h3&gt;&lt;p&gt;隐式动画指所有修改CALayer的可动画属性，默认会都会带有动画。例如&lt;code&gt;self.layer.position = CGPointMake(200, 200);&lt;/code&gt;默认是带有动画效果的。注意一定是修改layer属性，修改UIView的属性，默认是不带有隐式动画的。而且UIView默认带有的layer属性也是不带隐式动画的。&lt;/p&gt;
-&lt;h3 id=&quot;显示动画&quot;&gt;&lt;a href=&quot;#显示动画&quot; class=&quot;headerlink&quot; title=&quot;显示动画&quot;&gt;&lt;/a&gt;显示动画&lt;/h3&gt;&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;CABasicAnimation&lt;/span&gt; *anim = [&lt;span class=&quot;built_in&quot;&gt;CABasicAnimation&lt;/span&gt; 	animationWithKeyPath:&lt;span class=&quot;string&quot;&gt;@&quot;opacity&quot;&lt;/span&gt;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   anim.fromValue = @(&lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   anim.toValue = @(&lt;span class=&quot;number&quot;&gt;0.5&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   anim.autoreverses = &lt;span class=&quot;literal&quot;&gt;YES&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   anim.repeatCount = &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   anim.duration = &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layer addAnimation:anim forKey:&lt;span class=&quot;string&quot;&gt;@&quot;anim&quot;&lt;/span&gt;];&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;第七章-事务&quot;&gt;&lt;a href=&quot;#第七章-事务&quot; class=&quot;headerlink&quot; title=&quot;第七章 事务&quot;&gt;&lt;/a&gt;第七章 事务&lt;/h2&gt;&lt;p&gt;图层的每一个改变都是事务的一部分。隐式分为显示事务和隐式事务。隐式事务由系统自动创建和提交，在修改图层属性时，系统会自动创建一个事务，在下一次运行循环时自动提交。显示事务由用户程序控制创建和提交。一旦创建了显示事务，系统就不会再创建隐式事务。&lt;/p&gt;
-&lt;h3 id=&quot;使用显式事务禁止隐式动画&quot;&gt;&lt;a href=&quot;#使用显式事务禁止隐式动画&quot; class=&quot;headerlink&quot; title=&quot;使用显式事务禁止隐式动画&quot;&gt;&lt;/a&gt;使用显式事务禁止隐式动画&lt;/h3&gt;&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;[&lt;span class=&quot;built_in&quot;&gt;CATransaction&lt;/span&gt; begin];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   [&lt;span class=&quot;built_in&quot;&gt;CATransaction&lt;/span&gt; setDisableActions:&lt;span class=&quot;literal&quot;&gt;YES&lt;/span&gt;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layer.position = &lt;span class=&quot;built_in&quot;&gt;CGPointMake&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;200&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;200&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   [&lt;span class=&quot;built_in&quot;&gt;CATransaction&lt;/span&gt; commit];&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;修改隐式动画的动画时长&quot;&gt;&lt;a href=&quot;#修改隐式动画的动画时长&quot; class=&quot;headerlink&quot; title=&quot;修改隐式动画的动画时长&quot;&gt;&lt;/a&gt;修改隐式动画的动画时长&lt;/h3&gt;&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;[&lt;span class=&quot;built_in&quot;&gt;CATransaction&lt;/span&gt; begin];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   [&lt;span class=&quot;built_in&quot;&gt;CATransaction&lt;/span&gt; setAnimationDuration:&lt;span class=&quot;number&quot;&gt;2.0&lt;/span&gt;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layer.position = &lt;span class=&quot;built_in&quot;&gt;CGPointMake&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;200&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;200&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   [&lt;span class=&quot;built_in&quot;&gt;CATransaction&lt;/span&gt; commit];&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;第八章-KVC&quot;&gt;&lt;a href=&quot;#第八章-KVC&quot; class=&quot;headerlink&quot; title=&quot;第八章 KVC&quot;&gt;&lt;/a&gt;第八章 KVC&lt;/h2&gt;&lt;p&gt;CoreAnimation是通过KVC来实现对不同字段或关键路径进行动画的，使用方法如下&lt;/p&gt;
-&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;[theLayer setValue:[&lt;span class=&quot;built_in&quot;&gt;NSNumber&lt;/span&gt; numberWithInteger:&lt;span class=&quot;number&quot;&gt;50&lt;/span&gt;] forKey:&lt;span class=&quot;string&quot;&gt;@&quot;someKey&quot;&lt;/span&gt;];&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;使用&lt;code&gt;defaultValueForKey:&lt;/code&gt;可以获取字段的默认值。&lt;/p&gt;
-&lt;p&gt;CAAnimation提供支持使用关键路径访问选择的结构字段。目前支持的字段如下&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/2015-12-13_10-42-53.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;第六章-动画&quot;&gt;&lt;a href=&quot;#第六章-动画&quot; class=&quot;headerlink&quot; title=&quot;第六章 动画&quot;&gt;&lt;/a&gt;第六章 动画&lt;/h2&gt;&lt;h3 id=&quot;动画类&quot;&gt;&lt;a href=&quot;#动画类&quot; class=&quot;headerlink&quot; title=&quot;动画类
-    
-    </summary>
-    
-      <category term="读书笔记" scheme="http://yoursite.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
     
   </entry>
