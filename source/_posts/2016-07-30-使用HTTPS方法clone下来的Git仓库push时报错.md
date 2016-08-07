@@ -1,6 +1,6 @@
 ---
 title: 使用HTTPS方法clone下来的Git仓库push时报错
-categories: 其他
+categories: Git
 tags:
   - Git
 date: 2016-07-30 11:22:55
