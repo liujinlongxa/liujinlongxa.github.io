@@ -113,8 +113,8 @@
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/c5350088190cd59d220b4942b9d87eae.png">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/c58f27e2d859d984c844371a43a37ab8.png">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/26a614c08121e4b0f8783551208e2d19.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/c80566a85b11c7cb41dc614d6c730bcd.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/3a8bc56c4998a308446ef47b7d434a41.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/9eca6530c312dc064c8901735ef9942e.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/7c38fa2c806440f162b83208038a8dc9.png">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/9d534724207d6319fcf654142e91ba24.png">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/74d02be9217b7ea806af5970560ac956.png">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/b2f7743ffae9917e88f0ace60e11637b.png">
@@ -127,7 +127,7 @@
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/3dc7b3340f6b693b047ecbee93400564.png">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/4f320784c4d9d731d53b3792856ec4dd.png">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/c9be98241282c46c0111cb25e1be9aa4.png">
-<meta property="og:updated_time" content="2016-08-07T10:51:41.000Z">
+<meta property="og:updated_time" content="2016-08-10T14:42:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在VPS上搭建Git服务器">
 <meta name="twitter:description" content="昨天尝试了在自己的VPS上搭建一个git服务器，中间踩了很多坑，下面是我整个搭建的过程。
@@ -385,8 +385,8 @@
 <h3 id="第四步：创建证书"><a href="#第四步：创建证书" class="headerlink" title="第四步：创建证书"></a>第四步：创建证书</h3><p>在服务器/homg/git目录下创建文件夹.ssh，然后在.ssh文件夹里创建authorized_keys</p>
 <p><strong> 注意：一定要切换到git用户下再创建，否则使用root用户创建，会因为文件夹权限的问题而造成RSA校验失败，我就是在这里卡了半天 </strong></p>
 <p>然后在客户端创建公钥，即~/.ssh/id_rsa.pub文件里的内容，然后把公钥填入服务器的authorized_keys文件中</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/c80566a85b11c7cb41dc614d6c730bcd.png" alt="7"></p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/3a8bc56c4998a308446ef47b7d434a41.png" alt="8"></p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/9eca6530c312dc064c8901735ef9942e.png" alt="7"></p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/7c38fa2c806440f162b83208038a8dc9.png" alt="8"></p>
 <h3 id="第五步：打开服务器RSA验证"><a href="#第五步：打开服务器RSA验证" class="headerlink" title="第五步：打开服务器RSA验证"></a>第五步：打开服务器RSA验证</h3><p>进入服务器/etc/ssh目录，使用vim打开sshd_config（建议先做一个备份），修改如下内容</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">RSAAuthentication yes     </div><div class="line">PubkeyAuthentication yes     </div><div class="line">AuthorizedKeysFile  .ssh/authorized_keys</div></pre></td></tr></table></figure>
 <p>大部分Linux系统的RSA认证默认就是开启的，如果已经开启，则可以忽略(在这里也卡了好久😭)</p>

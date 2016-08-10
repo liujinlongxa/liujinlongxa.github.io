@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-08-07T10:51:41.000Z</updated>
+  <updated>2016-08-10T14:42:54.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/08/07/%E5%9C%A8VPS%E4%B8%8A%E6%90%AD%E5%BB%BAGit%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     <id>http://yoursite.com/2016/08/07/在VPS上搭建Git服务器/</id>
     <published>2016-08-07T07:27:52.000Z</published>
-    <updated>2016-08-07T10:51:41.000Z</updated>
+    <updated>2016-08-10T14:42:54.000Z</updated>
     
     <content type="html">&lt;p&gt;昨天尝试了在自己的VPS上搭建一个git服务器，中间踩了很多坑，下面是我整个搭建的过程。&lt;/p&gt;
 &lt;h2 id=&quot;具体流程&quot;&gt;&lt;a href=&quot;#具体流程&quot; class=&quot;headerlink&quot; title=&quot;具体流程&quot;&gt;&lt;/a&gt;具体流程&lt;/h2&gt;&lt;h3 id=&quot;第一步：安装Git&quot;&gt;&lt;a href=&quot;#第一步：安装Git&quot; class=&quot;headerlink&quot; title=&quot;第一步：安装Git&quot;&gt;&lt;/a&gt;第一步：安装Git&lt;/h3&gt;&lt;p&gt;打开VPS(这里我用的是&lt;a href=&quot;https://bandwagonhost.com/index.php&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;搬运工&lt;/a&gt;，怎么购买VPS可以参考我的&lt;a href=&quot;http://liujinlongxa.com/2016/06/11/%E6%89%93%E9%80%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BF%BB%E5%A2%99VPS:%E6%90%AC%E8%BF%90%E5%B7%A5VPS%E8%B4%AD%E4%B9%B0%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B%E5%85%A8%E8%AE%B0%E5%BD%95/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这篇博客&lt;/a&gt;)的控制后台，进入Shell，然后输入命令：&lt;/p&gt;
@@ -43,8 +43,8 @@
 &lt;h3 id=&quot;第四步：创建证书&quot;&gt;&lt;a href=&quot;#第四步：创建证书&quot; class=&quot;headerlink&quot; title=&quot;第四步：创建证书&quot;&gt;&lt;/a&gt;第四步：创建证书&lt;/h3&gt;&lt;p&gt;在服务器/homg/git目录下创建文件夹.ssh，然后在.ssh文件夹里创建authorized_keys&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt; 注意：一定要切换到git用户下再创建，否则使用root用户创建，会因为文件夹权限的问题而造成RSA校验失败，我就是在这里卡了半天 &lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;然后在客户端创建公钥，即~/.ssh/id_rsa.pub文件里的内容，然后把公钥填入服务器的authorized_keys文件中&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/c80566a85b11c7cb41dc614d6c730bcd.png&quot; alt=&quot;7&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/3a8bc56c4998a308446ef47b7d434a41.png&quot; alt=&quot;8&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/9eca6530c312dc064c8901735ef9942e.png&quot; alt=&quot;7&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/7c38fa2c806440f162b83208038a8dc9.png&quot; alt=&quot;8&quot;&gt;&lt;/p&gt;
 &lt;h3 id=&quot;第五步：打开服务器RSA验证&quot;&gt;&lt;a href=&quot;#第五步：打开服务器RSA验证&quot; class=&quot;headerlink&quot; title=&quot;第五步：打开服务器RSA验证&quot;&gt;&lt;/a&gt;第五步：打开服务器RSA验证&lt;/h3&gt;&lt;p&gt;进入服务器/etc/ssh目录，使用vim打开sshd_config（建议先做一个备份），修改如下内容&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;RSAAuthentication yes     &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;PubkeyAuthentication yes     &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;AuthorizedKeysFile  .ssh/authorized_keys&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;大部分Linux系统的RSA认证默认就是开启的，如果已经开启，则可以忽略(在这里也卡了好久😭)&lt;/p&gt;
