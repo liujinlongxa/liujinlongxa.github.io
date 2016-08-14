@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-08-10T14:42:54.000Z</updated>
+  <updated>2016-08-12T15:20:04.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/08/07/%E5%9C%A8VPS%E4%B8%8A%E6%90%AD%E5%BB%BAGit%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     <id>http://yoursite.com/2016/08/07/在VPS上搭建Git服务器/</id>
     <published>2016-08-07T07:27:52.000Z</published>
-    <updated>2016-08-10T14:42:54.000Z</updated>
+    <updated>2016-08-12T15:20:04.000Z</updated>
     
     <content type="html">&lt;p&gt;昨天尝试了在自己的VPS上搭建一个git服务器，中间踩了很多坑，下面是我整个搭建的过程。&lt;/p&gt;
 &lt;h2 id=&quot;具体流程&quot;&gt;&lt;a href=&quot;#具体流程&quot; class=&quot;headerlink&quot; title=&quot;具体流程&quot;&gt;&lt;/a&gt;具体流程&lt;/h2&gt;&lt;h3 id=&quot;第一步：安装Git&quot;&gt;&lt;a href=&quot;#第一步：安装Git&quot; class=&quot;headerlink&quot; title=&quot;第一步：安装Git&quot;&gt;&lt;/a&gt;第一步：安装Git&lt;/h3&gt;&lt;p&gt;打开VPS(这里我用的是&lt;a href=&quot;https://bandwagonhost.com/index.php&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;搬运工&lt;/a&gt;，怎么购买VPS可以参考我的&lt;a href=&quot;http://liujinlongxa.com/2016/06/11/%E6%89%93%E9%80%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BF%BB%E5%A2%99VPS:%E6%90%AC%E8%BF%90%E5%B7%A5VPS%E8%B4%AD%E4%B9%B0%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B%E5%85%A8%E8%AE%B0%E5%BD%95/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这篇博客&lt;/a&gt;)的控制后台，进入Shell，然后输入命令：&lt;/p&gt;
@@ -111,7 +111,7 @@
     <link href="http://yoursite.com/2016/07/30/%E4%BD%BF%E7%94%A8HTTPS%E6%96%B9%E6%B3%95clone%E4%B8%8B%E6%9D%A5%E7%9A%84Git%E4%BB%93%E5%BA%93push%E6%97%B6%E6%8A%A5%E9%94%99/"/>
     <id>http://yoursite.com/2016/07/30/使用HTTPS方法clone下来的Git仓库push时报错/</id>
     <published>2016-07-30T03:22:55.000Z</published>
-    <updated>2016-08-07T07:33:49.000Z</updated>
+    <updated>2016-08-14T07:42:31.000Z</updated>
     
     <content type="html">&lt;p&gt;昨天在使用Git时遇到了一个问题，今天记录一下。&lt;/p&gt;
 &lt;p&gt;一般我在克隆Github的项目时都是使用ssh的方式进行的，这样只要你的ssh-key配置正确，就没有问题。昨天心血来潮试了一下https克隆了一个项目，修改完后，准备push的时候需要了问题，问题如下：&lt;/p&gt;
@@ -152,7 +152,7 @@
     <link href="http://yoursite.com/2016/07/26/UIButton%E8%AE%BE%E7%BD%AE%E6%A0%87%E9%A2%98%E6%97%A0%E6%95%88/"/>
     <id>http://yoursite.com/2016/07/26/UIButton设置标题无效/</id>
     <published>2016-07-26T15:19:02.000Z</published>
-    <updated>2016-07-26T15:32:56.000Z</updated>
+    <updated>2016-08-12T15:20:04.000Z</updated>
     
     <content type="html">&lt;p&gt;UIButton在使用&lt;code&gt;setAttributedTitle:forState:&lt;/code&gt;设置了富文本标题后，是使用&lt;code&gt;setTitle:forState:&lt;/code&gt;设置标题是没有效果的，解决方案是先把富文本去掉，然后再使用&lt;code&gt;setTitle:forState:&lt;/code&gt;设置标题，或者直接使用&lt;code&gt;setAttributedTitle:forState:&lt;/code&gt;重新设置不带属性的富文本。代码如下：&lt;/p&gt;
 &lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;[&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.payButton setAttributedTitle:&lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt; forState:&lt;span class=&quot;built_in&quot;&gt;UIControlStateNormal&lt;/span&gt;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;[&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.payButton setTitle:&lt;span class=&quot;string&quot;&gt;@&quot;余额不足，去充值&quot;&lt;/span&gt; forState:&lt;span class=&quot;built_in&quot;&gt;UIControlStateNormal&lt;/span&gt;];&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -176,7 +176,7 @@
     <link href="http://yoursite.com/2016/07/10/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3CoreAnimation%E7%9A%84fillMode%E5%92%8CisRemovedOnCompletion/"/>
     <id>http://yoursite.com/2016/07/10/深入理解CoreAnimation的fillMode和isRemovedOnCompletion/</id>
     <published>2016-07-10T06:34:06.000Z</published>
-    <updated>2016-07-10T10:32:38.000Z</updated>
+    <updated>2016-08-12T15:20:04.000Z</updated>
     
     <content type="html">&lt;p&gt;一般在使用CoreAnimation写动画是，在定义CAAnimation时，都要加入如下两句来防止动画完成后视图的位置又还原成了原来的位置。&lt;/p&gt;
 &lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;animation.fillMode = kCAFillModeBoth&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;animation.isRemovedOnCompletion = &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -233,7 +233,7 @@
     <link href="http://yoursite.com/2016/07/03/%E7%94%A8XCode8%E6%89%93%E5%BC%80Xib%E5%90%8E%E9%A1%B9%E7%9B%AE%E4%B8%8D%E8%83%BD%E5%9C%A8XCode7%E4%B8%8A%E8%BF%90%E8%A1%8C/"/>
     <id>http://yoursite.com/2016/07/03/用XCode8打开Xib后项目不能在XCode7上运行/</id>
     <published>2016-07-03T10:56:06.000Z</published>
-    <updated>2016-07-03T10:58:16.000Z</updated>
+    <updated>2016-08-12T15:20:04.000Z</updated>
     
     <content type="html">&lt;p&gt;可以设置xib以Xcode7.x的方法打开，参考如下&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/37851459/the-document-main-storyboard-requires-xcode-8-0-or-later&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;The document Main.storyboard requires Xcode 8.0 or later&lt;/a&gt;&lt;/p&gt;
@@ -258,7 +258,7 @@
     <link href="http://yoursite.com/2016/07/03/Could-not-load-the-xxx-image-referenced-from-a-nib-in-the-bundle-with-identifier-xxxx%E9%97%AE%E9%A2%98/"/>
     <id>http://yoursite.com/2016/07/03/Could-not-load-the-xxx-image-referenced-from-a-nib-in-the-bundle-with-identifier-xxxx问题/</id>
     <published>2016-07-03T10:51:49.000Z</published>
-    <updated>2016-07-03T10:52:32.000Z</updated>
+    <updated>2016-08-12T15:20:04.000Z</updated>
     
     <content type="html">&lt;p&gt;出现在非retina的屏幕上，不能正确加载xib上的图片，只能通过代码重新设置图片。还没有找到其他解决办法。&lt;/p&gt;
 </content>
@@ -282,7 +282,7 @@
     <link href="http://yoursite.com/2016/07/03/%E8%AE%BE%E7%BD%AE%E5%AF%8C%E6%96%87%E6%9C%AC%E5%AD%97%E9%97%B4%E8%B7%9D%EF%BC%8C%E6%96%87%E5%AD%97%E4%B8%8D%E8%83%BD%E5%B1%85%E4%B8%AD%E5%AF%B9%E9%BD%90/"/>
     <id>http://yoursite.com/2016/07/03/设置富文本字间距，文字不能居中对齐/</id>
     <published>2016-07-03T10:40:19.000Z</published>
-    <updated>2016-07-03T10:42:42.000Z</updated>
+    <updated>2016-08-12T15:20:04.000Z</updated>
     
     <content type="html">&lt;p&gt;最近有一个需求，需要设置一个UILabel的字间距，我马上就想到了富文本，于是就写了下面的代码&lt;/p&gt;
 &lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt; *str = &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.label.text;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSDictionary&lt;/span&gt; *attribute = @&amp;#123;&lt;span class=&quot;built_in&quot;&gt;NSKernAttributeName&lt;/span&gt;:@(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;),&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                            &lt;span class=&quot;built_in&quot;&gt;NSFontAttributeName&lt;/span&gt;:[&lt;span class=&quot;built_in&quot;&gt;UIFont&lt;/span&gt; systemFontOfSize:&lt;span class=&quot;number&quot;&gt;15&lt;/span&gt;]&amp;#125;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSAttributedString&lt;/span&gt; *attStr = [[&lt;span class=&quot;built_in&quot;&gt;NSAttributedString&lt;/span&gt; alloc] initWithString:str attributes:attribute];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.label.attributedText = attStr;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -319,7 +319,7 @@
     <link href="http://yoursite.com/2016/07/03/UILabel%E8%AE%BE%E7%BD%AElineBreakMode%E5%B1%9E%E6%80%A7%E6%97%A0%E6%95%88/"/>
     <id>http://yoursite.com/2016/07/03/UILabel设置lineBreakMode属性无效/</id>
     <published>2016-07-03T10:09:30.000Z</published>
-    <updated>2016-07-03T10:42:21.000Z</updated>
+    <updated>2016-08-12T15:20:04.000Z</updated>
     
     <content type="html">&lt;p&gt;UILabel的lineBreakMode属性用于设置文字的截断方式，我在使用过程中，发现了一个问题，当我设置lineBreakMode为NSLineBreakByCharWrapping或NSLineBreakByWordWrapping时，有时会没有效果，它依然以NSLineBreakByClipping方式显示。&lt;/p&gt;
 &lt;p&gt;经过一番Google，原来，要设置NSLineBreakByCharWrapping或NSLineBreakByWordWrapping，UILabel的numberOfLines必须是0，否则就会无效。&lt;/p&gt;
@@ -343,7 +343,7 @@
     <link href="http://yoursite.com/2016/07/01/%E4%BB%8Ejekyll%E8%BF%81%E7%A7%BB%E5%88%B0hexo/"/>
     <id>http://yoursite.com/2016/07/01/从jekyll迁移到hexo/</id>
     <published>2016-07-01T13:24:50.000Z</published>
-    <updated>2016-07-03T10:37:17.000Z</updated>
+    <updated>2016-08-12T15:20:04.000Z</updated>
     
     <content type="html">&lt;p&gt;最近公司项目不是很忙，所以想把自己的博客好好整整，下面就是我从原先的jekyll迁移的hexo的整个过程的记录以及中间遇到的一些问题。&lt;/p&gt;
 &lt;h2 id=&quot;安装Hexo&quot;&gt;&lt;a href=&quot;#安装Hexo&quot; class=&quot;headerlink&quot; title=&quot;安装Hexo&quot;&gt;&lt;/a&gt;安装Hexo&lt;/h2&gt;&lt;p&gt;打开终端，执行命令：&lt;/p&gt;
@@ -438,7 +438,7 @@
     <link href="http://yoursite.com/2016/06/29/GMTC%E5%85%A8%E7%90%83%E7%A7%BB%E5%8A%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E4%BC%9A%E8%A7%81%E9%97%BB/"/>
     <id>http://yoursite.com/2016/06/29/GMTC全球移动技术大会见闻/</id>
     <published>2016-06-28T16:00:00.000Z</published>
-    <updated>2016-07-01T12:43:36.000Z</updated>
+    <updated>2016-08-12T15:20:04.000Z</updated>
     
     <content type="html">&lt;p&gt;6月24日至6月25日，我有幸参加了“GMTC全球移动技术大会”，这篇博客就是我对参见会议的一个经历和感受。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/457acda7bd3dc65f172468c45dad4a8f.png&quot; alt=&quot;1&quot;&gt;&lt;/p&gt;
@@ -483,7 +483,7 @@
     <link href="http://yoursite.com/2016/06/11/%E6%89%93%E9%80%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BF%BB%E5%A2%99VPS:%E6%90%AC%E8%BF%90%E5%B7%A5VPS%E8%B4%AD%E4%B9%B0%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B%E5%85%A8%E8%AE%B0%E5%BD%95/"/>
     <id>http://yoursite.com/2016/06/11/打造自己的翻墙VPS:搬运工VPS购买使用流程全记录/</id>
     <published>2016-06-10T16:00:00.000Z</published>
-    <updated>2016-07-01T12:43:36.000Z</updated>
+    <updated>2016-08-12T15:20:04.000Z</updated>
     
     <content type="html">&lt;p&gt;端午节在家无聊，买了一个VPS，打算做翻墙用，下面是我购买和使用的一个流程全集了，主要以截图为主，文字为辅。&lt;/p&gt;
 &lt;p&gt;我选的VPS是&lt;a href=&quot;https://bandwagonhost.com/index.php&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;搬运工&lt;/a&gt;，因为网上教程比较多，而且支持支付宝支付（实际证明支付宝支付就是个坑）。&lt;/p&gt;
@@ -541,7 +541,7 @@
     <link href="http://yoursite.com/2016/06/05/2016%E5%B9%B46%E6%9C%88%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
     <id>http://yoursite.com/2016/06/05/2016年6月开发问题记录/</id>
     <published>2016-06-04T16:00:00.000Z</published>
-    <updated>2016-07-03T10:18:35.000Z</updated>
+    <updated>2016-08-12T15:20:04.000Z</updated>
     
     <content type="html">&lt;p&gt;继续记录6月份开发中遇到的问题。&lt;/p&gt;
 &lt;h2 id=&quot;UIBarButtonItem点击区域的问题&quot;&gt;&lt;a href=&quot;#UIBarButtonItem点击区域的问题&quot; class=&quot;headerlink&quot; title=&quot;UIBarButtonItem点击区域的问题&quot;&gt;&lt;/a&gt;UIBarButtonItem点击区域的问题&lt;/h2&gt;&lt;p&gt;今天在定制导航上的返回按钮遇到了一个问题，顺便记录一下。&lt;/p&gt;
@@ -608,7 +608,7 @@
     <link href="http://yoursite.com/2016/05/29/%E8%87%AA%E5%AE%9A%E4%B9%89NSOperation%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
     <id>http://yoursite.com/2016/05/29/自定义NSOperation的那些事/</id>
     <published>2016-05-28T16:00:00.000Z</published>
-    <updated>2016-07-01T12:43:36.000Z</updated>
+    <updated>2016-08-12T15:20:04.000Z</updated>
     
     <content type="html">&lt;p&gt;最近在项目中负责一个下载模块，使用的是NSOperation+NSOperationQueue实现的，以前总以为自己对NSOperation已经很熟悉了，也写过很多Demo，但是到真正使用的时候，才发现里面还有很多细节的东西自己没有注意到，这篇博客算是对NSOperation的用法的一个总结。比较简单的NSBlockOperation以及NSInvocationOperation就不介绍，本文主要讲解一下自定义NSOperation的方法以及注意事项。&lt;/p&gt;
 &lt;p&gt;很多技术Blog在介绍自定NSOperation时，思路都是大同小异，大致可以分为一下几步：&lt;/p&gt;
@@ -655,7 +655,7 @@
     <link href="http://yoursite.com/2016/05/09/MVVMTutorialwithReactiveCocoaPart2(%E7%BF%BB%E8%AF%91)/"/>
     <id>http://yoursite.com/2016/05/09/MVVMTutorialwithReactiveCocoaPart2(翻译)/</id>
     <published>2016-05-08T16:00:00.000Z</published>
-    <updated>2016-07-01T12:43:36.000Z</updated>
+    <updated>2016-08-12T15:20:04.000Z</updated>
     
     <content type="html">&lt;p&gt;原文地址：&lt;a href=&quot;https://www.raywenderlich.com/74131/mvvm-tutorial-with-reactivecocoa-part-2&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;MVVM Tutorial with ReactiveCocoa: Part 2/2&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
@@ -865,7 +865,7 @@
     <link href="http://yoursite.com/2016/05/08/2016%E5%B9%B45%E6%9C%88%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
     <id>http://yoursite.com/2016/05/08/2016年5月开发问题记录/</id>
     <published>2016-05-07T16:00:00.000Z</published>
-    <updated>2016-07-03T10:02:43.000Z</updated>
+    <updated>2016-08-12T15:20:04.000Z</updated>
     
     <content type="html">&lt;p&gt;这是我最近工作中遇到的问题，做一个简单的记录。&lt;/p&gt;
 &lt;h2 id=&quot;设置导航栏透明&quot;&gt;&lt;a href=&quot;#设置导航栏透明&quot; class=&quot;headerlink&quot; title=&quot;设置导航栏透明&quot;&gt;&lt;/a&gt;设置导航栏透明&lt;/h2&gt;&lt;p&gt;项目中有一个界面的导航栏是透明的，效果如下：&lt;/p&gt;
@@ -923,7 +923,7 @@
     <link href="http://yoursite.com/2016/04/10/iOS%E5%BC%80%E5%8F%91%E4%BC%81%E4%B8%9A%E8%AF%81%E4%B9%A6%E7%94%B3%E8%AF%B7%E8%BF%87%E7%A8%8B%E5%85%A8%E8%AE%B0%E5%BD%95/"/>
     <id>http://yoursite.com/2016/04/10/iOS开发企业证书申请过程全记录/</id>
     <published>2016-04-09T16:00:00.000Z</published>
-    <updated>2016-07-01T12:43:36.000Z</updated>
+    <updated>2016-08-12T15:20:04.000Z</updated>
     
     <content type="html">&lt;p&gt;最近帮公司申请了企业开发者证书，中间也遇到了不少坑，下面是整个过程的一个完整记录，包括申请邓白氏编码的过程，希望对大家有所帮助。&lt;/p&gt;
 &lt;h3 id=&quot;申请邓白氏编码&quot;&gt;&lt;a href=&quot;#申请邓白氏编码&quot; class=&quot;headerlink&quot; title=&quot;申请邓白氏编码&quot;&gt;&lt;/a&gt;申请邓白氏编码&lt;/h3&gt;&lt;ol&gt;
@@ -965,7 +965,7 @@
     <link href="http://yoursite.com/2016/01/01/%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7shenzhen%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B/"/>
     <id>http://yoursite.com/2016/01/01/自动打包工具shenzhen使用简介/</id>
     <published>2015-12-31T16:00:00.000Z</published>
-    <updated>2016-07-01T12:43:36.000Z</updated>
+    <updated>2016-08-12T15:20:04.000Z</updated>
     
     <content type="html">&lt;p&gt;DailyBuild几乎是每一个iOS开发每天都必做的事情，尤其是到了项目测试阶段，每天都要打好几个安装包给测试同学去测试，如果使用以前的老方法，就得先手动Clean，然后Archive，然后创建响应的目录，把安装包和dSYM文件都拷进去，然后再上传到FTP，所有的这些操作，手动做下来至少得七八分钟，每天如果打三个包，那么将近半个小时就浪费在了打包上。&lt;/p&gt;
 &lt;p&gt;为了节约打包话费的时间，出现了很多自动打包的工具，比较著名的有facebook的&lt;a href=&quot;https://github.com/facebook/xctool&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;xctool&lt;/a&gt;以及Mattt Thompson大神的&lt;a href=&quot;https://github.com/nomad/shenzhen&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;shenzhen&lt;/a&gt;（深圳，名字也很有意思，😄），本文主要介绍一下&lt;a href=&quot;https://github.com/nomad/shenzhen&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;shenzhen&lt;/a&gt;的用法。&lt;/p&gt;
@@ -1016,7 +1016,7 @@
     <link href="http://yoursite.com/2015/12/27/%E3%80%8Aios%E6%A0%B8%E5%BF%83%E5%8A%A8%E7%94%BB%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(2)/"/>
     <id>http://yoursite.com/2015/12/27/《ios核心动画高级技巧》阅读笔记(2)/</id>
     <published>2015-12-26T16:00:00.000Z</published>
-    <updated>2016-07-01T12:43:36.000Z</updated>
+    <updated>2016-08-12T15:20:04.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;第三章-图层集合学&quot;&gt;&lt;a href=&quot;#第三章-图层集合学&quot; class=&quot;headerlink&quot; title=&quot;第三章 图层集合学&quot;&gt;&lt;/a&gt;第三章 图层集合学&lt;/h2&gt;&lt;h3 id=&quot;布局&quot;&gt;&lt;a href=&quot;#布局&quot; class=&quot;headerlink&quot; title=&quot;布局&quot;&gt;&lt;/a&gt;布局&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;frame：图层的相对于父图层的外部坐标&lt;/li&gt;
@@ -1075,7 +1075,7 @@
     <link href="http://yoursite.com/2015/12/27/%E3%80%8Aios%E6%A0%B8%E5%BF%83%E5%8A%A8%E7%94%BB%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(1)/"/>
     <id>http://yoursite.com/2015/12/27/《ios核心动画高级技巧》阅读笔记(1)/</id>
     <published>2015-12-26T16:00:00.000Z</published>
-    <updated>2016-07-01T12:43:36.000Z</updated>
+    <updated>2016-08-12T15:20:04.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;第一章-图层树&quot;&gt;&lt;a href=&quot;#第一章-图层树&quot; class=&quot;headerlink&quot; title=&quot;第一章 图层树&quot;&gt;&lt;/a&gt;第一章 图层树&lt;/h2&gt;&lt;h3 id=&quot;CoreAnimation简介&quot;&gt;&lt;a href=&quot;#CoreAnimation简介&quot; class=&quot;headerlink&quot; title=&quot;CoreAnimation简介&quot;&gt;&lt;/a&gt;CoreAnimation简介&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;动画只是CoreAnimation特性的冰山一角&lt;/li&gt;
@@ -1154,7 +1154,7 @@
     <link href="http://yoursite.com/2015/12/27/%E3%80%8Aios%E6%A0%B8%E5%BF%83%E5%8A%A8%E7%94%BB%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(3)/"/>
     <id>http://yoursite.com/2015/12/27/《ios核心动画高级技巧》阅读笔记(3)/</id>
     <published>2015-12-26T16:00:00.000Z</published>
-    <updated>2016-07-01T12:43:36.000Z</updated>
+    <updated>2016-08-12T15:20:04.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;第四章-视觉效果&quot;&gt;&lt;a href=&quot;#第四章-视觉效果&quot; class=&quot;headerlink&quot; title=&quot;第四章 视觉效果&quot;&gt;&lt;/a&gt;第四章 视觉效果&lt;/h2&gt;&lt;h3 id=&quot;圆角&quot;&gt;&lt;a href=&quot;#圆角&quot; class=&quot;headerlink&quot; title=&quot;圆角&quot;&gt;&lt;/a&gt;圆角&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;设置CALayer的cornerRadius属性来设置圆角，并且要把maskToBounds设置为YES&lt;/li&gt;
