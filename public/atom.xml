@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-08-12T15:20:04.000Z</updated>
+  <updated>2016-08-24T16:34:04.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,74 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用ownCloud作为OmniFocus的云同步服务器</title>
+    <link href="http://yoursite.com/2016/08/24/%E4%BD%BF%E7%94%A8ownCloud%E4%BD%9C%E4%B8%BAOmniFocus%E7%9A%84%E4%BA%91%E5%90%8C%E6%AD%A5%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <id>http://yoursite.com/2016/08/24/使用ownCloud作为OmniFocus的云同步服务器/</id>
+    <published>2016-08-24T14:47:22.000Z</published>
+    <updated>2016-08-24T16:34:04.000Z</updated>
+    
+    <content type="html">&lt;p&gt;平时一直使用OmniFocus作为自己的时间管理工具，但是由于我使用的是破解版的（正版太贵，买不起啊），同步就变成了一件很麻烦的事。OmniFocus提供了两种同步方式，如下图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/901f5c4cb502f3fc557e3c3cfa79ad2f.png&quot; alt=&quot;1&quot;&gt;&lt;/p&gt;
+&lt;p&gt;一种是使用Omni官方的服务器同步，这种方式需要注册Omni官方账号，应该只有正版能用吧，我没有尝试；另一种方式是使用WebDAV进行同步，这里着重介绍第二种方式。&lt;/p&gt;
+&lt;p&gt;本文主要分为以下几个部分：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;WebDAV简介&lt;/li&gt;
+&lt;li&gt;ownCloud简介以及搭建方法&lt;/li&gt;
+&lt;li&gt;使用ownCloud作为OmniFocus的同步服务器&lt;/li&gt;
+&lt;li&gt;ownCloud的一些其他应用&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;WebDAV简介&quot;&gt;&lt;a href=&quot;#WebDAV简介&quot; class=&quot;headerlink&quot; title=&quot;WebDAV简介&quot;&gt;&lt;/a&gt;WebDAV简介&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://baike.baidu.com/link?url=pXeqnwgtPiYSKdYGX9YjBH_XeAJsH-aRkQqEYPsbkQwf9hlbnF9RSuAHvCMLboSuENx55T8J9Pd27E6ybo7Aba&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;WebDAV&lt;/a&gt;是一种基于 HTTP 1.1协议的通讯协议，可以实现文件的同步。通俗来讲，我们可以利用WebDAV来实现类似百度云一样的网盘功能。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://blog.sina.com.cn/s/blog_4834fe810101fw17.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;有几个支持WebDAV协议的网盘，但是都是国外的，国内据我了解目前只有&lt;a href=&quot;http://www.jianguoyun.com/s/campaign/cpclanding/main?sch=bdcpc_nutstore_off&amp;amp;bdtj=1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;坚果云&lt;/a&gt;一家支持WebDAV。至于国内的各大网盘为什么都不支持WebDAV，可以看&lt;a href=&quot;http://www.zhihu.com/question/21511143&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;最初我也本来打算使用国外的网盘来实现WebDAV，但是担心速度不理想，而且国外网盘的免费空间都很小，所以就放弃了。至于坚果云，我也没有去尝试。&lt;/p&gt;
+&lt;p&gt;进一步Google，于是就找到了ownCloud。&lt;/p&gt;
+&lt;h2 id=&quot;ownCloud简介以及搭建方法&quot;&gt;&lt;a href=&quot;#ownCloud简介以及搭建方法&quot; class=&quot;headerlink&quot; title=&quot;ownCloud简介以及搭建方法&quot;&gt;&lt;/a&gt;ownCloud简介以及搭建方法&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://owncloud.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ownCloud&lt;/a&gt;是一个来自KDE社区开发的免费软件，提供私人的Web服务。当前主要功能包括文件管理（内建文件分享）、音乐、日历、联系人等等，可在PC和服务器上运行。简单来说就是一个基于Php的自建网盘。&lt;/p&gt;
+&lt;p&gt;下面就跟着我使用ownCloud一步一步搭建自己的私人网盘。&lt;/p&gt;
+&lt;h3 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h3&gt;&lt;p&gt;因为要把ownCloud搭建在服务器上，因此你需要有一个VPS，内存至少128M，越大越好，我这里使用的是&lt;a href=&quot;https://bandwagonhost.com/clientarea.php?action=products&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;搬运工VPS&lt;/a&gt;，如何购买VPS可以看我的&lt;a href=&quot;http://liujinlongxa.com/2016/06/11/%E6%89%93%E9%80%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BF%BB%E5%A2%99VPS:%E6%90%AC%E8%BF%90%E5%B7%A5VPS%E8%B4%AD%E4%B9%B0%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B%E5%85%A8%E8%AE%B0%E5%BD%95/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这篇博客&lt;/a&gt;。&lt;/p&gt;
+&lt;h3 id=&quot;1-安装PHP和MySQL环境&quot;&gt;&lt;a href=&quot;#1-安装PHP和MySQL环境&quot; class=&quot;headerlink&quot; title=&quot;1. 安装PHP和MySQL环境&quot;&gt;&lt;/a&gt;1. 安装PHP和MySQL环境&lt;/h3&gt;&lt;p&gt;由于ownCloud使用php实现的，所以需要在你服务器上安装PHP和MySQL环境，这个网上有很多教程，也可以参考ownCloud给出的&lt;a href=&quot;https://doc.owncloud.org/server/9.1/admin_manual/installation/php_54_installation.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官方教程&lt;/a&gt;。&lt;/p&gt;
+&lt;h3 id=&quot;2-下载服务器源码&quot;&gt;&lt;a href=&quot;#2-下载服务器源码&quot; class=&quot;headerlink&quot; title=&quot;2. 下载服务器源码&quot;&gt;&lt;/a&gt;2. 下载服务器源码&lt;/h3&gt;&lt;p&gt;在任一文件夹下输入命令：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;wget https://download.owncloud.org/community/owncloud-9.1.0.tar.bz2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;tar xvf owncloud-9.1.0.tar.bz2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然后改变owncloud这个文件的权限，命令如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;chmod 777 owncloud&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;3-添加管理员账号&quot;&gt;&lt;a href=&quot;#3-添加管理员账号&quot; class=&quot;headerlink&quot; title=&quot;3. 添加管理员账号&quot;&gt;&lt;/a&gt;3. 添加管理员账号&lt;/h3&gt;&lt;p&gt;使用浏览器访问地址&lt;a href=&quot;http://serveraddress/owncloud/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://serveraddress/owncloud/&lt;/a&gt; (serveraddress即你服务器的ip地址)就可以看到如下页面：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/5de5eb45600b86bae8e2c0cfdaadb319.png&quot; alt=&quot;2&quot;&gt;&lt;/p&gt;
+&lt;p&gt;在这里自定义一个管理员的账号和密码，然后点击FinishSetup，这样一个ownCloud就搭建完成了。&lt;/p&gt;
+&lt;h2 id=&quot;使用ownCloud作为OmniFocus的同步服务器&quot;&gt;&lt;a href=&quot;#使用ownCloud作为OmniFocus的同步服务器&quot; class=&quot;headerlink&quot; title=&quot;使用ownCloud作为OmniFocus的同步服务器&quot;&gt;&lt;/a&gt;使用ownCloud作为OmniFocus的同步服务器&lt;/h2&gt;&lt;p&gt;ownCloud搭建完成后，就可以把它作为Omni的同步服务器了，具体方法如下：&lt;/p&gt;
+&lt;p&gt;打开OmniFocus的同步设置页面，选择WebDAV方式同步，然后在Address中填入如下地址：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;http://&lt;serveraddress&gt;/owncloud/remote.php/dav/files/&lt;adminname&gt;&lt;/adminname&gt;&lt;/serveraddress&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;serveraddress&gt;和&lt;adminname&gt;分别替换为你的服务器地址和刚才填的管理员用户名，如下图：&lt;/adminname&gt;&lt;/serveraddress&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/264b1ec833e6078643e9c2f40b2bf7aa.png&quot; alt=&quot;3&quot;&gt;&lt;/p&gt;
+&lt;p&gt;然后点击“Sync Now”进行同步，会提示输入密码，输入刚才添加的管理员密码，然后就可以同步成功了。&lt;/p&gt;
+&lt;p&gt;使用浏览器访问&lt;a href=&quot;http://serveraddress/owncloud/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://serveraddress/owncloud/&lt;/a&gt; ，就可以看到刚刚同步上去的文件了，如下图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/0da7c4ef259b48e8f608540c27091cbd.png&quot; alt=&quot;4&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;ownCloud的一些其他应用&quot;&gt;&lt;a href=&quot;#ownCloud的一些其他应用&quot; class=&quot;headerlink&quot; title=&quot;ownCloud的一些其他应用&quot;&gt;&lt;/a&gt;ownCloud的一些其他应用&lt;/h2&gt;&lt;p&gt;ownCloud还提供了多平台的客户端，包括iOS，Android，Mac，Windows等，你可以下载一个Mac客户端，然后设置一个同步文件夹，凡是放在这个文件夹里的文件，都会被自动同步到服务器上。如下图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/d7b6c828536bab1e8fa5a69a12332ebf.png&quot; alt=&quot;5&quot;&gt;&lt;/p&gt;
+&lt;p&gt;我把Quiver的笔记数据也同步到了服务器上。&lt;/p&gt;
+&lt;h2 id=&quot;结语&quot;&gt;&lt;a href=&quot;#结语&quot; class=&quot;headerlink&quot; title=&quot;结语&quot;&gt;&lt;/a&gt;结语&lt;/h2&gt;&lt;p&gt;其实ownCloud的功能还远不止这些，还有很多功能还待以后慢慢探索。&lt;/p&gt;
+&lt;p&gt;类似ownCloud的还有一个叫&lt;a href=&quot;https://www.seafile.com/home/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;seafile&lt;/a&gt;的服务，两者的区别和优劣可以参考&lt;a href=&quot;http://www.zhihu.com/question/23929945&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;参考资料&quot;&gt;&lt;a href=&quot;#参考资料&quot; class=&quot;headerlink&quot; title=&quot;参考资料&quot;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://doc.owncloud.org/server/9.1/admin_manual/contents.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ownCloud官方文档&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://doc.owncloud.org/server/9.1/user_manual/files/access_webdav.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ownCloud关于WebDAV使用的文档&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://jjliu.blog.ustc.edu.cn/198/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;使用OwnCloud创建私有云&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;平时一直使用OmniFocus作为自己的时间管理工具，但是由于我使用的是破解版的（正版太贵，买不起啊），同步就变成了一件很麻烦的事。OmniFocus提供了两种同步方式，如下图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clou
+    
+    </summary>
+    
+      <category term="其他" scheme="http://yoursite.com/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+      <category term="其他" scheme="http://yoursite.com/tags/%E5%85%B6%E4%BB%96/"/>
+    
+      <category term="WebDAV" scheme="http://yoursite.com/tags/WebDAV/"/>
+    
+      <category term="ownCloud" scheme="http://yoursite.com/tags/ownCloud/"/>
+    
+  </entry>
   
   <entry>
     <title>在VPS上搭建Git服务器</title>
@@ -1012,65 +1080,6 @@
   </entry>
   
   <entry>
-    <title>《ios核心动画高级技巧》阅读笔记(2)</title>
-    <link href="http://yoursite.com/2015/12/27/%E3%80%8Aios%E6%A0%B8%E5%BF%83%E5%8A%A8%E7%94%BB%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(2)/"/>
-    <id>http://yoursite.com/2015/12/27/《ios核心动画高级技巧》阅读笔记(2)/</id>
-    <published>2015-12-26T16:00:00.000Z</published>
-    <updated>2016-08-12T15:20:04.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;第三章-图层集合学&quot;&gt;&lt;a href=&quot;#第三章-图层集合学&quot; class=&quot;headerlink&quot; title=&quot;第三章 图层集合学&quot;&gt;&lt;/a&gt;第三章 图层集合学&lt;/h2&gt;&lt;h3 id=&quot;布局&quot;&gt;&lt;a href=&quot;#布局&quot; class=&quot;headerlink&quot; title=&quot;布局&quot;&gt;&lt;/a&gt;布局&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;frame：图层的相对于父图层的外部坐标&lt;/li&gt;
-&lt;li&gt;bounds：内部坐标&lt;/li&gt;
-&lt;li&gt;center和position：相对于父图层anchorPoint所在的位置&lt;/li&gt;
-&lt;li&gt;设置视图的frame，bounds和center，也就是相当于设置图层的frame，bounds和position&lt;/li&gt;
-&lt;li&gt;一般情况下，frame中的size与bounds中的size是相同的，但是当视图旋转时，frame的size和bounds的size就不一样了，如下图&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/a592d9f689fe8a2818583430f5a8211d.png&quot; alt=&quot;frame&amp;amp;bounds&amp;amp;center&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;锚点&quot;&gt;&lt;a href=&quot;#锚点&quot; class=&quot;headerlink&quot; title=&quot;锚点&quot;&gt;&lt;/a&gt;锚点&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;锚点是相对于父图层anchorPoint所在的位置。&lt;/li&gt;
-&lt;li&gt;默认，锚点位于图层的中点，可以改变锚点的位置，描点改变，frame也会随之改变。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/99c7a6ddc1d2b162816b2a9ef5ff568f.png&quot; alt=&quot;anchorPoint&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;改变锚点，position不会改变，但是frame改变了。&lt;/li&gt;
-&lt;li&gt;anchorPoint是View在旋转是的轴点，如果想改变view的旋转轴点，改变anchorPoint即可&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;坐标系&quot;&gt;&lt;a href=&quot;#坐标系&quot; class=&quot;headerlink&quot; title=&quot;坐标系&quot;&gt;&lt;/a&gt;坐标系&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;与UIView一样，CALayer也提供了一套坐标变换的借口&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;built_in&quot;&gt;CGPoint&lt;/span&gt;)convertPoint:(&lt;span class=&quot;built_in&quot;&gt;CGPoint&lt;/span&gt;)p fromLayer:(&lt;span class=&quot;keyword&quot;&gt;nullable&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;CALayer&lt;/span&gt; *)l;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;built_in&quot;&gt;CGPoint&lt;/span&gt;)convertPoint:(&lt;span class=&quot;built_in&quot;&gt;CGPoint&lt;/span&gt;)p toLayer:(&lt;span class=&quot;keyword&quot;&gt;nullable&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;CALayer&lt;/span&gt; *)l;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;built_in&quot;&gt;CGRect&lt;/span&gt;)convertRect:(&lt;span class=&quot;built_in&quot;&gt;CGRect&lt;/span&gt;)r fromLayer:(&lt;span class=&quot;keyword&quot;&gt;nullable&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;CALayer&lt;/span&gt; *)l;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;built_in&quot;&gt;CGRect&lt;/span&gt;)convertRect:(&lt;span class=&quot;built_in&quot;&gt;CGRect&lt;/span&gt;)r toLayer:(&lt;span class=&quot;keyword&quot;&gt;nullable&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;CALayer&lt;/span&gt; *)l;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;翻转的几何结构&quot;&gt;&lt;a href=&quot;#翻转的几何结构&quot; class=&quot;headerlink&quot; title=&quot;翻转的几何结构&quot;&gt;&lt;/a&gt;翻转的几何结构&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;ios上坐标系原点为左上角，macOS上坐标系原点为左下角。&lt;/li&gt;
-&lt;li&gt;CALayer的&lt;code&gt;geometryFlipped&lt;/code&gt;属性决定了图层的坐标是否相对于父图层翻转。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;z坐标轴&quot;&gt;&lt;a href=&quot;#z坐标轴&quot; class=&quot;headerlink&quot; title=&quot;z坐标轴&quot;&gt;&lt;/a&gt;z坐标轴&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;zPosition：表示图层空间z轴上的位置&lt;/li&gt;
-&lt;li&gt;zPosition除了可以改变z轴的位置，还可以用来改变图层的先后顺序，如图，如果设置了绿色view的zPosition，绿色View就可以覆盖在蓝色view之上。但是通过这种方法改变视图的层次，是不能改变视图的响应事件的顺序的。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/d673bc31fdbe28367ad557ac739a60fd.png&quot; alt=&quot;zPositon&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;anchorPointZ表示z轴上锚点的位置&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;Hit-Testing&quot;&gt;&lt;a href=&quot;#Hit-Testing&quot; class=&quot;headerlink&quot; title=&quot;Hit Testing&quot;&gt;&lt;/a&gt;Hit Testing&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;CALayer不能处理点击事件，但是他有一系列方法帮你处理事件。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;- (BOOL)containsPoint:(CGPoint)p;&lt;/code&gt;用于判断一个点是否属于一个图层&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;- (nullable CALayer *)hitTest:(CGPoint)p;&lt;/code&gt;返回被点击的图层&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)touchesBegan:(&lt;span class=&quot;built_in&quot;&gt;NSSet&lt;/span&gt;&amp;lt;&lt;span class=&quot;built_in&quot;&gt;UITouch&lt;/span&gt; *&amp;gt; *)touches withEvent:(&lt;span class=&quot;built_in&quot;&gt;UIEvent&lt;/span&gt; *)event &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;UITouch&lt;/span&gt; *touch = [touches anyObject];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGPoint&lt;/span&gt; point = [touch locationInView:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.view];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    point = [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView convertPoint:point fromView:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.view];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;BOOL&lt;/span&gt; ret = [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.layer containsPoint:point];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (ret) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;green&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    point = [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.buleView convertPoint:point fromView:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ret = [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.buleView.layer containsPoint:point];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (ret) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;blue&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CALayer&lt;/span&gt; *layer = [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.view.layer hitTest:point];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (layer == &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.layer) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;green&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(layer == &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.buleView.layer) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;blue&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;第三章-图层集合学&quot;&gt;&lt;a href=&quot;#第三章-图层集合学&quot; class=&quot;headerlink&quot; title=&quot;第三章 图层集合学&quot;&gt;&lt;/a&gt;第三章 图层集合学&lt;/h2&gt;&lt;h3 id=&quot;布局&quot;&gt;&lt;a href=&quot;#布局&quot; class=&quot;headerlink&quot; 
-    
-    </summary>
-    
-      <category term="读书笔记" scheme="http://yoursite.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>《ios核心动画高级技巧》阅读笔记(1)</title>
     <link href="http://yoursite.com/2015/12/27/%E3%80%8Aios%E6%A0%B8%E5%BF%83%E5%8A%A8%E7%94%BB%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(1)/"/>
     <id>http://yoursite.com/2015/12/27/《ios核心动画高级技巧》阅读笔记(1)/</id>
@@ -1150,54 +1159,56 @@
   </entry>
   
   <entry>
-    <title>《ios核心动画高级技巧》阅读笔记(3)</title>
-    <link href="http://yoursite.com/2015/12/27/%E3%80%8Aios%E6%A0%B8%E5%BF%83%E5%8A%A8%E7%94%BB%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(3)/"/>
-    <id>http://yoursite.com/2015/12/27/《ios核心动画高级技巧》阅读笔记(3)/</id>
+    <title>《ios核心动画高级技巧》阅读笔记(2)</title>
+    <link href="http://yoursite.com/2015/12/27/%E3%80%8Aios%E6%A0%B8%E5%BF%83%E5%8A%A8%E7%94%BB%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(2)/"/>
+    <id>http://yoursite.com/2015/12/27/《ios核心动画高级技巧》阅读笔记(2)/</id>
     <published>2015-12-26T16:00:00.000Z</published>
     <updated>2016-08-12T15:20:04.000Z</updated>
     
-    <content type="html">&lt;h2 id=&quot;第四章-视觉效果&quot;&gt;&lt;a href=&quot;#第四章-视觉效果&quot; class=&quot;headerlink&quot; title=&quot;第四章 视觉效果&quot;&gt;&lt;/a&gt;第四章 视觉效果&lt;/h2&gt;&lt;h3 id=&quot;圆角&quot;&gt;&lt;a href=&quot;#圆角&quot; class=&quot;headerlink&quot; title=&quot;圆角&quot;&gt;&lt;/a&gt;圆角&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;设置CALayer的cornerRadius属性来设置圆角，并且要把maskToBounds设置为YES&lt;/li&gt;
+    <content type="html">&lt;h2 id=&quot;第三章-图层集合学&quot;&gt;&lt;a href=&quot;#第三章-图层集合学&quot; class=&quot;headerlink&quot; title=&quot;第三章 图层集合学&quot;&gt;&lt;/a&gt;第三章 图层集合学&lt;/h2&gt;&lt;h3 id=&quot;布局&quot;&gt;&lt;a href=&quot;#布局&quot; class=&quot;headerlink&quot; title=&quot;布局&quot;&gt;&lt;/a&gt;布局&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;frame：图层的相对于父图层的外部坐标&lt;/li&gt;
+&lt;li&gt;bounds：内部坐标&lt;/li&gt;
+&lt;li&gt;center和position：相对于父图层anchorPoint所在的位置&lt;/li&gt;
+&lt;li&gt;设置视图的frame，bounds和center，也就是相当于设置图层的frame，bounds和position&lt;/li&gt;
+&lt;li&gt;一般情况下，frame中的size与bounds中的size是相同的，但是当视图旋转时，frame的size和bounds的size就不一样了，如下图&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;边框&quot;&gt;&lt;a href=&quot;#边框&quot; class=&quot;headerlink&quot; title=&quot;边框&quot;&gt;&lt;/a&gt;边框&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;设置CALayer的borderColor和borderWidth可以设置边框的颜色和宽度&lt;/li&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/a592d9f689fe8a2818583430f5a8211d.png&quot; alt=&quot;frame&amp;amp;bounds&amp;amp;center&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;锚点&quot;&gt;&lt;a href=&quot;#锚点&quot; class=&quot;headerlink&quot; title=&quot;锚点&quot;&gt;&lt;/a&gt;锚点&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;锚点是相对于父图层anchorPoint所在的位置。&lt;/li&gt;
+&lt;li&gt;默认，锚点位于图层的中点，可以改变锚点的位置，描点改变，frame也会随之改变。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;阴影&quot;&gt;&lt;a href=&quot;#阴影&quot; class=&quot;headerlink&quot; title=&quot;阴影&quot;&gt;&lt;/a&gt;阴影&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;shadowColor:阴影的颜色&lt;/li&gt;
-&lt;li&gt;shadowOpacity:阴影的透明度&lt;/li&gt;
-&lt;li&gt;shadowOffset:阴影的偏移&lt;/li&gt;
-&lt;li&gt;shadowRadius:阴影的模糊度，即模糊半径&lt;/li&gt;
-&lt;li&gt;如果设置了maskToBounds，则阴影就不会显示了，因为阴影已经被裁减调了。要解决这个问题，可以再创建一个frame一样的View，给这个view设置阴影，而设置原本的view的maskToBounds，这样阴影就不会被裁减掉了。&lt;/li&gt;
-&lt;li&gt;shadowPath:指定阴影的路径。&lt;/li&gt;
-&lt;li&gt;设置ImageView,label等的阴影，并不是设置他们边界的阴影，而是设置里面内容的阴影，例如设置label的阴影，设置的是label中文字的阴影。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)viewDidAppear:(&lt;span class=&quot;built_in&quot;&gt;BOOL&lt;/span&gt;)animated &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [&lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt; viewDidAppear:animated];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.buleView.hidden = &lt;span class=&quot;literal&quot;&gt;YES&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.layer.shadowColor = [&lt;span class=&quot;built_in&quot;&gt;UIColor&lt;/span&gt; redColor].CGColor;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.layer.shadowOpacity = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.layer.shadowRadius = &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGMutablePathRef&lt;/span&gt; path = &lt;span class=&quot;built_in&quot;&gt;CGPathCreateMutable&lt;/span&gt;();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGPathAddEllipseInRect&lt;/span&gt;(path, &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.bounds);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.layer.shadowPath = path;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGPathRelease&lt;/span&gt;(path);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;图层蒙版&quot;&gt;&lt;a href=&quot;#图层蒙版&quot; class=&quot;headerlink&quot; title=&quot;图层蒙版&quot;&gt;&lt;/a&gt;图层蒙版&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;mask:CALayer的mask属性定义了父图层的部分可见区域，父图层与mask的关系如下图&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/87291a0061be6a254bd4937851ecf4d8.png&quot; alt=&quot;mask&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/99c7a6ddc1d2b162816b2a9ef5ff568f.png&quot; alt=&quot;anchorPoint&quot;&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;虽然设置了mask，但是视图的事件响应区域任然是原视图的区域&lt;/li&gt;
-&lt;li&gt;mask是可以动态设置的，只要改变mask的大小，就可以对视图的显示区域进行动画&lt;/li&gt;
+&lt;li&gt;改变锚点，position不会改变，但是frame改变了。&lt;/li&gt;
+&lt;li&gt;anchorPoint是View在旋转是的轴点，如果想改变view的旋转轴点，改变anchorPoint即可&lt;/li&gt;
 &lt;/ul&gt;
-&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)viewDidAppear:(&lt;span class=&quot;built_in&quot;&gt;BOOL&lt;/span&gt;)animated &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [&lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt; viewDidAppear:animated];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CAShapeLayer&lt;/span&gt; *mask = [&lt;span class=&quot;built_in&quot;&gt;CAShapeLayer&lt;/span&gt; layer];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;UIBezierPath&lt;/span&gt; *path = [&lt;span class=&quot;built_in&quot;&gt;UIBezierPath&lt;/span&gt; bezierPathWithOvalInRect:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.greenBtn.bounds];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    mask.path = path.CGPath;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.greenBtn.layer.mask = mask;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)touchesBegan:(&lt;span class=&quot;built_in&quot;&gt;NSSet&lt;/span&gt;&amp;lt;&lt;span class=&quot;built_in&quot;&gt;UITouch&lt;/span&gt; *&amp;gt; *)touches withEvent:(&lt;span class=&quot;built_in&quot;&gt;UIEvent&lt;/span&gt; *)event &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;UIBezierPath&lt;/span&gt; *endPath = [&lt;span class=&quot;built_in&quot;&gt;UIBezierPath&lt;/span&gt; bezierPathWithRect:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.greenBtn.bounds];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CAShapeLayer&lt;/span&gt; *layer = (&lt;span class=&quot;built_in&quot;&gt;CAShapeLayer&lt;/span&gt; *)&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.greenBtn.layer.mask;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 动画&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CABasicAnimation&lt;/span&gt; *animation = [&lt;span class=&quot;built_in&quot;&gt;CABasicAnimation&lt;/span&gt; animationWithKeyPath:&lt;span class=&quot;string&quot;&gt;@&quot;path&quot;&lt;/span&gt;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    animation.duration = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    animation.fromValue = (&lt;span class=&quot;keyword&quot;&gt;id&lt;/span&gt;)layer.path;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    animation.toValue = (__bridge &lt;span class=&quot;keyword&quot;&gt;id&lt;/span&gt; _Nullable)(endPath.CGPath);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    animation.removedOnCompletion = &lt;span class=&quot;literal&quot;&gt;NO&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    animation.fillMode = kCAFillModeForwards;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [layer addAnimation:animation forKey:&lt;span class=&quot;string&quot;&gt;@&quot;shapeLayerPath&quot;&lt;/span&gt;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;拉伸过滤&quot;&gt;&lt;a href=&quot;#拉伸过滤&quot; class=&quot;headerlink&quot; title=&quot;拉伸过滤&quot;&gt;&lt;/a&gt;拉伸过滤&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;minificationFilter:缩小图片的拉伸算法&lt;/li&gt;
-&lt;li&gt;magnificationFilter:方法图片的拉伸算法&lt;/li&gt;
-&lt;li&gt;三个值：kCAFilterNearest，kCAFilterLinear，kCAFilterTrilinear&lt;/li&gt;
+&lt;h3 id=&quot;坐标系&quot;&gt;&lt;a href=&quot;#坐标系&quot; class=&quot;headerlink&quot; title=&quot;坐标系&quot;&gt;&lt;/a&gt;坐标系&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;与UIView一样，CALayer也提供了一套坐标变换的借口&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;组透明&quot;&gt;&lt;a href=&quot;#组透明&quot; class=&quot;headerlink&quot; title=&quot;组透明&quot;&gt;&lt;/a&gt;组透明&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;改变视图或图层的透明度，其子视图或子图层的透明度也会跟着改变，但是经过叠加后，原本颜色相同的父子视图，变成了不同的视图，如下图：&lt;/li&gt;
+&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;built_in&quot;&gt;CGPoint&lt;/span&gt;)convertPoint:(&lt;span class=&quot;built_in&quot;&gt;CGPoint&lt;/span&gt;)p fromLayer:(&lt;span class=&quot;keyword&quot;&gt;nullable&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;CALayer&lt;/span&gt; *)l;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;built_in&quot;&gt;CGPoint&lt;/span&gt;)convertPoint:(&lt;span class=&quot;built_in&quot;&gt;CGPoint&lt;/span&gt;)p toLayer:(&lt;span class=&quot;keyword&quot;&gt;nullable&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;CALayer&lt;/span&gt; *)l;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;built_in&quot;&gt;CGRect&lt;/span&gt;)convertRect:(&lt;span class=&quot;built_in&quot;&gt;CGRect&lt;/span&gt;)r fromLayer:(&lt;span class=&quot;keyword&quot;&gt;nullable&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;CALayer&lt;/span&gt; *)l;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;built_in&quot;&gt;CGRect&lt;/span&gt;)convertRect:(&lt;span class=&quot;built_in&quot;&gt;CGRect&lt;/span&gt;)r toLayer:(&lt;span class=&quot;keyword&quot;&gt;nullable&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;CALayer&lt;/span&gt; *)l;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;翻转的几何结构&quot;&gt;&lt;a href=&quot;#翻转的几何结构&quot; class=&quot;headerlink&quot; title=&quot;翻转的几何结构&quot;&gt;&lt;/a&gt;翻转的几何结构&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;ios上坐标系原点为左上角，macOS上坐标系原点为左下角。&lt;/li&gt;
+&lt;li&gt;CALayer的&lt;code&gt;geometryFlipped&lt;/code&gt;属性决定了图层的坐标是否相对于父图层翻转。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/dda57bde043a3358e1cbc03af4fcbcf1.png&quot; alt=&quot;group-opacity&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;z坐标轴&quot;&gt;&lt;a href=&quot;#z坐标轴&quot; class=&quot;headerlink&quot; title=&quot;z坐标轴&quot;&gt;&lt;/a&gt;z坐标轴&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;zPosition：表示图层空间z轴上的位置&lt;/li&gt;
+&lt;li&gt;zPosition除了可以改变z轴的位置，还可以用来改变图层的先后顺序，如图，如果设置了绿色view的zPosition，绿色View就可以覆盖在蓝色view之上。但是通过这种方法改变视图的层次，是不能改变视图的响应事件的顺序的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/d673bc31fdbe28367ad557ac739a60fd.png&quot; alt=&quot;zPositon&quot;&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;为了解决这种问题，可以在plist中添加”Renders with group opacity”为YES（目前ios9中默认就为YES），或者设置CALayer的shouldRasterize为YES也可以达到相同的效果。&lt;/li&gt;
+&lt;li&gt;anchorPointZ表示z轴上锚点的位置&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h3 id=&quot;Hit-Testing&quot;&gt;&lt;a href=&quot;#Hit-Testing&quot; class=&quot;headerlink&quot; title=&quot;Hit Testing&quot;&gt;&lt;/a&gt;Hit Testing&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;CALayer不能处理点击事件，但是他有一系列方法帮你处理事件。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;- (BOOL)containsPoint:(CGPoint)p;&lt;/code&gt;用于判断一个点是否属于一个图层&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;- (nullable CALayer *)hitTest:(CGPoint)p;&lt;/code&gt;返回被点击的图层&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)touchesBegan:(&lt;span class=&quot;built_in&quot;&gt;NSSet&lt;/span&gt;&amp;lt;&lt;span class=&quot;built_in&quot;&gt;UITouch&lt;/span&gt; *&amp;gt; *)touches withEvent:(&lt;span class=&quot;built_in&quot;&gt;UIEvent&lt;/span&gt; *)event &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;UITouch&lt;/span&gt; *touch = [touches anyObject];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGPoint&lt;/span&gt; point = [touch locationInView:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.view];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    point = [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView convertPoint:point fromView:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.view];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;BOOL&lt;/span&gt; ret = [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.layer containsPoint:point];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (ret) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;green&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    point = [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.buleView convertPoint:point fromView:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ret = [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.buleView.layer containsPoint:point];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (ret) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;blue&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CALayer&lt;/span&gt; *layer = [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.view.layer hitTest:point];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (layer == &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.layer) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;green&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(layer == &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.buleView.layer) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;blue&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 </content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;第四章-视觉效果&quot;&gt;&lt;a href=&quot;#第四章-视觉效果&quot; class=&quot;headerlink&quot; title=&quot;第四章 视觉效果&quot;&gt;&lt;/a&gt;第四章 视觉效果&lt;/h2&gt;&lt;h3 id=&quot;圆角&quot;&gt;&lt;a href=&quot;#圆角&quot; class=&quot;headerlink&quot; titl
+      &lt;h2 id=&quot;第三章-图层集合学&quot;&gt;&lt;a href=&quot;#第三章-图层集合学&quot; class=&quot;headerlink&quot; title=&quot;第三章 图层集合学&quot;&gt;&lt;/a&gt;第三章 图层集合学&lt;/h2&gt;&lt;h3 id=&quot;布局&quot;&gt;&lt;a href=&quot;#布局&quot; class=&quot;headerlink&quot; 
     
     </summary>
     
