@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://liujinlongxa.com/"/>
-  <updated>2016-08-30T14:49:04.000Z</updated>
+  <updated>2016-08-30T15:14:07.000Z</updated>
   <id>http://liujinlongxa.com/</id>
   
   <author>
@@ -14,6 +14,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>做模糊效果时遇到的问题</title>
+    <link href="http://liujinlongxa.com/2016/08/30/%E5%81%9A%E6%A8%A1%E7%B3%8A%E6%95%88%E6%9E%9C%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>http://liujinlongxa.com/2016/08/30/做模糊效果时遇到的问题/</id>
+    <published>2016-08-30T14:51:53.000Z</published>
+    <updated>2016-08-30T15:14:07.000Z</updated>
+    
+    <content type="html">&lt;p&gt;最近在做图片模糊效果时遇到了一个很奇怪的问题，在iPhone6/iPhone6s上显示的模糊效果如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/4661eedc0a33e9c4535d95a005bde5d2.png&quot; alt=&quot;1&quot;&gt;&lt;/p&gt;
+&lt;p&gt;但是在iPhone6 plus和iPhone6s plus上的模糊效果就如下图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/e31355553287234ae1b78b6ea88389ac.png&quot; alt=&quot;2&quot;&gt;&lt;/p&gt;
+&lt;p&gt;这明显效果不对，好像没有模糊一样。于是Google一些资料，终于找到了解决方法，解决方法是，在6Plus上不能设置过大的模糊半径，如果模糊半径过大，就会出现上图的效果。这和我使用的”UIImage+ImageEffects.h”也有关。&lt;/p&gt;
+&lt;p&gt;原先设置的模糊半径为52，现在改成了在6Plus和6sPlus上是45，在6和6s上还是52，这样就没问题了。&lt;/p&gt;
+&lt;p&gt;参考资料：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/26002970/applyblurwithradius-working-on-iphone-6-not-6-uiimageimageeffects&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;applyBlurWithRadius working on iPhone 6, not 6+ (UIImage+ImageEffects)&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近在做图片模糊效果时遇到了一个很奇怪的问题，在iPhone6/iPhone6s上显示的模糊效果如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/4661eedc0a33e9c4535d95a005bde5
+    
+    </summary>
+    
+      <category term="iOS Tips" scheme="http://liujinlongxa.com/categories/iOS-Tips/"/>
+    
+    
+      <category term="其他" scheme="http://liujinlongxa.com/tags/%E5%85%B6%E4%BB%96/"/>
+    
+  </entry>
   
   <entry>
     <title>使用Safair调试JS</title>
@@ -1105,57 +1136,6 @@
     
       &lt;p&gt;最近帮公司申请了企业开发者证书，中间也遇到了不少坑，下面是整个过程的一个完整记录，包括申请邓白氏编码的过程，希望对大家有所帮助。&lt;/p&gt;
 &lt;h3 id=&quot;申请邓白氏编码&quot;&gt;&lt;a href=&quot;#申请邓白氏编码&quot; class=&quot;headerlink&quot; title=&quot;申请邓白氏编
-    
-    </summary>
-    
-      <category term="iOS开发" scheme="http://liujinlongxa.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>自动打包工具shenzhen使用简介</title>
-    <link href="http://liujinlongxa.com/2016/01/01/%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7shenzhen%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B/"/>
-    <id>http://liujinlongxa.com/2016/01/01/自动打包工具shenzhen使用简介/</id>
-    <published>2015-12-31T16:00:00.000Z</published>
-    <updated>2016-08-12T15:20:04.000Z</updated>
-    
-    <content type="html">&lt;p&gt;DailyBuild几乎是每一个iOS开发每天都必做的事情，尤其是到了项目测试阶段，每天都要打好几个安装包给测试同学去测试，如果使用以前的老方法，就得先手动Clean，然后Archive，然后创建响应的目录，把安装包和dSYM文件都拷进去，然后再上传到FTP，所有的这些操作，手动做下来至少得七八分钟，每天如果打三个包，那么将近半个小时就浪费在了打包上。&lt;/p&gt;
-&lt;p&gt;为了节约打包话费的时间，出现了很多自动打包的工具，比较著名的有facebook的&lt;a href=&quot;https://github.com/facebook/xctool&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;xctool&lt;/a&gt;以及Mattt Thompson大神的&lt;a href=&quot;https://github.com/nomad/shenzhen&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;shenzhen&lt;/a&gt;（深圳，名字也很有意思，😄），本文主要介绍一下&lt;a href=&quot;https://github.com/nomad/shenzhen&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;shenzhen&lt;/a&gt;的用法。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/nomad/shenzhen&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;shenzhen&lt;/a&gt;最大的特点就是它除了能个打包外，还可以发布，可以发布到&lt;a href=&quot;https://itunesconnect.apple.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iTunes Connect&lt;/a&gt;，也可以发布到&lt;a href=&quot;http://fir.im/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;FIR.im&lt;/a&gt;，&lt;a href=&quot;http://www.pgyer.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;蒲公英&lt;/a&gt;等第三方应用托管平台。让我们可以一键时间打包发布。&lt;/p&gt;
-&lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;p&gt;使用gem安装&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ sudo gem install shenzhen&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;使用&quot;&gt;&lt;a href=&quot;#使用&quot; class=&quot;headerlink&quot; title=&quot;使用&quot;&gt;&lt;/a&gt;使用&lt;/h2&gt;&lt;h3 id=&quot;打包&quot;&gt;&lt;a href=&quot;#打包&quot; class=&quot;headerlink&quot; title=&quot;打包&quot;&gt;&lt;/a&gt;打包&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;ipa build -w lazyaudio.xcworkspace --clean -d /Users/liujinlong/Desktop/App -s MyApp --ipa AppName.ipa -c Debug --verbose&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;说明：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;-w 表示编译的workspace，如果没有创建workspace，可以使用-p来指定项目名&lt;/li&gt;
-&lt;li&gt;–clean 表示在编译前进行clean操作&lt;/li&gt;
-&lt;li&gt;-d 指定的是打包后生成的&lt;em&gt;.ipa和&lt;/em&gt;.dSYM文件存放的目录，可以是不存在的目录，如果目录不存在，会自动创建&lt;/li&gt;
-&lt;li&gt;-s 指定scheme，如果存在多个scheme，需要明确指定的，如果不指定，在执行时会出现选项，进行选择&lt;/li&gt;
-&lt;li&gt;-ipa 指定生成的ipa的名称，注意要添加.ipa&lt;/li&gt;
-&lt;li&gt;-c 指定configuration，这里可以指定是以Debug还是以Release方法进行编译，注意第一个字母要大写，否则会出错&lt;/li&gt;
-&lt;li&gt;–verbose打印，更多log&lt;/li&gt;
-&lt;li&gt;如果项目使用了CocoaPods，应该使用-w指定workspace进行编译，并且要明确指定编译哪个scheme&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;发布&quot;&gt;&lt;a href=&quot;#发布&quot; class=&quot;headerlink&quot; title=&quot;发布&quot;&gt;&lt;/a&gt;发布&lt;/h3&gt;&lt;p&gt;发布的命令的很多，具体可以参考github的&lt;a href=&quot;https://github.com/nomad/shenzhen/blob/master/README.md&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;README&lt;/a&gt;，这里只介绍上传到FTP一种&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;ipa distribute:ftp --host 127.0.0.1 -port 8080 -f /Users/liujinlong/Desktop/App/AppName.ipa -u username -p 123456 --path /iOSApp/v1.1.2/20160101 --mkdir&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;说明：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;–host 指定FTP服务器主机&lt;/li&gt;
-&lt;li&gt;–port 指定FTP服务器端口&lt;/li&gt;
-&lt;li&gt;-f 指定要上传的ipa文件的路径&lt;/li&gt;
-&lt;li&gt;-u 指定FTP服务器用户名&lt;/li&gt;
-&lt;li&gt;-p 指定FTP服务器密码&lt;/li&gt;
-&lt;li&gt;–path 指定FTP服务器路径&lt;/li&gt;
-&lt;li&gt;–mkdir 如果指定的FTP服务器路径不存在，则创建路径&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;有了&lt;a href=&quot;https://github.com/nomad/shenzhen&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;shenzhen&lt;/a&gt;这个工具，我们的打包工作就变得异常轻松，下面是我使用&lt;a href=&quot;https://github.com/nomad/shenzhen&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;shenzhen&lt;/a&gt;写的一个shell脚本，可以一个命令完成打包并上传到FTP。&lt;/p&gt;
-&lt;p&gt;Github: &lt;a href=&quot;https://github.com/liujinlongxa/BuildIPAScript&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;BuildIPAScript&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;DailyBuild几乎是每一个iOS开发每天都必做的事情，尤其是到了项目测试阶段，每天都要打好几个安装包给测试同学去测试，如果使用以前的老方法，就得先手动Clean，然后Archive，然后创建响应的目录，把安装包和dSYM文件都拷进去，然后再上传到FTP，所有的这些操作
     
     </summary>
     
