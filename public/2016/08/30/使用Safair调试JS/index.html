@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="其他," />
 
 
 
@@ -86,19 +86,31 @@
 
 
 
-<meta name="description" content="DailyBuild几乎是每一个iOS开发每天都必做的事情，尤其是到了项目测试阶段，每天都要打好几个安装包给测试同学去测试，如果使用以前的老方法，就得先手动Clean，然后Archive，然后创建响应的目录，把安装包和dSYM文件都拷进去，然后再上传到FTP，所有的这些操作，手动做下来至少得七八分钟，每天如果打三个包，那么将近半个小时就浪费在了打包上。
-为了节约打包话费的时间，出现了很多自动打包的">
+<meta name="description" content="iOS项目中经常会用到Native界面和H5界面互相调用的情况，方法就是使用JavaScriptCore框架直接在原生界面中调用JS代码。如果JS代码较长，调试起来就会比较麻烦，这里介绍一种方法，可以让你轻松调试JS。
+首先，打开Safari，打开偏好设置（快捷键Cmd+,），在Advanced中选中”Show Develop menu in menu bar”，如下图：
+
+这样菜单栏就会出现一个">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自动打包工具shenzhen使用简介">
-<meta property="og:url" content="http://liujinlongxa.com/2016/01/01/自动打包工具shenzhen使用简介/index.html">
+<meta property="og:title" content="使用Safair调试JS">
+<meta property="og:url" content="http://liujinlongxa.com/2016/08/30/使用Safair调试JS/index.html">
 <meta property="og:site_name" content="liujinlongxa的技术博客">
-<meta property="og:description" content="DailyBuild几乎是每一个iOS开发每天都必做的事情，尤其是到了项目测试阶段，每天都要打好几个安装包给测试同学去测试，如果使用以前的老方法，就得先手动Clean，然后Archive，然后创建响应的目录，把安装包和dSYM文件都拷进去，然后再上传到FTP，所有的这些操作，手动做下来至少得七八分钟，每天如果打三个包，那么将近半个小时就浪费在了打包上。
-为了节约打包话费的时间，出现了很多自动打包的">
-<meta property="og:updated_time" content="2016-08-12T15:20:04.000Z">
+<meta property="og:description" content="iOS项目中经常会用到Native界面和H5界面互相调用的情况，方法就是使用JavaScriptCore框架直接在原生界面中调用JS代码。如果JS代码较长，调试起来就会比较麻烦，这里介绍一种方法，可以让你轻松调试JS。
+首先，打开Safari，打开偏好设置（快捷键Cmd+,），在Advanced中选中”Show Develop menu in menu bar”，如下图：
+
+这样菜单栏就会出现一个">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/500ac2228a67a84dd4c20e73f104a560.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/211795a2560cf0bc3973a5d778d96343.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/19c6bf7d6bce0e9b54f289ccc9025ecc.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/f6b607a7a949df00b9f2e20f11e7b29a.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/993f4e504f25bc37a79cc1f6ffd1a9ca.png">
+<meta property="og:updated_time" content="2016-08-30T14:49:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="自动打包工具shenzhen使用简介">
-<meta name="twitter:description" content="DailyBuild几乎是每一个iOS开发每天都必做的事情，尤其是到了项目测试阶段，每天都要打好几个安装包给测试同学去测试，如果使用以前的老方法，就得先手动Clean，然后Archive，然后创建响应的目录，把安装包和dSYM文件都拷进去，然后再上传到FTP，所有的这些操作，手动做下来至少得七八分钟，每天如果打三个包，那么将近半个小时就浪费在了打包上。
-为了节约打包话费的时间，出现了很多自动打包的">
+<meta name="twitter:title" content="使用Safair调试JS">
+<meta name="twitter:description" content="iOS项目中经常会用到Native界面和H5界面互相调用的情况，方法就是使用JavaScriptCore框架直接在原生界面中调用JS代码。如果JS代码较长，调试起来就会比较麻烦，这里介绍一种方法，可以让你轻松调试JS。
+首先，打开Safari，打开偏好设置（快捷键Cmd+,），在Advanced中选中”Show Develop menu in menu bar”，如下图：
+
+这样菜单栏就会出现一个">
+<meta name="twitter:image" content="http://7xn88v.com1.z0.glb.clouddn.com/500ac2228a67a84dd4c20e73f104a560.png">
 
 
 
@@ -119,9 +131,9 @@
 
 
 
-  <link rel="canonical" href="http://liujinlongxa.com/2016/01/01/自动打包工具shenzhen使用简介/"/>
+  <link rel="canonical" href="http://liujinlongxa.com/2016/08/30/使用Safair调试JS/"/>
 
-  <title> 自动打包工具shenzhen使用简介 | liujinlongxa的技术博客 </title>
+  <title> 使用Safair调试JS | liujinlongxa的技术博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -251,7 +263,7 @@
             
             
               
-                自动打包工具shenzhen使用简介
+                使用Safair调试JS
               
             
           </h1>
@@ -263,8 +275,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-01T00:00:00+08:00" content="2016-01-01">
-              2016-01-01
+            <time itemprop="dateCreated" datetime="2016-08-30T21:46:33+08:00" content="2016-08-30">
+              2016-08-30
             </time>
           </span>
 
@@ -277,8 +289,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS开发</span>
+                  <a href="/categories/iOS-Tips/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS Tips</span>
                   </a>
                 </span>
 
@@ -293,8 +305,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/01/01/自动打包工具shenzhen使用简介/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/01/自动打包工具shenzhen使用简介/" itemprop="commentsCount"></span>
+                <a href="/2016/08/30/使用Safair调试JS/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/30/使用Safair调试JS/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -317,37 +329,18 @@
       
 
       
-        <p>DailyBuild几乎是每一个iOS开发每天都必做的事情，尤其是到了项目测试阶段，每天都要打好几个安装包给测试同学去测试，如果使用以前的老方法，就得先手动Clean，然后Archive，然后创建响应的目录，把安装包和dSYM文件都拷进去，然后再上传到FTP，所有的这些操作，手动做下来至少得七八分钟，每天如果打三个包，那么将近半个小时就浪费在了打包上。</p>
-<p>为了节约打包话费的时间，出现了很多自动打包的工具，比较著名的有facebook的<a href="https://github.com/facebook/xctool" target="_blank" rel="external">xctool</a>以及Mattt Thompson大神的<a href="https://github.com/nomad/shenzhen" target="_blank" rel="external">shenzhen</a>（深圳，名字也很有意思，😄），本文主要介绍一下<a href="https://github.com/nomad/shenzhen" target="_blank" rel="external">shenzhen</a>的用法。</p>
-<p><a href="https://github.com/nomad/shenzhen" target="_blank" rel="external">shenzhen</a>最大的特点就是它除了能个打包外，还可以发布，可以发布到<a href="https://itunesconnect.apple.com" target="_blank" rel="external">iTunes Connect</a>，也可以发布到<a href="http://fir.im/" target="_blank" rel="external">FIR.im</a>，<a href="http://www.pgyer.com/" target="_blank" rel="external">蒲公英</a>等第三方应用托管平台。让我们可以一键时间打包发布。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>使用gem安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo gem install shenzhen</div></pre></td></tr></table></figure>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ipa build -w lazyaudio.xcworkspace --clean -d /Users/liujinlong/Desktop/App -s MyApp --ipa AppName.ipa -c Debug --verbose</div></pre></td></tr></table></figure>
-<p>说明：</p>
-<ul>
-<li>-w 表示编译的workspace，如果没有创建workspace，可以使用-p来指定项目名</li>
-<li>–clean 表示在编译前进行clean操作</li>
-<li>-d 指定的是打包后生成的<em>.ipa和</em>.dSYM文件存放的目录，可以是不存在的目录，如果目录不存在，会自动创建</li>
-<li>-s 指定scheme，如果存在多个scheme，需要明确指定的，如果不指定，在执行时会出现选项，进行选择</li>
-<li>-ipa 指定生成的ipa的名称，注意要添加.ipa</li>
-<li>-c 指定configuration，这里可以指定是以Debug还是以Release方法进行编译，注意第一个字母要大写，否则会出错</li>
-<li>–verbose打印，更多log</li>
-<li>如果项目使用了CocoaPods，应该使用-w指定workspace进行编译，并且要明确指定编译哪个scheme</li>
-</ul>
-<h3 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h3><p>发布的命令的很多，具体可以参考github的<a href="https://github.com/nomad/shenzhen/blob/master/README.md" target="_blank" rel="external">README</a>，这里只介绍上传到FTP一种</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ipa distribute:ftp --host 127.0.0.1 -port 8080 -f /Users/liujinlong/Desktop/App/AppName.ipa -u username -p 123456 --path /iOSApp/v1.1.2/20160101 --mkdir</div></pre></td></tr></table></figure>
-<p>说明：</p>
-<ul>
-<li>–host 指定FTP服务器主机</li>
-<li>–port 指定FTP服务器端口</li>
-<li>-f 指定要上传的ipa文件的路径</li>
-<li>-u 指定FTP服务器用户名</li>
-<li>-p 指定FTP服务器密码</li>
-<li>–path 指定FTP服务器路径</li>
-<li>–mkdir 如果指定的FTP服务器路径不存在，则创建路径</li>
-</ul>
-<p>有了<a href="https://github.com/nomad/shenzhen" target="_blank" rel="external">shenzhen</a>这个工具，我们的打包工作就变得异常轻松，下面是我使用<a href="https://github.com/nomad/shenzhen" target="_blank" rel="external">shenzhen</a>写的一个shell脚本，可以一个命令完成打包并上传到FTP。</p>
-<p>Github: <a href="https://github.com/liujinlongxa/BuildIPAScript" target="_blank" rel="external">BuildIPAScript</a></p>
+        <p>iOS项目中经常会用到Native界面和H5界面互相调用的情况，方法就是使用JavaScriptCore框架直接在原生界面中调用JS代码。如果JS代码较长，调试起来就会比较麻烦，这里介绍一种方法，可以让你轻松调试JS。</p>
+<p>首先，打开Safari，打开偏好设置（快捷键Cmd+,），在Advanced中选中”Show Develop menu in menu bar”，如下图：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/500ac2228a67a84dd4c20e73f104a560.png" alt="1"></p>
+<p>这样菜单栏就会出现一个Develop菜单，点击菜单Develop-&gt;Simulator-&gt;Automatically Show Web Inspector For JSContexts</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/211795a2560cf0bc3973a5d778d96343.png" alt="2"></p>
+<p>然后使用模拟器运行项目，当运行到JS代码时，就会自动启动调试器，如图：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/19c6bf7d6bce0e9b54f289ccc9025ecc.png" alt="3"></p>
+<p>和XCode一样，你可以打断点，当JS运行到这一句时就会进入断点</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/f6b607a7a949df00b9f2e20f11e7b29a.png" alt="4"></p>
+<p>当进入断点后，还可以打印出相应的局部变量</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/993f4e504f25bc37a79cc1f6ffd1a9ca.png" alt="5"></p>
+<p>以上就是使用Safari调试JS的方法。</p>
 
       
     </div>
@@ -368,22 +361,24 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/其他/" rel="tag">#其他</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/12/27/《ios核心动画高级技巧》阅读笔记(3)/" rel="next" title="《ios核心动画高级技巧》阅读笔记(3)">
-                <i class="fa fa-chevron-left"></i> 《ios核心动画高级技巧》阅读笔记(3)
+              <a href="/2016/08/25/Mac下生成RSA密钥对要注意的问题/" rel="next" title="Mac下生成RSA密钥对要注意的问题">
+                <i class="fa fa-chevron-left"></i> Mac下生成RSA密钥对要注意的问题
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/10/iOS开发企业证书申请过程全记录/" rel="prev" title="iOS开发企业证书申请过程全记录">
-                iOS开发企业证书申请过程全记录 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -409,8 +404,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/01/01/自动打包工具shenzhen使用简介/"
-           data-title="自动打包工具shenzhen使用简介" data-url="http://liujinlongxa.com/2016/01/01/自动打包工具shenzhen使用简介/">
+      <div class="ds-thread" data-thread-key="2016/08/30/使用Safair调试JS/"
+           data-title="使用Safair调试JS" data-url="http://liujinlongxa.com/2016/08/30/使用Safair调试JS/">
       </div>
     
   </div>
@@ -551,7 +546,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#打包"><span class="nav-number">2.1.</span> <span class="nav-text">打包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发布"><span class="nav-number">2.2.</span> <span class="nav-text">发布</span></a></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>

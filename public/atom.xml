@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://liujinlongxa.com/"/>
-  <updated>2016-08-25T16:24:15.000Z</updated>
+  <updated>2016-08-30T14:49:04.000Z</updated>
   <id>http://liujinlongxa.com/</id>
   
   <author>
@@ -14,6 +14,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用Safair调试JS</title>
+    <link href="http://liujinlongxa.com/2016/08/30/%E4%BD%BF%E7%94%A8Safair%E8%B0%83%E8%AF%95JS/"/>
+    <id>http://liujinlongxa.com/2016/08/30/使用Safair调试JS/</id>
+    <published>2016-08-30T13:46:33.000Z</published>
+    <updated>2016-08-30T14:49:04.000Z</updated>
+    
+    <content type="html">&lt;p&gt;iOS项目中经常会用到Native界面和H5界面互相调用的情况，方法就是使用JavaScriptCore框架直接在原生界面中调用JS代码。如果JS代码较长，调试起来就会比较麻烦，这里介绍一种方法，可以让你轻松调试JS。&lt;/p&gt;
+&lt;p&gt;首先，打开Safari，打开偏好设置（快捷键Cmd+,），在Advanced中选中”Show Develop menu in menu bar”，如下图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/500ac2228a67a84dd4c20e73f104a560.png&quot; alt=&quot;1&quot;&gt;&lt;/p&gt;
+&lt;p&gt;这样菜单栏就会出现一个Develop菜单，点击菜单Develop-&amp;gt;Simulator-&amp;gt;Automatically Show Web Inspector For JSContexts&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/211795a2560cf0bc3973a5d778d96343.png&quot; alt=&quot;2&quot;&gt;&lt;/p&gt;
+&lt;p&gt;然后使用模拟器运行项目，当运行到JS代码时，就会自动启动调试器，如图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/19c6bf7d6bce0e9b54f289ccc9025ecc.png&quot; alt=&quot;3&quot;&gt;&lt;/p&gt;
+&lt;p&gt;和XCode一样，你可以打断点，当JS运行到这一句时就会进入断点&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/f6b607a7a949df00b9f2e20f11e7b29a.png&quot; alt=&quot;4&quot;&gt;&lt;/p&gt;
+&lt;p&gt;当进入断点后，还可以打印出相应的局部变量&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/993f4e504f25bc37a79cc1f6ffd1a9ca.png&quot; alt=&quot;5&quot;&gt;&lt;/p&gt;
+&lt;p&gt;以上就是使用Safari调试JS的方法。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;iOS项目中经常会用到Native界面和H5界面互相调用的情况，方法就是使用JavaScriptCore框架直接在原生界面中调用JS代码。如果JS代码较长，调试起来就会比较麻烦，这里介绍一种方法，可以让你轻松调试JS。&lt;/p&gt;
+&lt;p&gt;首先，打开Safari，打开偏好设置（快
+    
+    </summary>
+    
+      <category term="iOS Tips" scheme="http://liujinlongxa.com/categories/iOS-Tips/"/>
+    
+    
+      <category term="其他" scheme="http://liujinlongxa.com/tags/%E5%85%B6%E4%BB%96/"/>
+    
+  </entry>
   
   <entry>
     <title>Mac下生成RSA密钥对要注意的问题</title>
@@ -1125,65 +1160,6 @@
     </summary>
     
       <category term="iOS开发" scheme="http://liujinlongxa.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>《ios核心动画高级技巧》阅读笔记(2)</title>
-    <link href="http://liujinlongxa.com/2015/12/27/%E3%80%8Aios%E6%A0%B8%E5%BF%83%E5%8A%A8%E7%94%BB%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(2)/"/>
-    <id>http://liujinlongxa.com/2015/12/27/《ios核心动画高级技巧》阅读笔记(2)/</id>
-    <published>2015-12-26T16:00:00.000Z</published>
-    <updated>2016-08-12T15:20:04.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;第三章-图层集合学&quot;&gt;&lt;a href=&quot;#第三章-图层集合学&quot; class=&quot;headerlink&quot; title=&quot;第三章 图层集合学&quot;&gt;&lt;/a&gt;第三章 图层集合学&lt;/h2&gt;&lt;h3 id=&quot;布局&quot;&gt;&lt;a href=&quot;#布局&quot; class=&quot;headerlink&quot; title=&quot;布局&quot;&gt;&lt;/a&gt;布局&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;frame：图层的相对于父图层的外部坐标&lt;/li&gt;
-&lt;li&gt;bounds：内部坐标&lt;/li&gt;
-&lt;li&gt;center和position：相对于父图层anchorPoint所在的位置&lt;/li&gt;
-&lt;li&gt;设置视图的frame，bounds和center，也就是相当于设置图层的frame，bounds和position&lt;/li&gt;
-&lt;li&gt;一般情况下，frame中的size与bounds中的size是相同的，但是当视图旋转时，frame的size和bounds的size就不一样了，如下图&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/a592d9f689fe8a2818583430f5a8211d.png&quot; alt=&quot;frame&amp;amp;bounds&amp;amp;center&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;锚点&quot;&gt;&lt;a href=&quot;#锚点&quot; class=&quot;headerlink&quot; title=&quot;锚点&quot;&gt;&lt;/a&gt;锚点&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;锚点是相对于父图层anchorPoint所在的位置。&lt;/li&gt;
-&lt;li&gt;默认，锚点位于图层的中点，可以改变锚点的位置，描点改变，frame也会随之改变。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/99c7a6ddc1d2b162816b2a9ef5ff568f.png&quot; alt=&quot;anchorPoint&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;改变锚点，position不会改变，但是frame改变了。&lt;/li&gt;
-&lt;li&gt;anchorPoint是View在旋转是的轴点，如果想改变view的旋转轴点，改变anchorPoint即可&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;坐标系&quot;&gt;&lt;a href=&quot;#坐标系&quot; class=&quot;headerlink&quot; title=&quot;坐标系&quot;&gt;&lt;/a&gt;坐标系&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;与UIView一样，CALayer也提供了一套坐标变换的借口&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;built_in&quot;&gt;CGPoint&lt;/span&gt;)convertPoint:(&lt;span class=&quot;built_in&quot;&gt;CGPoint&lt;/span&gt;)p fromLayer:(&lt;span class=&quot;keyword&quot;&gt;nullable&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;CALayer&lt;/span&gt; *)l;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;built_in&quot;&gt;CGPoint&lt;/span&gt;)convertPoint:(&lt;span class=&quot;built_in&quot;&gt;CGPoint&lt;/span&gt;)p toLayer:(&lt;span class=&quot;keyword&quot;&gt;nullable&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;CALayer&lt;/span&gt; *)l;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;built_in&quot;&gt;CGRect&lt;/span&gt;)convertRect:(&lt;span class=&quot;built_in&quot;&gt;CGRect&lt;/span&gt;)r fromLayer:(&lt;span class=&quot;keyword&quot;&gt;nullable&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;CALayer&lt;/span&gt; *)l;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;built_in&quot;&gt;CGRect&lt;/span&gt;)convertRect:(&lt;span class=&quot;built_in&quot;&gt;CGRect&lt;/span&gt;)r toLayer:(&lt;span class=&quot;keyword&quot;&gt;nullable&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;CALayer&lt;/span&gt; *)l;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;翻转的几何结构&quot;&gt;&lt;a href=&quot;#翻转的几何结构&quot; class=&quot;headerlink&quot; title=&quot;翻转的几何结构&quot;&gt;&lt;/a&gt;翻转的几何结构&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;ios上坐标系原点为左上角，macOS上坐标系原点为左下角。&lt;/li&gt;
-&lt;li&gt;CALayer的&lt;code&gt;geometryFlipped&lt;/code&gt;属性决定了图层的坐标是否相对于父图层翻转。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;z坐标轴&quot;&gt;&lt;a href=&quot;#z坐标轴&quot; class=&quot;headerlink&quot; title=&quot;z坐标轴&quot;&gt;&lt;/a&gt;z坐标轴&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;zPosition：表示图层空间z轴上的位置&lt;/li&gt;
-&lt;li&gt;zPosition除了可以改变z轴的位置，还可以用来改变图层的先后顺序，如图，如果设置了绿色view的zPosition，绿色View就可以覆盖在蓝色view之上。但是通过这种方法改变视图的层次，是不能改变视图的响应事件的顺序的。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/d673bc31fdbe28367ad557ac739a60fd.png&quot; alt=&quot;zPositon&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;anchorPointZ表示z轴上锚点的位置&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;Hit-Testing&quot;&gt;&lt;a href=&quot;#Hit-Testing&quot; class=&quot;headerlink&quot; title=&quot;Hit Testing&quot;&gt;&lt;/a&gt;Hit Testing&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;CALayer不能处理点击事件，但是他有一系列方法帮你处理事件。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;- (BOOL)containsPoint:(CGPoint)p;&lt;/code&gt;用于判断一个点是否属于一个图层&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;- (nullable CALayer *)hitTest:(CGPoint)p;&lt;/code&gt;返回被点击的图层&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)touchesBegan:(&lt;span class=&quot;built_in&quot;&gt;NSSet&lt;/span&gt;&amp;lt;&lt;span class=&quot;built_in&quot;&gt;UITouch&lt;/span&gt; *&amp;gt; *)touches withEvent:(&lt;span class=&quot;built_in&quot;&gt;UIEvent&lt;/span&gt; *)event &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;UITouch&lt;/span&gt; *touch = [touches anyObject];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CGPoint&lt;/span&gt; point = [touch locationInView:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.view];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    point = [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView convertPoint:point fromView:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.view];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;BOOL&lt;/span&gt; ret = [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.layer containsPoint:point];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (ret) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;green&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    point = [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.buleView convertPoint:point fromView:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ret = [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.buleView.layer containsPoint:point];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (ret) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;blue&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;CALayer&lt;/span&gt; *layer = [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.view.layer hitTest:point];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (layer == &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.layerView.layer) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;green&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(layer == &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.buleView.layer) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;blue&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;第三章-图层集合学&quot;&gt;&lt;a href=&quot;#第三章-图层集合学&quot; class=&quot;headerlink&quot; title=&quot;第三章 图层集合学&quot;&gt;&lt;/a&gt;第三章 图层集合学&lt;/h2&gt;&lt;h3 id=&quot;布局&quot;&gt;&lt;a href=&quot;#布局&quot; class=&quot;headerlink&quot; 
-    
-    </summary>
-    
-      <category term="读书笔记" scheme="http://liujinlongxa.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
     
   </entry>
