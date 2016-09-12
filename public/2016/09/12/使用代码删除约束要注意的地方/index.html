@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="其他," />
+  <meta name="keywords" content="Autolayout," />
 
 
 
@@ -86,31 +86,19 @@
 
 
 
-<meta name="description" content="最近在做图片模糊效果时遇到了一个很奇怪的问题，在iPhone6/iPhone6s上显示的模糊效果如下：
-
-但是在iPhone6 plus和iPhone6s plus上的模糊效果就如下图：
-
-这明显效果不对，好像没有模糊一样。于是Google一些资料，终于找到了解决方法，解决方法是，在6Plus上不能设置过大的模糊半径，如果模糊半径过大，就会出现上图的效果。这和我使用的”UIImage+ImageE">
+<meta name="description" content="使用代码删除特定约束的正确姿势：
+12345678if (IOS8_OR_LATER) &amp;#123;    // iOS8之后删除约束的方法    self.authorLabelRightConstraint.active = NO;&amp;#125;else &amp;#123;    // iOS8之前删除约束的方法    [self removeConstraint:self.authorLabelRi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="做模糊效果时遇到的问题">
-<meta property="og:url" content="http://liujinlongxa.com/2016/08/30/做模糊效果时遇到的问题/index.html">
+<meta property="og:title" content="使用代码删除约束要注意的地方">
+<meta property="og:url" content="http://liujinlongxa.com/2016/09/12/使用代码删除约束要注意的地方/index.html">
 <meta property="og:site_name" content="liujinlongxa的技术博客">
-<meta property="og:description" content="最近在做图片模糊效果时遇到了一个很奇怪的问题，在iPhone6/iPhone6s上显示的模糊效果如下：
-
-但是在iPhone6 plus和iPhone6s plus上的模糊效果就如下图：
-
-这明显效果不对，好像没有模糊一样。于是Google一些资料，终于找到了解决方法，解决方法是，在6Plus上不能设置过大的模糊半径，如果模糊半径过大，就会出现上图的效果。这和我使用的”UIImage+ImageE">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/4661eedc0a33e9c4535d95a005bde5d2.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/e31355553287234ae1b78b6ea88389ac.png">
-<meta property="og:updated_time" content="2016-08-30T15:14:07.000Z">
+<meta property="og:description" content="使用代码删除特定约束的正确姿势：
+12345678if (IOS8_OR_LATER) &amp;#123;    // iOS8之后删除约束的方法    self.authorLabelRightConstraint.active = NO;&amp;#125;else &amp;#123;    // iOS8之前删除约束的方法    [self removeConstraint:self.authorLabelRi">
+<meta property="og:updated_time" content="2016-09-12T15:30:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="做模糊效果时遇到的问题">
-<meta name="twitter:description" content="最近在做图片模糊效果时遇到了一个很奇怪的问题，在iPhone6/iPhone6s上显示的模糊效果如下：
-
-但是在iPhone6 plus和iPhone6s plus上的模糊效果就如下图：
-
-这明显效果不对，好像没有模糊一样。于是Google一些资料，终于找到了解决方法，解决方法是，在6Plus上不能设置过大的模糊半径，如果模糊半径过大，就会出现上图的效果。这和我使用的”UIImage+ImageE">
-<meta name="twitter:image" content="http://7xn88v.com1.z0.glb.clouddn.com/4661eedc0a33e9c4535d95a005bde5d2.png">
+<meta name="twitter:title" content="使用代码删除约束要注意的地方">
+<meta name="twitter:description" content="使用代码删除特定约束的正确姿势：
+12345678if (IOS8_OR_LATER) &amp;#123;    // iOS8之后删除约束的方法    self.authorLabelRightConstraint.active = NO;&amp;#125;else &amp;#123;    // iOS8之前删除约束的方法    [self removeConstraint:self.authorLabelRi">
 
 
 
@@ -131,9 +119,9 @@
 
 
 
-  <link rel="canonical" href="http://liujinlongxa.com/2016/08/30/做模糊效果时遇到的问题/"/>
+  <link rel="canonical" href="http://liujinlongxa.com/2016/09/12/使用代码删除约束要注意的地方/"/>
 
-  <title> 做模糊效果时遇到的问题 | liujinlongxa的技术博客 </title>
+  <title> 使用代码删除约束要注意的地方 | liujinlongxa的技术博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -263,7 +251,7 @@
             
             
               
-                做模糊效果时遇到的问题
+                使用代码删除约束要注意的地方
               
             
           </h1>
@@ -275,8 +263,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-30T22:51:53+08:00" content="2016-08-30">
-              2016-08-30
+            <time itemprop="dateCreated" datetime="2016-09-12T23:17:44+08:00" content="2016-09-12">
+              2016-09-12
             </time>
           </span>
 
@@ -305,8 +293,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/30/做模糊效果时遇到的问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/30/做模糊效果时遇到的问题/" itemprop="commentsCount"></span>
+                <a href="/2016/09/12/使用代码删除约束要注意的地方/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/12/使用代码删除约束要注意的地方/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -329,14 +317,9 @@
       
 
       
-        <p>最近在做图片模糊效果时遇到了一个很奇怪的问题，在iPhone6/iPhone6s上显示的模糊效果如下：</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/4661eedc0a33e9c4535d95a005bde5d2.png" alt="1"></p>
-<p>但是在iPhone6 plus和iPhone6s plus上的模糊效果就如下图：</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/e31355553287234ae1b78b6ea88389ac.png" alt="2"></p>
-<p>这明显效果不对，好像没有模糊一样。于是Google一些资料，终于找到了解决方法，解决方法是，在6Plus上不能设置过大的模糊半径，如果模糊半径过大，就会出现上图的效果。这和我使用的”UIImage+ImageEffects.h”也有关。</p>
-<p>原先设置的模糊半径为52，现在改成了在6Plus和6sPlus上是45，在6和6s上还是52，这样就没问题了。</p>
-<p>参考资料：</p>
-<p><a href="http://stackoverflow.com/questions/26002970/applyblurwithradius-working-on-iphone-6-not-6-uiimageimageeffects" target="_blank" rel="external">applyBlurWithRadius working on iPhone 6, not 6+ (UIImage+ImageEffects)</a></p>
+        <p>使用代码删除特定约束的正确姿势：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (IOS8_OR_LATER) &#123;</div><div class="line">    <span class="comment">// iOS8之后删除约束的方法</span></div><div class="line">    <span class="keyword">self</span>.authorLabelRightConstraint.active = <span class="literal">NO</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">else</span> &#123;</div><div class="line">    <span class="comment">// iOS8之前删除约束的方法</span></div><div class="line">    [<span class="keyword">self</span> removeConstraint:<span class="keyword">self</span>.authorLabelRightConstraint];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注意删除约束的方法在iOS8之前和之后是不一样的。</p>
 
       
     </div>
@@ -359,7 +342,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/其他/" rel="tag">#其他</a>
+            <a href="/tags/Autolayout/" rel="tag">#Autolayout</a>
           
         </div>
       
@@ -368,17 +351,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/30/使用Safair调试JS/" rel="next" title="使用Safair调试JS">
-                <i class="fa fa-chevron-left"></i> 使用Safair调试JS
+              <a href="/2016/08/30/做模糊效果时遇到的问题/" rel="next" title="做模糊效果时遇到的问题">
+                <i class="fa fa-chevron-left"></i> 做模糊效果时遇到的问题
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/12/使用代码删除约束要注意的地方/" rel="prev" title="使用代码删除约束要注意的地方">
-                使用代码删除约束要注意的地方 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -404,8 +383,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/30/做模糊效果时遇到的问题/"
-           data-title="做模糊效果时遇到的问题" data-url="http://liujinlongxa.com/2016/08/30/做模糊效果时遇到的问题/">
+      <div class="ds-thread" data-thread-key="2016/09/12/使用代码删除约束要注意的地方/"
+           data-title="使用代码删除约束要注意的地方" data-url="http://liujinlongxa.com/2016/09/12/使用代码删除约束要注意的地方/">
       </div>
     
   </div>
