@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="IDFA," />
 
 
 
@@ -86,15 +86,27 @@
 
 
 
-<meta name="description" content="生命永不息，Coding永不止">
-<meta property="og:type" content="website">
-<meta property="og:title" content="liujinlongxa的技术博客">
-<meta property="og:url" content="http://liujinlongxa.com/tags/UILabel/index.html">
+<meta name="description" content="iOS10上，如果用户开启了“限制广告跟踪”选项（设置-&amp;gt;隐私-&amp;gt;广告），则在使用[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString]方法获取IDFA时会返回全部是0，如下：
+
+有两种解决方案：
+第一种方法是通过isAdvertisingTrackingEnabled属性判断是否可以返回正确的I">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS10无法获取IDFA的问题">
+<meta property="og:url" content="http://liujinlongxa.com/2016/10/18/iOS10无法获取IDFA的问题/index.html">
 <meta property="og:site_name" content="liujinlongxa的技术博客">
-<meta property="og:description" content="生命永不息，Coding永不止">
+<meta property="og:description" content="iOS10上，如果用户开启了“限制广告跟踪”选项（设置-&amp;gt;隐私-&amp;gt;广告），则在使用[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString]方法获取IDFA时会返回全部是0，如下：
+
+有两种解决方案：
+第一种方法是通过isAdvertisingTrackingEnabled属性判断是否可以返回正确的I">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/13bbfe746dacb7c156cac2aaac5b2c0d.png">
+<meta property="og:updated_time" content="2016-10-18T02:30:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="liujinlongxa的技术博客">
-<meta name="twitter:description" content="生命永不息，Coding永不止">
+<meta name="twitter:title" content="iOS10无法获取IDFA的问题">
+<meta name="twitter:description" content="iOS10上，如果用户开启了“限制广告跟踪”选项（设置-&amp;gt;隐私-&amp;gt;广告），则在使用[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString]方法获取IDFA时会返回全部是0，如下：
+
+有两种解决方案：
+第一种方法是通过isAdvertisingTrackingEnabled属性判断是否可以返回正确的I">
+<meta name="twitter:image" content="http://7xn88v.com1.z0.glb.clouddn.com/13bbfe746dacb7c156cac2aaac5b2c0d.png">
 
 
 
@@ -115,9 +127,9 @@
 
 
 
-  <link rel="canonical" href="http://liujinlongxa.com/tags/UILabel/"/>
+  <link rel="canonical" href="http://liujinlongxa.com/2016/10/18/iOS10无法获取IDFA的问题/"/>
 
-  <title> 标签: UILabel | liujinlongxa的技术博客 </title>
+  <title> iOS10无法获取IDFA的问题 | liujinlongxa的技术博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -138,7 +150,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -226,74 +238,153 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        UILabel
-        <small>标签</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/07/03/设置富文本字间距，文字不能居中对齐/" itemprop="url">
-              
-                <span itemprop="name">设置富文本字间距，文字不能居中对齐</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-03T18:40:19+08:00"
-              content="2016-07-03" >
-          07-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/07/03/UILabel设置lineBreakMode属性无效/" itemprop="url">
-              
-                <span itemprop="name">UILabel设置lineBreakMode属性无效</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-03T18:09:30+08:00"
-              content="2016-07-03" >
-          07-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </div>
 
   
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS10无法获取IDFA的问题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-18T10:17:44+08:00" content="2016-10-18">
+              2016-10-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS-Tips/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS Tips</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/18/iOS10无法获取IDFA的问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/18/iOS10无法获取IDFA的问题/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>iOS10上，如果用户开启了“限制广告跟踪”选项（设置-&gt;隐私-&gt;广告），则在使用<code>[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString]</code>方法获取IDFA时会返回全部是0，如下：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/13bbfe746dacb7c156cac2aaac5b2c0d.png" alt="1"></p>
+<p>有两种解决方案：</p>
+<p>第一种方法是通过<code>isAdvertisingTrackingEnabled</code>属性判断是否可以返回正确的IDFA，如果返回为NO，则可以提示用户去设置中关闭限制广告跟踪。代码如下：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSString</span> *idfa = <span class="literal">nil</span>;</div><div class="line"><span class="keyword">if</span> ([[ASIdentifierManager sharedManager] isAdvertisingTrackingEnabled]) &#123;</div><div class="line">    idfa = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];</div><div class="line">&#125;</div><div class="line"><span class="keyword">else</span> &#123;</div><div class="line">    <span class="comment">// 弹窗提示用户关闭限制广告跟踪</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>另外一种更好的方法是使用第三方库获取IDFA，这里推荐两个第三方库：<a href="https://github.com/ylechelle/OpenIDFA" target="_blank" rel="external">OpenIDFA</a>和<a href="https://github.com/youmi/SimulateIDFA" target="_blank" rel="external">SimulateIDFA</a>，个人更推荐SimulateIDFA，因为他的重复率更低。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/IDFA/" rel="tag">#IDFA</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/09/获取本地化的APP版本描述信息/" rel="next" title="获取本地化的APP版本描述信息">
+                <i class="fa fa-chevron-left"></i> 获取本地化的APP版本描述信息
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -301,6 +392,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/18/iOS10无法获取IDFA的问题/"
+           data-title="iOS10无法获取IDFA的问题" data-url="http://liujinlongxa.com/2016/10/18/iOS10无法获取IDFA的问题/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -320,8 +419,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/smallhead.png"
@@ -421,6 +529,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -524,6 +643,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
