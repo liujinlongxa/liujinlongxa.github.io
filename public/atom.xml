@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://liujinlongxa.com/"/>
-  <updated>2016-10-18T02:30:22.000Z</updated>
+  <updated>2016-10-25T03:53:30.000Z</updated>
   <id>http://liujinlongxa.com/</id>
   
   <author>
@@ -14,6 +14,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何获取WebView的UserAgent</title>
+    <link href="http://liujinlongxa.com/2016/10/25/%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96WebView%E7%9A%84UserAgent/"/>
+    <id>http://liujinlongxa.com/2016/10/25/如何获取WebView的UserAgent/</id>
+    <published>2016-10-25T03:46:04.000Z</published>
+    <updated>2016-10-25T03:53:30.000Z</updated>
+    
+    <content type="html">&lt;p&gt;项目中用到了WebView的UserAgent，可以通过以下方式获取到：&lt;/p&gt;
+&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;UIWebView&lt;/span&gt;* webView = [[&lt;span class=&quot;built_in&quot;&gt;UIWebView&lt;/span&gt; alloc] init];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt;* secretAgent = [webView stringByEvaluatingJavaScriptFromString:&lt;span class=&quot;string&quot;&gt;@&quot;navigator.userAgent&quot;&lt;/span&gt;];&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;如果是WKWebView，可以通过以下方式获取&lt;/p&gt;
+&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;WKWebView&lt;/span&gt; *webView = [[&lt;span class=&quot;built_in&quot;&gt;WKWebView&lt;/span&gt; alloc] init];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;[webView evaluateJavaScript:&lt;span class=&quot;string&quot;&gt;@&quot;navigator.userAgent&quot;&lt;/span&gt; completionHandler:^(&lt;span class=&quot;keyword&quot;&gt;id&lt;/span&gt; _Nullable userAgent, &lt;span class=&quot;built_in&quot;&gt;NSError&lt;/span&gt; * _Nullable error) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;userAgent: %@&quot;&lt;/span&gt;, userAgent);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.webView = webView; &lt;span class=&quot;comment&quot;&gt;// 注意，一定要对webView进行强引用&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;获取到的值的为：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;Mozilla/5.0 (iPhone; CPU iPhone OS 10_0_1 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) Mobile/14A403&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;项目中用到了WebView的UserAgent，可以通过以下方式获取到：&lt;/p&gt;
+&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div
+    
+    </summary>
+    
+      <category term="iOS Tips" scheme="http://liujinlongxa.com/categories/iOS-Tips/"/>
+    
+    
+      <category term="其他" scheme="http://liujinlongxa.com/tags/%E5%85%B6%E4%BB%96/"/>
+    
+  </entry>
   
   <entry>
     <title>iOS10无法获取IDFA的问题</title>
@@ -841,64 +870,6 @@
     
       &lt;p&gt;6月24日至6月25日，我有幸参加了“GMTC全球移动技术大会”，这篇博客就是我对参见会议的一个经历和感受。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/457acda7bd3dc65f172468c45da
-    
-    </summary>
-    
-      <category term="其他" scheme="http://liujinlongxa.com/categories/%E5%85%B6%E4%BB%96/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>打造自己的翻墙VPS:搬运工VPS购买使用流程全记录</title>
-    <link href="http://liujinlongxa.com/2016/06/11/%E6%89%93%E9%80%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BF%BB%E5%A2%99VPS:%E6%90%AC%E8%BF%90%E5%B7%A5VPS%E8%B4%AD%E4%B9%B0%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B%E5%85%A8%E8%AE%B0%E5%BD%95/"/>
-    <id>http://liujinlongxa.com/2016/06/11/打造自己的翻墙VPS:搬运工VPS购买使用流程全记录/</id>
-    <published>2016-06-10T16:00:00.000Z</published>
-    <updated>2016-08-12T15:20:04.000Z</updated>
-    
-    <content type="html">&lt;p&gt;端午节在家无聊，买了一个VPS，打算做翻墙用，下面是我购买和使用的一个流程全集了，主要以截图为主，文字为辅。&lt;/p&gt;
-&lt;p&gt;我选的VPS是&lt;a href=&quot;https://bandwagonhost.com/index.php&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;搬运工&lt;/a&gt;，因为网上教程比较多，而且支持支付宝支付（实际证明支付宝支付就是个坑）。&lt;/p&gt;
-&lt;h2 id=&quot;第一步：购买搬运工VPS&quot;&gt;&lt;a href=&quot;#第一步：购买搬运工VPS&quot; class=&quot;headerlink&quot; title=&quot;第一步：购买搬运工VPS&quot;&gt;&lt;/a&gt;第一步：购买搬运工VPS&lt;/h2&gt;&lt;p&gt;打开&lt;a href=&quot;https://bandwagonhost.com/index.php&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;搬运工&lt;/a&gt;官网，点击Home&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/bed44e502ad30c6337a757df1096eb42.png&quot; alt=&quot;1&quot;&gt;&lt;/p&gt;
-&lt;p&gt;选择一个套餐，点击OrderNow，出现了一个错误界面，没关系，继续点击Please Check…&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/6521ec84ff41c1c28efcbaf55195b41b.png&quot; alt=&quot;2&quot;&gt;&lt;/p&gt;
-&lt;p&gt;往下拉，选择一个套餐，显示out of stock是已经售罄的，选择一个没有售罄的，点击Order Now（便宜的都卖完了😭😭）&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/4d0c8ffde0ee4fabd1619a2f76cd142d.png&quot; alt=&quot;3&quot;&gt;&lt;/p&gt;
-&lt;p&gt;我选的是4.99$每月的套餐，然后选择计费周期和机房地址，计费周期有每月，每季度，每半年，每年，机房地址如果开通后觉得速度慢可以换的，选择完成后，点击Add to Cart&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/df89863eb89691d23f8ede6df91474ac.png&quot; alt=&quot;4&quot;&gt;&lt;/p&gt;
-&lt;p&gt;填写优惠码（如果有的话），然后点击CheckOut提交订单&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/22185a6765ad03c3c490039547b1a6f9.png&quot; alt=&quot;5&quot;&gt;&lt;/p&gt;
-&lt;p&gt;填写支付信息，可以选择支付宝支付，然后点击Complete Order完成订单&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/c52d6ec41f2fe7306d95fe02c150ff3c.png&quot; alt=&quot;6&quot;&gt;&lt;/p&gt;
-&lt;p&gt;然后，点击PayNow&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/8c5c7146ebeae385a78a0d2ff4f41d50.png&quot; alt=&quot;7&quot;&gt;&lt;/p&gt;
-&lt;p&gt;点了好几遍，使用没反应，最后无奈，只能使用PayPal（坑！！）&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/5044a701d5863fb3df75cde054e40bf1.png&quot; alt=&quot;8&quot;&gt;&lt;/p&gt;
-&lt;p&gt;然后登陆PayPal，确认订单，支付就可了。支付完成后，返回搬运工，可以看到一个订单号，这就说明订单已经完成了。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/b1919f5edb17005e107f2cda76ea6543.png&quot; alt=&quot;9&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;第二步：如何使用搬运工&quot;&gt;&lt;a href=&quot;#第二步：如何使用搬运工&quot; class=&quot;headerlink&quot; title=&quot;第二步：如何使用搬运工&quot;&gt;&lt;/a&gt;第二步：如何使用搬运工&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;查看主机&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/0d844d6592095394205b3ec705c27c07.png&quot; alt=&quot;10&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/519dd5c39986045804589fb1c2037bc1.png&quot; alt=&quot;11&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/32ba5f9b92493a7fae77e566ffeb1899.png&quot; alt=&quot;12&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;管理我的VPS，点击KiwiVM..进入管理界面，这里可以查看服务器的状态，以及进行各种管理操作，具体操作方法可以参考最后我的两篇博客链接。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/765e9238bfc53b4d7efcf7eddadc1713.png&quot; alt=&quot;13&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;第三步：一键安装shadowsocks（搬运工这个功能太赞啦）&quot;&gt;&lt;a href=&quot;#第三步：一键安装shadowsocks（搬运工这个功能太赞啦）&quot; class=&quot;headerlink&quot; title=&quot;第三步：一键安装shadowsocks（搬运工这个功能太赞啦）&quot;&gt;&lt;/a&gt;第三步：一键安装shadowsocks（搬运工这个功能太赞啦）&lt;/h2&gt;&lt;p&gt;进入管理界面，然后点击Shadowsocks Server，然后点击Install Sh…&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/6c277b288f658f0f46b49692ad44cd07.png&quot; alt=&quot;14&quot;&gt;&lt;/p&gt;
-&lt;p&gt;安装完成后，点击返回，就可以看到你的SS的端口和密码&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/cf4d5ded8facbea9375c69e1736db8b7.png&quot; alt=&quot;15&quot;&gt;&lt;/p&gt;
-&lt;p&gt;然后跟着上图的“What‘s Next”后面的内容，安装并配置Shadowsocks，就可以使用了。&lt;/p&gt;
-&lt;p&gt;以上就是这个购买和使用VPS的流程，希望对大家有所帮助。&lt;/p&gt;
-&lt;p&gt;Reference:&lt;br&gt;&lt;a href=&quot;https://blog.phpgao.com/vps.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://blog.phpgao.com/vps.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.jianshu.com/p/2f51144c35c9&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.jianshu.com/p/2f51144c35c9&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;端午节在家无聊，买了一个VPS，打算做翻墙用，下面是我购买和使用的一个流程全集了，主要以截图为主，文字为辅。&lt;/p&gt;
-&lt;p&gt;我选的VPS是&lt;a href=&quot;https://bandwagonhost.com/index.php&quot; target=&quot;_blank&quot; rel=&quot;e
     
     </summary>
     
