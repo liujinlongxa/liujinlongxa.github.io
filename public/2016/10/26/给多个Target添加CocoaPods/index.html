@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="其他," />
+  <meta name="keywords" content="Target,CocoaPods," />
 
 
 
@@ -86,19 +86,25 @@
 
 
 
-<meta name="description" content="可以设置xib以Xcode7.x的方法打开，参考如下
-The document Main.storyboard requires Xcode 8.0 or later">
+<meta name="description" content="基本用法一般我们使用CocoaPods进行依赖管理时，如果项目里只有一个Target，则Podfile文件的格式应该是：
+123target &apos;ZipApp&apos; do  # ZipApp为Target名称  pod &apos;SSZipArchive&apos;end
+如果项目中有多个Target，可以定义多个这样的block，如下：
+1234567target &apos;ZipApp&apos; do  # ZipApp为Targe">
 <meta property="og:type" content="article">
-<meta property="og:title" content="用XCode8打开Xib后项目不能在XCode7上运行">
-<meta property="og:url" content="http://liujinlongxa.com/2016/07/03/用XCode8打开Xib后项目不能在XCode7上运行/index.html">
+<meta property="og:title" content="给多个Target添加CocoaPods">
+<meta property="og:url" content="http://liujinlongxa.com/2016/10/26/给多个Target添加CocoaPods/index.html">
 <meta property="og:site_name" content="liujinlongxa的技术博客">
-<meta property="og:description" content="可以设置xib以Xcode7.x的方法打开，参考如下
-The document Main.storyboard requires Xcode 8.0 or later">
-<meta property="og:updated_time" content="2016-08-12T15:20:04.000Z">
+<meta property="og:description" content="基本用法一般我们使用CocoaPods进行依赖管理时，如果项目里只有一个Target，则Podfile文件的格式应该是：
+123target &apos;ZipApp&apos; do  # ZipApp为Target名称  pod &apos;SSZipArchive&apos;end
+如果项目中有多个Target，可以定义多个这样的block，如下：
+1234567target &apos;ZipApp&apos; do  # ZipApp为Targe">
+<meta property="og:updated_time" content="2016-10-26T14:49:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="用XCode8打开Xib后项目不能在XCode7上运行">
-<meta name="twitter:description" content="可以设置xib以Xcode7.x的方法打开，参考如下
-The document Main.storyboard requires Xcode 8.0 or later">
+<meta name="twitter:title" content="给多个Target添加CocoaPods">
+<meta name="twitter:description" content="基本用法一般我们使用CocoaPods进行依赖管理时，如果项目里只有一个Target，则Podfile文件的格式应该是：
+123target &apos;ZipApp&apos; do  # ZipApp为Target名称  pod &apos;SSZipArchive&apos;end
+如果项目中有多个Target，可以定义多个这样的block，如下：
+1234567target &apos;ZipApp&apos; do  # ZipApp为Targe">
 
 
 
@@ -119,9 +125,9 @@ The document Main.storyboard requires Xcode 8.0 or later">
 
 
 
-  <link rel="canonical" href="http://liujinlongxa.com/2016/07/03/用XCode8打开Xib后项目不能在XCode7上运行/"/>
+  <link rel="canonical" href="http://liujinlongxa.com/2016/10/26/给多个Target添加CocoaPods/"/>
 
-  <title> 用XCode8打开Xib后项目不能在XCode7上运行 | liujinlongxa的技术博客 </title>
+  <title> 给多个Target添加CocoaPods | liujinlongxa的技术博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -251,7 +257,7 @@ The document Main.storyboard requires Xcode 8.0 or later">
             
             
               
-                用XCode8打开Xib后项目不能在XCode7上运行
+                给多个Target添加CocoaPods
               
             
           </h1>
@@ -263,8 +269,8 @@ The document Main.storyboard requires Xcode 8.0 or later">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-03T18:56:06+08:00" content="2016-07-03">
-              2016-07-03
+            <time itemprop="dateCreated" datetime="2016-10-26T22:25:04+08:00" content="2016-10-26">
+              2016-10-26
             </time>
           </span>
 
@@ -277,8 +283,8 @@ The document Main.storyboard requires Xcode 8.0 or later">
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS-Tips/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS Tips</span>
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
                   </a>
                 </span>
 
@@ -293,8 +299,8 @@ The document Main.storyboard requires Xcode 8.0 or later">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/03/用XCode8打开Xib后项目不能在XCode7上运行/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/03/用XCode8打开Xib后项目不能在XCode7上运行/" itemprop="commentsCount"></span>
+                <a href="/2016/10/26/给多个Target添加CocoaPods/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/26/给多个Target添加CocoaPods/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -317,8 +323,16 @@ The document Main.storyboard requires Xcode 8.0 or later">
       
 
       
-        <p>可以设置xib以Xcode7.x的方法打开，参考如下</p>
-<p><a href="http://stackoverflow.com/questions/37851459/the-document-main-storyboard-requires-xcode-8-0-or-later" target="_blank" rel="external">The document Main.storyboard requires Xcode 8.0 or later</a></p>
+        <h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>一般我们使用CocoaPods进行依赖管理时，如果项目里只有一个Target，则Podfile文件的格式应该是：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">target <span class="string">'ZipApp'</span> <span class="keyword">do</span>  <span class="comment"># ZipApp为Target名称</span></div><div class="line">  pod <span class="string">'SSZipArchive'</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p>如果项目中有多个Target，可以定义多个这样的block，如下：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">target <span class="string">'ZipApp'</span> <span class="keyword">do</span>  <span class="comment"># ZipApp为Target名称</span></div><div class="line">  pod <span class="string">'SSZipArchive'</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">target <span class="string">'ZipAppTest'</span> <span class="keyword">do</span>  <span class="comment"># ZipAppTest为另一个Target名称</span></div><div class="line">  pod <span class="string">'SSZipArchive'</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p>如果多个Target的依赖的库都是一样的，没有必要每一个Target都把所有库都写一遍，可以定义一个函数，写法如下：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">common_pods</span></span></div><div class="line">    pod <span class="string">'SSZipArchive'</span></div><div class="line">    pod <span class="string">'AFNetworking'</span></div><div class="line">    pod <span class="string">'JSPatch'</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">target <span class="string">'ZipApp'</span> <span class="keyword">do</span>  <span class="comment"># ZipApp即使Target名称</span></div><div class="line">  common_pods</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">target <span class="string">'ZipAppTest'</span> <span class="keyword">do</span></div><div class="line">    common_pods</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<h3 id="其他的用法"><a href="#其他的用法" class="headerlink" title="其他的用法"></a>其他的用法</h3><p>如果多个Target有嵌套关系，即一个Target是另一个Target的父Target，则可以写成以下形式：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">target <span class="string">'ZipApp'</span> <span class="keyword">do</span></div><div class="line">  pod <span class="string">'SSZipArchive'</span></div><div class="line"></div><div class="line">  target <span class="string">'ZipAppTests'</span> <span class="keyword">do</span></div><div class="line">    inherit! <span class="symbol">:search_paths</span> <span class="comment"># 这句话表示子Target继承了父Target包含的pod，即ZipAppTests这个Target里包含了SSZipArchive和Nimble两个pod</span></div><div class="line">    pod <span class="string">'Nimble'</span></div><div class="line">  <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p>如果一个Workspace里包含了多个Project，并且每一个Project都有不同的Target，则可以使用以下形式定义多个Project的Target：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">target <span class="string">'Target1'</span> <span class="keyword">do</span></div><div class="line">  project <span class="string">'Project1'</span></div><div class="line">  pod <span class="string">'AFNetworking'</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">target <span class="string">'Target2'</span> <span class="keyword">do</span></div><div class="line">  project <span class="string">'Project2'</span></div><div class="line">  pod <span class="string">'JSPatch'</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
 
       
     </div>
@@ -341,7 +355,9 @@ The document Main.storyboard requires Xcode 8.0 or later">
       
         <div class="post-tags">
           
-            <a href="/tags/其他/" rel="tag">#其他</a>
+            <a href="/tags/Target/" rel="tag">#Target</a>
+          
+            <a href="/tags/CocoaPods/" rel="tag">#CocoaPods</a>
           
         </div>
       
@@ -350,17 +366,13 @@ The document Main.storyboard requires Xcode 8.0 or later">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/03/Could-not-load-the-xxx-image-referenced-from-a-nib-in-the-bundle-with-identifier-xxxx问题/" rel="next" title="Could not load the xxx image referenced from a nib in the bundle with identifier xxxx问题">
-                <i class="fa fa-chevron-left"></i> Could not load the xxx image referenced from a nib in the bundle with identifier xxxx问题
+              <a href="/2016/10/25/如何获取WebView的UserAgent/" rel="next" title="如何获取WebView的UserAgent">
+                <i class="fa fa-chevron-left"></i> 如何获取WebView的UserAgent
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/10/深入理解CoreAnimation的fillMode和isRemovedOnCompletion/" rel="prev" title="深入理解CoreAnimation的fillMode和isRemovedOnCompletion">
-                深入理解CoreAnimation的fillMode和isRemovedOnCompletion <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -386,8 +398,8 @@ The document Main.storyboard requires Xcode 8.0 or later">
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/07/03/用XCode8打开Xib后项目不能在XCode7上运行/"
-           data-title="用XCode8打开Xib后项目不能在XCode7上运行" data-url="http://liujinlongxa.com/2016/07/03/用XCode8打开Xib后项目不能在XCode7上运行/">
+      <div class="ds-thread" data-thread-key="2016/10/26/给多个Target添加CocoaPods/"
+           data-title="给多个Target添加CocoaPods" data-url="http://liujinlongxa.com/2016/10/26/给多个Target添加CocoaPods/">
       </div>
     
   </div>
@@ -528,7 +540,7 @@ The document Main.storyboard requires Xcode 8.0 or later">
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本用法"><span class="nav-number">1.</span> <span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他的用法"><span class="nav-number">2.</span> <span class="nav-text">其他的用法</span></a></li></ol></div>
             
           </div>
         </section>

@@ -86,39 +86,33 @@
 
 
 
-<meta name="description" content="##关于多线程编程
-###什么是多线程简单的来说，并发应用程序中一个单独的执行路径，就是一个线程。
-###相关术语
-
+<meta name="description" content="关于多线程编程什么是多线程简单的来说，并发应用程序中一个单独的执行路径，就是一个线程。
+相关术语
 进程：用于指代一个正在运行的可执行程序，它可以包含多个线程。
 任务：用于指代抽象的概念，表示需要执行工作。
 线程的同步：同步就是协同步调，按预定的先后次序进行运行。线程的同步即一个线程执行完指定操作后，另个一个线程再执行。
-线程的互斥：线程互斥是指某一资源同时只允许一个访问者对其进">
+线程的互斥：线程互斥是指某一资源同时只允许一个访问者对其进行访问，具有唯一性和">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS中的多线程编程">
 <meta property="og:url" content="http://liujinlongxa.com/2015/10/04/iOS中的多线程编程/index.html">
 <meta property="og:site_name" content="liujinlongxa的技术博客">
-<meta property="og:description" content="##关于多线程编程
-###什么是多线程简单的来说，并发应用程序中一个单独的执行路径，就是一个线程。
-###相关术语
-
+<meta property="og:description" content="关于多线程编程什么是多线程简单的来说，并发应用程序中一个单独的执行路径，就是一个线程。
+相关术语
 进程：用于指代一个正在运行的可执行程序，它可以包含多个线程。
 任务：用于指代抽象的概念，表示需要执行工作。
 线程的同步：同步就是协同步调，按预定的先后次序进行运行。线程的同步即一个线程执行完指定操作后，另个一个线程再执行。
-线程的互斥：线程互斥是指某一资源同时只允许一个访问者对其进">
+线程的互斥：线程互斥是指某一资源同时只允许一个访问者对其进行访问，具有唯一性和">
 <meta property="og:image" content="http://img.blog.csdn.net/20150410103408108">
 <meta property="og:image" content="http://img.blog.csdn.net/20150410104742410">
-<meta property="og:updated_time" content="2016-08-12T15:20:04.000Z">
+<meta property="og:updated_time" content="2016-10-26T14:40:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS中的多线程编程">
-<meta name="twitter:description" content="##关于多线程编程
-###什么是多线程简单的来说，并发应用程序中一个单独的执行路径，就是一个线程。
-###相关术语
-
+<meta name="twitter:description" content="关于多线程编程什么是多线程简单的来说，并发应用程序中一个单独的执行路径，就是一个线程。
+相关术语
 进程：用于指代一个正在运行的可执行程序，它可以包含多个线程。
 任务：用于指代抽象的概念，表示需要执行工作。
 线程的同步：同步就是协同步调，按预定的先后次序进行运行。线程的同步即一个线程执行完指定操作后，另个一个线程再执行。
-线程的互斥：线程互斥是指某一资源同时只允许一个访问者对其进">
+线程的互斥：线程互斥是指某一资源同时只允许一个访问者对其进行访问，具有唯一性和">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20150410103408108">
 
 
@@ -338,23 +332,18 @@
       
 
       
-        <p>##关于多线程编程</p>
-<p>###什么是多线程<br>简单的来说，并发应用程序中一个单独的执行路径，就是一个线程。</p>
-<p>###相关术语</p>
-<ul>
+        <h2 id="关于多线程编程"><a href="#关于多线程编程" class="headerlink" title="关于多线程编程"></a>关于多线程编程</h2><h3 id="什么是多线程"><a href="#什么是多线程" class="headerlink" title="什么是多线程"></a>什么是多线程</h3><p>简单的来说，并发应用程序中一个单独的执行路径，就是一个线程。</p>
+<h3 id="相关术语"><a href="#相关术语" class="headerlink" title="相关术语"></a>相关术语</h3><ul>
 <li>进程：用于指代一个正在运行的可执行程序，它可以包含多个线程。</li>
 <li>任务：用于指代抽象的概念，表示需要执行工作。</li>
 <li>线程的同步：同步就是协同步调，按预定的先后次序进行运行。线程的同步即一个线程执行完指定操作后，另个一个线程再执行。</li>
-<li>线程的互斥：线程互斥是指某一资源同时只允许一个访问者对其进行访问，具有唯一性和排它性。<br>###iOS中的多线程编程</li>
+<li>线程的互斥：线程互斥是指某一资源同时只允许一个访问者对其进行访问，具有唯一性和排它性。<h3 id="iOS中的多线程编程"><a href="#iOS中的多线程编程" class="headerlink" title="iOS中的多线程编程"></a>iOS中的多线程编程</h3></li>
 <li>pthread（POSIX threads）：一套C语言接口，定义了创建和管理线程的API，非常灵活，可以直接操作线程。</li>
 <li>NSThread：一套OC接口，需要自己手动管理线程，比GCD和NSOperation更加轻量级。</li>
 <li>GCD：是iOS4出的一套并发编程的接口，纯C语言接口。以队列为基础。</li>
 <li>NSOperation：一套面向对象的OC API，不需要手动管理线程。能实现一些GCD实现不了的功能。</li>
 </ul>
-<p>##NSThread</p>
-<p>###基本操作</p>
-<p>####线程的创建</p>
-<ul>
+<h2 id="NSThread"><a href="#NSThread" class="headerlink" title="NSThread"></a>NSThread</h2><h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><h4 id="线程的创建"><a href="#线程的创建" class="headerlink" title="线程的创建"></a>线程的创建</h4><ul>
 <li><p>类方法创建线程</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="built_in">NSThread</span> detachNewThreadSelector:<span class="keyword">@selector</span>(threadFun:) toTarget:<span class="keyword">self</span> withObject:<span class="string">@"helloworld"</span>];</div></pre></td></tr></table></figure>
 </li>
@@ -378,9 +367,7 @@
 <li>线程键的通讯<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)performSelectorOnMainThread:(SEL)aSelector withObject:(<span class="keyword">id</span>)arg waitUntilDone:(<span class="built_in">BOOL</span>)wait;</div><div class="line">- (<span class="keyword">void</span>)performSelector:(SEL)aSelector onThread:(<span class="built_in">NSThread</span> *)thr withObject:(<span class="keyword">id</span>)arg waitUntilDone:(<span class="built_in">BOOL</span>)wait;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>###线程同步与互斥</p>
-<p>####锁</p>
-<ul>
+<h3 id="线程同步与互斥"><a href="#线程同步与互斥" class="headerlink" title="线程同步与互斥"></a>线程同步与互斥</h3><h4 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h4><ul>
 <li><p>@synchronized（obj）对代码段进行加锁，同时只能一个线程访问该代码段</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@synchronized</span>(<span class="keyword">self</span>) &#123;</div><div class="line">    i++;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%ld"</span>, i);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
@@ -402,11 +389,8 @@
 <ul>
 <li>NSDistributedLock分布式锁：用于多个进程之间互斥访问资源，一般用于Mac开发</li>
 </ul>
-<p>####条件<br>使用NSCondition，可以实现多线程的同步，解决类似生产者消费者问题。<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"testThread.h"</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">testThread</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSInteger</span> i;</div><div class="line">    <span class="built_in">NSCondition</span> * _con;</div><div class="line">    <span class="built_in">NSMutableArray</span> * _products;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)startTest &#123;</div><div class="line">    _con = [[<span class="built_in">NSCondition</span> alloc] init];</div><div class="line">    _products = [[<span class="built_in">NSMutableArray</span> alloc] init];</div><div class="line">    [<span class="built_in">NSThread</span> detachNewThreadSelector:<span class="keyword">@selector</span>(threadFun2:) toTarget:<span class="keyword">self</span> withObject:<span class="string">@"thread2"</span>];</div><div class="line">    [<span class="built_in">NSThread</span> detachNewThreadSelector:<span class="keyword">@selector</span>(threadFun2:) toTarget:<span class="keyword">self</span> withObject:<span class="string">@"thread3"</span>];</div><div class="line">    [<span class="built_in">NSThread</span> detachNewThreadSelector:<span class="keyword">@selector</span>(threadFun1:) toTarget:<span class="keyword">self</span> withObject:<span class="string">@"thread1"</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)threadFun1:(<span class="keyword">id</span>)obj &#123;</div><div class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</div><div class="line">        [<span class="built_in">NSThread</span> sleepForTimeInterval:<span class="number">2.0</span>f];</div><div class="line">        [_products addObject:<span class="string">@"apple"</span>];<span class="comment">//生产者创造一个产品</span></div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@ add one product, product count:%ld"</span>, obj, _products.count);</div><div class="line">        [_con signal];<span class="comment">//通知消费者，消费产品</span></div><div class="line"><span class="comment">//        [_con broadcast];</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)threadFun2:(<span class="keyword">id</span>)obj &#123;</div><div class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</div><div class="line">        [_con lock];</div><div class="line">        [_con wait];<span class="comment">//等待生产者的通知</span></div><div class="line">        [_products removeObjectAtIndex:<span class="number">0</span>];<span class="comment">//消费者消费一个产品</span></div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@ remove one product, proudct count:%ld"</span>, obj, _products.count);</div><div class="line">        [_con unlock];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>
-<p>##GCD</p>
-<p>###基本用法</p>
-<p>####队列</p>
-<ul>
+<h4 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h4><p>使用NSCondition，可以实现多线程的同步，解决类似生产者消费者问题。<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"testThread.h"</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">testThread</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSInteger</span> i;</div><div class="line">    <span class="built_in">NSCondition</span> * _con;</div><div class="line">    <span class="built_in">NSMutableArray</span> * _products;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)startTest &#123;</div><div class="line">    _con = [[<span class="built_in">NSCondition</span> alloc] init];</div><div class="line">    _products = [[<span class="built_in">NSMutableArray</span> alloc] init];</div><div class="line">    [<span class="built_in">NSThread</span> detachNewThreadSelector:<span class="keyword">@selector</span>(threadFun2:) toTarget:<span class="keyword">self</span> withObject:<span class="string">@"thread2"</span>];</div><div class="line">    [<span class="built_in">NSThread</span> detachNewThreadSelector:<span class="keyword">@selector</span>(threadFun2:) toTarget:<span class="keyword">self</span> withObject:<span class="string">@"thread3"</span>];</div><div class="line">    [<span class="built_in">NSThread</span> detachNewThreadSelector:<span class="keyword">@selector</span>(threadFun1:) toTarget:<span class="keyword">self</span> withObject:<span class="string">@"thread1"</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)threadFun1:(<span class="keyword">id</span>)obj &#123;</div><div class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</div><div class="line">        [<span class="built_in">NSThread</span> sleepForTimeInterval:<span class="number">2.0</span>f];</div><div class="line">        [_products addObject:<span class="string">@"apple"</span>];<span class="comment">//生产者创造一个产品</span></div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@ add one product, product count:%ld"</span>, obj, _products.count);</div><div class="line">        [_con signal];<span class="comment">//通知消费者，消费产品</span></div><div class="line"><span class="comment">//        [_con broadcast];</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)threadFun2:(<span class="keyword">id</span>)obj &#123;</div><div class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</div><div class="line">        [_con lock];</div><div class="line">        [_con wait];<span class="comment">//等待生产者的通知</span></div><div class="line">        [_products removeObjectAtIndex:<span class="number">0</span>];<span class="comment">//消费者消费一个产品</span></div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@ remove one product, proudct count:%ld"</span>, obj, _products.count);</div><div class="line">        [_con unlock];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>
+<h2 id="GCD"><a href="#GCD" class="headerlink" title="GCD"></a>GCD</h2><h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><h4 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h4><ul>
 <li>串行队列：同时只能执行一个任务<ul>
 <li>所有任务都在同一个线程中执行，FIFO</li>
 <li>多个串行队列之间是并行执行的，会占用多个线程</li>
@@ -417,7 +401,7 @@
 <li>并行队列：同时可以执行多个任务<ul>
 <li>多个任务在不同的线程上执行，最大并发数（最多起的线程数）由操作系统根据当前的系统状态决定，不可手动设置（NSOperation可以）</li>
 <li>创建并行队列：<code>dispatch_queue_t concurrentQueue = dispatch_queue_create(&quot;myQueue&quot;, DISPATCH_QUEUE_CONCURRENT);</code></li>
-<li><code>dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);</code>获取一个全局可用的并行队列<br>####任务</li>
+<li><code>dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);</code>获取一个全局可用的并行队列<h4 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h4></li>
 </ul>
 </li>
 <li><p>同步任务：添加一个任务后，需要等待任务执行完后才能返回</p>
@@ -433,8 +417,7 @@
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//异步任务</span></div><div class="line"><span class="built_in">dispatch_async</span>(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>), ^&#123;</div><div class="line">            [<span class="built_in">NSThread</span> sleepForTimeInterval:<span class="number">1.0</span>f];</div><div class="line">            <span class="comment">//后打印</span></div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"thread:%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">        &#125;);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"haha"</span>);<span class="comment">//先打印</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>###其他用法</p>
-<ul>
+<h3 id="其他用法"><a href="#其他用法" class="headerlink" title="其他用法"></a>其他用法</h3><ul>
 <li><p>dispatch_after：延迟指定的时间后，将任务添加到指定的队列中</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">10.0</span>f * <span class="built_in">NSEC_PER_SEC</span>));</div><div class="line">dispatch_after(time, dispatch_get_main_queue(), ^&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"haha"</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 </li>
@@ -460,9 +443,7 @@
 <li>Dispatch Semaphore：信号量，用于排他控制<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">dispatch_semaphore_t semaphore = dispatch_semaphore_create(<span class="number">1</span>);</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">    <span class="built_in">dispatch_async</span>(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>), ^&#123;</div><div class="line"></div><div class="line">        <span class="keyword">long</span> result = dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);</div><div class="line">        <span class="comment">//排他，同时只能有一个线程进入这个代码块，相当于锁</span></div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"end wait, result:%ld"</span>, result);</div><div class="line">        [<span class="built_in">NSThread</span> sleepForTimeInterval:<span class="number">1.0</span>f];</div><div class="line"></div><div class="line">        dispatch_semaphore_signal(semaphore);</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>##NSOperation</p>
-<p>###基本用法</p>
-<ul>
+<h2 id="NSOperation"><a href="#NSOperation" class="headerlink" title="NSOperation"></a>NSOperation</h2><h3 id="基本用法-1"><a href="#基本用法-1" class="headerlink" title="基本用法"></a>基本用法</h3><ul>
 <li><p>NSBlockOperation：以Block的形式定义任务</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">testOperation</span> ()</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSOperationQueue</span> * queue;</div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">testOperation</span></span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)startTest &#123;</div><div class="line"></div><div class="line">    <span class="comment">//创建操作</span></div><div class="line">    <span class="built_in">NSOperation</span> * oper1 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"test block operation1, current thread:%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">        [<span class="built_in">NSThread</span> sleepForTimeInterval:<span class="number">1.0</span>f];</div><div class="line">    &#125;];</div><div class="line"></div><div class="line">    <span class="built_in">NSOperation</span> * oper2 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"test block operation2, current thread:%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">        [<span class="built_in">NSThread</span> sleepForTimeInterval:<span class="number">1.0</span>f];</div><div class="line">    &#125;];</div><div class="line"></div><div class="line">    <span class="built_in">NSOperation</span> * oper3 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"test block operation3, current thread:%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">        [<span class="built_in">NSThread</span> sleepForTimeInterval:<span class="number">1.0</span>f];</div><div class="line">    &#125;];</div><div class="line"></div><div class="line">    <span class="built_in">NSOperation</span> * oper4 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"test block operation4, current thread:%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">        [<span class="built_in">NSThread</span> sleepForTimeInterval:<span class="number">1.0</span>f];</div><div class="line">    &#125;];</div><div class="line"></div><div class="line">    <span class="keyword">self</span>.queue = [[<span class="built_in">NSOperationQueue</span> alloc] init];</div><div class="line">    <span class="comment">//将操作加入队列中，操作就会在队列中并发执行，NSOperationQueue默认是并发队列</span></div><div class="line">    [<span class="keyword">self</span>.queue addOperation:oper1];</div><div class="line">    [<span class="keyword">self</span>.queue addOperation:oper2];</div><div class="line">    [<span class="keyword">self</span>.queue addOperation:oper3];</div><div class="line">    [<span class="keyword">self</span>.queue addOperation:oper4];</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
 </li>
@@ -473,8 +454,7 @@
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MyOperation</span> : <span class="title">NSOperation</span></span></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">MyOperation</span></span></div><div class="line">- (<span class="keyword">void</span>)main &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"MyOperation, current thread:%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    [<span class="built_in">NSThread</span> sleepForTimeInterval:<span class="number">1.0</span>f];</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="comment">//main.m</span></div><div class="line"><span class="built_in">NSOperationQueue</span> * queue = [[<span class="built_in">NSOperationQueue</span> alloc] init];</div><div class="line"></div><div class="line">MyOperation * op1 = [[MyOperation alloc] init];</div><div class="line">MyOperation * op2 = [[MyOperation alloc] init];</div><div class="line">MyOperation * op3 = [[MyOperation alloc] init];</div><div class="line">MyOperation * op4 = [[MyOperation alloc] init];</div><div class="line">MyOperation * op5 = [[MyOperation alloc] init];</div><div class="line">MyOperation * op6 = [[MyOperation alloc] init];</div><div class="line"></div><div class="line">[queue addOperation:op1];</div><div class="line">[queue addOperation:op2];</div><div class="line">[queue addOperation:op3];</div><div class="line">[queue addOperation:op4];</div><div class="line">[queue addOperation:op5];</div><div class="line">[queue addOperation:op6];</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>###其他用法</p>
-<ul>
+<h3 id="其他用法-1"><a href="#其他用法-1" class="headerlink" title="其他用法"></a>其他用法</h3><ul>
 <li>设置最大并发数<br><code>self.queue.maxConcurrentOperationCount = 3;</code></li>
 <li>设置操作之间的依赖关系<br><code>[oper2 addDependency:oper1];//oper2依赖于oper1，即必须oper1执行完之后才能执行oper2</code></li>
 <li>手动管理NSOperation<ul>
@@ -509,16 +489,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/04/NSURLProtocol的使用/" rel="next" title="NSURLProtocol的使用">
-                <i class="fa fa-chevron-left"></i> NSURLProtocol的使用
+              <a href="/2015/10/04/iOS中Emoji表情的判断/" rel="next" title="iOS中Emoji表情的判断">
+                <i class="fa fa-chevron-left"></i> iOS中Emoji表情的判断
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/04/iOS中的富文本技术(2)CoreText框架/" rel="prev" title="iOS中的富文本技术(2)CoreText框架">
-                iOS中的富文本技术(2)CoreText框架 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/10/04/iOS中的富文本技术(1)TextKit简介/" rel="prev" title="iOS中的富文本技术(1)TextKit简介">
+                iOS中的富文本技术(1)TextKit简介 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -591,7 +571,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">48</span>
+              <span class="site-state-item-count">49</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -608,7 +588,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -687,7 +667,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于多线程编程"><span class="nav-number">1.</span> <span class="nav-text">关于多线程编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是多线程"><span class="nav-number">1.1.</span> <span class="nav-text">什么是多线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关术语"><span class="nav-number">1.2.</span> <span class="nav-text">相关术语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iOS中的多线程编程"><span class="nav-number">1.3.</span> <span class="nav-text">iOS中的多线程编程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NSThread"><span class="nav-number">2.</span> <span class="nav-text">NSThread</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本操作"><span class="nav-number">2.1.</span> <span class="nav-text">基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#线程的创建"><span class="nav-number">2.1.1.</span> <span class="nav-text">线程的创建</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程同步与互斥"><span class="nav-number">2.2.</span> <span class="nav-text">线程同步与互斥</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#锁"><span class="nav-number">2.2.1.</span> <span class="nav-text">锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#条件"><span class="nav-number">2.2.2.</span> <span class="nav-text">条件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GCD"><span class="nav-number">3.</span> <span class="nav-text">GCD</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本用法"><span class="nav-number">3.1.</span> <span class="nav-text">基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#队列"><span class="nav-number">3.1.1.</span> <span class="nav-text">队列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#任务"><span class="nav-number">3.1.2.</span> <span class="nav-text">任务</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他用法"><span class="nav-number">3.2.</span> <span class="nav-text">其他用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NSOperation"><span class="nav-number">4.</span> <span class="nav-text">NSOperation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本用法-1"><span class="nav-number">4.1.</span> <span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他用法-1"><span class="nav-number">4.2.</span> <span class="nav-text">其他用法</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

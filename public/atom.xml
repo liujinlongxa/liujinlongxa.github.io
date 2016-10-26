@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://liujinlongxa.com/"/>
-  <updated>2016-10-25T03:53:30.000Z</updated>
+  <updated>2016-10-26T14:49:21.000Z</updated>
   <id>http://liujinlongxa.com/</id>
   
   <author>
@@ -14,6 +14,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>给多个Target添加CocoaPods</title>
+    <link href="http://liujinlongxa.com/2016/10/26/%E7%BB%99%E5%A4%9A%E4%B8%AATarget%E6%B7%BB%E5%8A%A0CocoaPods/"/>
+    <id>http://liujinlongxa.com/2016/10/26/给多个Target添加CocoaPods/</id>
+    <published>2016-10-26T14:25:04.000Z</published>
+    <updated>2016-10-26T14:49:21.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;基本用法&quot;&gt;&lt;a href=&quot;#基本用法&quot; class=&quot;headerlink&quot; title=&quot;基本用法&quot;&gt;&lt;/a&gt;基本用法&lt;/h3&gt;&lt;p&gt;一般我们使用CocoaPods进行依赖管理时，如果项目里只有一个Target，则Podfile文件的格式应该是：&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;target &lt;span class=&quot;string&quot;&gt;&#39;ZipApp&#39;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;do&lt;/span&gt;  &lt;span class=&quot;comment&quot;&gt;# ZipApp为Target名称&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  pod &lt;span class=&quot;string&quot;&gt;&#39;SSZipArchive&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;如果项目中有多个Target，可以定义多个这样的block，如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;target &lt;span class=&quot;string&quot;&gt;&#39;ZipApp&#39;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;do&lt;/span&gt;  &lt;span class=&quot;comment&quot;&gt;# ZipApp为Target名称&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  pod &lt;span class=&quot;string&quot;&gt;&#39;SSZipArchive&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;target &lt;span class=&quot;string&quot;&gt;&#39;ZipAppTest&#39;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;do&lt;/span&gt;  &lt;span class=&quot;comment&quot;&gt;# ZipAppTest为另一个Target名称&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  pod &lt;span class=&quot;string&quot;&gt;&#39;SSZipArchive&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;如果多个Target的依赖的库都是一样的，没有必要每一个Target都把所有库都写一遍，可以定义一个函数，写法如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;common_pods&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    pod &lt;span class=&quot;string&quot;&gt;&#39;SSZipArchive&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    pod &lt;span class=&quot;string&quot;&gt;&#39;AFNetworking&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    pod &lt;span class=&quot;string&quot;&gt;&#39;JSPatch&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;target &lt;span class=&quot;string&quot;&gt;&#39;ZipApp&#39;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;do&lt;/span&gt;  &lt;span class=&quot;comment&quot;&gt;# ZipApp即使Target名称&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  common_pods&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;target &lt;span class=&quot;string&quot;&gt;&#39;ZipAppTest&#39;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;do&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    common_pods&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;其他的用法&quot;&gt;&lt;a href=&quot;#其他的用法&quot; class=&quot;headerlink&quot; title=&quot;其他的用法&quot;&gt;&lt;/a&gt;其他的用法&lt;/h3&gt;&lt;p&gt;如果多个Target有嵌套关系，即一个Target是另一个Target的父Target，则可以写成以下形式：&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;target &lt;span class=&quot;string&quot;&gt;&#39;ZipApp&#39;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;do&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  pod &lt;span class=&quot;string&quot;&gt;&#39;SSZipArchive&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  target &lt;span class=&quot;string&quot;&gt;&#39;ZipAppTests&#39;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;do&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    inherit! &lt;span class=&quot;symbol&quot;&gt;:search_paths&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;# 这句话表示子Target继承了父Target包含的pod，即ZipAppTests这个Target里包含了SSZipArchive和Nimble两个pod&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    pod &lt;span class=&quot;string&quot;&gt;&#39;Nimble&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;如果一个Workspace里包含了多个Project，并且每一个Project都有不同的Target，则可以使用以下形式定义多个Project的Target：&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;target &lt;span class=&quot;string&quot;&gt;&#39;Target1&#39;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;do&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  project &lt;span class=&quot;string&quot;&gt;&#39;Project1&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  pod &lt;span class=&quot;string&quot;&gt;&#39;AFNetworking&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;target &lt;span class=&quot;string&quot;&gt;&#39;Target2&#39;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;do&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  project &lt;span class=&quot;string&quot;&gt;&#39;Project2&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  pod &lt;span class=&quot;string&quot;&gt;&#39;JSPatch&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;基本用法&quot;&gt;&lt;a href=&quot;#基本用法&quot; class=&quot;headerlink&quot; title=&quot;基本用法&quot;&gt;&lt;/a&gt;基本用法&lt;/h3&gt;&lt;p&gt;一般我们使用CocoaPods进行依赖管理时，如果项目里只有一个Target，则Podfile文件的格式应该是：&lt;/p&gt;
+&lt;
+    
+    </summary>
+    
+      <category term="iOS开发" scheme="http://liujinlongxa.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Target" scheme="http://liujinlongxa.com/tags/Target/"/>
+    
+      <category term="CocoaPods" scheme="http://liujinlongxa.com/tags/CocoaPods/"/>
+    
+  </entry>
   
   <entry>
     <title>如何获取WebView的UserAgent</title>
@@ -830,51 +865,6 @@
     
     
       <category term="Hexo" scheme="http://liujinlongxa.com/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GMTC全球移动技术大会见闻</title>
-    <link href="http://liujinlongxa.com/2016/06/29/GMTC%E5%85%A8%E7%90%83%E7%A7%BB%E5%8A%A8%E6%8A%80%E6%9C%AF%E5%A4%A7%E4%BC%9A%E8%A7%81%E9%97%BB/"/>
-    <id>http://liujinlongxa.com/2016/06/29/GMTC全球移动技术大会见闻/</id>
-    <published>2016-06-28T16:00:00.000Z</published>
-    <updated>2016-08-12T15:20:04.000Z</updated>
-    
-    <content type="html">&lt;p&gt;6月24日至6月25日，我有幸参加了“GMTC全球移动技术大会”，这篇博客就是我对参见会议的一个经历和感受。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/457acda7bd3dc65f172468c45dad4a8f.png&quot; alt=&quot;1&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;第一天上午&quot;&gt;&lt;a href=&quot;#第一天上午&quot; class=&quot;headerlink&quot; title=&quot;第一天上午&quot;&gt;&lt;/a&gt;第一天上午&lt;/h3&gt;&lt;p&gt;会议共分为两天，第一天上午是主会场，首先是主办方开场致辞，然后是京东，阿里和微信的三个技术负责人的演讲，主要讲了移动开发的现状以及未来的一些趋势，没有涉及到具体的技术。&lt;/p&gt;
-&lt;p&gt;接下来是Facebook的一个前员工分享了”Facebook iOS App技术演化10年”，讲到了很多有意思的地方，这里令我印象比较深刻的是Facebook一共有1000+的iOS工程师，这个iOS App的代码行数超过1000万行，同时他也分享了Facebook App演化过程中走过的一些完了，例如H5，CoreData等。&lt;/p&gt;
-&lt;p&gt;接下来也是一个硅谷的iOS开发者分享了“Mobile Growth 的方法和实践”，由于之前从来没有接触过Growth，所以听的也是一知半解，感觉与产品运营更相关。这就是第一天早上的整个会议。&lt;/p&gt;
-&lt;h3 id=&quot;第一天下午&quot;&gt;&lt;a href=&quot;#第一天下午&quot; class=&quot;headerlink&quot; title=&quot;第一天下午&quot;&gt;&lt;/a&gt;第一天下午&lt;/h3&gt;&lt;p&gt;从第一天的下午开始，就开始分了几个分会场进行具体的技术分享。第一天下午有三个分会场，分别是动态化，Swift和新技术专场。&lt;/p&gt;
-&lt;p&gt;我先是听了”函数式编程中的Swift与Swift中的函数式编程”，分享者是SwiftyJSON的作者，由于之前在使用RAC时已经接触过函数式编程，所以这个并不陌生，整个演讲主要是分享了函数式编程的一些思想。&lt;/p&gt;
-&lt;p&gt;接下来我有听了“RN项目实战优化之路”，由于之前从来没接触过ReactNative，所有听得也是云里雾里，听到一半就跑去听”JSPatch成长之路”。&lt;/p&gt;
-&lt;p&gt;JSPatch目前是当前比较热门的一种iOS热修复技术，演讲者就是JSPatch的作者，他分享了整个JSPatch发展过程中遇到的问题以及解决方案，很佩服作者为了推广JSPatch而做的各项工作，包括代码转换工具、XCode插件、JSPatch平台等等，这些工作极大地促进了JSPatch的推广使用，有机会我一定要尝试一下JSPatch。&lt;/p&gt;
-&lt;p&gt;听完了JSPatch，我又去听了“当泛型遇上协议”，是猿题库的iOS负责人做的分享，之前看过他写的关于Swift的博客，演讲中，作者通过具体的代码分享自己在Swift的协议与泛型上的实践经验，如果能把泛型使用好确实能极大地简化自己的代码。&lt;/p&gt;
-&lt;p&gt;最后我又听了”聚划算iOS平台动态化方案LuaView”，分享者是阿里聚划算的技术专家，LuaView提供了一种使用Lua脚本动态更新App的方案，演讲者讲解了LuaView的基本原理、使用以及对LuaView未来发展的一些规划。&lt;/p&gt;
-&lt;p&gt;这样，第一天的会议就结束了。&lt;/p&gt;
-&lt;h3 id=&quot;第二天上午&quot;&gt;&lt;a href=&quot;#第二天上午&quot; class=&quot;headerlink&quot; title=&quot;第二天上午&quot;&gt;&lt;/a&gt;第二天上午&lt;/h3&gt;&lt;p&gt;第二天上午也有三个分会场，分别是架构演进、VR/AR、移动解决方案。&lt;/p&gt;
-&lt;p&gt;我先听了“360°全景视频播放器的实现原理”，演讲者是阿里的高级iOS工程师，分享了如何使用OpenGL实现全景视频播放，以前从来没有接触过这一块，所以听得也是迷迷糊糊。VR/AR目前是是一个很火的方向，但还处于发展的初期，不过有机会还是值得尝试尝试。&lt;/p&gt;
-&lt;p&gt;接下来我又听了一段“手机天猫解耦之路”，我是中间进去的，会场挤满了人，分享者讲的东西也是干货满满。演讲嘉宾是天猫的无线技术专家，我听的那一块正好讲到了一种界面间解耦的思路，使用URL Server来实现界面间跳转。&lt;/p&gt;
-&lt;p&gt;接下来又听了滴滴的iOS负责人分享的“滴滴的组件化实践与优化”，主要讲到了滴滴iOS端在发展中遇到的问题以及解决方案，重点讲了滴滴组件化的经历，也是干货满满。后面提到的灰度发布对我们目前的项目很有参考价值。&lt;/p&gt;
-&lt;p&gt;后面又听了“iOS遗留系统上的架构重构”，是一名来自澳洲的iOS工程师分享的，主要分享了自己是如何在遗留的代码上，把数据存储从CoreData迁移到Realm并且没有影响正常迭代的经历，使用的是抽象分支+特性开关，也非常有参考价值。&lt;/p&gt;
-&lt;h3 id=&quot;第二天下午&quot;&gt;&lt;a href=&quot;#第二天下午&quot; class=&quot;headerlink&quot; title=&quot;第二天下午&quot;&gt;&lt;/a&gt;第二天下午&lt;/h3&gt;&lt;p&gt;第二天下午有两个分会场，分别是性能优化专场和应用架构专场。&lt;/p&gt;
-&lt;p&gt;我先听了“美团 iOS 客户端的构建思考与实践”，分享者是美团的高级工程师，主要讲了美团APP iOS客户端的架构，以及集成和发布中遇到的问题和一些实践经验。分享了一些持续集成的经验，目前我们项目中还没有用到持续集成，所有这一块也不是很了解，不过很多东西还是值得借鉴和尝试的。&lt;/p&gt;
-&lt;p&gt;后面我又听了来自微博的美女架构师分享的“微博复杂信息流的架构之道”，分享中提到的隔周发版也是一种很好的实践方式。&lt;/p&gt;
-&lt;h3 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h3&gt;&lt;p&gt;总体来说这次GMTC大会还是收获很多的，学习到了业界一些最新最热的技术和思想，非常感谢公司能给我这次机会。&lt;/p&gt;
-&lt;p&gt;最后，由于第一次去北京，当然少不了要到处逛逛。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/9088bb3373fad1444a78921cb8c8172f.png&quot; alt=&quot;2&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/5a0e1b3dac94502a08f70de2f14bee22.png&quot; alt=&quot;3&quot;&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;6月24日至6月25日，我有幸参加了“GMTC全球移动技术大会”，这篇博客就是我对参见会议的一个经历和感受。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/457acda7bd3dc65f172468c45da
-    
-    </summary>
-    
-      <category term="其他" scheme="http://liujinlongxa.com/categories/%E5%85%B6%E4%BB%96/"/>
-    
     
   </entry>
   

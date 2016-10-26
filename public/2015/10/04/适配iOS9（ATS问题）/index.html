@@ -86,21 +86,21 @@
 
 
 
-<meta name="description" content="##前言今天下了XCode7 Beta版，跑了一下自家的APP，结果发现所有服务器请求都返回失败，明明网络正常，怎么会返回失败呢？起初我以为是AFNetworking的问题，于是我写了个demo，去掉AFNetworking，直接用NSURLSession请求数据，也是请求失败。于是乎一顿Google，原来是iOS9（XCode7的模拟器默认是iOS9）的新特性——ATS搞的鬼。
-##简介ATS全">
+<meta name="description" content="前言今天下了XCode7 Beta版，跑了一下自家的APP，结果发现所有服务器请求都返回失败，明明网络正常，怎么会返回失败呢？起初我以为是AFNetworking的问题，于是我写了个demo，去掉AFNetworking，直接用NSURLSession请求数据，也是请求失败。于是乎一顿Google，原来是iOS9（XCode7的模拟器默认是iOS9）的新特性——ATS搞的鬼。
+简介ATS全称为Ap">
 <meta property="og:type" content="article">
 <meta property="og:title" content="适配iOS9（ATS问题）">
 <meta property="og:url" content="http://liujinlongxa.com/2015/10/04/适配iOS9（ATS问题）/index.html">
 <meta property="og:site_name" content="liujinlongxa的技术博客">
-<meta property="og:description" content="##前言今天下了XCode7 Beta版，跑了一下自家的APP，结果发现所有服务器请求都返回失败，明明网络正常，怎么会返回失败呢？起初我以为是AFNetworking的问题，于是我写了个demo，去掉AFNetworking，直接用NSURLSession请求数据，也是请求失败。于是乎一顿Google，原来是iOS9（XCode7的模拟器默认是iOS9）的新特性——ATS搞的鬼。
-##简介ATS全">
+<meta property="og:description" content="前言今天下了XCode7 Beta版，跑了一下自家的APP，结果发现所有服务器请求都返回失败，明明网络正常，怎么会返回失败呢？起初我以为是AFNetworking的问题，于是我写了个demo，去掉AFNetworking，直接用NSURLSession请求数据，也是请求失败。于是乎一顿Google，原来是iOS9（XCode7的模拟器默认是iOS9）的新特性——ATS搞的鬼。
+简介ATS全称为Ap">
 <meta property="og:image" content="http://img.blog.csdn.net/20150619164549061">
 <meta property="og:image" content="http://img.blog.csdn.net/20150619164722416">
-<meta property="og:updated_time" content="2016-08-12T15:20:04.000Z">
+<meta property="og:updated_time" content="2016-10-26T14:39:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="适配iOS9（ATS问题）">
-<meta name="twitter:description" content="##前言今天下了XCode7 Beta版，跑了一下自家的APP，结果发现所有服务器请求都返回失败，明明网络正常，怎么会返回失败呢？起初我以为是AFNetworking的问题，于是我写了个demo，去掉AFNetworking，直接用NSURLSession请求数据，也是请求失败。于是乎一顿Google，原来是iOS9（XCode7的模拟器默认是iOS9）的新特性——ATS搞的鬼。
-##简介ATS全">
+<meta name="twitter:description" content="前言今天下了XCode7 Beta版，跑了一下自家的APP，结果发现所有服务器请求都返回失败，明明网络正常，怎么会返回失败呢？起初我以为是AFNetworking的问题，于是我写了个demo，去掉AFNetworking，直接用NSURLSession请求数据，也是请求失败。于是乎一顿Google，原来是iOS9（XCode7的模拟器默认是iOS9）的新特性——ATS搞的鬼。
+简介ATS全称为Ap">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20150619164549061">
 
 
@@ -320,14 +320,14 @@
       
 
       
-        <p>##前言<br>今天下了XCode7 Beta版，跑了一下自家的APP，结果发现所有服务器请求都返回失败，明明网络正常，怎么会返回失败呢？起初我以为是AFNetworking的问题，于是我写了个demo，去掉AFNetworking，直接用NSURLSession请求数据，也是请求失败。于是乎一顿Google，原来是iOS9（XCode7的模拟器默认是iOS9）的新特性——ATS搞的鬼。</p>
-<p>##简介<br>ATS全称为App Transport Security，它是iOS9的一个新特性，旨在提高iOS设备与服务器交互的安全性。简单地说，ATS会阻止未注册的网络请求。你可以在info.plist文件中注册相应的host，这样该host的网络请求就不会被阻止。你也可以设置不阻止任何host的网络请求。</p>
-<p>##详细设置<br>如果你想设置不阻止任何网络，只需要在info.plist文件中加入以下内容即可</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天下了XCode7 Beta版，跑了一下自家的APP，结果发现所有服务器请求都返回失败，明明网络正常，怎么会返回失败呢？起初我以为是AFNetworking的问题，于是我写了个demo，去掉AFNetworking，直接用NSURLSession请求数据，也是请求失败。于是乎一顿Google，原来是iOS9（XCode7的模拟器默认是iOS9）的新特性——ATS搞的鬼。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>ATS全称为App Transport Security，它是iOS9的一个新特性，旨在提高iOS设备与服务器交互的安全性。简单地说，ATS会阻止未注册的网络请求。你可以在info.plist文件中注册相应的host，这样该host的网络请求就不会被阻止。你也可以设置不阻止任何host的网络请求。</p>
+<h2 id="详细设置"><a href="#详细设置" class="headerlink" title="详细设置"></a>详细设置</h2><p>如果你想设置不阻止任何网络，只需要在info.plist文件中加入以下内容即可</p>
 <p><img src="http://img.blog.csdn.net/20150619164549061" alt="这里写图片描述"></p>
 <p>如果你想设置只允许特定host的网络请求，在info.plist文件中加入以下内容</p>
 <p><img src="http://img.blog.csdn.net/20150619164722416" alt="这里写图片描述"></p>
 <p>这样，你在发往<code>baike.baidu.com</code>这个host的请求就都不会被阻止了，你可以注册多个域名。</p>
-<p>##参考资料<br><a href="https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html#//apple_ref/doc/uid/TP40016198-DontLinkElementID_13" target="_blank" rel="external">What’s New in iOS9</a><br><a href="http://stackoverflow.com/questions/30739473/nsurlsession-nsurlconnection-http-load-failed" target="_blank" rel="external">NSURLSession/NSURLConnection HTTP load failed</a></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html#//apple_ref/doc/uid/TP40016198-DontLinkElementID_13" target="_blank" rel="external">What’s New in iOS9</a><br><a href="http://stackoverflow.com/questions/30739473/nsurlsession-nsurlconnection-http-load-failed" target="_blank" rel="external">NSURLSession/NSURLConnection HTTP load failed</a></p>
 
       
     </div>
@@ -361,8 +361,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/04/iOS运行时初探-使用运行时机制向Category中添加属性/" rel="prev" title="iOS运行时初探 使用运行时机制向Category中添加属性">
-                iOS运行时初探 使用运行时机制向Category中添加属性 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/10/04/NSURLProtocol的使用/" rel="prev" title="NSURLProtocol的使用">
+                NSURLProtocol的使用 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -435,7 +435,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">48</span>
+              <span class="site-state-item-count">49</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -452,7 +452,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -531,7 +531,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">2.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#详细设置"><span class="nav-number">3.</span> <span class="nav-text">详细设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
           </div>
         </section>
