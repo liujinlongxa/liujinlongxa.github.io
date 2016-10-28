@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Swift,预处理宏," />
 
 
 
@@ -86,15 +86,31 @@
 
 
 
-<meta name="description" content="生命永不息，Coding永不止">
-<meta property="og:type" content="website">
-<meta property="og:title" content="liujinlongxa的技术博客">
-<meta property="og:url" content="http://liujinlongxa.com/archives/2016/09/index.html">
+<meta name="description" content="Swift中也可以使用预处理宏，只不过和ObjectiveC有点不一样，下面详细说明一下。
+
+Swift中取消了#define，建议使用全局常量替换宏定义
+Swift中仍然可以使用#if, #elseif, #endif等宏，注意，Swift中是#elseif，而在OC中是#elif。还有#if和#elseif后面的判断条件必须是Bool类型的。
+
+1234567#if falseprint(&quot;a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift3中的预处理宏">
+<meta property="og:url" content="http://liujinlongxa.com/2016/10/28/Swift3中的预处理宏/index.html">
 <meta property="og:site_name" content="liujinlongxa的技术博客">
-<meta property="og:description" content="生命永不息，Coding永不止">
+<meta property="og:description" content="Swift中也可以使用预处理宏，只不过和ObjectiveC有点不一样，下面详细说明一下。
+
+Swift中取消了#define，建议使用全局常量替换宏定义
+Swift中仍然可以使用#if, #elseif, #endif等宏，注意，Swift中是#elseif，而在OC中是#elif。还有#if和#elseif后面的判断条件必须是Bool类型的。
+
+1234567#if falseprint(&quot;a">
+<meta property="og:updated_time" content="2016-10-28T09:41:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="liujinlongxa的技术博客">
-<meta name="twitter:description" content="生命永不息，Coding永不止">
+<meta name="twitter:title" content="Swift3中的预处理宏">
+<meta name="twitter:description" content="Swift中也可以使用预处理宏，只不过和ObjectiveC有点不一样，下面详细说明一下。
+
+Swift中取消了#define，建议使用全局常量替换宏定义
+Swift中仍然可以使用#if, #elseif, #endif等宏，注意，Swift中是#elseif，而在OC中是#elif。还有#if和#elseif后面的判断条件必须是Bool类型的。
+
+1234567#if falseprint(&quot;a">
 
 
 
@@ -115,9 +131,9 @@
 
 
 
-  <link rel="canonical" href="http://liujinlongxa.com/archives/2016/09/"/>
+  <link rel="canonical" href="http://liujinlongxa.com/2016/10/28/Swift3中的预处理宏/"/>
 
-  <title> 归档 | liujinlongxa的技术博客 </title>
+  <title> Swift3中的预处理宏 | liujinlongxa的技术博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -138,7 +154,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -226,65 +242,159 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-       
-      
-      OK! 目前共计 50 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
 
-      
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Swift3中的预处理宏
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-28T17:18:57+08:00" content="2016-10-28">
+              2016-10-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/28/Swift3中的预处理宏/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/28/Swift3中的预处理宏/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
+        <p>Swift中也可以使用预处理宏，只不过和ObjectiveC有点不一样，下面详细说明一下。</p>
+<ul>
+<li>Swift中取消了#define，建议使用全局常量替换宏定义</li>
+<li>Swift中仍然可以使用<code>#if, #elseif, #endif</code>等宏，注意，Swift中是<code>#elseif</code>，而在OC中是<code>#elif</code>。还有<code>#if</code>和<code>#elseif</code>后面的判断条件必须是Bool类型的。</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#<span class="keyword">if</span> <span class="literal">false</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"aaaa"</span>)</div><div class="line">#elseif <span class="literal">true</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"bbbb"</span>)</div><div class="line">#<span class="keyword">else</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"cccc"</span>)</div><div class="line">#endif</div></pre></td></tr></table></figure>
+<ul>
+<li>Swift中取消了<code>__FUNCTION__, __FILE__, __LINE__</code>，分别改为了<code>#function, #file, #line</code></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(#file)</div><div class="line"><span class="built_in">print</span>(#line)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">function1</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="built_in">print</span>(#function)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Swift/" rel="tag">#Swift</a>
+          
+            <a href="/tags/预处理宏/" rel="tag">#预处理宏</a>
+          
         </div>
       
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/26/给多个Target添加CocoaPods/" rel="next" title="给多个Target添加CocoaPods">
+                <i class="fa fa-chevron-left"></i> 给多个Target添加CocoaPods
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/12/使用代码删除约束要注意的地方/" itemprop="url">
-              
-                <span itemprop="name">使用代码删除约束要注意的地方</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-12T23:17:44+08:00"
-              content="2016-09-12" >
-          09-12
-        </time>
-      </div>
-
-    </header>
+      
+    </footer>
   </article>
 
 
 
-    
-
-  </section>
-
-  
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -292,6 +402,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/28/Swift3中的预处理宏/"
+           data-title="Swift3中的预处理宏" data-url="http://liujinlongxa.com/2016/10/28/Swift3中的预处理宏/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -311,8 +429,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/smallhead.png"
@@ -412,6 +539,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -515,11 +653,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
 
 
   

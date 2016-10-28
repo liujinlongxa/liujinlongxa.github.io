@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://liujinlongxa.com/"/>
-  <updated>2016-10-26T14:49:21.000Z</updated>
+  <updated>2016-10-28T09:41:29.000Z</updated>
   <id>http://liujinlongxa.com/</id>
   
   <author>
@@ -14,6 +14,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Swift3中的预处理宏</title>
+    <link href="http://liujinlongxa.com/2016/10/28/Swift3%E4%B8%AD%E7%9A%84%E9%A2%84%E5%A4%84%E7%90%86%E5%AE%8F/"/>
+    <id>http://liujinlongxa.com/2016/10/28/Swift3中的预处理宏/</id>
+    <published>2016-10-28T09:18:57.000Z</published>
+    <updated>2016-10-28T09:41:29.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Swift中也可以使用预处理宏，只不过和ObjectiveC有点不一样，下面详细说明一下。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Swift中取消了#define，建议使用全局常量替换宏定义&lt;/li&gt;
+&lt;li&gt;Swift中仍然可以使用&lt;code&gt;#if, #elseif, #endif&lt;/code&gt;等宏，注意，Swift中是&lt;code&gt;#elseif&lt;/code&gt;，而在OC中是&lt;code&gt;#elif&lt;/code&gt;。还有&lt;code&gt;#if&lt;/code&gt;和&lt;code&gt;#elseif&lt;/code&gt;后面的判断条件必须是Bool类型的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;#&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;aaaa&quot;&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;#elseif &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;bbbb&quot;&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;#&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;cccc&quot;&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;#endif&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;Swift中取消了&lt;code&gt;__FUNCTION__, __FILE__, __LINE__&lt;/code&gt;，分别改为了&lt;code&gt;#function, #file, #line&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(#file)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(#line)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;function1&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(#function)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Swift中也可以使用预处理宏，只不过和ObjectiveC有点不一样，下面详细说明一下。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Swift中取消了#define，建议使用全局常量替换宏定义&lt;/li&gt;
+&lt;li&gt;Swift中仍然可以使用&lt;code&gt;#if, #elseif, #endif
+    
+    </summary>
+    
+      <category term="Swift" scheme="http://liujinlongxa.com/categories/Swift/"/>
+    
+    
+      <category term="Swift" scheme="http://liujinlongxa.com/tags/Swift/"/>
+    
+      <category term="预处理宏" scheme="http://liujinlongxa.com/tags/%E9%A2%84%E5%A4%84%E7%90%86%E5%AE%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>给多个Target添加CocoaPods</title>
@@ -770,101 +807,6 @@
     
     
       <category term="UILabel" scheme="http://liujinlongxa.com/tags/UILabel/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从jekyll迁移到hexo</title>
-    <link href="http://liujinlongxa.com/2016/07/01/%E4%BB%8Ejekyll%E8%BF%81%E7%A7%BB%E5%88%B0hexo/"/>
-    <id>http://liujinlongxa.com/2016/07/01/从jekyll迁移到hexo/</id>
-    <published>2016-07-01T13:24:50.000Z</published>
-    <updated>2016-08-12T15:20:04.000Z</updated>
-    
-    <content type="html">&lt;p&gt;最近公司项目不是很忙，所以想把自己的博客好好整整，下面就是我从原先的jekyll迁移的hexo的整个过程的记录以及中间遇到的一些问题。&lt;/p&gt;
-&lt;h2 id=&quot;安装Hexo&quot;&gt;&lt;a href=&quot;#安装Hexo&quot; class=&quot;headerlink&quot; title=&quot;安装Hexo&quot;&gt;&lt;/a&gt;安装Hexo&lt;/h2&gt;&lt;p&gt;打开终端，执行命令：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ npm install -g hexo-cli&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;然后随便找个文件夹，执行命令：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ hexo init .&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;这个过程可能有些长，因为要安装很多依赖的包。&lt;/p&gt;
-&lt;p&gt;执行完后，就会在这个文件中生成一些文件，如下图，这就是Hexo的主目录。然后执行命令&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ npm install&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;这个命令一定要执行，否则后面在启动本地服务器预览是会出现“Get 404”错误。&lt;/p&gt;
-&lt;p&gt;其他还要执行的命令有：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ npm install hexo-renderer-ejs --save&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$ npm install hexo-renderer-stylus --save&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$ npm install hexo-renderer-marked --save&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$ npm install hexo-server --save&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;这样就完成了安装，然后执行命令：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;hexo server&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;然后打开浏览器，输入&lt;a href=&quot;http://127.0.0.1:4000/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://127.0.0.1:4000/&lt;/a&gt;  ，就可以看到预览界面&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/5f8ddbc140ff9ec8ecbd1bb8bb119b4a.png&quot; alt=&quot;1&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;配置主题&quot;&gt;&lt;a href=&quot;#配置主题&quot; class=&quot;headerlink&quot; title=&quot;配置主题&quot;&gt;&lt;/a&gt;配置主题&lt;/h2&gt;&lt;p&gt;我选的是NexT主题，这个主题比较美观，而且最重要的是文档齐全，在&lt;a href=&quot;http://theme-next.iissnan.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;可以找到关于这个主题的所有内容。&lt;/p&gt;
-&lt;p&gt;安装主题的方法很简单，在hexo主目录执行命令：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;git clone https://github.com/iissnan/hexo-theme-next themes/next&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;然后修改配置文件_config.yml，添加一下内容：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;theme: next&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;然后开启预览，就可以看到主题已经换成了新的主题&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/81a90b7504bc5d934c642d1395dd63ed.png&quot; alt=&quot;2&quot;&gt;&lt;/p&gt;
-&lt;p&gt;更详细的配置可以参考这个主题的&lt;a href=&quot;http://theme-next.iissnan.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;文档&lt;/a&gt;。&lt;/p&gt;
-&lt;h2 id=&quot;数据迁移&quot;&gt;&lt;a href=&quot;#数据迁移&quot; class=&quot;headerlink&quot; title=&quot;数据迁移&quot;&gt;&lt;/a&gt;数据迁移&lt;/h2&gt;&lt;p&gt;Hexo的数据迁移很简单，只要要以前jekyll主目录下的&lt;code&gt;_post&lt;/code&gt;文件夹里的所有文件拷贝到hexo目录下的&lt;code&gt;source/_posts&lt;/code&gt;,然后在配置文件_config.yml中添加如下内容：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;new_post_name: :year-:month-:day-:title.md&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;这样就完成了数据迁移。其他框架的博客迁移到hexo可以参看&lt;a href=&quot;https://hexo.io/zh-cn/docs/migration.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官方文档&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;这里要注意的是，之前在jekyll中，代码块是这样的格式：&lt;/p&gt;
-&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;% highlight objectiveC linenos %&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt; * str = &lt;span class=&quot;string&quot;&gt;@&quot;I love coding!!&quot;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;%@&quot;&lt;/span&gt;, str);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;% endhighlight %&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;但是在hexo不支持这样的格式，所以要全部替换成标准的Markdown代码块，这是比较蛋疼的地方。&lt;/p&gt;
-&lt;p&gt;做完这些之后，再次打开预览，就可以看到原来的博客啦。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/d8627ec1356b590c21c2c6fba2cffd47.png&quot; alt=&quot;3&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;部署&quot;&gt;&lt;a href=&quot;#部署&quot; class=&quot;headerlink&quot; title=&quot;部署&quot;&gt;&lt;/a&gt;部署&lt;/h2&gt;&lt;p&gt;先安装hexo-deployer-git，执行命令：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ npm install hexo-deployer-git --save&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;然后在Github上创建一个仓库，然后开启Github Pages功能，可以参考&lt;a href=&quot;http://jingpin.jikexueyuan.com/article/33505.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这篇文章&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;然后修改配置文件_config.yml,添加如下内容：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;deploy:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  type: git&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  repository: git@github.com:liujinlongxa/liujinlongxa.github.io.git&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  branch: master&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;然后执行命令&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ hexo deploy&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;这样就把博客部署到了github上&lt;/p&gt;
-&lt;h2 id=&quot;绑定独立域名&quot;&gt;&lt;a href=&quot;#绑定独立域名&quot; class=&quot;headerlink&quot; title=&quot;绑定独立域名&quot;&gt;&lt;/a&gt;绑定独立域名&lt;/h2&gt;&lt;p&gt;到万网购买了一个独立域名（后来才知道DNSPod的解析速度更快一些，后悔了），然后在hexo主目录下的source文件夹中创建一个名为CNAME的文件，里面填写你的独立域名，如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/307f1cb10cc4a3286cc1dd01b0d4f0ce.png&quot; alt=&quot;4&quot;&gt;&lt;/p&gt;
-&lt;p&gt;然后重新部署一下，这样这个CNAME就会上传到Github仓库的根目录下。如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/69301b3770b43797bda6fbd110f08f87.png&quot; alt=&quot;5&quot;&gt;&lt;/p&gt;
-&lt;p&gt;这里一定要注意，要把CNAME放在source文件夹里，如果直接从Github创建CNAME，重新部署博客后，会删掉添加的CNAME。&lt;/p&gt;
-&lt;p&gt;然后就是添加域名解析，打开万网域名管理后台，添加如下解析&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/f696d7662bef60f14f045484df43f22e.png&quot; alt=&quot;6&quot;&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;192.30.252.153&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;192.30.252.154&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;这两个IP是Github的IP，设置完后，过一会，就可以用独立域名访问了。&lt;/p&gt;
-&lt;p&gt;这样一个Hexo博客就搭建完成了。&lt;/p&gt;
-&lt;h2 id=&quot;写博客&quot;&gt;&lt;a href=&quot;#写博客&quot; class=&quot;headerlink&quot; title=&quot;写博客&quot;&gt;&lt;/a&gt;写博客&lt;/h2&gt;&lt;p&gt;Hexo自带命令可以生成生成一篇新的博客，如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;hexo new post &amp;quot;helloworld&amp;quot;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;然后就会生成一篇名为”helloworld”的博客。&lt;/p&gt;
-&lt;p&gt;写完博客后，然后执行下面三条命令发布博客。&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;hexo clean&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;hexo generate&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;hexo deploy&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;这里可以写一个脚本，一次性执行这三条命令。&lt;/p&gt;
-&lt;h2 id=&quot;遇到的问题&quot;&gt;&lt;a href=&quot;#遇到的问题&quot; class=&quot;headerlink&quot; title=&quot;遇到的问题&quot;&gt;&lt;/a&gt;遇到的问题&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;执行hexo deploy后，CNAME和README.md文件消失&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;解决方法，把这两个文件放在source目录下，这样在部署时就会把这两个文件也放到github的根目录下&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/b371a047e69935cd2c92c11169483d00.png&quot; alt=&quot;7&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;执行hexo deploy后，README.md被渲染成了README.html&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;解决方法，在_config.yml中添加如下内容即可：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;skip_render: README.md&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;以上就是我从Jekyll迁移到Hexo的整个过程。&lt;/p&gt;
-&lt;p&gt;参考资料：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://hexo.io/zh-cn/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo文档&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://theme-next.iissnan.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;NexT使用手册&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://blog.sunnyxx.com/2014/02/27/hexo_startup/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;hexo边搭边记&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最近公司项目不是很忙，所以想把自己的博客好好整整，下面就是我从原先的jekyll迁移的hexo的整个过程的记录以及中间遇到的一些问题。&lt;/p&gt;
-&lt;h2 id=&quot;安装Hexo&quot;&gt;&lt;a href=&quot;#安装Hexo&quot; class=&quot;headerlink&quot; title=&quot;安装Hex
-    
-    </summary>
-    
-      <category term="其他" scheme="http://liujinlongxa.com/categories/%E5%85%B6%E4%BB%96/"/>
-    
-    
-      <category term="Hexo" scheme="http://liujinlongxa.com/tags/Hexo/"/>
     
   </entry>
   
