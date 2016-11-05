@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://liujinlongxa.com/"/>
-  <updated>2016-10-28T09:41:29.000Z</updated>
+  <updated>2016-11-05T11:10:12.000Z</updated>
   <id>http://liujinlongxa.com/</id>
   
   <author>
@@ -14,6 +14,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用nat123实现外网ssh连接内网树莓派设备</title>
+    <link href="http://liujinlongxa.com/2016/11/05/%E4%BD%BF%E7%94%A8nat123%E5%AE%9E%E7%8E%B0%E5%A4%96%E7%BD%91ssh%E8%BF%9E%E6%8E%A5%E5%86%85%E7%BD%91%E6%A0%91%E8%8E%93%E6%B4%BE%E8%AE%BE%E5%A4%87/"/>
+    <id>http://liujinlongxa.com/2016/11/05/使用nat123实现外网ssh连接内网树莓派设备/</id>
+    <published>2016-11-05T09:56:46.000Z</published>
+    <updated>2016-11-05T11:10:12.000Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;a href=&quot;https://zh.wikipedia.org/zh-cn/%E6%A0%91%E8%8E%93%E6%B4%BE&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;树莓派&lt;/a&gt;是一款基于Linux的单板机电脑。最近入手了一块，打算作为Linux服务器来使用。&lt;/p&gt;
+&lt;p&gt;树莓派自带以太网接口和Wifi模块，可以通过网线或Wifi连接网络。但是由于我家里的网络是电信的光纤网络，用的是电信配的路由器，各个终端都是通过Wifi或网线连到这个路由上，因此各个终端相当于处于局域网，外网无法通过ip直接访问到内网的树莓派设备，这样如果我在树莓派上搭建一个服务器，外网就无法访问。&lt;/p&gt;
+&lt;p&gt;一般这种问题，只需要在路由器上设置一下&lt;a href=&quot;http://www.hrtl.com.cn/News_398.aspx&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;端口映射&lt;/a&gt;就可通过外网访问内网主机了，但是电信配的这个路由器不支持设置端口映射（吐槽一下，电信自带的路由器简直弱爆了），所有就没办法通过设置路由器的方法解决。&lt;/p&gt;
+&lt;p&gt;经过一番探索，找了一种可行的方案：&lt;a href=&quot;http://www.nat123.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;nat123&lt;/a&gt;。nat123是一家专业提供端口映射和域名解析的网站，下面我就详细介绍一下如何使用nat123来实现外网访问内网树莓派设备。&lt;/p&gt;
+&lt;h2 id=&quot;具体步骤&quot;&gt;&lt;a href=&quot;#具体步骤&quot; class=&quot;headerlink&quot; title=&quot;具体步骤&quot;&gt;&lt;/a&gt;具体步骤&lt;/h2&gt;&lt;h3 id=&quot;第一步-准备工作&quot;&gt;&lt;a href=&quot;#第一步-准备工作&quot; class=&quot;headerlink&quot; title=&quot;第一步 准备工作&quot;&gt;&lt;/a&gt;第一步 准备工作&lt;/h3&gt;&lt;p&gt;确保在内网环境下可以通过ssh访问树莓派，如何在树莓派上配置ssh，可以参考&lt;a href=&quot;http://www.itnose.net/detail/6109563.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这篇文章&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;第二步-注册nat123&quot;&gt;&lt;a href=&quot;#第二步-注册nat123&quot; class=&quot;headerlink&quot; title=&quot;第二步 注册nat123&quot;&gt;&lt;/a&gt;第二步 注册nat123&lt;/h3&gt;&lt;p&gt;打开&lt;a href=&quot;http://www.nat123.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;nat123&lt;/a&gt;官网，点击右上角的注册按钮完成注册&lt;/p&gt;
+&lt;h3 id=&quot;第三步-在树莓派上安装nat123-Linux版&quot;&gt;&lt;a href=&quot;#第三步-在树莓派上安装nat123-Linux版&quot; class=&quot;headerlink&quot; title=&quot;第三步 在树莓派上安装nat123 Linux版&quot;&gt;&lt;/a&gt;第三步 在树莓派上安装nat123 Linux版&lt;/h3&gt;&lt;p&gt;打开树莓派，按照&lt;a href=&quot;http://www.nat123.com/pages_17_600.jsp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这篇文章&lt;/a&gt;的内容安装并启动相关软件。这里注意要根据你树莓派上的操作系统选择不同的安装方式，如果安装的官方操作系统Raspbian，应该选用Debian系统的安装方式。&lt;/p&gt;
+&lt;h3 id=&quot;第四步-配置端口映射&quot;&gt;&lt;a href=&quot;#第四步-配置端口映射&quot; class=&quot;headerlink&quot; title=&quot;第四步 配置端口映射&quot;&gt;&lt;/a&gt;第四步 配置端口映射&lt;/h3&gt;&lt;p&gt;登录&lt;a href=&quot;http://www.nat123.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;nat123&lt;/a&gt;，在左侧的用户中心点击“端口映射添加”，如下图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/7855931f84f019009241b787d7c35f87.png&quot; alt=&quot;1&quot;&gt;&lt;/p&gt;
+&lt;p&gt;应用类型选择“其他（非网站）”，这里我要实现的是通过ssh访问树莓派，所有不是80端口，具体应该根据自己的需求选择应用类型，可以参考&lt;a href=&quot;http://www.nat123.com/Pages_8_570.jsp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这篇文章&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/d784b452f4e1a71ef9555fd783b95386.png&quot; alt=&quot;2&quot;&gt;&lt;/p&gt;
+&lt;p&gt;下面解释一下每一项的含义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;应用名称：随便起，这里因为是用于ssh连接的，所以起名为ssh&lt;/li&gt;
+&lt;li&gt;内网端口：内网应用的端口，ssh访问默认端口为22，如果是其他服务，这里的端口号应该填相应服务的端口号，例如，ftp服务默认端口号为21，http服务默认端口80等。&lt;/li&gt;
+&lt;li&gt;内网地址：即树莓派在内网的ip地址，可以通过&lt;code&gt;ifconfig&lt;/code&gt;命令查看&lt;/li&gt;
+&lt;li&gt;外网端口：自动生成，要记住这个端口号，待会链接是要用到&lt;/li&gt;
+&lt;li&gt;外网域名：自动生成，这就是外网要访问的地址&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;然后点击“确认保存”，这里需要认证，认证需要收费（30￥），付款完成后，再次点击“确认保存”，就可以保存成功。可以在左侧的“端口映射列表”里查看和修改添加的端口映射。&lt;/p&gt;
+&lt;p&gt;这样就完成了端口映射的添加。&lt;/p&gt;
+&lt;h3 id=&quot;第五步-外网访问&quot;&gt;&lt;a href=&quot;#第五步-外网访问&quot; class=&quot;headerlink&quot; title=&quot;第五步 外网访问&quot;&gt;&lt;/a&gt;第五步 外网访问&lt;/h3&gt;&lt;p&gt;这时就已经可以通过外网访问了，在外网环境下打开终端，输入命令：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;ssh pi@45067491.nat123.net -p 22996&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然后输入密码，就可以通过ssh访问树莓派了。这里”pi”是你在树莓派里的用户名，-p参数是刚才的端口号。&lt;/p&gt;
+&lt;h2 id=&quot;结语&quot;&gt;&lt;a href=&quot;#结语&quot; class=&quot;headerlink&quot; title=&quot;结语&quot;&gt;&lt;/a&gt;结语&lt;/h2&gt;&lt;p&gt;以上就是我使用nat123实现外网访问内网树莓派设备的这个过程。整个过程并不复杂，但是我在进行的过程中还是磕磕绊绊折腾了好久才完全整好，不过这个过程中还是学到了不少的东西。&lt;/p&gt;
+&lt;p&gt;由于水平有限，如果上文中有不正确的地方，欢迎大家交流指正。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://zh.wikipedia.org/zh-cn/%E6%A0%91%E8%8E%93%E6%B4%BE&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;树莓派&lt;/a&gt;是一款基于Linux的单板机电脑。最近入手了一块，打算作为L
+    
+    </summary>
+    
+      <category term="树莓派" scheme="http://liujinlongxa.com/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+    
+    
+      <category term="树莓派" scheme="http://liujinlongxa.com/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+    
+      <category term="SSH" scheme="http://liujinlongxa.com/tags/SSH/"/>
+    
+      <category term="网络" scheme="http://liujinlongxa.com/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>Swift3中的预处理宏</title>
@@ -783,30 +835,6 @@
       <category term="UILabel" scheme="http://liujinlongxa.com/tags/UILabel/"/>
     
       <category term="NSAttributedString" scheme="http://liujinlongxa.com/tags/NSAttributedString/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>UILabel设置lineBreakMode属性无效</title>
-    <link href="http://liujinlongxa.com/2016/07/03/UILabel%E8%AE%BE%E7%BD%AElineBreakMode%E5%B1%9E%E6%80%A7%E6%97%A0%E6%95%88/"/>
-    <id>http://liujinlongxa.com/2016/07/03/UILabel设置lineBreakMode属性无效/</id>
-    <published>2016-07-03T10:09:30.000Z</published>
-    <updated>2016-08-12T15:20:04.000Z</updated>
-    
-    <content type="html">&lt;p&gt;UILabel的lineBreakMode属性用于设置文字的截断方式，我在使用过程中，发现了一个问题，当我设置lineBreakMode为NSLineBreakByCharWrapping或NSLineBreakByWordWrapping时，有时会没有效果，它依然以NSLineBreakByClipping方式显示。&lt;/p&gt;
-&lt;p&gt;经过一番Google，原来，要设置NSLineBreakByCharWrapping或NSLineBreakByWordWrapping，UILabel的numberOfLines必须是0，否则就会无效。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;UILabel的lineBreakMode属性用于设置文字的截断方式，我在使用过程中，发现了一个问题，当我设置lineBreakMode为NSLineBreakByCharWrapping或NSLineBreakByWordWrapping时，有时会没有效果，它依然以NSL
-    
-    </summary>
-    
-      <category term="iOS Tips" scheme="http://liujinlongxa.com/categories/iOS-Tips/"/>
-    
-    
-      <category term="UILabel" scheme="http://liujinlongxa.com/tags/UILabel/"/>
     
   </entry>
   
