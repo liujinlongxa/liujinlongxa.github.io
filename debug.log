@@ -8935,3 +8935,546 @@
 {"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8370,"level":30,"msg":"Copying files from public folder...","time":"2016-11-05T11:15:18.328Z","v":0}
 {"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8370,"level":30,"msg":"Deploy done: \u001b[35mgit\u001b[39m","time":"2016-11-05T11:15:25.477Z","v":0}
 {"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8370,"level":20,"msg":"Database saved","time":"2016-11-05T11:15:25.480Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8782,"level":20,"msg":"Hexo version: \u001b[35m3.2.2\u001b[39m","time":"2016-11-05T11:19:59.200Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8782,"level":20,"msg":"Working directory: \u001b[35m~/Documents/Study/Blog/HexoBlog/\u001b[39m","time":"2016-11-05T11:19:59.203Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8782,"level":20,"msg":"Config loaded: \u001b[35m~/Documents/Study/Blog/HexoBlog/_config.yml\u001b[39m","time":"2016-11-05T11:19:59.271Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8782,"level":20,"msg":"Script loaded: \u001b[35mthemes/next/scripts/tags/center-quote.js\u001b[39m","time":"2016-11-05T11:19:59.282Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8782,"level":20,"msg":"Script loaded: \u001b[35mthemes/next/scripts/merge-configs.js\u001b[39m","time":"2016-11-05T11:19:59.282Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8782,"level":20,"msg":"Script loaded: \u001b[35mthemes/next/scripts/tags/full-image.js\u001b[39m","time":"2016-11-05T11:19:59.283Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8782,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-deployer-git\u001b[39m","time":"2016-11-05T11:19:59.450Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8782,"level":20,"msg":"Script loaded: \u001b[35mthemes/next/scripts/tags/group-pictures.js\u001b[39m","time":"2016-11-05T11:19:59.451Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8782,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-archive\u001b[39m","time":"2016-11-05T11:19:59.453Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8782,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-category\u001b[39m","time":"2016-11-05T11:19:59.455Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8782,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-feed\u001b[39m","time":"2016-11-05T11:19:59.491Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8782,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-index\u001b[39m","time":"2016-11-05T11:19:59.493Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8782,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-tag\u001b[39m","time":"2016-11-05T11:19:59.495Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8782,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-renderer-ejs\u001b[39m","time":"2016-11-05T11:19:59.497Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8782,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-renderer-stylus\u001b[39m","time":"2016-11-05T11:19:59.498Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8782,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-renderer-marked\u001b[39m","time":"2016-11-05T11:19:59.555Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8782,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-server\u001b[39m","time":"2016-11-05T11:19:59.643Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8782,"level":30,"msg":"Deleted database.","time":"2016-11-05T11:19:59.645Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8782,"level":30,"msg":"Deleted public folder.","time":"2016-11-05T11:19:59.674Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8782,"level":20,"msg":"Database saved","time":"2016-11-05T11:19:59.677Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Hexo version: \u001b[35m3.2.2\u001b[39m","time":"2016-11-05T11:20:00.353Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Working directory: \u001b[35m~/Documents/Study/Blog/HexoBlog/\u001b[39m","time":"2016-11-05T11:20:00.356Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Config loaded: \u001b[35m~/Documents/Study/Blog/HexoBlog/_config.yml\u001b[39m","time":"2016-11-05T11:20:00.431Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-deployer-git\u001b[39m","time":"2016-11-05T11:20:00.603Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-archive\u001b[39m","time":"2016-11-05T11:20:00.605Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-category\u001b[39m","time":"2016-11-05T11:20:00.607Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-feed\u001b[39m","time":"2016-11-05T11:20:00.638Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-index\u001b[39m","time":"2016-11-05T11:20:00.640Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-tag\u001b[39m","time":"2016-11-05T11:20:00.647Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-renderer-ejs\u001b[39m","time":"2016-11-05T11:20:00.650Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-renderer-marked\u001b[39m","time":"2016-11-05T11:20:00.710Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-renderer-stylus\u001b[39m","time":"2016-11-05T11:20:00.712Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Script loaded: \u001b[35mthemes/next/scripts/merge-configs.js\u001b[39m","time":"2016-11-05T11:20:00.712Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-server\u001b[39m","time":"2016-11-05T11:20:00.805Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Script loaded: \u001b[35mthemes/next/scripts/tags/center-quote.js\u001b[39m","time":"2016-11-05T11:20:00.805Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Script loaded: \u001b[35mthemes/next/scripts/tags/full-image.js\u001b[39m","time":"2016-11-05T11:20:00.805Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Script loaded: \u001b[35mthemes/next/scripts/tags/group-pictures.js\u001b[39m","time":"2016-11-05T11:20:00.806Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Loading database.","time":"2016-11-05T11:20:00.808Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Start processing","time":"2016-11-05T11:20:00.815Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mStaticfile\u001b[39m","time":"2016-11-05T11:20:00.833Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mCNAME\u001b[39m","time":"2016-11-05T11:20:00.851Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mREADME.md\u001b[39m","time":"2016-11-05T11:20:00.851Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mimages/favicon.ico\u001b[39m","time":"2016-11-05T11:20:00.910Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mimages/cyclehead.png\u001b[39m","time":"2016-11-05T11:20:00.935Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mimages/smallhead.png\u001b[39m","time":"2016-11-05T11:20:00.936Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/css/main.styl\u001b[39m","time":"2016-11-05T11:20:00.957Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/images/avatar.gif\u001b[39m","time":"2016-11-05T11:20:00.958Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/images/cc-by-nc-nd.svg\u001b[39m","time":"2016-11-05T11:20:00.958Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/images/cc-by-nc-sa.svg\u001b[39m","time":"2016-11-05T11:20:00.958Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/images/cc-by-nc.svg\u001b[39m","time":"2016-11-05T11:20:00.958Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/images/cc-by-nd.svg\u001b[39m","time":"2016-11-05T11:20:00.959Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/images/cc-by-sa.svg\u001b[39m","time":"2016-11-05T11:20:00.959Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/images/cc-by.svg\u001b[39m","time":"2016-11-05T11:20:00.960Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/images/cc-zero.svg\u001b[39m","time":"2016-11-05T11:20:00.960Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/images/loading.gif\u001b[39m","time":"2016-11-05T11:20:00.961Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/images/placeholder.gif\u001b[39m","time":"2016-11-05T11:20:00.961Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/images/quote-l.svg\u001b[39m","time":"2016-11-05T11:20:00.961Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/images/quote-r.svg\u001b[39m","time":"2016-11-05T11:20:00.961Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/images/searchicon.png\u001b[39m","time":"2016-11-05T11:20:00.961Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Theme config loaded.","time":"2016-11-05T11:20:00.976Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_config.yml\u001b[39m","time":"2016-11-05T11:20:00.977Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_layout.swig\u001b[39m","time":"2016-11-05T11:20:01.115Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/archive.swig\u001b[39m","time":"2016-11-05T11:20:01.116Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/category.swig\u001b[39m","time":"2016-11-05T11:20:01.116Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/index.swig\u001b[39m","time":"2016-11-05T11:20:01.116Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/page.swig\u001b[39m","time":"2016-11-05T11:20:01.116Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/post.swig\u001b[39m","time":"2016-11-05T11:20:01.116Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/tag.swig\u001b[39m","time":"2016-11-05T11:20:01.116Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mcategories/index.md\u001b[39m","time":"2016-11-05T11:20:01.138Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlanguages/de.yml\u001b[39m","time":"2016-11-05T11:20:01.150Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlanguages/en.yml\u001b[39m","time":"2016-11-05T11:20:01.150Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlanguages/default.yml\u001b[39m","time":"2016-11-05T11:20:01.150Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlanguages/fr-FR.yml\u001b[39m","time":"2016-11-05T11:20:01.150Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlanguages/id.yml\u001b[39m","time":"2016-11-05T11:20:01.150Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlanguages/ja.yml\u001b[39m","time":"2016-11-05T11:20:01.151Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlanguages/pt-BR.yml\u001b[39m","time":"2016-11-05T11:20:01.151Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlanguages/pt.yml\u001b[39m","time":"2016-11-05T11:20:01.151Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlanguages/ru.yml\u001b[39m","time":"2016-11-05T11:20:01.151Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlanguages/zh-Hans.yml\u001b[39m","time":"2016-11-05T11:20:01.151Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlanguages/zh-hk.yml\u001b[39m","time":"2016-11-05T11:20:01.152Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlanguages/zh-tw.yml\u001b[39m","time":"2016-11-05T11:20:01.152Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mtags/index.md\u001b[39m","time":"2016-11-05T11:20:01.153Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2015-10-03-博客新家.md\u001b[39m","time":"2016-11-05T11:20:01.166Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2015-10-04-iOS中的富文本技术(2)CoreText框架.md\u001b[39m","time":"2016-11-05T11:20:01.170Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2015-10-04-NSURLProtocol的使用.md\u001b[39m","time":"2016-11-05T11:20:01.173Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2015-10-04-iOS运行时初探-使用运行时机制向Category中添加属性.md\u001b[39m","time":"2016-11-05T11:20:01.177Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2015-10-04-使用jekyll+GithubPage搭建个人博客系统.md\u001b[39m","time":"2016-11-05T11:20:01.180Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2015-10-04-iOS中Emoji表情的判断.md\u001b[39m","time":"2016-11-05T11:20:01.183Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2015-10-04-适配iOS9（ATS问题）.md\u001b[39m","time":"2016-11-05T11:20:01.185Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2015-10-04-iOS中的多线程编程.md\u001b[39m","time":"2016-11-05T11:20:01.187Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2015-10-04-iOS中的富文本技术(1)TextKit简介.md\u001b[39m","time":"2016-11-05T11:20:01.191Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2015-10-27-UIScrollView与Autolayout.md\u001b[39m","time":"2016-11-05T11:20:01.193Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2015-10-16-最近开发中遇到的一些问题.md\u001b[39m","time":"2016-11-05T11:20:01.195Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2015-10-05-《图解HTTP》读书笔记(1).md\u001b[39m","time":"2016-11-05T11:20:01.200Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2015-12-06-CoreAnimation编程指南学习笔记(1).md\u001b[39m","time":"2016-11-05T11:20:01.204Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2015-11-07-ContentHugging与ContentCompressionResistance.md\u001b[39m","time":"2016-11-05T11:20:01.205Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2015-10-06-《图解HTTP》读书笔记(2).md\u001b[39m","time":"2016-11-05T11:20:01.207Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2015-12-13-CoreAnimation编程指南学习笔记(2).md\u001b[39m","time":"2016-11-05T11:20:01.209Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2015-12-20-RAC学习笔记.md\u001b[39m","time":"2016-11-05T11:20:01.211Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2015-10-07-《图解HTTP》读书笔记(3).md\u001b[39m","time":"2016-11-05T11:20:01.213Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2015-12-27-《ios核心动画高级技巧》阅读笔记(1).md\u001b[39m","time":"2016-11-05T11:20:01.216Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2015-12-27-《ios核心动画高级技巧》阅读笔记(2).md\u001b[39m","time":"2016-11-05T11:20:01.220Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2015-12-27-《ios核心动画高级技巧》阅读笔记(3).md\u001b[39m","time":"2016-11-05T11:20:01.222Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2016-01-01-自动打包工具shenzhen使用简介.md\u001b[39m","time":"2016-11-05T11:20:01.226Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2016-04-10-iOS开发企业证书申请过程全记录.md\u001b[39m","time":"2016-11-05T11:20:01.228Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2016-05-09-MVVMTutorialwithReactiveCocoaPart2(翻译).md\u001b[39m","time":"2016-11-05T11:20:01.229Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2016-05-29-自定义NSOperation的那些事.md\u001b[39m","time":"2016-11-05T11:20:01.231Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2016-06-05-2016年6月开发问题记录.md\u001b[39m","time":"2016-11-05T11:20:01.233Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2016-05-08-2016年5月开发问题记录.md\u001b[39m","time":"2016-11-05T11:20:01.236Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2016-06-11-打造自己的翻墙VPS:搬运工VPS购买使用流程全记录.md\u001b[39m","time":"2016-11-05T11:20:01.239Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/font-awesome/HELP-US-OUT.txt\u001b[39m","time":"2016-11-05T11:20:01.239Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2016-06-29-GMTC全球移动技术大会见闻.md\u001b[39m","time":"2016-11-05T11:20:01.241Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/font-awesome/bower.json\u001b[39m","time":"2016-11-05T11:20:01.241Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2016-07-03-Could-not-load-the-xxx-image-referenced-from-a-nib-in-the-bundle-with-identifier-xxxx问题.md\u001b[39m","time":"2016-11-05T11:20:01.243Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2016-07-01-从jekyll迁移到hexo.md\u001b[39m","time":"2016-11-05T11:20:01.246Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/fastclick/LICENSE\u001b[39m","time":"2016-11-05T11:20:01.247Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2016-07-03-UILabel设置lineBreakMode属性无效.md\u001b[39m","time":"2016-11-05T11:20:01.249Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/fastclick/README.md\u001b[39m","time":"2016-11-05T11:20:01.249Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2016-07-03-用XCode8打开Xib后项目不能在XCode7上运行.md\u001b[39m","time":"2016-11-05T11:20:01.252Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/fastclick/bower.json\u001b[39m","time":"2016-11-05T11:20:01.253Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/jquery_lazyload/CONTRIBUTING.md\u001b[39m","time":"2016-11-05T11:20:01.263Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/jquery_lazyload/README.md\u001b[39m","time":"2016-11-05T11:20:01.265Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2016-07-03-设置富文本字间距，文字不能居中对齐.md\u001b[39m","time":"2016-11-05T11:20:01.265Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/jquery_lazyload/bower.json\u001b[39m","time":"2016-11-05T11:20:01.267Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/jquery_lazyload/jquery.lazyload.js\u001b[39m","time":"2016-11-05T11:20:01.269Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2016-08-30-使用Safair调试JS.md\u001b[39m","time":"2016-11-05T11:20:01.270Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/jquery_lazyload/jquery.scrollstop.js\u001b[39m","time":"2016-11-05T11:20:01.270Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2016-07-10-深入理解CoreAnimation的fillMode和isRemovedOnCompletion.md\u001b[39m","time":"2016-11-05T11:20:01.271Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2016-08-30-做模糊效果时遇到的问题.md\u001b[39m","time":"2016-11-05T11:20:01.272Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/velocity/bower.json\u001b[39m","time":"2016-11-05T11:20:01.279Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2016-07-26-UIButton设置标题无效.md\u001b[39m","time":"2016-11-05T11:20:01.279Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/velocity/velocity.min.js\u001b[39m","time":"2016-11-05T11:20:01.282Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2016-07-30-使用HTTPS方法clone下来的Git仓库push时报错.md\u001b[39m","time":"2016-11-05T11:20:01.282Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2016-10-04-使用xUnique遇到了的问题.md\u001b[39m","time":"2016-11-05T11:20:01.282Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/velocity/velocity.ui.min.js\u001b[39m","time":"2016-11-05T11:20:01.283Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2016-08-07-在VPS上搭建Git服务器.md\u001b[39m","time":"2016-11-05T11:20:01.283Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/velocity/velocity.ui.js\u001b[39m","time":"2016-11-05T11:20:01.283Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2016-10-25-如何获取WebView的UserAgent.md\u001b[39m","time":"2016-11-05T11:20:01.283Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/js/src/affix.js\u001b[39m","time":"2016-11-05T11:20:01.284Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2016-08-25-Mac下生成RSA密钥对要注意的问题.md\u001b[39m","time":"2016-11-05T11:20:01.285Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/js/src/bootstrap.js\u001b[39m","time":"2016-11-05T11:20:01.285Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/js/src/hook-duoshuo.js\u001b[39m","time":"2016-11-05T11:20:01.286Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/js/src/motion.js\u001b[39m","time":"2016-11-05T11:20:01.286Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/js/src/post-details.js\u001b[39m","time":"2016-11-05T11:20:01.287Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/js/src/utils.js\u001b[39m","time":"2016-11-05T11:20:01.287Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/js/src/scrollspy.js\u001b[39m","time":"2016-11-05T11:20:01.294Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2016-08-24-使用ownCloud作为OmniFocus的云同步服务器.md\u001b[39m","time":"2016-11-05T11:20:01.294Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2016-09-12-使用代码删除约束要注意的地方.md\u001b[39m","time":"2016-11-05T11:20:01.294Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2016-10-07-iOS多环境配置实践.md\u001b[39m","time":"2016-11-05T11:20:01.295Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2016-10-09-获取本地化的APP版本描述信息.md\u001b[39m","time":"2016-11-05T11:20:01.295Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2016-10-18-iOS10无法获取IDFA的问题.md\u001b[39m","time":"2016-11-05T11:20:01.296Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2016-10-26-给多个Target添加CocoaPods.md\u001b[39m","time":"2016-11-05T11:20:01.297Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2016-10-28-Swift3中的预处理宏.md\u001b[39m","time":"2016-11-05T11:20:01.298Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35m_posts/2016-11-05-使用nat123实现外网ssh连接内网树莓派设备.md\u001b[39m","time":"2016-11-05T11:20:01.299Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/jquery/index.js\u001b[39m","time":"2016-11-05T11:20:01.322Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_macro/post-collapse.swig\u001b[39m","time":"2016-11-05T11:20:01.355Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_macro/post.swig\u001b[39m","time":"2016-11-05T11:20:01.355Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_macro/reward.swig\u001b[39m","time":"2016-11-05T11:20:01.355Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_macro/sidebar.swig\u001b[39m","time":"2016-11-05T11:20:01.355Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_macro/wechat-subscriber.swig\u001b[39m","time":"2016-11-05T11:20:01.355Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_partials/comments.swig\u001b[39m","time":"2016-11-05T11:20:01.355Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_partials/footer.swig\u001b[39m","time":"2016-11-05T11:20:01.355Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_partials/duoshuo-hot-articles.swig\u001b[39m","time":"2016-11-05T11:20:01.355Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_partials/head.swig\u001b[39m","time":"2016-11-05T11:20:01.355Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_partials/header.swig\u001b[39m","time":"2016-11-05T11:20:01.355Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_partials/pagination.swig\u001b[39m","time":"2016-11-05T11:20:01.355Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_partials/search.swig\u001b[39m","time":"2016-11-05T11:20:01.355Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/baidu-push.swig\u001b[39m","time":"2016-11-05T11:20:01.355Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/boostrap.swig\u001b[39m","time":"2016-11-05T11:20:01.355Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/commons.swig\u001b[39m","time":"2016-11-05T11:20:01.355Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/vendors.swig\u001b[39m","time":"2016-11-05T11:20:01.356Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/fancybox/source/blank.gif\u001b[39m","time":"2016-11-05T11:20:01.358Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/fancybox/source/fancybox_loading.gif\u001b[39m","time":"2016-11-05T11:20:01.358Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/fancybox/source/fancybox_loading@2x.gif\u001b[39m","time":"2016-11-05T11:20:01.358Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/fancybox/source/fancybox_overlay.png\u001b[39m","time":"2016-11-05T11:20:01.359Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/fancybox/source/fancybox_sprite.png\u001b[39m","time":"2016-11-05T11:20:01.359Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/fancybox/source/fancybox_sprite@2x.png\u001b[39m","time":"2016-11-05T11:20:01.360Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/fancybox/source/jquery.fancybox.css\u001b[39m","time":"2016-11-05T11:20:01.360Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/fancybox/source/jquery.fancybox.js\u001b[39m","time":"2016-11-05T11:20:01.360Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/fancybox/source/jquery.fancybox.pack.js\u001b[39m","time":"2016-11-05T11:20:01.360Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/font-awesome/css/font-awesome.css\u001b[39m","time":"2016-11-05T11:20:01.360Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/font-awesome/css/font-awesome.css.map\u001b[39m","time":"2016-11-05T11:20:01.360Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/font-awesome/css/font-awesome.min.css\u001b[39m","time":"2016-11-05T11:20:01.361Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/font-awesome/fonts/fontawesome-webfont.woff2\u001b[39m","time":"2016-11-05T11:20:01.361Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/fastclick/lib/fastclick.min.js\u001b[39m","time":"2016-11-05T11:20:01.361Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/fastclick/lib/fastclick.js\u001b[39m","time":"2016-11-05T11:20:01.362Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/ua-parser-js/dist/ua-parser.pack.js\u001b[39m","time":"2016-11-05T11:20:01.362Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/ua-parser-js/dist/ua-parser.min.js\u001b[39m","time":"2016-11-05T11:20:01.362Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/js/src/schemes/pisces.js\u001b[39m","time":"2016-11-05T11:20:01.362Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/schemes/mist.swig\u001b[39m","time":"2016-11-05T11:20:01.365Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/schemes/muse.swig\u001b[39m","time":"2016-11-05T11:20:01.365Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/font-awesome/fonts/FontAwesome.otf\u001b[39m","time":"2016-11-05T11:20:01.365Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/font-awesome/fonts/fontawesome-webfont.eot\u001b[39m","time":"2016-11-05T11:20:01.365Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/font-awesome/fonts/fontawesome-webfont.woff\u001b[39m","time":"2016-11-05T11:20:01.366Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/velocity/velocity.js\u001b[39m","time":"2016-11-05T11:20:01.366Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_partials/head/external-fonts.swig\u001b[39m","time":"2016-11-05T11:20:01.375Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_partials/search/localsearch.swig\u001b[39m","time":"2016-11-05T11:20:01.375Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_partials/search/swiftype.swig\u001b[39m","time":"2016-11-05T11:20:01.375Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_partials/search/tinysou.swig\u001b[39m","time":"2016-11-05T11:20:01.375Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_partials/share/add-this.swig\u001b[39m","time":"2016-11-05T11:20:01.375Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_partials/share/duoshuo_share.swig\u001b[39m","time":"2016-11-05T11:20:01.375Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_partials/share/jiathis.swig\u001b[39m","time":"2016-11-05T11:20:01.375Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_partials/share/baidushare.swig\u001b[39m","time":"2016-11-05T11:20:01.376Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/pages/post-details.swig\u001b[39m","time":"2016-11-05T11:20:01.376Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/schemes/pisces.swig\u001b[39m","time":"2016-11-05T11:20:01.376Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/third-party/analytics.swig\u001b[39m","time":"2016-11-05T11:20:01.376Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/third-party/comments.swig\u001b[39m","time":"2016-11-05T11:20:01.376Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/third-party/lean-analytics.swig\u001b[39m","time":"2016-11-05T11:20:01.376Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/third-party/localsearch.swig\u001b[39m","time":"2016-11-05T11:20:01.376Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/third-party/mathjax.swig\u001b[39m","time":"2016-11-05T11:20:01.376Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/third-party/tinysou.swig\u001b[39m","time":"2016-11-05T11:20:01.376Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/fancybox/source/helpers/fancybox_buttons.png\u001b[39m","time":"2016-11-05T11:20:01.384Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/fancybox/source/helpers/jquery.fancybox-buttons.css\u001b[39m","time":"2016-11-05T11:20:01.384Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/fancybox/source/helpers/jquery.fancybox-buttons.js\u001b[39m","time":"2016-11-05T11:20:01.384Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/fancybox/source/helpers/jquery.fancybox-media.js\u001b[39m","time":"2016-11-05T11:20:01.384Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/fancybox/source/helpers/jquery.fancybox-thumbs.css\u001b[39m","time":"2016-11-05T11:20:01.385Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/fancybox/source/helpers/jquery.fancybox-thumbs.js\u001b[39m","time":"2016-11-05T11:20:01.385Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/font-awesome/fonts/fontawesome-webfont.ttf\u001b[39m","time":"2016-11-05T11:20:01.385Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/third-party/analytics/busuanzi-counter.swig\u001b[39m","time":"2016-11-05T11:20:01.389Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/third-party/analytics/baidu-analytics.swig\u001b[39m","time":"2016-11-05T11:20:01.389Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/third-party/analytics/cnzz-analytics.swig\u001b[39m","time":"2016-11-05T11:20:01.389Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/third-party/analytics/facebook-sdk.swig\u001b[39m","time":"2016-11-05T11:20:01.389Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/third-party/analytics/google-analytics.swig\u001b[39m","time":"2016-11-05T11:20:01.390Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/third-party/analytics/tencent-analytics.swig\u001b[39m","time":"2016-11-05T11:20:01.390Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/third-party/comments/duoshuo.swig\u001b[39m","time":"2016-11-05T11:20:01.392Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35mlayout/_scripts/third-party/comments/disqus.swig\u001b[39m","time":"2016-11-05T11:20:01.392Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Processed: \u001b[35msource/vendors/font-awesome/fonts/fontawesome-webfont.svg\u001b[39m","time":"2016-11-05T11:20:01.393Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Generator: \u001b[35mpage\u001b[39m","time":"2016-11-05T11:20:01.977Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Generator: \u001b[35mpost\u001b[39m","time":"2016-11-05T11:20:01.977Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Generator: \u001b[35marchive\u001b[39m","time":"2016-11-05T11:20:01.977Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Generator: \u001b[35mcategory\u001b[39m","time":"2016-11-05T11:20:01.977Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Generator: \u001b[35mfeed\u001b[39m","time":"2016-11-05T11:20:01.977Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Generator: \u001b[35mindex\u001b[39m","time":"2016-11-05T11:20:01.977Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Generator: \u001b[35mtag\u001b[39m","time":"2016-11-05T11:20:01.977Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Generator: \u001b[35masset\u001b[39m","time":"2016-11-05T11:20:01.978Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Files loaded in \u001b[36m1.22 s\u001b[39m","time":"2016-11-05T11:20:02.023Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering page: \u001b[35mcategories/index.html\u001b[39m","time":"2016-11-05T11:20:02.061Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering page: \u001b[35mtags/index.html\u001b[39m","time":"2016-11-05T11:20:02.110Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2016/11/05/使用nat123实现外网ssh连接内网树莓派设备/index.html\u001b[39m","time":"2016-11-05T11:20:02.136Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2016/10/28/Swift3中的预处理宏/index.html\u001b[39m","time":"2016-11-05T11:20:02.196Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2016/10/26/给多个Target添加CocoaPods/index.html\u001b[39m","time":"2016-11-05T11:20:02.232Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2016/10/25/如何获取WebView的UserAgent/index.html\u001b[39m","time":"2016-11-05T11:20:02.270Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2016/10/18/iOS10无法获取IDFA的问题/index.html\u001b[39m","time":"2016-11-05T11:20:02.326Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2016/10/09/获取本地化的APP版本描述信息/index.html\u001b[39m","time":"2016-11-05T11:20:02.360Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2016/10/07/iOS多环境配置实践/index.html\u001b[39m","time":"2016-11-05T11:20:02.390Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2016/10/04/使用xUnique遇到了的问题/index.html\u001b[39m","time":"2016-11-05T11:20:02.430Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2016/09/12/使用代码删除约束要注意的地方/index.html\u001b[39m","time":"2016-11-05T11:20:02.457Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2016/08/30/做模糊效果时遇到的问题/index.html\u001b[39m","time":"2016-11-05T11:20:02.482Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2016/08/30/使用Safair调试JS/index.html\u001b[39m","time":"2016-11-05T11:20:02.512Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2016/08/25/Mac下生成RSA密钥对要注意的问题/index.html\u001b[39m","time":"2016-11-05T11:20:02.537Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2016/08/24/使用ownCloud作为OmniFocus的云同步服务器/index.html\u001b[39m","time":"2016-11-05T11:20:02.564Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2016/08/07/在VPS上搭建Git服务器/index.html\u001b[39m","time":"2016-11-05T11:20:02.597Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2016/07/30/使用HTTPS方法clone下来的Git仓库push时报错/index.html\u001b[39m","time":"2016-11-05T11:20:02.625Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2016/07/26/UIButton设置标题无效/index.html\u001b[39m","time":"2016-11-05T11:20:02.655Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2016/07/10/深入理解CoreAnimation的fillMode和isRemovedOnCompletion/index.html\u001b[39m","time":"2016-11-05T11:20:02.678Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2016/07/03/用XCode8打开Xib后项目不能在XCode7上运行/index.html\u001b[39m","time":"2016-11-05T11:20:02.708Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2016/07/03/Could-not-load-the-xxx-image-referenced-from-a-nib-in-the-bundle-with-identifier-xxxx问题/index.html\u001b[39m","time":"2016-11-05T11:20:02.737Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2016/07/03/设置富文本字间距，文字不能居中对齐/index.html\u001b[39m","time":"2016-11-05T11:20:02.761Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2016/07/03/UILabel设置lineBreakMode属性无效/index.html\u001b[39m","time":"2016-11-05T11:20:02.791Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2016/07/01/从jekyll迁移到hexo/index.html\u001b[39m","time":"2016-11-05T11:20:02.820Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2016/06/11/打造自己的翻墙VPS:搬运工VPS购买使用流程全记录/index.html\u001b[39m","time":"2016-11-05T11:20:02.850Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2016/06/29/GMTC全球移动技术大会见闻/index.html\u001b[39m","time":"2016-11-05T11:20:02.879Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2016/06/05/2016年6月开发问题记录/index.html\u001b[39m","time":"2016-11-05T11:20:02.911Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2016/05/29/自定义NSOperation的那些事/index.html\u001b[39m","time":"2016-11-05T11:20:02.941Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2016/05/09/MVVMTutorialwithReactiveCocoaPart2(翻译)/index.html\u001b[39m","time":"2016-11-05T11:20:02.972Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2016/05/08/2016年5月开发问题记录/index.html\u001b[39m","time":"2016-11-05T11:20:03.018Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2016/04/10/iOS开发企业证书申请过程全记录/index.html\u001b[39m","time":"2016-11-05T11:20:03.050Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2016/01/01/自动打包工具shenzhen使用简介/index.html\u001b[39m","time":"2016-11-05T11:20:03.084Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2015/12/27/《ios核心动画高级技巧》阅读笔记(3)/index.html\u001b[39m","time":"2016-11-05T11:20:03.109Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2015/12/27/《ios核心动画高级技巧》阅读笔记(2)/index.html\u001b[39m","time":"2016-11-05T11:20:03.139Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2015/12/27/《ios核心动画高级技巧》阅读笔记(1)/index.html\u001b[39m","time":"2016-11-05T11:20:03.171Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2015/12/20/RAC学习笔记/index.html\u001b[39m","time":"2016-11-05T11:20:03.198Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2015/12/13/CoreAnimation编程指南学习笔记(2)/index.html\u001b[39m","time":"2016-11-05T11:20:03.247Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2015/12/06/CoreAnimation编程指南学习笔记(1)/index.html\u001b[39m","time":"2016-11-05T11:20:03.274Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2015/11/07/ContentHugging与ContentCompressionResistance/index.html\u001b[39m","time":"2016-11-05T11:20:03.303Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2015/10/27/UIScrollView与Autolayout/index.html\u001b[39m","time":"2016-11-05T11:20:03.336Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2015/10/16/最近开发中遇到的一些问题/index.html\u001b[39m","time":"2016-11-05T11:20:03.363Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2015/10/07/《图解HTTP》读书笔记(3)/index.html\u001b[39m","time":"2016-11-05T11:20:03.391Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2015/10/06/《图解HTTP》读书笔记(2)/index.html\u001b[39m","time":"2016-11-05T11:20:03.419Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2015/10/05/《图解HTTP》读书笔记(1)/index.html\u001b[39m","time":"2016-11-05T11:20:03.449Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2015/10/04/NSURLProtocol的使用/index.html\u001b[39m","time":"2016-11-05T11:20:03.480Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2015/10/04/适配iOS9（ATS问题）/index.html\u001b[39m","time":"2016-11-05T11:20:03.504Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2015/10/04/使用jekyll+GithubPage搭建个人博客系统/index.html\u001b[39m","time":"2016-11-05T11:20:03.532Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2015/10/04/iOS运行时初探-使用运行时机制向Category中添加属性/index.html\u001b[39m","time":"2016-11-05T11:20:03.563Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2015/10/04/iOS中的富文本技术(2)CoreText框架/index.html\u001b[39m","time":"2016-11-05T11:20:03.589Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2015/10/04/iOS中的富文本技术(1)TextKit简介/index.html\u001b[39m","time":"2016-11-05T11:20:03.620Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2015/10/04/iOS中的多线程编程/index.html\u001b[39m","time":"2016-11-05T11:20:03.656Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2015/10/04/iOS中Emoji表情的判断/index.html\u001b[39m","time":"2016-11-05T11:20:03.697Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering post: \u001b[35m2015/10/03/博客新家/index.html\u001b[39m","time":"2016-11-05T11:20:03.729Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering archive: \u001b[35marchives/index.html\u001b[39m","time":"2016-11-05T11:20:03.753Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering archive: \u001b[35marchives/page/2/index.html\u001b[39m","time":"2016-11-05T11:20:03.814Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering archive: \u001b[35marchives/page/3/index.html\u001b[39m","time":"2016-11-05T11:20:03.862Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering archive: \u001b[35marchives/2015/index.html\u001b[39m","time":"2016-11-05T11:20:03.902Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering archive: \u001b[35marchives/2015/page/2/index.html\u001b[39m","time":"2016-11-05T11:20:03.949Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering archive: \u001b[35marchives/2015/10/index.html\u001b[39m","time":"2016-11-05T11:20:03.972Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering archive: \u001b[35marchives/2015/11/index.html\u001b[39m","time":"2016-11-05T11:20:04.016Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering archive: \u001b[35marchives/2015/12/index.html\u001b[39m","time":"2016-11-05T11:20:04.038Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering archive: \u001b[35marchives/2016/index.html\u001b[39m","time":"2016-11-05T11:20:04.070Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering archive: \u001b[35marchives/2016/page/2/index.html\u001b[39m","time":"2016-11-05T11:20:04.115Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering archive: \u001b[35marchives/2016/01/index.html\u001b[39m","time":"2016-11-05T11:20:04.149Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering archive: \u001b[35marchives/2016/04/index.html\u001b[39m","time":"2016-11-05T11:20:04.176Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering archive: \u001b[35marchives/2016/06/index.html\u001b[39m","time":"2016-11-05T11:20:04.198Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering archive: \u001b[35marchives/2016/05/index.html\u001b[39m","time":"2016-11-05T11:20:04.220Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering archive: \u001b[35marchives/2016/07/index.html\u001b[39m","time":"2016-11-05T11:20:04.248Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering archive: \u001b[35marchives/2016/08/index.html\u001b[39m","time":"2016-11-05T11:20:04.277Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering archive: \u001b[35marchives/2016/09/index.html\u001b[39m","time":"2016-11-05T11:20:04.304Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering archive: \u001b[35marchives/2016/10/index.html\u001b[39m","time":"2016-11-05T11:20:04.331Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering archive: \u001b[35marchives/2016/11/index.html\u001b[39m","time":"2016-11-05T11:20:04.363Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering category: \u001b[35mcategories/其他/index.html\u001b[39m","time":"2016-11-05T11:20:04.394Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering category: \u001b[35mcategories/iOS开发/index.html\u001b[39m","time":"2016-11-05T11:20:04.441Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering category: \u001b[35mcategories/读书笔记/index.html\u001b[39m","time":"2016-11-05T11:20:04.493Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering category: \u001b[35mcategories/iOS-Tips/index.html\u001b[39m","time":"2016-11-05T11:20:04.540Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering category: \u001b[35mcategories/Git/index.html\u001b[39m","time":"2016-11-05T11:20:04.585Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering category: \u001b[35mcategories/Swift/index.html\u001b[39m","time":"2016-11-05T11:20:04.617Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering category: \u001b[35mcategories/树莓派/index.html\u001b[39m","time":"2016-11-05T11:20:04.655Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-05T11:20:04.686Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering index: \u001b[35mpage/3/index.html\u001b[39m","time":"2016-11-05T11:20:04.757Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering index: \u001b[35mpage/2/index.html\u001b[39m","time":"2016-11-05T11:20:04.802Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering tag: \u001b[35mtags/iOS开发/index.html\u001b[39m","time":"2016-11-05T11:20:04.856Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering tag: \u001b[35mtags/Emoji表情/index.html\u001b[39m","time":"2016-11-05T11:20:04.899Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering tag: \u001b[35mtags/其他/index.html\u001b[39m","time":"2016-11-05T11:20:04.943Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering tag: \u001b[35mtags/Hexo/index.html\u001b[39m","time":"2016-11-05T11:20:04.970Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering tag: \u001b[35mtags/UILabel/index.html\u001b[39m","time":"2016-11-05T11:20:04.995Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering tag: \u001b[35mtags/NSAttributedString/index.html\u001b[39m","time":"2016-11-05T11:20:05.023Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering tag: \u001b[35mtags/CoreAnimation/index.html\u001b[39m","time":"2016-11-05T11:20:05.049Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering tag: \u001b[35mtags/UIButton/index.html\u001b[39m","time":"2016-11-05T11:20:05.072Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering tag: \u001b[35mtags/Git/index.html\u001b[39m","time":"2016-11-05T11:20:05.094Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering tag: \u001b[35mtags/加密解密/index.html\u001b[39m","time":"2016-11-05T11:20:05.119Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering tag: \u001b[35mtags/WebDAV/index.html\u001b[39m","time":"2016-11-05T11:20:05.139Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering tag: \u001b[35mtags/ownCloud/index.html\u001b[39m","time":"2016-11-05T11:20:05.159Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering tag: \u001b[35mtags/Autolayout/index.html\u001b[39m","time":"2016-11-05T11:20:05.187Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering tag: \u001b[35mtags/Target/index.html\u001b[39m","time":"2016-11-05T11:20:05.207Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering tag: \u001b[35mtags/Scheme/index.html\u001b[39m","time":"2016-11-05T11:20:05.230Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering tag: \u001b[35mtags/本地化/index.html\u001b[39m","time":"2016-11-05T11:20:05.256Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering tag: \u001b[35mtags/IDFA/index.html\u001b[39m","time":"2016-11-05T11:20:05.277Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering tag: \u001b[35mtags/CocoaPods/index.html\u001b[39m","time":"2016-11-05T11:20:05.298Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering tag: \u001b[35mtags/Swift/index.html\u001b[39m","time":"2016-11-05T11:20:05.323Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering tag: \u001b[35mtags/预处理宏/index.html\u001b[39m","time":"2016-11-05T11:20:05.349Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering tag: \u001b[35mtags/树莓派/index.html\u001b[39m","time":"2016-11-05T11:20:05.371Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering tag: \u001b[35mtags/SSH/index.html\u001b[39m","time":"2016-11-05T11:20:05.394Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Rendering tag: \u001b[35mtags/网络/index.html\u001b[39m","time":"2016-11-05T11:20:05.422Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35matom.xml\u001b[39m","time":"2016-11-05T11:20:06.107Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mStaticfile\u001b[39m","time":"2016-11-05T11:20:06.116Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mindex.html\u001b[39m","time":"2016-11-05T11:20:06.116Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mREADME.md\u001b[39m","time":"2016-11-05T11:20:06.125Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mCNAME\u001b[39m","time":"2016-11-05T11:20:06.125Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mcategories/index.html\u001b[39m","time":"2016-11-05T11:20:06.130Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mtags/index.html\u001b[39m","time":"2016-11-05T11:20:06.131Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35marchives/index.html\u001b[39m","time":"2016-11-05T11:20:06.131Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mimages/avatar.gif\u001b[39m","time":"2016-11-05T11:20:06.137Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mimages/cc-by-nc.svg\u001b[39m","time":"2016-11-05T11:20:06.138Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mimages/cc-by-nd.svg\u001b[39m","time":"2016-11-05T11:20:06.138Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mimages/cc-by-sa.svg\u001b[39m","time":"2016-11-05T11:20:06.139Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mimages/cc-by-nc-sa.svg\u001b[39m","time":"2016-11-05T11:20:06.139Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mimages/cc-zero.svg\u001b[39m","time":"2016-11-05T11:20:06.139Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mimages/favicon.ico\u001b[39m","time":"2016-11-05T11:20:06.139Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mimages/cc-by.svg\u001b[39m","time":"2016-11-05T11:20:06.139Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mimages/cc-by-nc-nd.svg\u001b[39m","time":"2016-11-05T11:20:06.139Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mimages/loading.gif\u001b[39m","time":"2016-11-05T11:20:06.139Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mimages/placeholder.gif\u001b[39m","time":"2016-11-05T11:20:06.139Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mimages/quote-r.svg\u001b[39m","time":"2016-11-05T11:20:06.139Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mimages/quote-l.svg\u001b[39m","time":"2016-11-05T11:20:06.140Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mimages/searchicon.png\u001b[39m","time":"2016-11-05T11:20:06.140Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35marchives/page/2/index.html\u001b[39m","time":"2016-11-05T11:20:06.144Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35marchives/2016/01/index.html\u001b[39m","time":"2016-11-05T11:20:06.144Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35marchives/2015/11/index.html\u001b[39m","time":"2016-11-05T11:20:06.144Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mpage/3/index.html\u001b[39m","time":"2016-11-05T11:20:06.145Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35marchives/2016/08/index.html\u001b[39m","time":"2016-11-05T11:20:06.145Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35marchives/2015/12/index.html\u001b[39m","time":"2016-11-05T11:20:06.145Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35marchives/2016/09/index.html\u001b[39m","time":"2016-11-05T11:20:06.145Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35marchives/2016/11/index.html\u001b[39m","time":"2016-11-05T11:20:06.145Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35marchives/2016/06/index.html\u001b[39m","time":"2016-11-05T11:20:06.145Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35marchives/2016/10/index.html\u001b[39m","time":"2016-11-05T11:20:06.145Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35marchives/2016/05/index.html\u001b[39m","time":"2016-11-05T11:20:06.145Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mcategories/Swift/index.html\u001b[39m","time":"2016-11-05T11:20:06.145Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mtags/Emoji表情/index.html\u001b[39m","time":"2016-11-05T11:20:06.145Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mcategories/其他/index.html\u001b[39m","time":"2016-11-05T11:20:06.146Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mcategories/Git/index.html\u001b[39m","time":"2016-11-05T11:20:06.146Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mtags/UILabel/index.html\u001b[39m","time":"2016-11-05T11:20:06.146Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mtags/iOS开发/index.html\u001b[39m","time":"2016-11-05T11:20:06.146Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35marchives/2016/04/index.html\u001b[39m","time":"2016-11-05T11:20:06.146Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mcategories/树莓派/index.html\u001b[39m","time":"2016-11-05T11:20:06.146Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mtags/Git/index.html\u001b[39m","time":"2016-11-05T11:20:06.146Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mtags/UIButton/index.html\u001b[39m","time":"2016-11-05T11:20:06.147Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mtags/其他/index.html\u001b[39m","time":"2016-11-05T11:20:06.147Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mtags/CoreAnimation/index.html\u001b[39m","time":"2016-11-05T11:20:06.147Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mtags/Hexo/index.html\u001b[39m","time":"2016-11-05T11:20:06.147Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mtags/ownCloud/index.html\u001b[39m","time":"2016-11-05T11:20:06.147Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mtags/NSAttributedString/index.html\u001b[39m","time":"2016-11-05T11:20:06.147Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mtags/WebDAV/index.html\u001b[39m","time":"2016-11-05T11:20:06.147Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mtags/Target/index.html\u001b[39m","time":"2016-11-05T11:20:06.147Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mtags/Autolayout/index.html\u001b[39m","time":"2016-11-05T11:20:06.147Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mtags/本地化/index.html\u001b[39m","time":"2016-11-05T11:20:06.147Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mtags/Scheme/index.html\u001b[39m","time":"2016-11-05T11:20:06.147Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mtags/CocoaPods/index.html\u001b[39m","time":"2016-11-05T11:20:06.147Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mtags/网络/index.html\u001b[39m","time":"2016-11-05T11:20:06.148Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mtags/加密解密/index.html\u001b[39m","time":"2016-11-05T11:20:06.148Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mtags/树莓派/index.html\u001b[39m","time":"2016-11-05T11:20:06.148Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35marchives/page/3/index.html\u001b[39m","time":"2016-11-05T11:20:06.149Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mtags/IDFA/index.html\u001b[39m","time":"2016-11-05T11:20:06.149Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35marchives/2015/10/index.html\u001b[39m","time":"2016-11-05T11:20:06.149Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mtags/预处理宏/index.html\u001b[39m","time":"2016-11-05T11:20:06.149Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mpage/2/index.html\u001b[39m","time":"2016-11-05T11:20:06.149Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mtags/SSH/index.html\u001b[39m","time":"2016-11-05T11:20:06.149Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mcategories/读书笔记/index.html\u001b[39m","time":"2016-11-05T11:20:06.149Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mtags/Swift/index.html\u001b[39m","time":"2016-11-05T11:20:06.149Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35marchives/2016/07/index.html\u001b[39m","time":"2016-11-05T11:20:06.149Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mcategories/iOS-Tips/index.html\u001b[39m","time":"2016-11-05T11:20:06.149Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mcategories/iOS开发/index.html\u001b[39m","time":"2016-11-05T11:20:06.150Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35marchives/2016/index.html\u001b[39m","time":"2016-11-05T11:20:06.150Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35marchives/2015/index.html\u001b[39m","time":"2016-11-05T11:20:06.150Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mimages/cyclehead.png\u001b[39m","time":"2016-11-05T11:20:06.150Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mimages/smallhead.png\u001b[39m","time":"2016-11-05T11:20:06.150Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/font-awesome/HELP-US-OUT.txt\u001b[39m","time":"2016-11-05T11:20:06.154Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/fastclick/bower.json\u001b[39m","time":"2016-11-05T11:20:06.154Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/jquery_lazyload/CONTRIBUTING.html\u001b[39m","time":"2016-11-05T11:20:06.155Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/jquery/index.js\u001b[39m","time":"2016-11-05T11:20:06.155Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/velocity/bower.json\u001b[39m","time":"2016-11-05T11:20:06.155Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mcss/main.css\u001b[39m","time":"2016-11-05T11:20:06.155Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/font-awesome/bower.json\u001b[39m","time":"2016-11-05T11:20:06.155Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/jquery_lazyload/README.html\u001b[39m","time":"2016-11-05T11:20:06.155Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/fastclick/README.html\u001b[39m","time":"2016-11-05T11:20:06.156Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/jquery_lazyload/jquery.scrollstop.js\u001b[39m","time":"2016-11-05T11:20:06.156Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/jquery_lazyload/bower.json\u001b[39m","time":"2016-11-05T11:20:06.157Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/velocity/velocity.ui.min.js\u001b[39m","time":"2016-11-05T11:20:06.158Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/velocity/velocity.min.js\u001b[39m","time":"2016-11-05T11:20:06.158Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/jquery_lazyload/jquery.lazyload.js\u001b[39m","time":"2016-11-05T11:20:06.158Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/velocity/velocity.js\u001b[39m","time":"2016-11-05T11:20:06.158Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/fastclick/LICENSE\u001b[39m","time":"2016-11-05T11:20:06.158Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/velocity/velocity.ui.js\u001b[39m","time":"2016-11-05T11:20:06.158Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35marchives/2016/page/2/index.html\u001b[39m","time":"2016-11-05T11:20:06.158Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35marchives/2015/page/2/index.html\u001b[39m","time":"2016-11-05T11:20:06.158Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/font-awesome/fonts/FontAwesome.otf\u001b[39m","time":"2016-11-05T11:20:06.158Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/font-awesome/fonts/fontawesome-webfont.woff\u001b[39m","time":"2016-11-05T11:20:06.160Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/font-awesome/fonts/fontawesome-webfont.eot\u001b[39m","time":"2016-11-05T11:20:06.160Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/font-awesome/fonts/fontawesome-webfont.svg\u001b[39m","time":"2016-11-05T11:20:06.160Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/fancybox/source/helpers/fancybox_buttons.png\u001b[39m","time":"2016-11-05T11:20:06.160Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mjs/src/bootstrap.js\u001b[39m","time":"2016-11-05T11:20:06.160Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/ua-parser-js/dist/ua-parser.pack.js\u001b[39m","time":"2016-11-05T11:20:06.160Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/fastclick/lib/fastclick.min.js\u001b[39m","time":"2016-11-05T11:20:06.161Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mjs/src/hook-duoshuo.js\u001b[39m","time":"2016-11-05T11:20:06.161Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/font-awesome/css/font-awesome.min.css\u001b[39m","time":"2016-11-05T11:20:06.161Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mjs/src/affix.js\u001b[39m","time":"2016-11-05T11:20:06.161Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mjs/src/motion.js\u001b[39m","time":"2016-11-05T11:20:06.161Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/fancybox/source/jquery.fancybox.css\u001b[39m","time":"2016-11-05T11:20:06.161Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mjs/src/post-details.js\u001b[39m","time":"2016-11-05T11:20:06.161Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mjs/src/scrollspy.js\u001b[39m","time":"2016-11-05T11:20:06.161Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/fancybox/source/helpers/jquery.fancybox-buttons.js\u001b[39m","time":"2016-11-05T11:20:06.162Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/fancybox/source/helpers/jquery.fancybox-buttons.css\u001b[39m","time":"2016-11-05T11:20:06.162Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mjs/src/utils.js\u001b[39m","time":"2016-11-05T11:20:06.162Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/fancybox/source/helpers/jquery.fancybox-media.js\u001b[39m","time":"2016-11-05T11:20:06.162Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/ua-parser-js/dist/ua-parser.min.js\u001b[39m","time":"2016-11-05T11:20:06.162Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/fancybox/source/jquery.fancybox.js\u001b[39m","time":"2016-11-05T11:20:06.162Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/fancybox/source/helpers/jquery.fancybox-thumbs.js\u001b[39m","time":"2016-11-05T11:20:06.162Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/fancybox/source/helpers/jquery.fancybox-thumbs.css\u001b[39m","time":"2016-11-05T11:20:06.162Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/fancybox/source/jquery.fancybox.pack.js\u001b[39m","time":"2016-11-05T11:20:06.162Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/fastclick/lib/fastclick.js\u001b[39m","time":"2016-11-05T11:20:06.162Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/font-awesome/fonts/fontawesome-webfont.ttf\u001b[39m","time":"2016-11-05T11:20:06.162Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2016/07/03/用XCode8打开Xib后项目不能在XCode7上运行/index.html\u001b[39m","time":"2016-11-05T11:20:06.162Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2015/10/03/博客新家/index.html\u001b[39m","time":"2016-11-05T11:20:06.162Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2016/11/05/使用nat123实现外网ssh连接内网树莓派设备/index.html\u001b[39m","time":"2016-11-05T11:20:06.163Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2016/08/30/做模糊效果时遇到的问题/index.html\u001b[39m","time":"2016-11-05T11:20:06.163Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2016/10/26/给多个Target添加CocoaPods/index.html\u001b[39m","time":"2016-11-05T11:20:06.163Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2015/12/27/《ios核心动画高级技巧》阅读笔记(2)/index.html\u001b[39m","time":"2016-11-05T11:20:06.163Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2016/09/12/使用代码删除约束要注意的地方/index.html\u001b[39m","time":"2016-11-05T11:20:06.163Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2016/05/29/自定义NSOperation的那些事/index.html\u001b[39m","time":"2016-11-05T11:20:06.163Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2016/04/10/iOS开发企业证书申请过程全记录/index.html\u001b[39m","time":"2016-11-05T11:20:06.163Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2015/11/07/ContentHugging与ContentCompressionResistance/index.html\u001b[39m","time":"2016-11-05T11:20:06.163Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2016/06/05/2016年6月开发问题记录/index.html\u001b[39m","time":"2016-11-05T11:20:06.163Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2016/01/01/自动打包工具shenzhen使用简介/index.html\u001b[39m","time":"2016-11-05T11:20:06.163Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/font-awesome/css/font-awesome.css\u001b[39m","time":"2016-11-05T11:20:06.163Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/fancybox/source/fancybox_loading.gif\u001b[39m","time":"2016-11-05T11:20:06.163Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/fancybox/source/fancybox_overlay.png\u001b[39m","time":"2016-11-05T11:20:06.163Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/fancybox/source/fancybox_sprite@2x.png\u001b[39m","time":"2016-11-05T11:20:06.164Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/fancybox/source/fancybox_sprite.png\u001b[39m","time":"2016-11-05T11:20:06.164Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/fancybox/source/fancybox_loading@2x.gif\u001b[39m","time":"2016-11-05T11:20:06.164Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/font-awesome/css/font-awesome.css.map\u001b[39m","time":"2016-11-05T11:20:06.164Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/font-awesome/fonts/fontawesome-webfont.woff2\u001b[39m","time":"2016-11-05T11:20:06.164Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mvendors/fancybox/source/blank.gif\u001b[39m","time":"2016-11-05T11:20:06.164Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2016/10/18/iOS10无法获取IDFA的问题/index.html\u001b[39m","time":"2016-11-05T11:20:06.164Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2016/08/24/使用ownCloud作为OmniFocus的云同步服务器/index.html\u001b[39m","time":"2016-11-05T11:20:06.164Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2016/07/03/Could-not-load-the-xxx-image-referenced-from-a-nib-in-the-bundle-with-identifier-xxxx问题/index.html\u001b[39m","time":"2016-11-05T11:20:06.164Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2016/08/25/Mac下生成RSA密钥对要注意的问题/index.html\u001b[39m","time":"2016-11-05T11:20:06.164Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2016/07/30/使用HTTPS方法clone下来的Git仓库push时报错/index.html\u001b[39m","time":"2016-11-05T11:20:06.164Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2016/07/26/UIButton设置标题无效/index.html\u001b[39m","time":"2016-11-05T11:20:06.164Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2016/08/07/在VPS上搭建Git服务器/index.html\u001b[39m","time":"2016-11-05T11:20:06.164Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2016/10/09/获取本地化的APP版本描述信息/index.html\u001b[39m","time":"2016-11-05T11:20:06.164Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2016/10/25/如何获取WebView的UserAgent/index.html\u001b[39m","time":"2016-11-05T11:20:06.164Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2016/10/28/Swift3中的预处理宏/index.html\u001b[39m","time":"2016-11-05T11:20:06.164Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2016/07/10/深入理解CoreAnimation的fillMode和isRemovedOnCompletion/index.html\u001b[39m","time":"2016-11-05T11:20:06.164Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2016/10/07/iOS多环境配置实践/index.html\u001b[39m","time":"2016-11-05T11:20:06.165Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2016/07/01/从jekyll迁移到hexo/index.html\u001b[39m","time":"2016-11-05T11:20:06.165Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2016/10/04/使用xUnique遇到了的问题/index.html\u001b[39m","time":"2016-11-05T11:20:06.165Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2016/05/08/2016年5月开发问题记录/index.html\u001b[39m","time":"2016-11-05T11:20:06.165Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2016/06/29/GMTC全球移动技术大会见闻/index.html\u001b[39m","time":"2016-11-05T11:20:06.165Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2015/10/27/UIScrollView与Autolayout/index.html\u001b[39m","time":"2016-11-05T11:20:06.170Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2015/12/13/CoreAnimation编程指南学习笔记(2)/index.html\u001b[39m","time":"2016-11-05T11:20:06.170Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2015/10/06/《图解HTTP》读书笔记(2)/index.html\u001b[39m","time":"2016-11-05T11:20:06.170Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2016/06/11/打造自己的翻墙VPS:搬运工VPS购买使用流程全记录/index.html\u001b[39m","time":"2016-11-05T11:20:06.170Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2015/12/20/RAC学习笔记/index.html\u001b[39m","time":"2016-11-05T11:20:06.170Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2015/10/16/最近开发中遇到的一些问题/index.html\u001b[39m","time":"2016-11-05T11:20:06.170Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2015/10/07/《图解HTTP》读书笔记(3)/index.html\u001b[39m","time":"2016-11-05T11:20:06.170Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2015/12/06/CoreAnimation编程指南学习笔记(1)/index.html\u001b[39m","time":"2016-11-05T11:20:06.170Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2015/10/04/使用jekyll+GithubPage搭建个人博客系统/index.html\u001b[39m","time":"2016-11-05T11:20:06.170Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2016/05/09/MVVMTutorialwithReactiveCocoaPart2(翻译)/index.html\u001b[39m","time":"2016-11-05T11:20:06.170Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2015/10/05/《图解HTTP》读书笔记(1)/index.html\u001b[39m","time":"2016-11-05T11:20:06.171Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2016/07/03/设置富文本字间距，文字不能居中对齐/index.html\u001b[39m","time":"2016-11-05T11:20:06.171Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2016/08/30/使用Safair调试JS/index.html\u001b[39m","time":"2016-11-05T11:20:06.171Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2016/07/03/UILabel设置lineBreakMode属性无效/index.html\u001b[39m","time":"2016-11-05T11:20:06.171Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2015/12/27/《ios核心动画高级技巧》阅读笔记(1)/index.html\u001b[39m","time":"2016-11-05T11:20:06.171Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2015/12/27/《ios核心动画高级技巧》阅读笔记(3)/index.html\u001b[39m","time":"2016-11-05T11:20:06.171Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2015/10/04/iOS中的富文本技术(1)TextKit简介/index.html\u001b[39m","time":"2016-11-05T11:20:06.171Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2015/10/04/iOS中的富文本技术(2)CoreText框架/index.html\u001b[39m","time":"2016-11-05T11:20:06.171Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2015/10/04/适配iOS9（ATS问题）/index.html\u001b[39m","time":"2016-11-05T11:20:06.171Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2015/10/04/iOS中的多线程编程/index.html\u001b[39m","time":"2016-11-05T11:20:06.171Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2015/10/04/iOS中Emoji表情的判断/index.html\u001b[39m","time":"2016-11-05T11:20:06.171Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2015/10/04/NSURLProtocol的使用/index.html\u001b[39m","time":"2016-11-05T11:20:06.171Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35m2015/10/04/iOS运行时初探-使用运行时机制向Category中添加属性/index.html\u001b[39m","time":"2016-11-05T11:20:06.171Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"Generated: \u001b[35mjs/src/schemes/pisces.js\u001b[39m","time":"2016-11-05T11:20:06.171Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":30,"msg":"178 files generated in \u001b[36m4.15 s\u001b[39m","time":"2016-11-05T11:20:06.172Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8783,"level":20,"msg":"Database saved","time":"2016-11-05T11:20:06.208Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8790,"level":20,"msg":"Hexo version: \u001b[35m3.2.2\u001b[39m","time":"2016-11-05T11:20:06.919Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8790,"level":20,"msg":"Working directory: \u001b[35m~/Documents/Study/Blog/HexoBlog/\u001b[39m","time":"2016-11-05T11:20:06.923Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8790,"level":20,"msg":"Config loaded: \u001b[35m~/Documents/Study/Blog/HexoBlog/_config.yml\u001b[39m","time":"2016-11-05T11:20:06.995Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8790,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-deployer-git\u001b[39m","time":"2016-11-05T11:20:07.167Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8790,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-category\u001b[39m","time":"2016-11-05T11:20:07.169Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8790,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-feed\u001b[39m","time":"2016-11-05T11:20:07.198Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8790,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-archive\u001b[39m","time":"2016-11-05T11:20:07.200Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8790,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-index\u001b[39m","time":"2016-11-05T11:20:07.202Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8790,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-tag\u001b[39m","time":"2016-11-05T11:20:07.209Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8790,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-renderer-ejs\u001b[39m","time":"2016-11-05T11:20:07.211Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8790,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-renderer-marked\u001b[39m","time":"2016-11-05T11:20:07.273Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8790,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-renderer-stylus\u001b[39m","time":"2016-11-05T11:20:07.276Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8790,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-server\u001b[39m","time":"2016-11-05T11:20:07.379Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8790,"level":20,"msg":"Script loaded: \u001b[35mthemes/next/scripts/merge-configs.js\u001b[39m","time":"2016-11-05T11:20:07.380Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8790,"level":20,"msg":"Script loaded: \u001b[35mthemes/next/scripts/tags/center-quote.js\u001b[39m","time":"2016-11-05T11:20:07.380Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8790,"level":20,"msg":"Script loaded: \u001b[35mthemes/next/scripts/tags/full-image.js\u001b[39m","time":"2016-11-05T11:20:07.380Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8790,"level":20,"msg":"Script loaded: \u001b[35mthemes/next/scripts/tags/group-pictures.js\u001b[39m","time":"2016-11-05T11:20:07.381Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8790,"level":30,"msg":"Deploying: \u001b[35mgit\u001b[39m","time":"2016-11-05T11:20:07.383Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8790,"level":30,"msg":"Clearing .deploy_git folder...","time":"2016-11-05T11:20:07.391Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8790,"level":30,"msg":"Copying files from public folder...","time":"2016-11-05T11:20:07.437Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8790,"level":30,"msg":"Deploy done: \u001b[35mgit\u001b[39m","time":"2016-11-05T11:20:13.941Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":8790,"level":20,"msg":"Database saved","time":"2016-11-05T11:20:13.944Z","v":0}
