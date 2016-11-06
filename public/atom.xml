@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://liujinlongxa.com/"/>
-  <updated>2016-11-05T11:10:12.000Z</updated>
+  <updated>2016-11-06T02:47:02.000Z</updated>
   <id>http://liujinlongxa.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://liujinlongxa.com/2016/11/05/%E4%BD%BF%E7%94%A8nat123%E5%AE%9E%E7%8E%B0%E5%A4%96%E7%BD%91ssh%E8%BF%9E%E6%8E%A5%E5%86%85%E7%BD%91%E6%A0%91%E8%8E%93%E6%B4%BE%E8%AE%BE%E5%A4%87/"/>
     <id>http://liujinlongxa.com/2016/11/05/使用nat123实现外网ssh连接内网树莓派设备/</id>
     <published>2016-11-05T09:56:46.000Z</published>
-    <updated>2016-11-05T11:10:12.000Z</updated>
+    <updated>2016-11-06T02:47:02.000Z</updated>
     
     <content type="html">&lt;p&gt;&lt;a href=&quot;https://zh.wikipedia.org/zh-cn/%E6%A0%91%E8%8E%93%E6%B4%BE&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;树莓派&lt;/a&gt;是一款基于Linux的单板机电脑。最近入手了一块，打算作为Linux服务器来使用。&lt;/p&gt;
 &lt;p&gt;树莓派自带以太网接口和Wifi模块，可以通过网线或Wifi连接网络。但是由于我家里的网络是电信的光纤网络，用的是电信配的路由器，各个终端都是通过Wifi或网线连到这个路由上，因此各个终端相当于处于局域网，外网无法通过ip直接访问到内网的树莓派设备，这样如果我在树莓派上搭建一个服务器，外网就无法访问。&lt;/p&gt;
@@ -72,7 +72,7 @@
     <link href="http://liujinlongxa.com/2016/10/28/Swift3%E4%B8%AD%E7%9A%84%E9%A2%84%E5%A4%84%E7%90%86%E5%AE%8F/"/>
     <id>http://liujinlongxa.com/2016/10/28/Swift3中的预处理宏/</id>
     <published>2016-10-28T09:18:57.000Z</published>
-    <updated>2016-10-28T09:41:29.000Z</updated>
+    <updated>2016-11-06T02:47:02.000Z</updated>
     
     <content type="html">&lt;p&gt;Swift中也可以使用预处理宏，只不过和ObjectiveC有点不一样，下面详细说明一下。&lt;/p&gt;
 &lt;ul&gt;
@@ -109,7 +109,7 @@
     <link href="http://liujinlongxa.com/2016/10/26/%E7%BB%99%E5%A4%9A%E4%B8%AATarget%E6%B7%BB%E5%8A%A0CocoaPods/"/>
     <id>http://liujinlongxa.com/2016/10/26/给多个Target添加CocoaPods/</id>
     <published>2016-10-26T14:25:04.000Z</published>
-    <updated>2016-10-26T14:49:21.000Z</updated>
+    <updated>2016-11-06T02:47:02.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;基本用法&quot;&gt;&lt;a href=&quot;#基本用法&quot; class=&quot;headerlink&quot; title=&quot;基本用法&quot;&gt;&lt;/a&gt;基本用法&lt;/h3&gt;&lt;p&gt;一般我们使用CocoaPods进行依赖管理时，如果项目里只有一个Target，则Podfile文件的格式应该是：&lt;/p&gt;
 &lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;target &lt;span class=&quot;string&quot;&gt;&#39;ZipApp&#39;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;do&lt;/span&gt;  &lt;span class=&quot;comment&quot;&gt;# ZipApp为Target名称&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  pod &lt;span class=&quot;string&quot;&gt;&#39;SSZipArchive&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -144,7 +144,7 @@
     <link href="http://liujinlongxa.com/2016/10/25/%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96WebView%E7%9A%84UserAgent/"/>
     <id>http://liujinlongxa.com/2016/10/25/如何获取WebView的UserAgent/</id>
     <published>2016-10-25T03:46:04.000Z</published>
-    <updated>2016-10-25T03:53:30.000Z</updated>
+    <updated>2016-11-06T02:47:02.000Z</updated>
     
     <content type="html">&lt;p&gt;项目中用到了WebView的UserAgent，可以通过以下方式获取到：&lt;/p&gt;
 &lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;UIWebView&lt;/span&gt;* webView = [[&lt;span class=&quot;built_in&quot;&gt;UIWebView&lt;/span&gt; alloc] init];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt;* secretAgent = [webView stringByEvaluatingJavaScriptFromString:&lt;span class=&quot;string&quot;&gt;@&quot;navigator.userAgent&quot;&lt;/span&gt;];&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -173,7 +173,7 @@
     <link href="http://liujinlongxa.com/2016/10/18/iOS10%E6%97%A0%E6%B3%95%E8%8E%B7%E5%8F%96IDFA%E7%9A%84%E9%97%AE%E9%A2%98/"/>
     <id>http://liujinlongxa.com/2016/10/18/iOS10无法获取IDFA的问题/</id>
     <published>2016-10-18T02:17:44.000Z</published>
-    <updated>2016-10-18T02:30:22.000Z</updated>
+    <updated>2016-11-06T02:47:02.000Z</updated>
     
     <content type="html">&lt;p&gt;iOS10上，如果用户开启了“限制广告跟踪”选项（设置-&amp;gt;隐私-&amp;gt;广告），则在使用&lt;code&gt;[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString]&lt;/code&gt;方法获取IDFA时会返回全部是0，如下：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/13bbfe746dacb7c156cac2aaac5b2c0d.png&quot; alt=&quot;1&quot;&gt;&lt;/p&gt;
@@ -201,7 +201,7 @@
     <link href="http://liujinlongxa.com/2016/10/09/%E8%8E%B7%E5%8F%96%E6%9C%AC%E5%9C%B0%E5%8C%96%E7%9A%84APP%E7%89%88%E6%9C%AC%E6%8F%8F%E8%BF%B0%E4%BF%A1%E6%81%AF/"/>
     <id>http://liujinlongxa.com/2016/10/09/获取本地化的APP版本描述信息/</id>
     <published>2016-10-09T15:25:15.000Z</published>
-    <updated>2016-10-09T15:47:57.000Z</updated>
+    <updated>2016-11-06T02:47:02.000Z</updated>
     
     <content type="html">&lt;p&gt;在制作APP升级提示框时，需要APP的最新版本信息，苹果提供了”&lt;a href=&quot;http://itunes.apple.com/lookup?id=123123&amp;quot;接口用于查询AppStore上的APP的详细信息，参数id表示的是应用程序的AppId。&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://itunes.apple.com/lookup?id=123123&amp;quot;接口用于查询AppStore上的APP的详细信息，参数id表示的是应用程序的AppId。&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;如果在iTunesConnect上对应用的版本描述信息做了本地化，上述接口只会返回首选语言的描述信息，如果要返回特定语言的描述信息，还要加上两个参数:&lt;/p&gt;
@@ -237,7 +237,7 @@
     <link href="http://liujinlongxa.com/2016/10/07/iOS%E5%A4%9A%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%AE%9E%E8%B7%B5/"/>
     <id>http://liujinlongxa.com/2016/10/07/iOS多环境配置实践/</id>
     <published>2016-10-07T02:04:43.000Z</published>
-    <updated>2016-10-07T03:38:39.000Z</updated>
+    <updated>2016-11-06T02:47:02.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;在移动客户端开发过程中，服务器一般都会提供多个环境的API接口，例如测试环境(TEST_ENV)，发布环境(RELEASE_ENV)，预发布环境(PRERELEASE_ENV)等，我们客户端在打包的时候需要在不同的阶段打不同环境的包，最简单的做法就是在代码里直接修改URL来切换不同的环境。但是这种做法太Low了，而且也不易于使用脚本自动打包。本文的主要内容就是介绍一种不修改代码达到配置不同环境的方法。&lt;/p&gt;
 &lt;h2 id=&quot;明确需求&quot;&gt;&lt;a href=&quot;#明确需求&quot; class=&quot;headerlink&quot; title=&quot;明确需求&quot;&gt;&lt;/a&gt;明确需求&lt;/h2&gt;&lt;p&gt;在开始主要内容之前，先明确一下需求：&lt;/p&gt;
@@ -301,7 +301,7 @@
     <link href="http://liujinlongxa.com/2016/10/04/%E4%BD%BF%E7%94%A8xUnique%E9%81%87%E5%88%B0%E4%BA%86%E7%9A%84%E9%97%AE%E9%A2%98/"/>
     <id>http://liujinlongxa.com/2016/10/04/使用xUnique遇到了的问题/</id>
     <published>2016-10-04T14:24:27.000Z</published>
-    <updated>2016-10-04T14:46:58.000Z</updated>
+    <updated>2016-11-06T02:47:02.000Z</updated>
     
     <content type="html">&lt;p&gt;xUnique是一个用来对iOS向的&lt;em&gt;.xcodeproj文件进行排序的工具，它可以降低&lt;/em&gt;.xcodeproj文件冲突的概率。其实质是一个Git Hook脚本，在提交一个Commit时，如果*.xcodeproj文件有修改，则会对文件进行重新排序。&lt;/p&gt;
 &lt;p&gt;最近在使用时发现了一个问题，当我执行“pod install”安装第三方库时，在进行提交时会报”File ‘project.pbxproj’ is broken. Cannot find PBXProject name.”，从字面意思看’project.pbxproj’文件损坏，但是进入*.xcodeproj文件夹，双击‘project.pbxproj’，发现是可以打开的，并没有问题。&lt;/p&gt;
@@ -334,7 +334,7 @@
     <link href="http://liujinlongxa.com/2016/09/12/%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%A0%81%E5%88%A0%E9%99%A4%E7%BA%A6%E6%9D%9F%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9C%B0%E6%96%B9/"/>
     <id>http://liujinlongxa.com/2016/09/12/使用代码删除约束要注意的地方/</id>
     <published>2016-09-12T15:17:44.000Z</published>
-    <updated>2016-09-12T15:57:44.000Z</updated>
+    <updated>2016-11-06T02:47:02.000Z</updated>
     
     <content type="html">&lt;p&gt;使用代码删除特定约束的正确姿势：&lt;/p&gt;
 &lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (IOS8_OR_LATER) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// iOS8之后删除约束的方法&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.authorLabelRightConstraint.active = &lt;span class=&quot;literal&quot;&gt;NO&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// iOS8之前删除约束的方法&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt; removeConstraint:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.authorLabelRightConstraint];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -360,7 +360,7 @@
     <link href="http://liujinlongxa.com/2016/08/30/%E5%81%9A%E6%A8%A1%E7%B3%8A%E6%95%88%E6%9E%9C%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
     <id>http://liujinlongxa.com/2016/08/30/做模糊效果时遇到的问题/</id>
     <published>2016-08-30T14:51:53.000Z</published>
-    <updated>2016-08-30T15:14:07.000Z</updated>
+    <updated>2016-11-06T02:47:02.000Z</updated>
     
     <content type="html">&lt;p&gt;最近在做图片模糊效果时遇到了一个很奇怪的问题，在iPhone6/iPhone6s上显示的模糊效果如下：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/4661eedc0a33e9c4535d95a005bde5d2.png&quot; alt=&quot;1&quot;&gt;&lt;/p&gt;
@@ -391,7 +391,7 @@
     <link href="http://liujinlongxa.com/2016/08/30/%E4%BD%BF%E7%94%A8Safair%E8%B0%83%E8%AF%95JS/"/>
     <id>http://liujinlongxa.com/2016/08/30/使用Safair调试JS/</id>
     <published>2016-08-30T13:46:33.000Z</published>
-    <updated>2016-08-30T14:49:04.000Z</updated>
+    <updated>2016-11-06T02:47:02.000Z</updated>
     
     <content type="html">&lt;p&gt;iOS项目中经常会用到Native界面和H5界面互相调用的情况，方法就是使用JavaScriptCore框架直接在原生界面中调用JS代码。如果JS代码较长，调试起来就会比较麻烦，这里介绍一种方法，可以让你轻松调试JS。&lt;/p&gt;
 &lt;p&gt;首先，打开Safari，打开偏好设置（快捷键Cmd+,），在Advanced中选中”Show Develop menu in menu bar”，如下图：&lt;/p&gt;
@@ -426,7 +426,7 @@
     <link href="http://liujinlongxa.com/2016/08/25/Mac%E4%B8%8B%E7%94%9F%E6%88%90RSA%E5%AF%86%E9%92%A5%E5%AF%B9%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E9%97%AE%E9%A2%98/"/>
     <id>http://liujinlongxa.com/2016/08/25/Mac下生成RSA密钥对要注意的问题/</id>
     <published>2016-08-25T15:50:06.000Z</published>
-    <updated>2016-08-25T16:24:15.000Z</updated>
+    <updated>2016-11-06T02:47:02.000Z</updated>
     
     <content type="html">&lt;p&gt;生成RSA密钥一般使用的Openssl，方法如下：&lt;/p&gt;
 &lt;p&gt;在终端输入命令openssl然后敲回车，进入openssl命令输入模式，如下：&lt;/p&gt;
@@ -476,7 +476,7 @@
     <link href="http://liujinlongxa.com/2016/08/24/%E4%BD%BF%E7%94%A8ownCloud%E4%BD%9C%E4%B8%BAOmniFocus%E7%9A%84%E4%BA%91%E5%90%8C%E6%AD%A5%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     <id>http://liujinlongxa.com/2016/08/24/使用ownCloud作为OmniFocus的云同步服务器/</id>
     <published>2016-08-24T14:47:22.000Z</published>
-    <updated>2016-08-24T16:34:04.000Z</updated>
+    <updated>2016-11-06T02:47:02.000Z</updated>
     
     <content type="html">&lt;p&gt;平时一直使用OmniFocus作为自己的时间管理工具，但是由于我使用的是破解版的（正版太贵，买不起啊），同步就变成了一件很麻烦的事。OmniFocus提供了两种同步方式，如下图：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/901f5c4cb502f3fc557e3c3cfa79ad2f.png&quot; alt=&quot;1&quot;&gt;&lt;/p&gt;
@@ -544,7 +544,7 @@
     <link href="http://liujinlongxa.com/2016/08/07/%E5%9C%A8VPS%E4%B8%8A%E6%90%AD%E5%BB%BAGit%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     <id>http://liujinlongxa.com/2016/08/07/在VPS上搭建Git服务器/</id>
     <published>2016-08-07T07:27:52.000Z</published>
-    <updated>2016-08-12T15:20:04.000Z</updated>
+    <updated>2016-11-06T02:47:02.000Z</updated>
     
     <content type="html">&lt;p&gt;昨天尝试了在自己的VPS上搭建一个git服务器，中间踩了很多坑，下面是我整个搭建的过程。&lt;/p&gt;
 &lt;h2 id=&quot;具体流程&quot;&gt;&lt;a href=&quot;#具体流程&quot; class=&quot;headerlink&quot; title=&quot;具体流程&quot;&gt;&lt;/a&gt;具体流程&lt;/h2&gt;&lt;h3 id=&quot;第一步：安装Git&quot;&gt;&lt;a href=&quot;#第一步：安装Git&quot; class=&quot;headerlink&quot; title=&quot;第一步：安装Git&quot;&gt;&lt;/a&gt;第一步：安装Git&lt;/h3&gt;&lt;p&gt;打开VPS(这里我用的是&lt;a href=&quot;https://bandwagonhost.com/index.php&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;搬运工&lt;/a&gt;，怎么购买VPS可以参考我的&lt;a href=&quot;http://liujinlongxa.com/2016/06/11/%E6%89%93%E9%80%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BF%BB%E5%A2%99VPS:%E6%90%AC%E8%BF%90%E5%B7%A5VPS%E8%B4%AD%E4%B9%B0%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B%E5%85%A8%E8%AE%B0%E5%BD%95/&quot;&gt;这篇博客&lt;/a&gt;)的控制后台，进入Shell，然后输入命令：&lt;/p&gt;
@@ -635,7 +635,7 @@
     <link href="http://liujinlongxa.com/2016/07/30/%E4%BD%BF%E7%94%A8HTTPS%E6%96%B9%E6%B3%95clone%E4%B8%8B%E6%9D%A5%E7%9A%84Git%E4%BB%93%E5%BA%93push%E6%97%B6%E6%8A%A5%E9%94%99/"/>
     <id>http://liujinlongxa.com/2016/07/30/使用HTTPS方法clone下来的Git仓库push时报错/</id>
     <published>2016-07-30T03:22:55.000Z</published>
-    <updated>2016-08-14T07:42:31.000Z</updated>
+    <updated>2016-11-06T02:47:02.000Z</updated>
     
     <content type="html">&lt;p&gt;昨天在使用Git时遇到了一个问题，今天记录一下。&lt;/p&gt;
 &lt;p&gt;一般我在克隆Github的项目时都是使用ssh的方式进行的，这样只要你的ssh-key配置正确，就没有问题。昨天心血来潮试了一下https克隆了一个项目，修改完后，准备push的时候需要了问题，问题如下：&lt;/p&gt;
@@ -676,7 +676,7 @@
     <link href="http://liujinlongxa.com/2016/07/26/UIButton%E8%AE%BE%E7%BD%AE%E6%A0%87%E9%A2%98%E6%97%A0%E6%95%88/"/>
     <id>http://liujinlongxa.com/2016/07/26/UIButton设置标题无效/</id>
     <published>2016-07-26T15:19:02.000Z</published>
-    <updated>2016-08-12T15:20:04.000Z</updated>
+    <updated>2016-11-06T02:47:02.000Z</updated>
     
     <content type="html">&lt;p&gt;UIButton在使用&lt;code&gt;setAttributedTitle:forState:&lt;/code&gt;设置了富文本标题后，是使用&lt;code&gt;setTitle:forState:&lt;/code&gt;设置标题是没有效果的，解决方案是先把富文本去掉，然后再使用&lt;code&gt;setTitle:forState:&lt;/code&gt;设置标题，或者直接使用&lt;code&gt;setAttributedTitle:forState:&lt;/code&gt;重新设置不带属性的富文本。代码如下：&lt;/p&gt;
 &lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;[&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.payButton setAttributedTitle:&lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt; forState:&lt;span class=&quot;built_in&quot;&gt;UIControlStateNormal&lt;/span&gt;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;[&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.payButton setTitle:&lt;span class=&quot;string&quot;&gt;@&quot;余额不足，去充值&quot;&lt;/span&gt; forState:&lt;span class=&quot;built_in&quot;&gt;UIControlStateNormal&lt;/span&gt;];&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -700,7 +700,7 @@
     <link href="http://liujinlongxa.com/2016/07/10/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3CoreAnimation%E7%9A%84fillMode%E5%92%8CisRemovedOnCompletion/"/>
     <id>http://liujinlongxa.com/2016/07/10/深入理解CoreAnimation的fillMode和isRemovedOnCompletion/</id>
     <published>2016-07-10T06:34:06.000Z</published>
-    <updated>2016-08-12T15:20:04.000Z</updated>
+    <updated>2016-11-06T02:47:02.000Z</updated>
     
     <content type="html">&lt;p&gt;一般在使用CoreAnimation写动画是，在定义CAAnimation时，都要加入如下两句来防止动画完成后视图的位置又还原成了原来的位置。&lt;/p&gt;
 &lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;animation.fillMode = kCAFillModeBoth&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;animation.isRemovedOnCompletion = &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -757,7 +757,7 @@
     <link href="http://liujinlongxa.com/2016/07/03/%E7%94%A8XCode8%E6%89%93%E5%BC%80Xib%E5%90%8E%E9%A1%B9%E7%9B%AE%E4%B8%8D%E8%83%BD%E5%9C%A8XCode7%E4%B8%8A%E8%BF%90%E8%A1%8C/"/>
     <id>http://liujinlongxa.com/2016/07/03/用XCode8打开Xib后项目不能在XCode7上运行/</id>
     <published>2016-07-03T10:56:06.000Z</published>
-    <updated>2016-08-12T15:20:04.000Z</updated>
+    <updated>2016-11-06T02:47:02.000Z</updated>
     
     <content type="html">&lt;p&gt;可以设置xib以Xcode7.x的方法打开，参考如下&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/37851459/the-document-main-storyboard-requires-xcode-8-0-or-later&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;The document Main.storyboard requires Xcode 8.0 or later&lt;/a&gt;&lt;/p&gt;
@@ -782,7 +782,7 @@
     <link href="http://liujinlongxa.com/2016/07/03/Could-not-load-the-xxx-image-referenced-from-a-nib-in-the-bundle-with-identifier-xxxx%E9%97%AE%E9%A2%98/"/>
     <id>http://liujinlongxa.com/2016/07/03/Could-not-load-the-xxx-image-referenced-from-a-nib-in-the-bundle-with-identifier-xxxx问题/</id>
     <published>2016-07-03T10:51:49.000Z</published>
-    <updated>2016-08-12T15:20:04.000Z</updated>
+    <updated>2016-11-06T02:47:02.000Z</updated>
     
     <content type="html">&lt;p&gt;出现在非retina的屏幕上，不能正确加载xib上的图片，只能通过代码重新设置图片。还没有找到其他解决办法。&lt;/p&gt;
 </content>
@@ -806,7 +806,7 @@
     <link href="http://liujinlongxa.com/2016/07/03/%E8%AE%BE%E7%BD%AE%E5%AF%8C%E6%96%87%E6%9C%AC%E5%AD%97%E9%97%B4%E8%B7%9D%EF%BC%8C%E6%96%87%E5%AD%97%E4%B8%8D%E8%83%BD%E5%B1%85%E4%B8%AD%E5%AF%B9%E9%BD%90/"/>
     <id>http://liujinlongxa.com/2016/07/03/设置富文本字间距，文字不能居中对齐/</id>
     <published>2016-07-03T10:40:19.000Z</published>
-    <updated>2016-08-12T15:20:04.000Z</updated>
+    <updated>2016-11-06T02:47:02.000Z</updated>
     
     <content type="html">&lt;p&gt;最近有一个需求，需要设置一个UILabel的字间距，我马上就想到了富文本，于是就写了下面的代码&lt;/p&gt;
 &lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt; *str = &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.label.text;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSDictionary&lt;/span&gt; *attribute = @&amp;#123;&lt;span class=&quot;built_in&quot;&gt;NSKernAttributeName&lt;/span&gt;:@(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;),&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                            &lt;span class=&quot;built_in&quot;&gt;NSFontAttributeName&lt;/span&gt;:[&lt;span class=&quot;built_in&quot;&gt;UIFont&lt;/span&gt; systemFontOfSize:&lt;span class=&quot;number&quot;&gt;15&lt;/span&gt;]&amp;#125;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSAttributedString&lt;/span&gt; *attStr = [[&lt;span class=&quot;built_in&quot;&gt;NSAttributedString&lt;/span&gt; alloc] initWithString:str attributes:attribute];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.label.attributedText = attStr;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
