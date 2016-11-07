@@ -76,3 +76,6 @@ deploy:
 
 # 多说评论
 duoshuo_shortname: liujinlongxa
+
+include:
+  - .nojekyll
