@@ -10019,3 +10019,5 @@
 {"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":6396,"level":30,"msg":"Deploying: \u001b[35mgit\u001b[39m","time":"2016-11-07T02:50:04.383Z","v":0}
 {"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":6396,"level":30,"msg":"Clearing .deploy_git folder...","time":"2016-11-07T02:50:04.390Z","v":0}
 {"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":6396,"level":30,"msg":"Copying files from public folder...","time":"2016-11-07T02:50:04.434Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":6396,"level":30,"msg":"Deploy done: \u001b[35mgit\u001b[39m","time":"2016-11-07T02:56:53.355Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":6396,"level":20,"msg":"Database saved","time":"2016-11-07T02:56:53.358Z","v":0}
