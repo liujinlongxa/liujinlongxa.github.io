@@ -10562,3 +10562,5 @@
 {"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":6880,"level":30,"msg":"Deploying: \u001b[35mgit\u001b[39m","time":"2016-11-07T03:02:09.784Z","v":0}
 {"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":6880,"level":30,"msg":"Clearing .deploy_git folder...","time":"2016-11-07T03:02:09.791Z","v":0}
 {"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":6880,"level":30,"msg":"Copying files from public folder...","time":"2016-11-07T03:02:09.839Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":6880,"level":30,"msg":"Have a nice day","time":"2016-11-07T03:07:21.670Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":6880,"level":30,"msg":"Deploy done: \u001b[35mgit\u001b[39m","time":"2016-11-07T03:07:21.674Z","v":0}
