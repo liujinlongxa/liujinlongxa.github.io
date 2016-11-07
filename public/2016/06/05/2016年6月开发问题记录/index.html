@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>2016年6月开发问题记录 | liujinlongxa的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="继续记录6月份开发中遇到的问题。
+UIBarButtonItem点击区域的问题今天在定制导航上的返回按钮遇到了一个问题，顺便记录一下。
+一般常规的定制导航栏返回按钮的方法如下：
+1self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@&quot;back&quot;] st">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2016年6月开发问题记录">
+<meta property="og:url" content="http://liujinlongxa.com/2016/06/05/2016年6月开发问题记录/index.html">
+<meta property="og:site_name" content="liujinlongxa的技术博客">
+<meta property="og:description" content="继续记录6月份开发中遇到的问题。
+UIBarButtonItem点击区域的问题今天在定制导航上的返回按钮遇到了一个问题，顺便记录一下。
+一般常规的定制导航栏返回按钮的方法如下：
+1self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@&quot;back&quot;] st">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/d869dc4bbc06c476771fc0cfe1b19d49.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/639a2d998265085ba8f03b4fb3cc6068.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/0b15b63f3ddab728a7c593154f0083a2.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/90fa287185b4062e4c37dd86ac05436b.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/88e710b25fdcd0403ba7fe2610bd1547.png">
+<meta property="og:updated_time" content="2016-11-06T02:47:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2016年6月开发问题记录">
+<meta name="twitter:description" content="继续记录6月份开发中遇到的问题。
+UIBarButtonItem点击区域的问题今天在定制导航上的返回按钮遇到了一个问题，顺便记录一下。
+一般常规的定制导航栏返回按钮的方法如下：
+1self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@&quot;back&quot;] st">
+<meta name="twitter:image" content="http://7xn88v.com1.z0.glb.clouddn.com/d869dc4bbc06c476771fc0cfe1b19d49.png">
+  
+    <link rel="alternate" href="/atom.xml" title="liujinlongxa的技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">liujinlongxa的技术博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://liujinlongxa.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2016年6月开发问题记录" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/05/2016年6月开发问题记录/" class="article-date">
+  <time datetime="2016-06-04T16:00:00.000Z" itemprop="datePublished">2016-06-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS-Tips/">iOS Tips</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      2016年6月开发问题记录
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>继续记录6月份开发中遇到的问题。</p>
+<h2 id="UIBarButtonItem点击区域的问题"><a href="#UIBarButtonItem点击区域的问题" class="headerlink" title="UIBarButtonItem点击区域的问题"></a>UIBarButtonItem点击区域的问题</h2><p>今天在定制导航上的返回按钮遇到了一个问题，顺便记录一下。</p>
+<p>一般常规的定制导航栏返回按钮的方法如下：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">self</span>.navigationItem.leftBarButtonItem = [[<span class="built_in">UIBarButtonItem</span> alloc] initWithImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"back"</span>] style:<span class="built_in">UIBarButtonItemStyleDone</span> target:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(clickBackBtn:)];</div></pre></td></tr></table></figure>
+<p>这样写有一个问题，运行代码后，返回按钮的可点击区域如下图所示：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/d869dc4bbc06c476771fc0cfe1b19d49.png" alt="1"></p>
+<p>这并不是我想要的，点击区域太大，完全没有点到返回按钮上都可以触发返回操作。于是换一种思路，用自定义View实现，代码如下：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">UIButton</span> *backBtn = [[<span class="built_in">UIButton</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">30</span>, <span class="number">44</span>)];</div><div class="line">[backBtn addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(clickBackBtn:) forControlEvents:<span class="built_in">UIControlEventTouchUpInside</span>];</div><div class="line">[backBtn setImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"back"</span>] forState:<span class="built_in">UIControlStateNormal</span>];</div><div class="line"><span class="keyword">self</span>.navigationItem.leftBarButtonItem = [[<span class="built_in">UIBarButtonItem</span> alloc] initWithCustomView:backBtn];</div></pre></td></tr></table></figure>
+<p>编译运行，效果依然一样，点击区域还是太大，如下图：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/639a2d998265085ba8f03b4fb3cc6068.png" alt="2"></p>
+<p>这我就不明白了，于是一阵Google，找到了一个解决方案，代码如下：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">UIButton</span> *backBtn = [[<span class="built_in">UIButton</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">30</span>, <span class="number">44</span>)];</div><div class="line">[backBtn addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(clickBackBtn:) forControlEvents:<span class="built_in">UIControlEventTouchUpInside</span>];</div><div class="line">[backBtn setImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"back"</span>] forState:<span class="built_in">UIControlStateNormal</span>];</div><div class="line"><span class="built_in">UIView</span> *containerView = [[<span class="built_in">UIView</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">30</span>, <span class="number">44</span>)];</div><div class="line">[containerView addSubview:backBtn];</div><div class="line"><span class="keyword">self</span>.navigationItem.leftBarButtonItem = [[<span class="built_in">UIBarButtonItem</span> alloc] initWithCustomView:containerView];</div></pre></td></tr></table></figure>
+<p>这样点击区域就正常了，如下图：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/0b15b63f3ddab728a7c593154f0083a2.png" alt="3"></p>
+<p>其实就是在Button外面又包了一层View，这样点击区域就只有Button那么大，我怀疑，可能是加载BarButtonItem上的自定义View都会被自动的拉长，暂时还没找到其他解决方案。</p>
+<p>Reference：<a href="http://stackoverflow.com/questions/16858433/uibarbuttonitem-tap-area" target="_blank" rel="external">UIBarButtonItem tap area</a></p>
+<h2 id="将自定义对象作为NSDictionary的Key"><a href="#将自定义对象作为NSDictionary的Key" class="headerlink" title="将自定义对象作为NSDictionary的Key"></a>将自定义对象作为NSDictionary的Key</h2><p>将自定义对象作为NSDictionary的Key，需要重写自定义isEqual方法和hash方法。isEqual方法比较简单，如下代码：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">BOOL</span>)isEqual:(<span class="keyword">id</span>)object &#123;</div><div class="line">    Student *st = (Student *)object;</div><div class="line">    <span class="keyword">if</span> ([st.name isEqualToString:<span class="keyword">self</span>.name] &amp;&amp; st.age == <span class="keyword">self</span>.age) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>但是如果要把自定义的对象作为NSDictionary的Key，光重写isEqual方法是不够的，还需要重写hash方法，如果不重写hash方法就会导致字典不能正确的添加和删除。重写hash函数的方法很多，可以通过构建不同散列函数来实现，但是无论哪种方法，目的都是尽可能的确保相同的对象返回的hash值相同，一个简单的方法就是使用每一个属性的hash的异或的结果来作为这个对象的hash值。代码如下：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">NSUInteger</span>)hash &#123;</div><div class="line">    <span class="keyword">return</span> [<span class="keyword">self</span>.name hash] ^ <span class="keyword">self</span>.age;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样构建的hash值冲突的概率很小。另外，要作为字典的Key，还必须实现<code>NSCopying</code>协议。因为不需要做深拷贝，所以只需要简单的返回self即可，代码如下：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">id</span>)copyWithZone:(<span class="built_in">NSZone</span> *)zone &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个构建的一个对象就可以作为NSDictionary的Key了。</p>
+<p>Reference：<a href="http://nshipster.com/equality/" target="_blank" rel="external">Equality</a></p>
+<h2 id="UITableViewCell的“no-index-path-for-table-cell-being-reused”问题"><a href="#UITableViewCell的“no-index-path-for-table-cell-being-reused”问题" class="headerlink" title="UITableViewCell的“no index path for table cell being reused”问题"></a>UITableViewCell的“no index path for table cell being reused”问题</h2><p>项目中有一个自定义的UITableViewCell，由于版本更新，要把这个Cell改为可以悬停的SectionHeader，为了图方便，我没有重新自定义一个View，而是直接在<code>viewForHeaderInSection:</code>方法里返回了cell，代码如下：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">LMBookWriteCommentCell *cell = (LMBookWriteCommentCell *)[<span class="keyword">self</span> tableView:<span class="keyword">self</span>.tableView writeCommentCellWithIndexPath:<span class="literal">nil</span>];</div><div class="line"><span class="keyword">return</span> cell;</div></pre></td></tr></table></figure>
+<p>这样写有个问题，就是在reloadData时，这SectionHeader就消失了，变成了空白的一片，并且出现了“no index path for table cell being reused”错误，程序没有崩溃，但是就是看不见Cell上的内容。于是一阵Google，终于找到了答案，只要把上面的代码的<code>return cell;</code>改为<code>return cell.contentView;</code>就可以了。</p>
+<p>Reference：<a href="http://stackoverflow.com/questions/12772197/what-is-the-meaning-of-the-no-index-path-for-table-cell-being-reused-message-i?lq=1" target="_blank" rel="external">What is the meaning of the “no index path for table cell being reused” message in iOS 6/7?</a></p>
+<h2 id="Autolayout动画的正确姿势"><a href="#Autolayout动画的正确姿势" class="headerlink" title="Autolayout动画的正确姿势"></a>Autolayout动画的正确姿势</h2><p>做Autolayout动画的一般步骤是：</p>
+<ol>
+<li>修改约束，如果使用Masonry，使用<code>mas_updateConstraints</code>方法修改约束，如果使用Xib，则直接把要修改的约束通过拉线链接到代码里进行修改即可。</li>
+<li>在动画的block中，调用View的<code>layoutIfNeed()</code>方法。</li>
+</ol>
+<p>这里要注意的一点是第二步，如果直接调用<code>view.layoutIfNeed()</code>，可能会导致动画不能进行，正确的方法应该是调用<code>view.superview.layoutIfNeed()</code>，这样才能正确的进行动画。完整代码如下：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> ViewController: <span class="built_in">UIViewController</span> &#123;</div><div class="line"></div><div class="line">    @IBOutlet <span class="keyword">weak</span> var myView: <span class="built_in">UIView</span>!</div><div class="line">    @IBOutlet <span class="keyword">weak</span> var topConstraint: <span class="built_in">NSLayoutConstraint</span>!</div><div class="line"></div><div class="line">    override func viewDidLoad() &#123;</div><div class="line">        <span class="keyword">super</span>.viewDidLoad()</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    override func touchesBegan(touches: Set&lt;<span class="built_in">UITouch</span>&gt;, withEvent event: <span class="built_in">UIEvent</span>?) &#123;</div><div class="line">        topConstraint.constant += <span class="number">100</span></div><div class="line">        <span class="built_in">UIView</span>.animateWithDuration(<span class="number">2.0</span>) &#123;</div><div class="line">            <span class="keyword">self</span>.myView.superview?.layoutIfNeeded()</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="在iOS7上UILabel的省略点颜色不正确"><a href="#在iOS7上UILabel的省略点颜色不正确" class="headerlink" title="在iOS7上UILabel的省略点颜色不正确"></a>在iOS7上UILabel的省略点颜色不正确</h2><p>在iOS7上，有时UILabel的省略点的颜色与文字的颜色不同，如下图：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/90fa287185b4062e4c37dd86ac05436b.png" alt="uilable color error"></p>
+<p>网上查了一下，这应该是iOS7的一个Bug，解决方法就是不要使用textColor设置文字颜色，而使用attributeText，代码如下：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSAttributedString</span> *attStr = [[<span class="built_in">NSAttributedString</span> alloc] initWithString:<span class="keyword">self</span>.titleLabel.text attributes:@&#123;<span class="built_in">NSForegroundColorAttributeName</span>:style.fColor, <span class="built_in">NSFontAttributeName</span>:style.font&#125;];</div><div class="line"><span class="keyword">self</span>.titleLabel.attributedText = attStr;</div></pre></td></tr></table></figure>
+<p>参考：<a href="http://stackoverflow.com/questions/22718172/uilabel-dotted-line-color-bug-in-ios-7-1" target="_blank" rel="external">UILabel dotted line color bug in iOS 7.1</a></p>
+<h2 id="iOS7上，给UICollectionViewCell添加长按手势的坑"><a href="#iOS7上，给UICollectionViewCell添加长按手势的坑" class="headerlink" title="iOS7上，给UICollectionViewCell添加长按手势的坑"></a>iOS7上，给UICollectionViewCell添加长按手势的坑</h2><p>项目中有一个需求，当长按任何一个UICollectionViewCell时，刷新UICollectionView，每一个Cell的右上角都出现一个选择按钮。效果如下：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/88e710b25fdcd0403ba7fe2610bd1547.png" alt="iOS7 UICollectionView longPress"></p>
+<p>这是一个比较常见的需求，我的做法是在每一个Cell上添加一个长按手势，然后，在手势触发时，刷新这个UICollectionView，然每一个Cell都显示选择按钮。这样做在iOS8，iOS9上都没有问题，当时在iOS7上却出现了问题。在iOS7上，当触发某一个Cell的长按手势之后，这个Cell就不再响应UICollectionView的<code>collectionView:didSelectItemAtIndexPath:</code>方法了。</p>
+<p>网上没有找到类似的情况，只能自己解决。最终找到了一种解决方案，代码如下：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 必须重新放在主线程队列中，否则在iOS7上回出现Cell不触发didSelect的情况</span></div><div class="line"><span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</div><div class="line">    [<span class="keyword">self</span>.collectionView reloadData];</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>要将reloadData重新放在主线程队列中，这样就不会出现这种情况。具体原因不是非常明白，但是，这样确实可以完美的解决这个问题。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liujinlongxa.com/2016/06/05/2016年6月开发问题记录/" data-id="civ7gro5e001ph4m061khxnhb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/11/打造自己的翻墙VPS:搬运工VPS购买使用流程全记录/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          打造自己的翻墙VPS:搬运工VPS购买使用流程全记录
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/29/自定义NSOperation的那些事/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">自定义NSOperation的那些事</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS-Tips/">iOS Tips</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/">iOS开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/树莓派/">树莓派</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Autolayout/">Autolayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CocoaPods/">CocoaPods</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CoreAnimation/">CoreAnimation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Emoji表情/">Emoji表情</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDFA/">IDFA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSAttributedString/">NSAttributedString</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH/">SSH</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scheme/">Scheme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Target/">Target</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIButton/">UIButton</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UILabel/">UILabel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebDAV/">WebDAV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS开发/">iOS开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ownCloud/">ownCloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/加密解密/">加密解密</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/本地化/">本地化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树莓派/">树莓派</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/预处理宏/">预处理宏</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Autolayout/" style="font-size: 10px;">Autolayout</a> <a href="/tags/CocoaPods/" style="font-size: 10px;">CocoaPods</a> <a href="/tags/CoreAnimation/" style="font-size: 10px;">CoreAnimation</a> <a href="/tags/Emoji表情/" style="font-size: 10px;">Emoji表情</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDFA/" style="font-size: 10px;">IDFA</a> <a href="/tags/NSAttributedString/" style="font-size: 10px;">NSAttributedString</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/Scheme/" style="font-size: 10px;">Scheme</a> <a href="/tags/Swift/" style="font-size: 10px;">Swift</a> <a href="/tags/Target/" style="font-size: 15px;">Target</a> <a href="/tags/UIButton/" style="font-size: 10px;">UIButton</a> <a href="/tags/UILabel/" style="font-size: 15px;">UILabel</a> <a href="/tags/WebDAV/" style="font-size: 10px;">WebDAV</a> <a href="/tags/iOS开发/" style="font-size: 10px;">iOS开发</a> <a href="/tags/ownCloud/" style="font-size: 10px;">ownCloud</a> <a href="/tags/其他/" style="font-size: 20px;">其他</a> <a href="/tags/加密解密/" style="font-size: 10px;">加密解密</a> <a href="/tags/本地化/" style="font-size: 10px;">本地化</a> <a href="/tags/树莓派/" style="font-size: 10px;">树莓派</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/预处理宏/" style="font-size: 10px;">预处理宏</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/11/05/使用nat123实现外网ssh连接内网树莓派设备/">使用nat123实现外网ssh连接内网树莓派设备</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/28/Swift3中的预处理宏/">Swift3中的预处理宏</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/26/给多个Target添加CocoaPods/">给多个Target添加CocoaPods</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/25/如何获取WebView的UserAgent/">如何获取WebView的UserAgent</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/18/iOS10无法获取IDFA的问题/">iOS10无法获取IDFA的问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 liujinlongxa<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

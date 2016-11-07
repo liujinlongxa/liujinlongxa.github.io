@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Content Hugging与Content Compression Resistance | liujinlongxa的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近在使用Autolayout遇到了一个问题，我设置了一个UILabel的宽度约束，希望这个UILabel在显示时，如果内容宽度没有超过约束的宽度，则以约束的宽度显示，如果内容宽度超过约束的宽度，则以内容的宽度显示，这时，如果只设置宽度约束，UILabel会始终以约束的宽度显示，如果降低宽度约束，则UILabel就会使用以内容的宽度显示，始终无法达到我想要的效果，于是一番Google，便发现了Co">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Content Hugging与Content Compression Resistance">
+<meta property="og:url" content="http://liujinlongxa.com/2015/11/07/ContentHugging与ContentCompressionResistance/index.html">
+<meta property="og:site_name" content="liujinlongxa的技术博客">
+<meta property="og:description" content="最近在使用Autolayout遇到了一个问题，我设置了一个UILabel的宽度约束，希望这个UILabel在显示时，如果内容宽度没有超过约束的宽度，则以约束的宽度显示，如果内容宽度超过约束的宽度，则以内容的宽度显示，这时，如果只设置宽度约束，UILabel会始终以约束的宽度显示，如果降低宽度约束，则UILabel就会使用以内容的宽度显示，始终无法达到我想要的效果，于是一番Google，便发现了Co">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-11-07%20at%2022.46.17.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-11-07%20at%2022.15.10.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-11-07%20at%2022.30.26.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-11-07%20at%2022.44.05.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-11-07%20at%2022.46.17.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-11-07%20at%2022.44.05.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-11-07%20at%2023.02.49.png">
+<meta property="og:updated_time" content="2016-11-06T02:47:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Content Hugging与Content Compression Resistance">
+<meta name="twitter:description" content="最近在使用Autolayout遇到了一个问题，我设置了一个UILabel的宽度约束，希望这个UILabel在显示时，如果内容宽度没有超过约束的宽度，则以约束的宽度显示，如果内容宽度超过约束的宽度，则以内容的宽度显示，这时，如果只设置宽度约束，UILabel会始终以约束的宽度显示，如果降低宽度约束，则UILabel就会使用以内容的宽度显示，始终无法达到我想要的效果，于是一番Google，便发现了Co">
+<meta name="twitter:image" content="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-11-07%20at%2022.46.17.png">
+  
+    <link rel="alternate" href="/atom.xml" title="liujinlongxa的技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">liujinlongxa的技术博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://liujinlongxa.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ContentHugging与ContentCompressionResistance" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/07/ContentHugging与ContentCompressionResistance/" class="article-date">
+  <time datetime="2015-11-06T16:00:00.000Z" itemprop="datePublished">2015-11-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Content Hugging与Content Compression Resistance
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在使用Autolayout遇到了一个问题，我设置了一个UILabel的宽度约束，希望这个UILabel在显示时，如果内容宽度没有超过约束的宽度，则以约束的宽度显示，如果<br>内容宽度超过约束的宽度，则以内容的宽度显示，这时，如果只设置宽度约束，UILabel会始终以约束的宽度显示，如果降低宽度约束，则UILabel就会使用以内容的宽度显示，<br>始终无法达到我想要的效果，于是一番Google，便发现了Content Hugging与Content Compression Resistance两个概念。</p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><strong>Content Hugging Priority</strong> 字面意思为内容紧缩，通过改变它的优先级，可以设置当View的大小大于实际内容的大小时，是否将View缩小，使其紧紧包裹住内容</p>
+<p><strong>Content Compression Resistance Priority</strong> 字面意思为阻止内容紧缩，通过改变它的优先级，可以设置当View的大小小于实际内容的大小时，是否将View扩大，使其紧紧包裹内容</p>
+<h2 id="实例应用"><a href="#实例应用" class="headerlink" title="实例应用"></a>实例应用</h2><p>本例将以一个UILabel为例，来说明一下ContentHugging与ContentCompressionResistance的具体设置方法。</p>
+<p>首先创建一个空项目，打开SB，拖入一个UILabel，然后设置一下三个约束：</p>
+<blockquote>
+<ol>
+<li>水平居中对齐</li>
+<li>垂直居中对齐</li>
+<li>宽度为100</li>
+</ol>
+</blockquote>
+<p>为类方便观察，给Label加一个背景颜色，设置完运行如下图：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-11-07%20at%2022.46.17.png" alt="image"></p>
+<p>然后改变宽度约束的优先级为500，如图：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-11-07%20at%2022.15.10.png" alt="image"></p>
+<p>然后就可以开始设置ContentHuggingPriority与ContentCompressionResistancePriority了，设置界面如下：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-11-07%20at%2022.30.26.png" alt="image"></p>
+<p>首先设置水平方向上的ContentHuggingPriority为501，运行项目，显示效果如下：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-11-07%20at%2022.44.05.png" alt="image"></p>
+<p>如果设置水平方向上的ContentHuggingPriority为499，运行项目，显示效果如下：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-11-07%20at%2022.46.17.png" alt="image"></p>
+<p>这是因为当宽度约束的优先级大于ContentHuggingPriority，优先以约束的宽度显示，当宽度约束的优先级小于ContentHuggingPriority时，如果Label的大小<br>大于内容的大小，则会按实际内容的大小显示。</p>
+<p>接下来改变Label的宽度约束值为30，然后运行项目，显示效果如下：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-11-07%20at%2022.44.05.png" alt="image"></p>
+<p>水平方向上ContentCompressionResistancePriority的默认值为750，将其改为499，则显示效果如下：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-11-07%20at%2023.02.49.png" alt="image"></p>
+<p>这是因为当宽度约束的优先级大于ContentCompressionResistancePriority，优先以约束的宽度显示，当宽度约束的优先级小于ContentCompressionResistancePriority<br>时，如果Label的大小小于内容的大小，则会按实际内容的大小显示</p>
+<p>除了在SB中设置外，还可以在代码中设置，代码如下：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">// 设置水平方向上内容紧缩的优先级为高</span></div><div class="line">[<span class="keyword">self</span>.label setContentHuggingPriority:<span class="built_in">UILayoutPriorityDefaultHigh</span> forAxis:<span class="built_in">UILayoutConstraintAxisHorizontal</span>];</div><div class="line"></div><div class="line"><span class="comment">// 设置垂直方向上阻止内容紧缩的优先级为低</span></div><div class="line">[<span class="keyword">self</span>.label setContentCompressionResistancePriority:<span class="built_in">UILayoutPriorityDefaultLow</span> forAxis:<span class="built_in">UILayoutConstraintAxisVertical</span>];</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liujinlongxa.com/2015/11/07/ContentHugging与ContentCompressionResistance/" data-id="civ7gro4i000yh4m0bobljgtz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/12/06/CoreAnimation编程指南学习笔记(1)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          CoreAnimation编程指南学习笔记(1)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/27/UIScrollView与Autolayout/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">UIScrollView与Autolayout</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS-Tips/">iOS Tips</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/">iOS开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/树莓派/">树莓派</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Autolayout/">Autolayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CocoaPods/">CocoaPods</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CoreAnimation/">CoreAnimation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Emoji表情/">Emoji表情</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDFA/">IDFA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSAttributedString/">NSAttributedString</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH/">SSH</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scheme/">Scheme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Target/">Target</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIButton/">UIButton</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UILabel/">UILabel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebDAV/">WebDAV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS开发/">iOS开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ownCloud/">ownCloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/加密解密/">加密解密</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/本地化/">本地化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树莓派/">树莓派</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/预处理宏/">预处理宏</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Autolayout/" style="font-size: 10px;">Autolayout</a> <a href="/tags/CocoaPods/" style="font-size: 10px;">CocoaPods</a> <a href="/tags/CoreAnimation/" style="font-size: 10px;">CoreAnimation</a> <a href="/tags/Emoji表情/" style="font-size: 10px;">Emoji表情</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDFA/" style="font-size: 10px;">IDFA</a> <a href="/tags/NSAttributedString/" style="font-size: 10px;">NSAttributedString</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/Scheme/" style="font-size: 10px;">Scheme</a> <a href="/tags/Swift/" style="font-size: 10px;">Swift</a> <a href="/tags/Target/" style="font-size: 15px;">Target</a> <a href="/tags/UIButton/" style="font-size: 10px;">UIButton</a> <a href="/tags/UILabel/" style="font-size: 15px;">UILabel</a> <a href="/tags/WebDAV/" style="font-size: 10px;">WebDAV</a> <a href="/tags/iOS开发/" style="font-size: 10px;">iOS开发</a> <a href="/tags/ownCloud/" style="font-size: 10px;">ownCloud</a> <a href="/tags/其他/" style="font-size: 20px;">其他</a> <a href="/tags/加密解密/" style="font-size: 10px;">加密解密</a> <a href="/tags/本地化/" style="font-size: 10px;">本地化</a> <a href="/tags/树莓派/" style="font-size: 10px;">树莓派</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/预处理宏/" style="font-size: 10px;">预处理宏</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/11/05/使用nat123实现外网ssh连接内网树莓派设备/">使用nat123实现外网ssh连接内网树莓派设备</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/28/Swift3中的预处理宏/">Swift3中的预处理宏</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/26/给多个Target添加CocoaPods/">给多个Target添加CocoaPods</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/25/如何获取WebView的UserAgent/">如何获取WebView的UserAgent</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/18/iOS10无法获取IDFA的问题/">iOS10无法获取IDFA的问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 liujinlongxa<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

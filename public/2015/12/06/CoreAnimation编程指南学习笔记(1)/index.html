@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CoreAnimation编程指南学习笔记(1) | liujinlongxa的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第一章：核心动画概念CoreAnimation框架中类的分类
+
+提供显示内容的图层类
+动画和计时类
+布局和约束类
+事务类，在原子更新的时候组合图层类
+
+图层类（Layer Classes）CALayer是所有层类的父类，几个常见的图层子类：CAScrollLayer,CATextLayer,CATiledLayer等
+动画类和计时类CAAnimation是动画类的基类，他实现了CAMediaTim">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CoreAnimation编程指南学习笔记(1)">
+<meta property="og:url" content="http://liujinlongxa.com/2015/12/06/CoreAnimation编程指南学习笔记(1)/index.html">
+<meta property="og:site_name" content="liujinlongxa的技术博客">
+<meta property="og:description" content="第一章：核心动画概念CoreAnimation框架中类的分类
+
+提供显示内容的图层类
+动画和计时类
+布局和约束类
+事务类，在原子更新的时候组合图层类
+
+图层类（Layer Classes）CALayer是所有层类的父类，几个常见的图层子类：CAScrollLayer,CATextLayer,CATiledLayer等
+动画类和计时类CAAnimation是动画类的基类，他实现了CAMediaTim">
+<meta property="og:updated_time" content="2016-11-06T02:47:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CoreAnimation编程指南学习笔记(1)">
+<meta name="twitter:description" content="第一章：核心动画概念CoreAnimation框架中类的分类
+
+提供显示内容的图层类
+动画和计时类
+布局和约束类
+事务类，在原子更新的时候组合图层类
+
+图层类（Layer Classes）CALayer是所有层类的父类，几个常见的图层子类：CAScrollLayer,CATextLayer,CATiledLayer等
+动画类和计时类CAAnimation是动画类的基类，他实现了CAMediaTim">
+  
+    <link rel="alternate" href="/atom.xml" title="liujinlongxa的技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">liujinlongxa的技术博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://liujinlongxa.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-CoreAnimation编程指南学习笔记(1)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/12/06/CoreAnimation编程指南学习笔记(1)/" class="article-date">
+  <time datetime="2015-12-05T16:00:00.000Z" itemprop="datePublished">2015-12-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CoreAnimation编程指南学习笔记(1)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第一章：核心动画概念"><a href="#第一章：核心动画概念" class="headerlink" title="第一章：核心动画概念"></a>第一章：核心动画概念</h2><p>CoreAnimation框架中类的分类</p>
+<ul>
+<li>提供显示内容的图层类</li>
+<li>动画和计时类</li>
+<li>布局和约束类</li>
+<li>事务类，在原子更新的时候组合图层类</li>
+</ul>
+<h3 id="图层类（Layer-Classes）"><a href="#图层类（Layer-Classes）" class="headerlink" title="图层类（Layer Classes）"></a>图层类（Layer Classes）</h3><p>CALayer是所有层类的父类，几个常见的图层子类：CAScrollLayer,CATextLayer,CATiledLayer等</p>
+<h3 id="动画类和计时类"><a href="#动画类和计时类" class="headerlink" title="动画类和计时类"></a>动画类和计时类</h3><p>CAAnimation是动画类的基类，他实现了CAMediaTiming协议，提供了动画的持续时间，速度，和重复计数等。他也实现了CAAction协议，该协议为图层触发一个动画动作提供了标准化响应。</p>
+<p>动画类同时定义了一个使用贝塞尔曲线来描述动画改变的时间函数。</p>
+<ul>
+<li>CATransition：提供了一个图层改变的过渡效果，他能影响图层的整个内容。</li>
+<li>CAAnimationGroup:组动画</li>
+<li>CAPropertyAnimation:属性动画</li>
+<li>CABasicAnimation:基础动画</li>
+<li>CAKeyframeAnimation:关键帧动画</li>
+</ul>
+<h3 id="布局管理类"><a href="#布局管理类" class="headerlink" title="布局管理类"></a>布局管理类</h3><p>CAConstraint类是一个布局管理类，他可以指定子图层类限制于你指定的约束集合。</p>
+<h3 id="事务管理类"><a href="#事务管理类" class="headerlink" title="事务管理类"></a>事务管理类</h3><p>CATransaction是核心动画里面负责协调多个动画原子更新显示操作。事务支持嵌套使用。核心动画支持两种事务：隐式事务和显式事务。</p>
+<h2 id="第二章：渲染架构"><a href="#第二章：渲染架构" class="headerlink" title="第二章：渲染架构"></a>第二章：渲染架构</h2><p>每个可见的图层树由两个相应的树组成，一个是呈现树，一个是渲染树。修改图层的一个属性，图层树里相应的值会被马上更新，但是呈现树里面的值在将要显示给用户的时候才会被更新为新值。</p>
+<h2 id="第三章：几何变换"><a href="#第三章：几何变换" class="headerlink" title="第三章：几何变换"></a>第三章：几何变换</h2><p>anchorPoint:锚点，他指定了bounds相对于position的值，同时也作为变换时候的支点。在Autolayout设置约束时，锚点的值也会影响视图显示的位置。</p>
+<p>几何变换：CATransform3D，可以使用变换函数进行变换，例如CATransform3DMakeTranslation，CATransform3DTranslate等，也可以通过键值路径修改变换。</p>
+<h2 id="第四章：图层树结构"><a href="#第四章：图层树结构" class="headerlink" title="第四章：图层树结构"></a>第四章：图层树结构</h2><p>图层树与视图的结构很类似：</p>
+<ul>
+<li>每个图层定义了一个基于其父图层的坐标系的坐标系，当一个图层变换的时候，他的子图层同样变换</li>
+<li>一个动态的图层树，可以在程序运行的时候重新设置，图层可以添加，也可以删除</li>
+</ul>
+<p>ios中，每个UIView的实例会自动创建一个CALayer类的实体，视图为图层提供了底层的事件处理，图层为视图提供了显示的内容。</p>
+<h2 id="第五章：图层的内容"><a href="#第五章：图层的内容" class="headerlink" title="第五章：图层的内容"></a>第五章：图层的内容</h2><p>使用CALayer无需创建继承子类，直接设置CALayer的contents属性即可，contents属性是一个CGImageRef类型，这样子创建比使用UIImageView效率要高</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">self</span>.myLayer = [[<span class="built_in">CALayer</span> alloc] init];</div><div class="line"><span class="keyword">self</span>.myLayer.bounds = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line"><span class="keyword">self</span>.myLayer.position = <span class="built_in">CGPointMake</span>(<span class="number">100</span>, <span class="number">100</span>);</div><div class="line"><span class="keyword">self</span>.myLayer.backgroundColor = [<span class="built_in">UIColor</span> redColor].CGColor;</div><div class="line"><span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"1.JPG"</span>];</div><div class="line"><span class="keyword">self</span>.myLayer.contents = (__bridge <span class="keyword">id</span> _Nullable)(image.CGImage);</div><div class="line">[<span class="keyword">self</span>.view.layer addSublayer:<span class="keyword">self</span>.myLayer];</div></pre></td></tr></table></figure>
+<p>也可以通过代理方法，提供CALayer的内容，有两个代理方法：<code>- (void)displayLayer:(CALayer *)theLayer</code>与<code>- (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx</code>, 要通知系统重绘图层，只需要调用CALayer的<code>setNeedsDisplay</code>或者<code>setNeedsDisplayInRect:</code>方法或者把图层的needsDisplayOnBoundsChange属性值设置为YES即可。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)drawLayer:(<span class="built_in">CALayer</span> *)layer inContext:(<span class="built_in">CGContextRef</span>)ctx &#123;</div><div class="line">    <span class="built_in">CGMutablePathRef</span> thePath = <span class="built_in">CGPathCreateMutable</span>();</div><div class="line">    <span class="built_in">CGPathMoveToPoint</span>(thePath,<span class="literal">NULL</span>,<span class="number">15.0</span>f,<span class="number">15.</span>f);</div><div class="line">    <span class="built_in">CGPathAddCurveToPoint</span>(thePath,</div><div class="line">                          <span class="literal">NULL</span>,</div><div class="line">                          <span class="number">15.</span>f,<span class="number">250.0</span>f,</div><div class="line">                          <span class="number">295.0</span>f,<span class="number">250.0</span>f,</div><div class="line">                          <span class="number">295.0</span>f,<span class="number">15.0</span>f);</div><div class="line">    <span class="built_in">CGContextBeginPath</span>(ctx);</div><div class="line">    <span class="built_in">CGContextAddPath</span>(ctx, thePath );</div><div class="line">    <span class="built_in">CGContextSetLineWidth</span>(ctx, <span class="number">5</span>);</div><div class="line">    <span class="built_in">CGContextStrokePath</span>(ctx);</div><div class="line">    <span class="comment">// release the path</span></div><div class="line">    <span class="built_in">CFRelease</span>(thePath);</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)displayLayer:(<span class="built_in">CALayer</span> *)layer &#123;</div><div class="line">    <span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"1.JPG"</span>];</div><div class="line">    layer.contents = (__bridge <span class="keyword">id</span> _Nullable)(image.CGImage);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>除了设置代理方法，也可以通过继承CALayer，重写<code>display</code>方法或<code>- (void)drawInContext:(CGContextRef)theContext</code>方法来自定义图层</p>
+<p>CALayer的contentsGravity属性相当于UIView的contentMode属性。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liujinlongxa.com/2015/12/06/CoreAnimation编程指南学习笔记(1)/" data-id="civ7gro4l0011h4m050oelrjs" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/12/13/CoreAnimation编程指南学习笔记(2)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          CoreAnimation编程指南学习笔记(2)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/11/07/ContentHugging与ContentCompressionResistance/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Content Hugging与Content Compression Resistance</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS-Tips/">iOS Tips</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/">iOS开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/树莓派/">树莓派</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Autolayout/">Autolayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CocoaPods/">CocoaPods</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CoreAnimation/">CoreAnimation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Emoji表情/">Emoji表情</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDFA/">IDFA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSAttributedString/">NSAttributedString</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH/">SSH</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scheme/">Scheme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Target/">Target</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIButton/">UIButton</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UILabel/">UILabel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebDAV/">WebDAV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS开发/">iOS开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ownCloud/">ownCloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/加密解密/">加密解密</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/本地化/">本地化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树莓派/">树莓派</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/预处理宏/">预处理宏</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Autolayout/" style="font-size: 10px;">Autolayout</a> <a href="/tags/CocoaPods/" style="font-size: 10px;">CocoaPods</a> <a href="/tags/CoreAnimation/" style="font-size: 10px;">CoreAnimation</a> <a href="/tags/Emoji表情/" style="font-size: 10px;">Emoji表情</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDFA/" style="font-size: 10px;">IDFA</a> <a href="/tags/NSAttributedString/" style="font-size: 10px;">NSAttributedString</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/Scheme/" style="font-size: 10px;">Scheme</a> <a href="/tags/Swift/" style="font-size: 10px;">Swift</a> <a href="/tags/Target/" style="font-size: 15px;">Target</a> <a href="/tags/UIButton/" style="font-size: 10px;">UIButton</a> <a href="/tags/UILabel/" style="font-size: 15px;">UILabel</a> <a href="/tags/WebDAV/" style="font-size: 10px;">WebDAV</a> <a href="/tags/iOS开发/" style="font-size: 10px;">iOS开发</a> <a href="/tags/ownCloud/" style="font-size: 10px;">ownCloud</a> <a href="/tags/其他/" style="font-size: 20px;">其他</a> <a href="/tags/加密解密/" style="font-size: 10px;">加密解密</a> <a href="/tags/本地化/" style="font-size: 10px;">本地化</a> <a href="/tags/树莓派/" style="font-size: 10px;">树莓派</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/预处理宏/" style="font-size: 10px;">预处理宏</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/11/05/使用nat123实现外网ssh连接内网树莓派设备/">使用nat123实现外网ssh连接内网树莓派设备</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/28/Swift3中的预处理宏/">Swift3中的预处理宏</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/26/给多个Target添加CocoaPods/">给多个Target添加CocoaPods</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/25/如何获取WebView的UserAgent/">如何获取WebView的UserAgent</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/18/iOS10无法获取IDFA的问题/">iOS10无法获取IDFA的问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 liujinlongxa<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

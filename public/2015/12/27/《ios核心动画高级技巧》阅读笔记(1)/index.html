@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>《ios核心动画高级技巧》阅读笔记(1) | liujinlongxa的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第一章 图层树CoreAnimation简介
+动画只是CoreAnimation特性的冰山一角
+CoreAnimation是一个复合引擎，它的职责就是尽可能快地组合屏幕上不同的可视内容，这个内容被分解成独立的图层，存储在一个叫图层树的体系中。
+
+图层与视图
+CALayer类在概念上和UIView类似，同样是一些被层级关系树管理的矩形块，同样可以含有一些内容。他有一些方法和属性用来做动画和变换。
+和">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《ios核心动画高级技巧》阅读笔记(1)">
+<meta property="og:url" content="http://liujinlongxa.com/2015/12/27/《ios核心动画高级技巧》阅读笔记(1)/index.html">
+<meta property="og:site_name" content="liujinlongxa的技术博客">
+<meta property="og:description" content="第一章 图层树CoreAnimation简介
+动画只是CoreAnimation特性的冰山一角
+CoreAnimation是一个复合引擎，它的职责就是尽可能快地组合屏幕上不同的可视内容，这个内容被分解成独立的图层，存储在一个叫图层树的体系中。
+
+图层与视图
+CALayer类在概念上和UIView类似，同样是一些被层级关系树管理的矩形块，同样可以含有一些内容。他有一些方法和属性用来做动画和变换。
+和">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/004ddacd5a9506600889fc2c32686262.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/01278b2b759e5b3c5fc5ae2a961a71ee.png">
+<meta property="og:updated_time" content="2016-11-06T02:47:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《ios核心动画高级技巧》阅读笔记(1)">
+<meta name="twitter:description" content="第一章 图层树CoreAnimation简介
+动画只是CoreAnimation特性的冰山一角
+CoreAnimation是一个复合引擎，它的职责就是尽可能快地组合屏幕上不同的可视内容，这个内容被分解成独立的图层，存储在一个叫图层树的体系中。
+
+图层与视图
+CALayer类在概念上和UIView类似，同样是一些被层级关系树管理的矩形块，同样可以含有一些内容。他有一些方法和属性用来做动画和变换。
+和">
+<meta name="twitter:image" content="http://7xn88v.com1.z0.glb.clouddn.com/004ddacd5a9506600889fc2c32686262.png">
+  
+    <link rel="alternate" href="/atom.xml" title="liujinlongxa的技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">liujinlongxa的技术博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://liujinlongxa.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-《ios核心动画高级技巧》阅读笔记(1)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/12/27/《ios核心动画高级技巧》阅读笔记(1)/" class="article-date">
+  <time datetime="2015-12-26T16:00:00.000Z" itemprop="datePublished">2015-12-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      《ios核心动画高级技巧》阅读笔记(1)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第一章-图层树"><a href="#第一章-图层树" class="headerlink" title="第一章 图层树"></a>第一章 图层树</h2><h3 id="CoreAnimation简介"><a href="#CoreAnimation简介" class="headerlink" title="CoreAnimation简介"></a>CoreAnimation简介</h3><ul>
+<li>动画只是CoreAnimation特性的冰山一角</li>
+<li>CoreAnimation是一个复合引擎，它的职责就是尽可能快地组合屏幕上不同的可视内容，这个内容被分解成独立的图层，存储在一个叫图层树的体系中。</li>
+</ul>
+<h3 id="图层与视图"><a href="#图层与视图" class="headerlink" title="图层与视图"></a>图层与视图</h3><ul>
+<li>CALayer类在概念上和UIView类似，同样是一些被层级关系树管理的矩形块，同样可以含有一些内容。他有一些方法和属性用来做动画和变换。</li>
+<li>和UIView最大的不同是，CALayer不处理用户的交互。CALayer并不清楚具体的响应链，因此它并不能响应时间。</li>
+<li>每个UIView都有一个CALayer属性，即所谓的bakinglayer，视图的职责就是创建并管理这个图层。视图的层级关系与其图层的层级关系是相同的。</li>
+<li>真正在界面上显示和进行动画的都是CALayer，UIView只是对CALayer的一个封装而已。</li>
+<li>进行视图和图层的分类，是为了职责分离，避免重复的代码。ios中视图为UIView，MacOS中视图为NSView，但是他们的图层都是CALayer。</li>
+</ul>
+<h3 id="图层的能力"><a href="#图层的能力" class="headerlink" title="图层的能力"></a>图层的能力</h3><ul>
+<li>CALayer能做但UIView不能做的东西：<ul>
+<li>阴影，圆角，带颜色的边框</li>
+<li>3D变换</li>
+<li>非矩形范围</li>
+<li>透明遮罩</li>
+<li>多级非线性动画</li>
+</ul>
+</li>
+</ul>
+<h3 id="使用图层"><a href="#使用图层" class="headerlink" title="使用图层"></a>使用图层</h3><ul>
+<li>可以直接在UIView的layer属性中添加图层，如下</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line"></div><div class="line">    <span class="built_in">CALayer</span> *blueLayer = [[<span class="built_in">CALayer</span> alloc] init];</div><div class="line">    blueLayer.frame = <span class="built_in">CGRectMake</span>(<span class="number">50</span>, <span class="number">50</span>, <span class="number">50</span>, <span class="number">50</span>);</div><div class="line">    blueLayer.backgroundColor = [<span class="built_in">UIColor</span> blueColor].CGColor;</div><div class="line">    [<span class="keyword">self</span>.layerView.layer addSublayer:blueLayer];</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>使用图层而不使用视图的情况<ul>
+<li>开发可以在MacOS上运行的跨平台应用</li>
+<li>使用多种CALayer的子类（特殊图层），并且不想创建单独的UIView去封装他们</li>
+<li>做一些对性能特别挑剔的工作</li>
+</ul>
+</li>
+</ul>
+<h2 id="第二章-寄宿图"><a href="#第二章-寄宿图" class="headerlink" title="第二章 寄宿图"></a>第二章 寄宿图</h2><p>CALayer除了可以设置颜色，也可以设置一张图片，这张图片称为CALayer的寄宿图。</p>
+<h3 id="contents属性"><a href="#contents属性" class="headerlink" title="contents属性"></a>contents属性</h3><ul>
+<li>CALayer有一个contents的属性，它虽然是id类型，但是必须设置一个CGImage，才能显示出图片，设置为其他类型，都只会显示一个空白的区域。这种现象是有Mac OS的历史历史原因造成的。在Mac OS上，contents对CGImage和NSImage类型的值都起作用，但在ios中，不能给contents设置一个UIImage。</li>
+<li>contentGravity属性：与UIView中的contentMode属性对应</li>
+<li>contentScale属性：定义了寄宿图的像素尺寸和视图的比例，默认为1.0。UIView中与之对应的属性为contentScaleFactor。使用UIImage加载图片会自动根据屏幕加载2x或3x图片，但是使用CGImage则不会。这样我们就需要手动设置contentScale属性来修复这个问题。一般使用代码设置寄宿图，都会手动设置contentScale，如下：<code>blueLayer.contentsScale = [[UIScreen mainScreen] scale];</code></li>
+<li>maskToBounds属性用来决定是否显示超出边界的内容</li>
+</ul>
+<h3 id="contentsRect属性"><a href="#contentsRect属性" class="headerlink" title="contentsRect属性"></a>contentsRect属性</h3><ul>
+<li>contentRect属性允许我们在图层边框里显示寄宿图的一个子域，这要比contentGravity属性灵活许多。contentRect是一个单位坐标，长宽最大都为1。默认为{0，0，1，1}，当设置为{0，0，0.5，0.5}，则显示效果如下图：</li>
+</ul>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/004ddacd5a9506600889fc2c32686262.png" alt="contentsRect"></p>
+<ul>
+<li>contentRect的另外一个用途就是ImageSprites（图片拼合），把多张图片放在一张大的图片上，然后使用contentRect分别显示每一张图片，去掉不显示的部分，这就是图片拼合。在游戏编程中非常常见。加载一张大图要比加载多张小图效率要高。</li>
+</ul>
+<h3 id="contentsCenter属性"><a href="#contentsCenter属性" class="headerlink" title="contentsCenter属性"></a>contentsCenter属性</h3><ul>
+<li>contentsCenter属性表示图层相对于寄宿图的位置与大小，可以用来定义图片的拉伸。</li>
+<li>如下图，虚线框为图层的区域，灰色为内容的区域。</li>
+</ul>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/01278b2b759e5b3c5fc5ae2a961a71ee.png" alt="contentCenter"></p>
+<ul>
+<li>该属性相当于UIImage的<code>resizableImageWithCapInsets:</code>方法</li>
+</ul>
+<h3 id="customDrawing"><a href="#customDrawing" class="headerlink" title="customDrawing"></a>customDrawing</h3><ul>
+<li>除了直接给contents属性设置CGImage，也可以通过CoreGraphics直接绘制寄宿图。使用UIVIew 的drawRect:方法来自定义绘制</li>
+<li>除了重写drawRect:方法，也可以通过设置CALayer的代理，使用代理方法<code>(void)displayLayer:</code>来实现重绘，但是强烈建议使用前一种方法。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liujinlongxa.com/2015/12/27/《ios核心动画高级技巧》阅读笔记(1)/" data-id="civ7gro4z001ah4m0a60zbpsh" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/12/27/《ios核心动画高级技巧》阅读笔记(3)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          《ios核心动画高级技巧》阅读笔记(3)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/12/27/《ios核心动画高级技巧》阅读笔记(2)/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">《ios核心动画高级技巧》阅读笔记(2)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS-Tips/">iOS Tips</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/">iOS开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/树莓派/">树莓派</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Autolayout/">Autolayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CocoaPods/">CocoaPods</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CoreAnimation/">CoreAnimation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Emoji表情/">Emoji表情</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDFA/">IDFA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSAttributedString/">NSAttributedString</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH/">SSH</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scheme/">Scheme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Target/">Target</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIButton/">UIButton</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UILabel/">UILabel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebDAV/">WebDAV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS开发/">iOS开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ownCloud/">ownCloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/加密解密/">加密解密</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/本地化/">本地化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树莓派/">树莓派</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/预处理宏/">预处理宏</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Autolayout/" style="font-size: 10px;">Autolayout</a> <a href="/tags/CocoaPods/" style="font-size: 10px;">CocoaPods</a> <a href="/tags/CoreAnimation/" style="font-size: 10px;">CoreAnimation</a> <a href="/tags/Emoji表情/" style="font-size: 10px;">Emoji表情</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDFA/" style="font-size: 10px;">IDFA</a> <a href="/tags/NSAttributedString/" style="font-size: 10px;">NSAttributedString</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/Scheme/" style="font-size: 10px;">Scheme</a> <a href="/tags/Swift/" style="font-size: 10px;">Swift</a> <a href="/tags/Target/" style="font-size: 15px;">Target</a> <a href="/tags/UIButton/" style="font-size: 10px;">UIButton</a> <a href="/tags/UILabel/" style="font-size: 15px;">UILabel</a> <a href="/tags/WebDAV/" style="font-size: 10px;">WebDAV</a> <a href="/tags/iOS开发/" style="font-size: 10px;">iOS开发</a> <a href="/tags/ownCloud/" style="font-size: 10px;">ownCloud</a> <a href="/tags/其他/" style="font-size: 20px;">其他</a> <a href="/tags/加密解密/" style="font-size: 10px;">加密解密</a> <a href="/tags/本地化/" style="font-size: 10px;">本地化</a> <a href="/tags/树莓派/" style="font-size: 10px;">树莓派</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/预处理宏/" style="font-size: 10px;">预处理宏</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/11/05/使用nat123实现外网ssh连接内网树莓派设备/">使用nat123实现外网ssh连接内网树莓派设备</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/28/Swift3中的预处理宏/">Swift3中的预处理宏</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/26/给多个Target添加CocoaPods/">给多个Target添加CocoaPods</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/25/如何获取WebView的UserAgent/">如何获取WebView的UserAgent</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/18/iOS10无法获取IDFA的问题/">iOS10无法获取IDFA的问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 liujinlongxa<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

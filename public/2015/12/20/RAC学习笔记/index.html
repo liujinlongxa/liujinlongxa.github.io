@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>RAC学习笔记 | liujinlongxa的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="RAC简介RAC要解决的问题是传统ios中事件，通知，回调的机制十分的繁琐。
+常规用法target-action
+RAC可以替代一般的target-action操作，例如监测textField的文字的改变，不是用RAC的写法
+
+12345678910111213141516171819- (void)viewDidLoad &amp;#123;    [super viewDidLoad];    UIT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RAC学习笔记">
+<meta property="og:url" content="http://liujinlongxa.com/2015/12/20/RAC学习笔记/index.html">
+<meta property="og:site_name" content="liujinlongxa的技术博客">
+<meta property="og:description" content="RAC简介RAC要解决的问题是传统ios中事件，通知，回调的机制十分的繁琐。
+常规用法target-action
+RAC可以替代一般的target-action操作，例如监测textField的文字的改变，不是用RAC的写法
+
+12345678910111213141516171819- (void)viewDidLoad &amp;#123;    [super viewDidLoad];    UIT">
+<meta property="og:updated_time" content="2016-11-06T02:47:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RAC学习笔记">
+<meta name="twitter:description" content="RAC简介RAC要解决的问题是传统ios中事件，通知，回调的机制十分的繁琐。
+常规用法target-action
+RAC可以替代一般的target-action操作，例如监测textField的文字的改变，不是用RAC的写法
+
+12345678910111213141516171819- (void)viewDidLoad &amp;#123;    [super viewDidLoad];    UIT">
+  
+    <link rel="alternate" href="/atom.xml" title="liujinlongxa的技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">liujinlongxa的技术博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://liujinlongxa.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-RAC学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/12/20/RAC学习笔记/" class="article-date">
+  <time datetime="2015-12-19T16:00:00.000Z" itemprop="datePublished">2015-12-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      RAC学习笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="RAC简介"><a href="#RAC简介" class="headerlink" title="RAC简介"></a>RAC简介</h2><p>RAC要解决的问题是传统ios中事件，通知，回调的机制十分的繁琐。</p>
+<h2 id="常规用法"><a href="#常规用法" class="headerlink" title="常规用法"></a>常规用法</h2><h3 id="target-action"><a href="#target-action" class="headerlink" title="target-action"></a>target-action</h3><ul>
+<li>RAC可以替代一般的target-action操作，例如监测textField的文字的改变，不是用RAC的写法</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line"></div><div class="line">    <span class="built_in">UITextField</span> *text = (&#123;</div><div class="line">        <span class="built_in">UITextField</span> *text = [[<span class="built_in">UITextField</span> alloc] init];</div><div class="line">        [<span class="keyword">self</span>.view addSubview:text];</div><div class="line">        [text mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">            make.center.equalTo(<span class="keyword">self</span>.view);</div><div class="line">            make.size.mas_equalTo(<span class="built_in">CGSizeMake</span>(<span class="number">200</span>, <span class="number">40</span>));</div><div class="line">        &#125;];</div><div class="line">        text.backgroundColor = [<span class="built_in">UIColor</span> redColor];</div><div class="line">        [text addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(textDidChange:) forControlEvents:<span class="built_in">UIControlEventEditingChanged</span>];</div><div class="line">        text;</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)textDidChange:(<span class="built_in">UITextField</span> *)sender &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"did change: %@"</span>, sender);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>使用RAC的写法：<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line"></div><div class="line">    <span class="built_in">UITextField</span> *text = (&#123;</div><div class="line">        <span class="built_in">UITextField</span> *text = [[<span class="built_in">UITextField</span> alloc] init];</div><div class="line">        [<span class="keyword">self</span>.view addSubview:text];</div><div class="line">        [text mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">            make.center.equalTo(<span class="keyword">self</span>.view);</div><div class="line">            make.size.mas_equalTo(<span class="built_in">CGSizeMake</span>(<span class="number">200</span>, <span class="number">40</span>));</div><div class="line">        &#125;];</div><div class="line">        text.backgroundColor = [<span class="built_in">UIColor</span> redColor];</div><div class="line"></div><div class="line">        [[text rac_signalForControlEvents:<span class="built_in">UIControlEventEditingChanged</span>] subscribeNext:^(<span class="keyword">id</span> x) &#123;</div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, x);</div><div class="line">        &#125;];</div><div class="line"></div><div class="line">        <span class="comment">// 或者</span></div><div class="line">        <span class="comment">//[text.rac_textSignal subscribeNext:^(id x) &#123;</span></div><div class="line">        <span class="comment">//    NSLog(@"%@", x);</span></div><div class="line">        <span class="comment">//&#125;];</span></div><div class="line"></div><div class="line">        text;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="手势中使用RAC"><a href="#手势中使用RAC" class="headerlink" title="手势中使用RAC"></a>手势中使用RAC</h3><ul>
+<li>RAC可以替换手势的方法，代码如下</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line"></div><div class="line">    <span class="keyword">self</span>.view.userInteractionEnabled = <span class="literal">YES</span>;</div><div class="line">    <span class="built_in">UITapGestureRecognizer</span> *tap = [[<span class="built_in">UITapGestureRecognizer</span> alloc] init];</div><div class="line">    [[tap rac_gestureSignal] subscribeNext:^(<span class="keyword">id</span> x) &#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, x);</div><div class="line">    &#125;];</div><div class="line">    [<span class="keyword">self</span>.view addGestureRecognizer:tap];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="通知"><a href="#通知" class="headerlink" title="通知"></a>通知</h3><ul>
+<li>RAC可以代替通知，并且RAC的通知不用移出</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    [[[<span class="built_in">NSNotificationCenter</span> defaultCenter] rac_addObserverForName:<span class="built_in">UIApplicationDidBecomeActiveNotification</span> object:<span class="literal">nil</span>] subscribeNext:^(<span class="keyword">id</span> x) &#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, x);</div><div class="line">    &#125;];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="定制器"><a href="#定制器" class="headerlink" title="定制器"></a>定制器</h3><ul>
+<li>RAC可以代替定时器</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line"></div><div class="line">    <span class="comment">// 延迟2秒执行</span></div><div class="line">    [[RACScheduler mainThreadScheduler] afterDelay:<span class="number">2.0</span> schedule:^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"haha"</span>);</div><div class="line">    &#125;];</div><div class="line"></div><div class="line">    <span class="comment">// interval为间隔事件，scheduler为在那个线程上执行，leeway为多久之后开始执行。</span></div><div class="line">    [[RACSignal interval:<span class="number">2.0</span> onScheduler:[RACScheduler mainThreadScheduler] withLeeway:<span class="number">5.0</span>] subscribeNext:^(<span class="built_in">NSDate</span> x) &#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, x);</div><div class="line">    &#125;];</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h3><ul>
+<li>RAC可以替换代理，但仅限没有返回值的代理</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()&lt;<span class="title">UITableViewDelegate</span>&gt;</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UIAlertView</span> *alertView;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line"></div><div class="line">    <span class="keyword">self</span>.alertView = [[<span class="built_in">UIAlertView</span> alloc] initWithTitle:<span class="string">@"RAC"</span> message:<span class="string">@"test"</span> delegate:<span class="keyword">self</span> cancelButtonTitle:<span class="string">@"OK"</span> otherButtonTitles: <span class="literal">nil</span>];</div><div class="line">    [[<span class="keyword">self</span> rac_signalForSelector:<span class="keyword">@selector</span>(alertView:clickedButtonAtIndex:) fromProtocol:<span class="class"><span class="keyword">@protocol</span>(<span class="title">UIAlertViewDelegate</span>)]<span class="title">subscribeNext</span>:^(<span class="title">id</span> <span class="title">x</span>) </span>&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,x);</div><div class="line">    &#125;];</div><div class="line">    <span class="comment">// 或者</span></div><div class="line">    <span class="comment">// [[self.alertView rac_buttonClickedSignal] subscribeNext:^(id x) &#123;</span></div><div class="line">    <span class="comment">//     NSLog(@"%@", x);</span></div><div class="line">    <span class="comment">// &#125;];</span></div><div class="line"></div><div class="line">    [<span class="keyword">self</span>.alertView show];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<h3 id="KVO"><a href="#KVO" class="headerlink" title="KVO"></a>KVO</h3><ul>
+<li>RAC可以替换KVO</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()</span></div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">NSInteger</span> index;</div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line"></div><div class="line">    [RACObserve(<span class="keyword">self</span>, index) subscribeNext:^(<span class="keyword">id</span> x) &#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, x);</div><div class="line">    &#125;];</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span>&lt;<span class="built_in">UITouch</span> *&gt; *)touches withEvent:(<span class="built_in">UIEvent</span> *)event &#123;</div><div class="line">    <span class="keyword">self</span>.index++;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<h2 id="高级用法"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h2><h3 id="创建信号"><a href="#创建信号" class="headerlink" title="创建信号"></a>创建信号</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line"></div><div class="line">    RACSignal *signal = [RACSignal createSignal:^RACDisposable *(<span class="keyword">id</span>&lt;RACSubscriber&gt; subscriber) &#123;</div><div class="line">        <span class="built_in">NSURLRequest</span> *req = [<span class="built_in">NSURLRequest</span> requestWithURL:[<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://www.baidu.com"</span>]];</div><div class="line">        [<span class="built_in">NSURLConnection</span> sendAsynchronousRequest:req queue:[<span class="built_in">NSOperationQueue</span> mainQueue] completionHandler:^(<span class="built_in">NSURLResponse</span> * _Nullable response, <span class="built_in">NSData</span> * _Nullable data, <span class="built_in">NSError</span> * _Nullable connectionError) &#123;</div><div class="line">            <span class="keyword">if</span> (connectionError) &#123;</div><div class="line">                <span class="comment">// 请求失败</span></div><div class="line">                [subscriber sendError:connectionError];</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> &#123;</div><div class="line">                <span class="comment">// 请求成功</span></div><div class="line">                [subscriber sendNext:data];</div><div class="line">            &#125;</div><div class="line">            [subscriber sendCompleted];</div><div class="line">        &#125;];</div><div class="line">        <span class="keyword">return</span> [RACDisposable disposableWithBlock:^&#123;</div><div class="line">            <span class="comment">// 取消订阅</span></div><div class="line">            <span class="built_in">NSLog</span>(<span class="string">@"cancel"</span>);</div><div class="line">        &#125;];</div><div class="line">    &#125;];</div><div class="line"></div><div class="line">    RACDisposable *disposable = [signal subscribeNext:^(<span class="built_in">NSData</span> *responseData) &#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, responseData);</div><div class="line">    &#125; error:^(<span class="built_in">NSError</span> *error) &#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, error);</div><div class="line">    &#125; completed:^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"completed"</span>);</div><div class="line">    &#125;];</div><div class="line"></div><div class="line">    <span class="comment">// 订阅完就取消订阅，这样就不会执行订阅block了</span></div><div class="line">    [disposable dispose];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="信号处理"><a href="#信号处理" class="headerlink" title="信号处理"></a>信号处理</h3><ul>
+<li>map:映射</li>
+<li>filter:过滤</li>
+<li>delay:延时</li>
+<li>startWith:在接收到信号前，先接收到一个信号</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line"></div><div class="line">    <span class="built_in">UITextField</span> *textField = (&#123;</div><div class="line">        <span class="built_in">UITextField</span> *view = [[<span class="built_in">UITextField</span> alloc] init];</div><div class="line">        [<span class="keyword">self</span>.view addSubview:view];</div><div class="line">        [view mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">            make.center.equalTo(<span class="keyword">self</span>.view);</div><div class="line">            make.size.mas_equalTo(<span class="built_in">CGSizeMake</span>(<span class="number">200</span>, <span class="number">40</span>));</div><div class="line">        &#125;];</div><div class="line">        view.backgroundColor = [<span class="built_in">UIColor</span> redColor];</div><div class="line">        view;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    [[[[[[textField rac_textSignal] map:^<span class="keyword">id</span>(<span class="keyword">id</span> value) &#123;</div><div class="line">        <span class="built_in">NSString</span> *str = (<span class="built_in">NSString</span> *)value;</div><div class="line">        <span class="keyword">return</span> @([str length]);</div><div class="line">    &#125;] filter:^<span class="built_in">BOOL</span>(<span class="keyword">id</span> value) &#123;</div><div class="line">        <span class="keyword">return</span> [value integerValue] &gt; <span class="number">3</span>;</div><div class="line">    &#125;] delay:<span class="number">2</span>] startWith:<span class="string">@"haha"</span>] subscribeNext:^(<span class="keyword">id</span> x) &#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, x);</div><div class="line">    &#125;];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>timeout:超时</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">RACSignal *signal = [[RACSignal createSignal:^RACDisposable *(<span class="keyword">id</span>&lt;RACSubscriber&gt; subscriber) &#123;</div><div class="line"></div><div class="line">    [[RACScheduler mainThreadScheduler] afterDelay:<span class="number">1.0</span> schedule:^&#123;</div><div class="line">        [subscriber sendNext:<span class="string">@"hello"</span>];</div><div class="line">        [subscriber sendCompleted];</div><div class="line">    &#125;];</div><div class="line">    <span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line"></div><div class="line">&#125;] timeout:<span class="number">2.0</span> onScheduler:[RACScheduler mainThreadScheduler]]; <span class="comment">// 如果请求没有在2秒内完成，则请求超时，会调用errorBlock</span></div><div class="line"></div><div class="line">[signal subscribeNext:^(<span class="built_in">NSData</span> *responseData) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, responseData);</div><div class="line">&#125; error:^(<span class="built_in">NSError</span> *error) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, error);</div><div class="line">&#125; completed:^&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"completed"</span>);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<ul>
+<li>take:接收到多次信号，但只处理前几次信号</li>
+<li>takeLast:只处理最后几次信号</li>
+<li>skip:忽略几次</li>
+<li>takeUntilBlock:返回YES可以表示不接收，返回NO表示接收该信号，与filter类似</li>
+<li>takeWhileBlock:当返回一次YES后，就停止接收所有信号</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">RACSignal *signal = [[RACSignal createSignal:^RACDisposable *(<span class="keyword">id</span>&lt;RACSubscriber&gt; subscriber) &#123;</div><div class="line"></div><div class="line">    [subscriber sendNext:<span class="string">@"hello1"</span>];</div><div class="line">    [subscriber sendNext:<span class="string">@"hello2"</span>];</div><div class="line">    [subscriber sendNext:<span class="string">@"hello3"</span>];</div><div class="line">    [subscriber sendNext:<span class="string">@"hello4"</span>];</div><div class="line">    [subscriber sendNext:<span class="string">@"hello5"</span>];</div><div class="line">    [subscriber sendCompleted];</div><div class="line">    <span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line"></div><div class="line">&#125;] takeLast:<span class="number">2</span>];</div><div class="line"></div><div class="line">[signal subscribeNext:^(<span class="keyword">id</span> value) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, value);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<ul>
+<li>throttle:节流，可以规定两个信号的间隔时间必须大于某个值</li>
+<li>distinctUntilChanged:直到订阅的内容发生变化才会处理信号</li>
+<li>ignore:忽略某些信号值</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">UITextField</span> *textField = (&#123;</div><div class="line">    <span class="built_in">UITextField</span> *view = [[<span class="built_in">UITextField</span> alloc] init];</div><div class="line">    [<span class="keyword">self</span>.view addSubview:view];</div><div class="line">    [view mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">        make.center.equalTo(<span class="keyword">self</span>.view);</div><div class="line">        make.size.mas_equalTo(<span class="built_in">CGSizeMake</span>(<span class="number">200</span>, <span class="number">40</span>));</div><div class="line">    &#125;];</div><div class="line">    view.backgroundColor = [<span class="built_in">UIColor</span> redColor];</div><div class="line">    view;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 如果文字的改变速度过快，则不处理，两次信号间隔时间必须大于0.3秒</span></div><div class="line">[[[[[textField rac_textSignal] throttle:<span class="number">0.3</span>] distinctUntilChanged] ignore:<span class="string">@""</span>] subscribeNext:^(<span class="keyword">id</span> x) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, x);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<ul>
+<li>flattenMap:订阅的值为一个信号，将该信号转为订阅具体的值</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">UITextField</span> *textField = (&#123;</div><div class="line">    <span class="built_in">UITextField</span> *view = [[<span class="built_in">UITextField</span> alloc] init];</div><div class="line">    [<span class="keyword">self</span>.view addSubview:view];</div><div class="line">    [view mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">        make.center.equalTo(<span class="keyword">self</span>.view);</div><div class="line">        make.size.mas_equalTo(<span class="built_in">CGSizeMake</span>(<span class="number">200</span>, <span class="number">40</span>));</div><div class="line">    &#125;];</div><div class="line">    view.backgroundColor = [<span class="built_in">UIColor</span> redColor];</div><div class="line">    view;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">[[[textField.rac_textSignal throttle:<span class="number">0.3</span>] flattenMap:^<span class="keyword">id</span>(<span class="keyword">id</span> value) &#123;</div><div class="line">    <span class="keyword">return</span> [RACSignal createSignal:^RACDisposable *(<span class="keyword">id</span>&lt;RACSubscriber&gt; subscriber) &#123;</div><div class="line">        [subscriber sendNext:<span class="string">@"aaa"</span>];</div><div class="line">        [subscriber sendCompleted];</div><div class="line">        <span class="keyword">return</span> [RACDisposable disposableWithBlock:^&#123;</div><div class="line"></div><div class="line">        &#125;];</div><div class="line">    &#125;];</div><div class="line">&#125;] subscribeNext:^(<span class="keyword">id</span> x) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, x);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<ul>
+<li>repeat:重复发送某个信号</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">RACSignal *signal = [[RACSignal createSignal:^RACDisposable *(<span class="keyword">id</span>&lt;RACSubscriber&gt; subscriber) &#123;</div><div class="line">        [subscriber sendNext:[<span class="built_in">NSDate</span> date]];</div><div class="line">        [subscriber sendCompleted];</div><div class="line">        <span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line">    &#125;] repeat];</div><div class="line"></div><div class="line">    [signal subscribeNext:^(<span class="keyword">id</span> x) &#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, x);</div><div class="line">    &#125;];</div></pre></td></tr></table></figure>
+<ul>
+<li>merge:同时订阅两个信号源，无论哪个发出信号，都会执行</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">RACSignal *signalA = [RACSignal createSignal:^RACDisposable *(<span class="keyword">id</span>&lt;RACSubscriber&gt; subscriber) &#123;</div><div class="line">      dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">2.0</span> * <span class="built_in">NSEC_PER_SEC</span>)), dispatch_get_main_queue(), ^&#123;</div><div class="line">          [subscriber sendNext:<span class="string">@"1"</span>];</div><div class="line">          [subscriber sendCompleted];</div><div class="line">      &#125;);</div><div class="line">      <span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line">  &#125;];</div><div class="line"></div><div class="line">  RACSignal *signalB = [RACSignal createSignal:^RACDisposable *(<span class="keyword">id</span>&lt;RACSubscriber&gt; subscriber) &#123;</div><div class="line">      dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">3.0</span> * <span class="built_in">NSEC_PER_SEC</span>)), dispatch_get_main_queue(), ^&#123;</div><div class="line">          [subscriber sendNext:<span class="string">@"2"</span>];</div><div class="line">          [subscriber sendCompleted];</div><div class="line">      &#125;);</div><div class="line">      <span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line">  &#125;];</div><div class="line"></div><div class="line">  [[signalA merge:signalB] subscribeNext:^(<span class="keyword">id</span> x) &#123;</div><div class="line">      <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, x);</div><div class="line">  &#125;];</div></pre></td></tr></table></figure>
+<ul>
+<li>combineLatest:reduce:这是一个RACSignal的类方法，表示同时聚合多个信号</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">RACSignal *signalA = [RACSignal createSignal:^RACDisposable *(<span class="keyword">id</span>&lt;RACSubscriber&gt; subscriber) &#123;</div><div class="line">        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">2.0</span> * <span class="built_in">NSEC_PER_SEC</span>)), dispatch_get_main_queue(), ^&#123;</div><div class="line">            [subscriber sendNext:<span class="string">@"1"</span>];</div><div class="line">            [subscriber sendCompleted];</div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line">    &#125;];</div><div class="line"></div><div class="line">    RACSignal *signalB = [RACSignal createSignal:^RACDisposable *(<span class="keyword">id</span>&lt;RACSubscriber&gt; subscriber) &#123;</div><div class="line">        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">3.0</span> * <span class="built_in">NSEC_PER_SEC</span>)), dispatch_get_main_queue(), ^&#123;</div><div class="line">            [subscriber sendNext:<span class="string">@"2"</span>];</div><div class="line">            [subscriber sendCompleted];</div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line">    &#125;];</div><div class="line"></div><div class="line">    [[RACSignal combineLatest:@[signalA, signalB] reduce:^<span class="keyword">id</span>(<span class="built_in">NSString</span> *s1, <span class="built_in">NSString</span> *s2)&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"s1=%@, s2=%@"</span>, s1, s2);</div><div class="line">        <span class="keyword">return</span> [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@%@"</span>, s1, s2];</div><div class="line">    &#125;] subscribeNext:^(<span class="keyword">id</span> x) &#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, x);</div><div class="line">    &#125;];</div></pre></td></tr></table></figure>
+<ul>
+<li>concat:先订阅信号A，A执行完成后再订阅信号B</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">RACSignal *signalA = [RACSignal createSignal:^RACDisposable *(<span class="keyword">id</span>&lt;RACSubscriber&gt; subscriber) &#123;</div><div class="line">    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">2.0</span> * <span class="built_in">NSEC_PER_SEC</span>)), dispatch_get_main_queue(), ^&#123;</div><div class="line">        [subscriber sendNext:<span class="string">@"1"</span>];</div><div class="line">        [subscriber sendCompleted];</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line">&#125;];</div><div class="line"></div><div class="line">RACSignal *signalB = [RACSignal createSignal:^RACDisposable *(<span class="keyword">id</span>&lt;RACSubscriber&gt; subscriber) &#123;</div><div class="line">    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">2.0</span> * <span class="built_in">NSEC_PER_SEC</span>)), dispatch_get_main_queue(), ^&#123;</div><div class="line">        [subscriber sendNext:<span class="string">@"2"</span>];</div><div class="line">        [subscriber sendCompleted];</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line">&#125;];</div><div class="line"></div><div class="line"><span class="comment">// 先订阅A，A执行完成后，再执行B，如果A失败了，不会再执行B</span></div><div class="line">[[signalA concat:signalB] subscribeNext:^(<span class="keyword">id</span> x) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, x);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<ul>
+<li>zipWith:两个信号都发出后，再执行，也可以使用combineLatest:</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">RACSignal *signalA = [RACSignal createSignal:^RACDisposable *(<span class="keyword">id</span>&lt;RACSubscriber&gt; subscriber) &#123;</div><div class="line">    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">2.0</span> * <span class="built_in">NSEC_PER_SEC</span>)), dispatch_get_main_queue(), ^&#123;</div><div class="line">        [subscriber sendNext:<span class="string">@"1"</span>];</div><div class="line">        [subscriber sendCompleted];</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line">&#125;];</div><div class="line"></div><div class="line">RACSignal *signalB = [RACSignal createSignal:^RACDisposable *(<span class="keyword">id</span>&lt;RACSubscriber&gt; subscriber) &#123;</div><div class="line">    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">3.0</span> * <span class="built_in">NSEC_PER_SEC</span>)), dispatch_get_main_queue(), ^&#123;</div><div class="line">        [subscriber sendNext:<span class="string">@"2"</span>];</div><div class="line">        [subscriber sendCompleted];</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line">&#125;];</div><div class="line"></div><div class="line">[[signalA zipWith:signalB] subscribeNext:^(<span class="keyword">id</span> x) &#123;</div><div class="line">    <span class="comment">// x是一个RACTuple，包含了signalA和signalB的值</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, x);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<h3 id="RAC的坑"><a href="#RAC的坑" class="headerlink" title="RAC的坑"></a>RAC的坑</h3><ul>
+<li>side effect: 一个信号源被多个订阅者订阅，每个订阅者收到的信号可能不一样。解决方法：使用reply</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">RACSignal *signalA = [[RACSignal createSignal:^RACDisposable *(<span class="keyword">id</span>&lt;RACSubscriber&gt; subscriber) &#123;</div><div class="line">    <span class="keyword">static</span> <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">    i++;</div><div class="line">    [subscriber sendNext:@(i)];</div><div class="line">    [subscriber sendCompleted];</div><div class="line">    <span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line">&#125;] replay];</div><div class="line"></div><div class="line">[signalA subscribeNext:^(<span class="keyword">id</span> x) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, x);</div><div class="line">&#125;];</div><div class="line"></div><div class="line">[signalA subscribeNext:^(<span class="keyword">id</span> x) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, x);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liujinlongxa.com/2015/12/20/RAC学习笔记/" data-id="civ7gro4s0016h4m0h1rvwver" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/12/27/《ios核心动画高级技巧》阅读笔记(2)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          《ios核心动画高级技巧》阅读笔记(2)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/12/13/CoreAnimation编程指南学习笔记(2)/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">CoreAnimation编程指南学习笔记(2)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS-Tips/">iOS Tips</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/">iOS开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/树莓派/">树莓派</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Autolayout/">Autolayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CocoaPods/">CocoaPods</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CoreAnimation/">CoreAnimation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Emoji表情/">Emoji表情</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDFA/">IDFA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSAttributedString/">NSAttributedString</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH/">SSH</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scheme/">Scheme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Target/">Target</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIButton/">UIButton</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UILabel/">UILabel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebDAV/">WebDAV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS开发/">iOS开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ownCloud/">ownCloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/加密解密/">加密解密</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/本地化/">本地化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树莓派/">树莓派</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/预处理宏/">预处理宏</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Autolayout/" style="font-size: 10px;">Autolayout</a> <a href="/tags/CocoaPods/" style="font-size: 10px;">CocoaPods</a> <a href="/tags/CoreAnimation/" style="font-size: 10px;">CoreAnimation</a> <a href="/tags/Emoji表情/" style="font-size: 10px;">Emoji表情</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDFA/" style="font-size: 10px;">IDFA</a> <a href="/tags/NSAttributedString/" style="font-size: 10px;">NSAttributedString</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/Scheme/" style="font-size: 10px;">Scheme</a> <a href="/tags/Swift/" style="font-size: 10px;">Swift</a> <a href="/tags/Target/" style="font-size: 15px;">Target</a> <a href="/tags/UIButton/" style="font-size: 10px;">UIButton</a> <a href="/tags/UILabel/" style="font-size: 15px;">UILabel</a> <a href="/tags/WebDAV/" style="font-size: 10px;">WebDAV</a> <a href="/tags/iOS开发/" style="font-size: 10px;">iOS开发</a> <a href="/tags/ownCloud/" style="font-size: 10px;">ownCloud</a> <a href="/tags/其他/" style="font-size: 20px;">其他</a> <a href="/tags/加密解密/" style="font-size: 10px;">加密解密</a> <a href="/tags/本地化/" style="font-size: 10px;">本地化</a> <a href="/tags/树莓派/" style="font-size: 10px;">树莓派</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/预处理宏/" style="font-size: 10px;">预处理宏</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/11/05/使用nat123实现外网ssh连接内网树莓派设备/">使用nat123实现外网ssh连接内网树莓派设备</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/28/Swift3中的预处理宏/">Swift3中的预处理宏</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/26/给多个Target添加CocoaPods/">给多个Target添加CocoaPods</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/25/如何获取WebView的UserAgent/">如何获取WebView的UserAgent</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/18/iOS10无法获取IDFA的问题/">iOS10无法获取IDFA的问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 liujinlongxa<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>iOS中的富文本技术(1)TextKit简介 | liujinlongxa的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言 最近项目中用到了图文混排，所以就研究了一下iOS中的富文本，打算把研究的结果分享一下，也是对自己学习的一个总结。初步打算写两篇，这是第一篇，主要介绍iOS7新出的TextKit的简单实用。
+简介TextKit是iOS7新推出的文字排版技术，使用TextKit可以很方便的实现富文本、表情混排和图文混排等效果。TextKit中的几个关键的类：
+
+NSAttributeString和NSMutab">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS中的富文本技术(1)TextKit简介">
+<meta property="og:url" content="http://liujinlongxa.com/2015/10/04/iOS中的富文本技术(1)TextKit简介/index.html">
+<meta property="og:site_name" content="liujinlongxa的技术博客">
+<meta property="og:description" content="前言 最近项目中用到了图文混排，所以就研究了一下iOS中的富文本，打算把研究的结果分享一下，也是对自己学习的一个总结。初步打算写两篇，这是第一篇，主要介绍iOS7新出的TextKit的简单实用。
+简介TextKit是iOS7新推出的文字排版技术，使用TextKit可以很方便的实现富文本、表情混排和图文混排等效果。TextKit中的几个关键的类：
+
+NSAttributeString和NSMutab">
+<meta property="og:image" content="http://img.blog.csdn.net/20150402235843040">
+<meta property="og:image" content="http://img.blog.csdn.net/20150403000308303">
+<meta property="og:updated_time" content="2016-11-06T02:47:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS中的富文本技术(1)TextKit简介">
+<meta name="twitter:description" content="前言 最近项目中用到了图文混排，所以就研究了一下iOS中的富文本，打算把研究的结果分享一下，也是对自己学习的一个总结。初步打算写两篇，这是第一篇，主要介绍iOS7新出的TextKit的简单实用。
+简介TextKit是iOS7新推出的文字排版技术，使用TextKit可以很方便的实现富文本、表情混排和图文混排等效果。TextKit中的几个关键的类：
+
+NSAttributeString和NSMutab">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20150402235843040">
+  
+    <link rel="alternate" href="/atom.xml" title="liujinlongxa的技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">liujinlongxa的技术博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://liujinlongxa.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-iOS中的富文本技术(1)TextKit简介" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/04/iOS中的富文本技术(1)TextKit简介/" class="article-date">
+  <time datetime="2015-10-03T16:00:00.000Z" itemprop="datePublished">2015-10-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS中的富文本技术(1)TextKit简介
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p> 最近项目中用到了图文混排，所以就研究了一下iOS中的富文本，打算把研究的结果分享一下，也是对自己学习的一个总结。初步打算写两篇，这是第一篇，主要介绍iOS7新出的TextKit的简单实用。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>TextKit是iOS7新推出的文字排版技术，使用TextKit可以很方便的实现富文本、表情混排和图文混排等效果。TextKit中的几个关键的类：</p>
+<ul>
+<li><code>NSAttributeString</code>和<code>NSMutableAttributeString</code>：属性字符串和可变属性字符串，这个TextKit中最基础的类，文字中的所有富文本属性都是通过属性字符串来表现出来的</li>
+<li><code>NSTextAttachment</code>：字符串的附件，将图片，可以将图片等内容当做一个附件插入到属性字符串中，可以实现表情混排，链接等效果</li>
+</ul>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>废话不多说，直接上代码，先看一下效果图：<br><img src="http://img.blog.csdn.net/20150402235843040" alt="这里写图片描述"></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"TextKitEmojiTextVC.h"</span></span></div><div class="line"></div><div class="line"><span class="built_in">NSString</span> * str = <span class="string">@"asfasfa阿斯顿发生大发撒放大离开家撒旦法按时付款就阿里；双方均asfasdfasfdalkjsflakj阿斯顿发生大发撒旦法asdfasdfaasfdaasa撒旦法；拉斯克奖发了奥斯卡奖罚洛杉矶的法律；看见谁发的阿斯利康就发；了数据库等法律按实际开发；阿里就开始放到了；安家费阿里山科技发达了开始将对方拉开始交电费了卡双方的空间啊发送卡飞机阿里开始就放暑假了罚款就是浪费"</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">TextKitEmojiTextVC</span> ()&lt;<span class="title">UITextViewDelegate</span>&gt;</span></div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UITextView</span> * textView;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">TextKitEmojiTextVC</span></span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line"></div><div class="line">    <span class="keyword">self</span>.title = <span class="string">@"普通文字排版&amp;表情混排"</span>;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">//初始化textView</span></div><div class="line">    <span class="keyword">self</span>.edgesForExtendedLayout = <span class="built_in">UIRectEdgeNone</span>;</div><div class="line">    <span class="keyword">self</span>.textView = [[<span class="built_in">UITextView</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">20</span>, <span class="number">20</span>, [<span class="built_in">UIScreen</span> mainScreen].bounds.size.width - <span class="number">40</span>, [<span class="built_in">UIScreen</span> mainScreen].bounds.size.height - <span class="number">40</span> - <span class="number">44</span> - <span class="number">20</span>)];</div><div class="line">    <span class="keyword">self</span>.textView.backgroundColor = [<span class="built_in">UIColor</span> cyanColor];</div><div class="line">    <span class="keyword">self</span>.textView.text = str;</div><div class="line">    <span class="keyword">self</span>.textView.font = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">15</span>];</div><div class="line">    <span class="keyword">self</span>.textView.editable = <span class="literal">NO</span>;</div><div class="line">    <span class="keyword">self</span>.textView.delegate = <span class="keyword">self</span>;</div><div class="line">    [<span class="keyword">self</span>.view addSubview:<span class="keyword">self</span>.textView];</div><div class="line"></div><div class="line">    <span class="comment">//设置常规属性</span></div><div class="line">    [<span class="keyword">self</span> setupNormalAttribute];</div><div class="line"></div><div class="line">    <span class="comment">//链接和表情</span></div><div class="line">    [<span class="keyword">self</span> setupEmojiAndLink];</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> *  向文本中添加表情，链接等</div><div class="line"> */</div><div class="line">- (<span class="keyword">void</span>)setupEmojiAndLink</div><div class="line">&#123;</div><div class="line"></div><div class="line">    <span class="built_in">NSMutableAttributedString</span> * mutStr = [<span class="keyword">self</span>.textView.attributedText mutableCopy];</div><div class="line"></div><div class="line">    <span class="comment">//添加表情</span></div><div class="line">    <span class="built_in">UIImage</span> * image1 = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"010"</span>];</div><div class="line">    <span class="built_in">NSTextAttachment</span> * attachment1 = [[<span class="built_in">NSTextAttachment</span> alloc] init];</div><div class="line">    attachment1.bounds = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">30</span>, <span class="number">30</span>);</div><div class="line">    attachment1.image = image1;</div><div class="line">    <span class="built_in">NSAttributedString</span> * attachStr1 = [<span class="built_in">NSAttributedString</span> attributedStringWithAttachment:attachment1];</div><div class="line">    [mutStr insertAttributedString:attachStr1 atIndex:<span class="number">50</span>];</div><div class="line"></div><div class="line">    <span class="comment">//添加表情</span></div><div class="line">    <span class="built_in">UIImage</span> * image2 = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"011"</span>];</div><div class="line">    <span class="built_in">NSTextAttachment</span> * attachment2 = [[<span class="built_in">NSTextAttachment</span> alloc] init];</div><div class="line">    attachment2.bounds = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">15</span>, <span class="number">15</span>);</div><div class="line">    attachment2.image = image2;</div><div class="line">    <span class="built_in">NSAttributedString</span> * attachStr2 = [<span class="built_in">NSAttributedString</span> attributedStringWithAttachment:attachment2];</div><div class="line">    [mutStr insertAttributedString:attachStr2 atIndex:<span class="number">100</span>];</div><div class="line"></div><div class="line">    <span class="comment">//添加链接</span></div><div class="line">    <span class="built_in">NSURL</span> * url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://www.baidu.com"</span>];</div><div class="line">    [mutStr addAttribute:<span class="built_in">NSLinkAttributeName</span> value:url range:<span class="built_in">NSMakeRange</span>(<span class="number">70</span>, <span class="number">10</span>)];</div><div class="line"></div><div class="line">    <span class="keyword">self</span>.textView.attributedText = [mutStr <span class="keyword">copy</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> *  设置常规属性</div><div class="line"> */</div><div class="line">- (<span class="keyword">void</span>)setupNormalAttribute</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSMutableAttributedString</span> * mutStr = [<span class="keyword">self</span>.textView.attributedText mutableCopy];</div><div class="line"></div><div class="line">    <span class="comment">//颜色</span></div><div class="line">    [mutStr addAttribute:<span class="built_in">NSForegroundColorAttributeName</span> value:[<span class="built_in">UIColor</span> redColor] range:<span class="built_in">NSMakeRange</span>(<span class="number">10</span>, <span class="number">10</span>)];</div><div class="line">    <span class="comment">//字体</span></div><div class="line">    [mutStr addAttribute:<span class="built_in">NSFontAttributeName</span> value:[<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">25</span>] range:<span class="built_in">NSMakeRange</span>(<span class="number">20</span>, <span class="number">5</span>)];</div><div class="line">    <span class="comment">//下划线</span></div><div class="line">    [mutStr addAttribute:<span class="built_in">NSUnderlineStyleAttributeName</span> value:@(<span class="built_in">NSUnderlineStyleSingle</span> | <span class="built_in">NSUnderlinePatternDot</span>) range:<span class="built_in">NSMakeRange</span>(<span class="number">32</span>, <span class="number">8</span>)];</div><div class="line">    <span class="comment">//空心字</span></div><div class="line">    [mutStr addAttribute:<span class="built_in">NSStrokeWidthAttributeName</span> value:@(<span class="number">2</span>) range:<span class="built_in">NSMakeRange</span>(<span class="number">42</span>, <span class="number">5</span>)];</div><div class="line">    <span class="keyword">self</span>.textView.attributedText = [mutStr <span class="keyword">copy</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> *  点击图片触发代理事件</div><div class="line"> */</div><div class="line">- (<span class="built_in">BOOL</span>)textView:(<span class="built_in">UITextView</span> *)textView shouldInteractWithTextAttachment:(<span class="built_in">NSTextAttachment</span> *)textAttachment inRange:(<span class="built_in">NSRange</span>)characterRange</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, textAttachment);</div><div class="line">    <span class="keyword">return</span> <span class="literal">NO</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> *  点击链接，触发代理事件</div><div class="line"> */</div><div class="line">- (<span class="built_in">BOOL</span>)textView:(<span class="built_in">UITextView</span> *)textView shouldInteractWithURL:(<span class="built_in">NSURL</span> *)URL inRange:(<span class="built_in">NSRange</span>)characterRange</div><div class="line">&#123;</div><div class="line">    [[<span class="built_in">UIApplication</span> sharedApplication] openURL:URL];</div><div class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)didReceiveMemoryWarning &#123;</div><div class="line">    [<span class="keyword">super</span> didReceiveMemoryWarning];</div><div class="line">    <span class="comment">// Dispose of any resources that can be recreated.</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p>图片环绕效果图：<br><img src="http://img.blog.csdn.net/20150403000308303" alt="这里写图片描述"></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"TextKitImageTextVC.h"</span></span></div><div class="line"></div><div class="line"><span class="built_in">NSString</span> * str1 = <span class="string">@"asfasfa阿斯顿发生大发撒放大离开家撒旦法按时付款就阿里；双方均asfasdfasfdalkjsflakj阿斯顿发生大发撒旦法asdfasdfaasfdaasa撒旦法；拉斯克奖发了奥斯卡奖罚洛杉矶的法律；看见谁发的阿斯利康就发；了数据库等法律按实际开发；阿里就开始放到了；安家费阿里山科技发达了开始将对方拉开始交电费了卡双方的空间啊发送卡飞机阿里开始就放暑假了罚款就是浪费asfasfa阿斯顿发生大发撒放大离开家撒旦法按时付款就阿里；双方均asfasdfasfdalkjsflakj阿斯顿发生大发撒旦法asdfasdfaasfdaasa撒旦法；拉斯克奖发了奥斯卡奖罚洛杉矶的法律；看见谁发的阿斯利康就发；了数据库等法律按实际开发；阿里就开始放到了；安家费阿里山科技发达了开始将对方拉开始交电费了卡双方的空间啊发送卡飞机阿里开始就放暑假了罚款就是浪费asfasfa阿斯顿发生大发撒放大离开家撒旦法按时付款就阿里；双方均asfasdfasfdalkjsflakj阿斯顿发生大发撒旦法asdfasdfaasfdaasa撒旦法；拉斯克奖发了奥斯卡奖罚洛杉矶的法律；看见谁发的阿斯利康就发；了数据库等法律按实际开发；阿里就开始放到了；安家费阿里山科技发达了开始将对方拉开始交电费了卡双方的空间啊发送卡飞机阿里开始就放暑假了罚款就是浪费"</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">TextKitImageTextVC</span> ()</span></div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UITextView</span> * textView;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">TextKitImageTextVC</span></span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    <span class="comment">// Do any additional setup after loading the view.</span></div><div class="line"></div><div class="line">    <span class="keyword">self</span>.title = <span class="string">@"文字环绕"</span>;</div><div class="line"></div><div class="line">    <span class="comment">//初始化textLabel</span></div><div class="line">    <span class="keyword">self</span>.edgesForExtendedLayout = <span class="built_in">UIRectEdgeNone</span>;</div><div class="line">    <span class="keyword">self</span>.textView = [[<span class="built_in">UITextView</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">20</span>, <span class="number">20</span>, [<span class="built_in">UIScreen</span> mainScreen].bounds.size.width - <span class="number">40</span>, [<span class="built_in">UIScreen</span> mainScreen].bounds.size.height - <span class="number">40</span> - <span class="number">44</span> - <span class="number">20</span>)];</div><div class="line">    <span class="keyword">self</span>.textView.backgroundColor = [<span class="built_in">UIColor</span> cyanColor];</div><div class="line">    <span class="keyword">self</span>.textView.text = str1;</div><div class="line">    <span class="keyword">self</span>.textView.font = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">15</span>];</div><div class="line">    <span class="keyword">self</span>.textView.editable = <span class="literal">NO</span>;</div><div class="line">    [<span class="keyword">self</span>.view addSubview:<span class="keyword">self</span>.textView];</div><div class="line"></div><div class="line">    <span class="comment">//图文混排，设置图片的位置</span></div><div class="line">    <span class="built_in">UIImageView</span> * imageView = [[<span class="built_in">UIImageView</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">120</span>, <span class="number">120</span>, <span class="number">100</span>, <span class="number">110</span>)];</div><div class="line">    imageView.image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"011"</span>];</div><div class="line">    imageView.backgroundColor = [<span class="built_in">UIColor</span> redColor];</div><div class="line">    [<span class="keyword">self</span>.view addSubview:imageView];</div><div class="line">    <span class="built_in">CGRect</span> rect = <span class="built_in">CGRectMake</span>(<span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line"></div><div class="line">    <span class="comment">//设置环绕的路径</span></div><div class="line">    <span class="built_in">UIBezierPath</span> * path = [<span class="built_in">UIBezierPath</span> bezierPathWithRect:rect];</div><div class="line">    <span class="keyword">self</span>.textView.textContainer.exclusionPaths = @[path];</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)didReceiveMemoryWarning &#123;</div><div class="line">    [<span class="keyword">super</span> didReceiveMemoryWarning];</div><div class="line">    <span class="comment">// Dispose of any resources that can be recreated.</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>TextKit极大的简化了文字排版的复杂度，但是它的缺点也很明显，就是只能在iOS7之后的系统中使用，很多需要兼容iOS7以前的系统的应用都没法使用。不过随着技术的发展，相信它的应用也会越来越广泛。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liujinlongxa.com/2015/10/04/iOS中的富文本技术(1)TextKit简介/" data-id="civ7gro3q0006h4m0w2jjuau1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/10/04/iOS中的多线程编程/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          iOS中的多线程编程
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/04/iOS中Emoji表情的判断/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">iOS中Emoji表情的判断</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS-Tips/">iOS Tips</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/">iOS开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/树莓派/">树莓派</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Autolayout/">Autolayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CocoaPods/">CocoaPods</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CoreAnimation/">CoreAnimation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Emoji表情/">Emoji表情</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDFA/">IDFA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSAttributedString/">NSAttributedString</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH/">SSH</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scheme/">Scheme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Target/">Target</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIButton/">UIButton</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UILabel/">UILabel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebDAV/">WebDAV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS开发/">iOS开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ownCloud/">ownCloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/加密解密/">加密解密</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/本地化/">本地化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树莓派/">树莓派</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/预处理宏/">预处理宏</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Autolayout/" style="font-size: 10px;">Autolayout</a> <a href="/tags/CocoaPods/" style="font-size: 10px;">CocoaPods</a> <a href="/tags/CoreAnimation/" style="font-size: 10px;">CoreAnimation</a> <a href="/tags/Emoji表情/" style="font-size: 10px;">Emoji表情</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDFA/" style="font-size: 10px;">IDFA</a> <a href="/tags/NSAttributedString/" style="font-size: 10px;">NSAttributedString</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/Scheme/" style="font-size: 10px;">Scheme</a> <a href="/tags/Swift/" style="font-size: 10px;">Swift</a> <a href="/tags/Target/" style="font-size: 15px;">Target</a> <a href="/tags/UIButton/" style="font-size: 10px;">UIButton</a> <a href="/tags/UILabel/" style="font-size: 15px;">UILabel</a> <a href="/tags/WebDAV/" style="font-size: 10px;">WebDAV</a> <a href="/tags/iOS开发/" style="font-size: 10px;">iOS开发</a> <a href="/tags/ownCloud/" style="font-size: 10px;">ownCloud</a> <a href="/tags/其他/" style="font-size: 20px;">其他</a> <a href="/tags/加密解密/" style="font-size: 10px;">加密解密</a> <a href="/tags/本地化/" style="font-size: 10px;">本地化</a> <a href="/tags/树莓派/" style="font-size: 10px;">树莓派</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/预处理宏/" style="font-size: 10px;">预处理宏</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/11/05/使用nat123实现外网ssh连接内网树莓派设备/">使用nat123实现外网ssh连接内网树莓派设备</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/28/Swift3中的预处理宏/">Swift3中的预处理宏</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/26/给多个Target添加CocoaPods/">给多个Target添加CocoaPods</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/25/如何获取WebView的UserAgent/">如何获取WebView的UserAgent</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/18/iOS10无法获取IDFA的问题/">iOS10无法获取IDFA的问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 liujinlongxa<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

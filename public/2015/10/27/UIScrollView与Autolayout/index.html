@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>UIScrollView与Autolayout | liujinlongxa的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在Autolayout中应用UIScrollView一直以来都是一个难点或易错点，本文是我在参考了很多资料后，总结的两种在Autolayout中正确使用UIScrollView的方法。本文主要以两个Demo为例，讲解一下如何在Autolayout中应用UIScrollView，希望对大家能有帮助。
+先看一下最终的效果吧！
+
+使用Storyboard布局首先创建一个Single View Appli">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UIScrollView与Autolayout">
+<meta property="og:url" content="http://liujinlongxa.com/2015/10/27/UIScrollView与Autolayout/index.html">
+<meta property="og:site_name" content="liujinlongxa的技术博客">
+<meta property="og:description" content="在Autolayout中应用UIScrollView一直以来都是一个难点或易错点，本文是我在参考了很多资料后，总结的两种在Autolayout中正确使用UIScrollView的方法。本文主要以两个Demo为例，讲解一下如何在Autolayout中应用UIScrollView，希望对大家能有帮助。
+先看一下最终的效果吧！
+
+使用Storyboard布局首先创建一个Single View Appli">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/AutolayoutDemo.gif">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-10-27%20at%2022.29.54.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-10-27%20at%2022.38.34.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-10-27%20at%2022.45.57.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-10-27%20at%2022.56.15.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-10-27%20at%2022.38.34.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-10-27%20at%2022.58.06.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-10-28%20at%2000.05.28.png">
+<meta property="og:updated_time" content="2016-11-06T02:47:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UIScrollView与Autolayout">
+<meta name="twitter:description" content="在Autolayout中应用UIScrollView一直以来都是一个难点或易错点，本文是我在参考了很多资料后，总结的两种在Autolayout中正确使用UIScrollView的方法。本文主要以两个Demo为例，讲解一下如何在Autolayout中应用UIScrollView，希望对大家能有帮助。
+先看一下最终的效果吧！
+
+使用Storyboard布局首先创建一个Single View Appli">
+<meta name="twitter:image" content="http://7xn88v.com1.z0.glb.clouddn.com/AutolayoutDemo.gif">
+  
+    <link rel="alternate" href="/atom.xml" title="liujinlongxa的技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">liujinlongxa的技术博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://liujinlongxa.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-UIScrollView与Autolayout" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/27/UIScrollView与Autolayout/" class="article-date">
+  <time datetime="2015-10-26T16:00:00.000Z" itemprop="datePublished">2015-10-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      UIScrollView与Autolayout
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在Autolayout中应用UIScrollView一直以来都是一个难点或易错点，本文是我在参考了很多资料后，总结的两种在Autolayout中正确使用UIScrollView的方法。本文主要以两个<br>Demo为例，讲解一下如何在Autolayout中应用UIScrollView，希望对大家能有帮助。</p>
+<p>先看一下最终的效果吧！</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/AutolayoutDemo.gif" alt="image"></p>
+<h2 id="使用Storyboard布局"><a href="#使用Storyboard布局" class="headerlink" title="使用Storyboard布局"></a>使用Storyboard布局</h2><p>首先创建一个Single View Application项目，然后在Storyboard中完成如下布局。</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-10-27%20at%2022.29.54.png" alt="image"></p>
+<p>第三个Controller就是我们要实现的界面（以下简称主界面），然后向主界面中拖入一个UIScrollView和一个UIView（姑且叫做A），并且设置UIScrollView的约束如下：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-10-27%20at%2022.38.34.png" alt="image"></p>
+<p>设置A的约束如下，注意不要添加底边距，或者高度约束</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-10-27%20at%2022.45.57.png" alt="image"></p>
+<p><strong>注意，这个A和UIScrollView是同一级的，并不是父子视图的关系。A主要是用来辅助计算UIScrollView中内容的高度的。</strong></p>
+<p>此时设置完成后会有约束冲突（A缺少高度约束），先不用在意。接着向UIScrollView中拖入一个UIView（姑且叫做B），然后设置B的宽度和高度约束与A相等，如下图，可以在左侧<br>导航视图中拖线设置。</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-10-27%20at%2022.56.15.png" alt="image"></p>
+<p>然后设置B的边界约束如下：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-10-27%20at%2022.38.34.png" alt="image"></p>
+<p>设置完成后，此时的主界面的结构如下图：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-10-27%20at%2022.58.06.png" alt="image"></p>
+<p><strong>B其实就是作为UIScrollView的contentView存在的，把所有原本是UIScrollView中的子控件都应该放在B中。</strong></p>
+<p>接下里就是布局主要界面，像最终效果图那样，拖入三个UIImageView和一个UILabel，并且设置对应的约束。（此处设置省略，具体可以参考我项目中的设置）注意不要设置UILabel<br>的高度约束，并且要设置底部两个UIImageView的下边距约束，这样B就会根据显示的内容自适应高度，并且UIScrollView也会根据B的高度设置contentSize。</p>
+<p>整个过程过程的关键点就在于A，B两个UIView，A作为一个辅助视图，辅助UIScrollView计算UIScrollView中内容的高度。B的作用是分离UIScrollView和其子控件之间的关系，<br>使得UIScrollView仅与B产生约束关系。</p>
+<h2 id="使用Masonry进行布局"><a href="#使用Masonry进行布局" class="headerlink" title="使用Masonry进行布局"></a>使用Masonry进行布局</h2><p>下面使用第三方框架Masonry进行布局，完成上述功能。</p>
+<p>首先使用CocoaPods安装Masonry，然后在UItableViewController中添加一个cell，并在SB中创建一个新的UIViewController，绑定对应的类AutolayoutViewController，<br>如下图：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-10-28%20at%2000.05.28.png" alt="image"></p>
+<p>在AutolayoutViewController中添加代码，核心代码如下</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line"></div><div class="line">    <span class="keyword">self</span>.scrollView = [[<span class="built_in">UIScrollView</span> alloc] init];</div><div class="line">    [<span class="keyword">self</span>.view addSubview:<span class="keyword">self</span>.scrollView];</div><div class="line"></div><div class="line">    <span class="comment">// 把所有子视图都放在containerView中，然后把containerView加在UIScrollView中</span></div><div class="line">    <span class="keyword">self</span>.containerView = [[<span class="built_in">UIView</span> alloc] init];</div><div class="line">    [<span class="keyword">self</span>.scrollView addSubview:<span class="keyword">self</span>.containerView];</div><div class="line"></div><div class="line">    <span class="keyword">self</span>.topImage = [[<span class="built_in">UIImageView</span> alloc] init];</div><div class="line">    <span class="keyword">self</span>.topImage.image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"1.JPG"</span>];</div><div class="line">    [<span class="keyword">self</span>.containerView addSubview:<span class="keyword">self</span>.topImage];</div><div class="line"></div><div class="line">    <span class="keyword">self</span>.descLabel = [[<span class="built_in">UILabel</span> alloc] init];</div><div class="line">    <span class="keyword">self</span>.descLabel.numberOfLines = <span class="number">0</span>;</div><div class="line">    <span class="keyword">self</span>.descLabel.text = <span class="string">@"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"</span>;</div><div class="line">    [<span class="keyword">self</span>.containerView addSubview:<span class="keyword">self</span>.descLabel];</div><div class="line"></div><div class="line">    <span class="keyword">self</span>.leftImage = [[<span class="built_in">UIImageView</span> alloc] init];</div><div class="line">    <span class="keyword">self</span>.leftImage.image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"2.JPG"</span>];</div><div class="line">    [<span class="keyword">self</span>.containerView addSubview:<span class="keyword">self</span>.leftImage];</div><div class="line"></div><div class="line">    <span class="keyword">self</span>.rightImage = [[<span class="built_in">UIImageView</span> alloc] init];</div><div class="line">    <span class="keyword">self</span>.rightImage.image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"3.JPG"</span>];</div><div class="line">    [<span class="keyword">self</span>.containerView addSubview:<span class="keyword">self</span>.rightImage];</div><div class="line"></div><div class="line">    [<span class="keyword">self</span>.scrollView mas_updateConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">        make.edges.equalTo(<span class="keyword">self</span>.view);</div><div class="line">    &#125;];</div><div class="line"></div><div class="line">    [<span class="keyword">self</span>.containerView mas_updateConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">        make.edges.equalTo(<span class="keyword">self</span>.scrollView);</div><div class="line">        make.width.equalTo(<span class="keyword">self</span>.scrollView);</div><div class="line">    &#125;];</div><div class="line"></div><div class="line">    [<span class="keyword">self</span>.topImage mas_updateConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">        make.top.mas_equalTo(<span class="keyword">self</span>.containerView).offset(<span class="number">20</span>);</div><div class="line">        make.left.mas_equalTo(<span class="keyword">self</span>.containerView).offset(<span class="number">20</span>);</div><div class="line">        make.right.mas_equalTo(<span class="keyword">self</span>.containerView).offset(<span class="number">-20</span>);</div><div class="line">        make.height.mas_equalTo(<span class="number">200</span>);</div><div class="line">    &#125;];</div><div class="line"></div><div class="line">    <span class="comment">// 注意不要设置descLabel的高度约束</span></div><div class="line">    [<span class="keyword">self</span>.descLabel mas_updateConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">        make.left.equalTo(<span class="keyword">self</span>.topImage);</div><div class="line">        make.right.equalTo(<span class="keyword">self</span>.topImage);</div><div class="line">        make.top.mas_equalTo(<span class="keyword">self</span>.topImage.mas_bottom).offset(<span class="number">20</span>);</div><div class="line">    &#125;];</div><div class="line"></div><div class="line">    [<span class="keyword">self</span>.leftImage mas_updateConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">        make.size.equalTo(<span class="keyword">self</span>.rightImage);</div><div class="line">        make.left.equalTo(<span class="keyword">self</span>.topImage);</div><div class="line">        make.right.mas_equalTo(<span class="keyword">self</span>.rightImage.mas_left).offset(<span class="number">20</span>);</div><div class="line">        make.top.mas_equalTo(<span class="keyword">self</span>.descLabel.mas_bottom).offset(<span class="number">20</span>);</div><div class="line">        make.height.mas_equalTo(<span class="number">150</span>);</div><div class="line">        make.bottom.mas_equalTo(<span class="keyword">self</span>.containerView.mas_bottom).offset(<span class="number">-20</span>);</div><div class="line">    &#125;];</div><div class="line"></div><div class="line">    [<span class="keyword">self</span>.rightImage mas_updateConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">        make.top.equalTo(<span class="keyword">self</span>.leftImage);</div><div class="line">        make.right.mas_equalTo(<span class="keyword">self</span>.containerView.mas_right).offset(<span class="number">-20</span>);</div><div class="line">    &#125;];</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里的关键点是那个containerView，它分离了UIScrollView和子视图的关系。</p>
+<p>以上就是本人总结的关于在Autolayout中应用UIScrollView的方法，如果有什么错误欢迎指出。</p>
+<p><a href="https://github.com/liujinlongxa/AutolayoutDemo" target="_blank" rel="external">代码在这里</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liujinlongxa.com/2015/10/27/UIScrollView与Autolayout/" data-id="civ7gro4h000wh4m0qx9kfent" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/11/07/ContentHugging与ContentCompressionResistance/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Content Hugging与Content Compression Resistance
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/16/最近开发中遇到的一些问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">最近开发中遇到的一些问题</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS-Tips/">iOS Tips</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/">iOS开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/树莓派/">树莓派</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Autolayout/">Autolayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CocoaPods/">CocoaPods</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CoreAnimation/">CoreAnimation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Emoji表情/">Emoji表情</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDFA/">IDFA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSAttributedString/">NSAttributedString</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH/">SSH</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scheme/">Scheme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Target/">Target</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIButton/">UIButton</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UILabel/">UILabel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebDAV/">WebDAV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS开发/">iOS开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ownCloud/">ownCloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/加密解密/">加密解密</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/本地化/">本地化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树莓派/">树莓派</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/预处理宏/">预处理宏</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Autolayout/" style="font-size: 10px;">Autolayout</a> <a href="/tags/CocoaPods/" style="font-size: 10px;">CocoaPods</a> <a href="/tags/CoreAnimation/" style="font-size: 10px;">CoreAnimation</a> <a href="/tags/Emoji表情/" style="font-size: 10px;">Emoji表情</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDFA/" style="font-size: 10px;">IDFA</a> <a href="/tags/NSAttributedString/" style="font-size: 10px;">NSAttributedString</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/Scheme/" style="font-size: 10px;">Scheme</a> <a href="/tags/Swift/" style="font-size: 10px;">Swift</a> <a href="/tags/Target/" style="font-size: 15px;">Target</a> <a href="/tags/UIButton/" style="font-size: 10px;">UIButton</a> <a href="/tags/UILabel/" style="font-size: 15px;">UILabel</a> <a href="/tags/WebDAV/" style="font-size: 10px;">WebDAV</a> <a href="/tags/iOS开发/" style="font-size: 10px;">iOS开发</a> <a href="/tags/ownCloud/" style="font-size: 10px;">ownCloud</a> <a href="/tags/其他/" style="font-size: 20px;">其他</a> <a href="/tags/加密解密/" style="font-size: 10px;">加密解密</a> <a href="/tags/本地化/" style="font-size: 10px;">本地化</a> <a href="/tags/树莓派/" style="font-size: 10px;">树莓派</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/预处理宏/" style="font-size: 10px;">预处理宏</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/11/05/使用nat123实现外网ssh连接内网树莓派设备/">使用nat123实现外网ssh连接内网树莓派设备</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/28/Swift3中的预处理宏/">Swift3中的预处理宏</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/26/给多个Target添加CocoaPods/">给多个Target添加CocoaPods</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/25/如何获取WebView的UserAgent/">如何获取WebView的UserAgent</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/18/iOS10无法获取IDFA的问题/">iOS10无法获取IDFA的问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 liujinlongxa<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

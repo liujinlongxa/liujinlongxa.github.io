@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>iOS中的富文本技术(2)CoreText框架 | liujinlongxa的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言前一篇介绍了iOS7新出的TextKit，这一篇打算介绍一下更底层的CoreText框架
+简介CoreText是iOS3.2推出的一套文字排版和渲染框架，可以实现图文混排，富文本显示等效果。CoreText中的几个重要的概念：
+
+CTFrameRef：画布，包含多个CTLine
+CTLineRef：每一行就是一个CTLine
+CTRunRef：每一行可以分为多个属性相同的小段，每一个小段就是一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS中的富文本技术(2)CoreText框架">
+<meta property="og:url" content="http://liujinlongxa.com/2015/10/04/iOS中的富文本技术(2)CoreText框架/index.html">
+<meta property="og:site_name" content="liujinlongxa的技术博客">
+<meta property="og:description" content="前言前一篇介绍了iOS7新出的TextKit，这一篇打算介绍一下更底层的CoreText框架
+简介CoreText是iOS3.2推出的一套文字排版和渲染框架，可以实现图文混排，富文本显示等效果。CoreText中的几个重要的概念：
+
+CTFrameRef：画布，包含多个CTLine
+CTLineRef：每一行就是一个CTLine
+CTRunRef：每一行可以分为多个属性相同的小段，每一个小段就是一">
+<meta property="og:image" content="http://img.blog.csdn.net/20150403235844681">
+<meta property="og:image" content="http://img.blog.csdn.net/20150404001114995">
+<meta property="og:image" content="http://img.blog.csdn.net/20150404002937477">
+<meta property="og:updated_time" content="2016-11-06T02:47:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS中的富文本技术(2)CoreText框架">
+<meta name="twitter:description" content="前言前一篇介绍了iOS7新出的TextKit，这一篇打算介绍一下更底层的CoreText框架
+简介CoreText是iOS3.2推出的一套文字排版和渲染框架，可以实现图文混排，富文本显示等效果。CoreText中的几个重要的概念：
+
+CTFrameRef：画布，包含多个CTLine
+CTLineRef：每一行就是一个CTLine
+CTRunRef：每一行可以分为多个属性相同的小段，每一个小段就是一">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20150403235844681">
+  
+    <link rel="alternate" href="/atom.xml" title="liujinlongxa的技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">liujinlongxa的技术博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://liujinlongxa.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-iOS中的富文本技术(2)CoreText框架" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/04/iOS中的富文本技术(2)CoreText框架/" class="article-date">
+  <time datetime="2015-10-03T16:00:00.000Z" itemprop="datePublished">2015-10-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS开发/">iOS开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS中的富文本技术(2)CoreText框架
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前一篇介绍了iOS7新出的TextKit，这一篇打算介绍一下更底层的CoreText框架</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>CoreText是iOS3.2推出的一套文字排版和渲染框架，可以实现图文混排，富文本显示等效果。CoreText中的几个重要的概念：</p>
+<ul>
+<li>CTFrameRef：画布，包含多个CTLine</li>
+<li>CTLineRef：每一行就是一个CTLine</li>
+<li>CTRunRef：每一行可以分为多个属性相同的小段，每一个小段就是一个CTRun<br>如下图展示了这三者的关系：</li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20150403235844681" alt="这里写图片描述"></p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>废话不多说，直接看示例，第一个示例展示了一些常规属性的的设置，效果图如下：</p>
+<p><img src="http://img.blog.csdn.net/20150404001114995" alt="这里写图片描述"></p>
+<p>代码如下，这里使用了一个自定义View，然后把要展示的内容绘制在view上，注意代码中使用了很多CoreFoundation框架的类（实际上是结构体），需要使用__bridge进行桥接：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"DisplayView.h"</span></span></div><div class="line"><span class="keyword">@import</span> CoreText;</div><div class="line"></div><div class="line"><span class="built_in">NSString</span> * str4 = <span class="string">@"asfasfa阿斯顿发生大发撒放大离开家撒旦法按时付款就阿里；双方均asfasdfasfdalkjsflakj阿斯顿发生大发撒旦法asdfasdfaasfdaasa撒旦法；拉斯克奖发了奥斯卡奖罚洛杉矶的法律；看见谁发的阿斯利康就发；了数据库等法律按实际开发；阿里就开始放到了；安家费阿里山科技发达了开始将对方拉开始交电费了卡双方的空间啊发送卡飞机阿里开始就放暑假了罚款就是浪费"</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">DisplayView</span> ()</span></div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">DisplayView</span></span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)drawRect:(<span class="built_in">CGRect</span>)rect &#123;</div><div class="line"></div><div class="line">    [<span class="keyword">super</span> drawRect:rect];</div><div class="line"></div><div class="line">    <span class="built_in">CGContextRef</span> context = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line"></div><div class="line">    <span class="comment">//变换坐标</span></div><div class="line">    <span class="built_in">CGContextSetTextMatrix</span>(context, <span class="built_in">CGAffineTransformIdentity</span>);</div><div class="line">    <span class="built_in">CGContextTranslateCTM</span>(context, <span class="number">0</span>, <span class="keyword">self</span>.bounds.size.height);</div><div class="line">    <span class="built_in">CGContextScaleCTM</span>(context, <span class="number">1.0</span>, <span class="number">-1.0</span>);</div><div class="line"></div><div class="line">    <span class="comment">//设置绘制的路径</span></div><div class="line">    <span class="built_in">CGMutablePathRef</span> path = <span class="built_in">CGPathCreateMutable</span>();</div><div class="line">    <span class="built_in">CGPathAddRect</span>(path, <span class="literal">NULL</span>, <span class="keyword">self</span>.bounds);</div><div class="line"></div><div class="line">    <span class="comment">//创建属性字符串</span></div><div class="line">    <span class="built_in">NSMutableAttributedString</span> * attStr = [[<span class="built_in">NSMutableAttributedString</span> alloc] initWithString:str4];</div><div class="line"></div><div class="line">    <span class="comment">//颜色</span></div><div class="line">    [attStr addAttribute:(__bridge <span class="built_in">NSString</span> *)kCTForegroundColorAttributeName value:(__bridge <span class="keyword">id</span>)[<span class="built_in">UIColor</span> redColor].CGColor range:<span class="built_in">NSMakeRange</span>(<span class="number">5</span>, <span class="number">10</span>)];</div><div class="line"></div><div class="line">    <span class="comment">//字体</span></div><div class="line">    <span class="built_in">UIFont</span> * font = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">25</span>];</div><div class="line">    <span class="built_in">CTFontRef</span> fontRef = <span class="built_in">CTFontCreateWithName</span>((__bridge <span class="built_in">CFStringRef</span>)font.fontName, <span class="number">25</span>, <span class="literal">NULL</span>);</div><div class="line">    [attStr addAttribute:(__bridge <span class="built_in">NSString</span> *)kCTFontAttributeName value:(__bridge <span class="keyword">id</span>)fontRef range:<span class="built_in">NSMakeRange</span>(<span class="number">20</span>, <span class="number">10</span>)];</div><div class="line"></div><div class="line">    <span class="comment">//空心字</span></div><div class="line">    [attStr addAttribute:(__bridge <span class="built_in">NSString</span> *)kCTStrokeWidthAttributeName value:@(<span class="number">3</span>) range:<span class="built_in">NSMakeRange</span>(<span class="number">36</span>, <span class="number">5</span>)];</div><div class="line">    [attStr addAttribute:(__bridge <span class="built_in">NSString</span> *)kCTStrokeColorAttributeName value:(__bridge <span class="keyword">id</span>)[<span class="built_in">UIColor</span> blueColor].CGColor range:<span class="built_in">NSMakeRange</span>(<span class="number">37</span>, <span class="number">10</span>)];</div><div class="line"></div><div class="line">    <span class="comment">//下划线</span></div><div class="line">    [attStr addAttribute:(__bridge <span class="built_in">NSString</span> *)kCTUnderlineStyleAttributeName value:@(kCTUnderlineStyleSingle | kCTUnderlinePatternDot) range:<span class="built_in">NSMakeRange</span>(<span class="number">45</span>, <span class="number">15</span>)];</div><div class="line"></div><div class="line"></div><div class="line">    <span class="built_in">CTFramesetterRef</span> framesetter = <span class="built_in">CTFramesetterCreateWithAttributedString</span>((<span class="built_in">CFAttributedStringRef</span>)attStr);</div><div class="line">    <span class="built_in">CTFrameRef</span> frame = <span class="built_in">CTFramesetterCreateFrame</span>(framesetter, <span class="built_in">CFRangeMake</span>(<span class="number">0</span>, attStr.length), path, <span class="literal">NULL</span>);</div><div class="line"></div><div class="line">    <span class="comment">//绘制内容</span></div><div class="line">    <span class="built_in">CTFrameDraw</span>(frame, context);</div><div class="line"></div><div class="line">    <span class="built_in">CFRelease</span>(fontRef);</div><div class="line">    <span class="built_in">CFRelease</span>(frame);</div><div class="line">    <span class="built_in">CFRelease</span>(path);</div><div class="line">    <span class="built_in">CFRelease</span>(framesetter);</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p>第二个示例展示了一个带表情符号的文本，效果图如下：</p>
+<p><img src="http://img.blog.csdn.net/20150404002937477" alt="这里写图片描述"></p>
+<p>先介绍一下CoreText实现表情混排的原理，在简介中介绍过，一个CTLine代表一行，而一个CTLine又由多个CTRun组成，这里实现表情混排的原理其实就是把CTLine中的某一个CTRun替换成空白字符，然后再根据这个CTRun的具体位置，把图片绘制到这个位置上，下面是具体代码：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"ImageDisplayView.h"</span></span></div><div class="line"><span class="keyword">@import</span> CoreText;</div><div class="line"></div><div class="line"><span class="built_in">NSString</span> * str5 = <span class="string">@"asfasfa阿斯顿发生大发撒放大离开家撒旦法按时付款就阿里；双方均asfasdfasfdalkjsflakj阿斯顿发生大发撒旦法asdfasdfaasfdaasa撒旦法；拉斯克奖发了奥斯卡奖罚洛杉矶的法律；看见谁发的阿斯利康就发；了数据库等法律按实际开发；阿里就开始放到了；安家费阿里山科技发达了开始将对方拉开始交电费了卡双方的空间啊发送卡飞机阿里开始就放暑假了罚款就是浪费"</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ImageDisplayView</span> ()</span></div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSAttributedString</span> * attStr;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="comment">//回调方法，返回要替换的CTRun的下边缘距离本行文字下边缘的高度</span></div><div class="line"><span class="keyword">static</span> <span class="built_in">CGFloat</span> descentCallback(<span class="keyword">void</span> *ref)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//回调方法，返回要替换的CTRun的上边缘距离本行文字上边缘的高度</span></div><div class="line"><span class="keyword">static</span> <span class="built_in">CGFloat</span> ascentCallback(<span class="keyword">void</span> *ref)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">30</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//回调方法，返回要替换的CTRun的宽</span></div><div class="line"><span class="keyword">static</span> <span class="built_in">CGFloat</span> widthCallback(<span class="keyword">void</span> *ref)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">30</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ImageDisplayView</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">CTRunDelegateRef</span> _delegate;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">instancetype</span>)initWithFrame:(<span class="built_in">CGRect</span>)frame</div><div class="line">&#123;</div><div class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> initWithFrame:frame];</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>) &#123;</div><div class="line">        <span class="built_in">NSString</span> * name = <span class="string">@"010"</span>;</div><div class="line">        <span class="keyword">unichar</span> objectReplacementChar           = <span class="number">0xFFFC</span>;<span class="comment">//占位字符</span></div><div class="line">        <span class="built_in">NSString</span> *objectReplacementString       = [<span class="built_in">NSString</span> stringWithCharacters:&amp;objectReplacementChar length:<span class="number">1</span>];</div><div class="line">        <span class="built_in">NSMutableAttributedString</span> *attachText   = [[<span class="built_in">NSMutableAttributedString</span> alloc]initWithString:objectReplacementString];</div><div class="line"></div><div class="line">        <span class="comment">//创建CTRun代理回调</span></div><div class="line">        <span class="built_in">CTRunDelegateCallbacks</span> callbacks;</div><div class="line">        callbacks.version       = kCTRunDelegateVersion1;</div><div class="line">        callbacks.getAscent     = ascentCallback;</div><div class="line">        callbacks.getDescent    = descentCallback;</div><div class="line">        callbacks.getWidth      = widthCallback;</div><div class="line"></div><div class="line">        <span class="comment">//给属性字符串添加代理回调</span></div><div class="line">        <span class="built_in">CTRunDelegateRef</span> delegate = <span class="built_in">CTRunDelegateCreate</span>(&amp;callbacks, (<span class="keyword">void</span> *)name);</div><div class="line">        <span class="built_in">NSDictionary</span> *attr = [<span class="built_in">NSDictionary</span> dictionaryWithObjectsAndKeys:(__bridge <span class="keyword">id</span>)delegate,kCTRunDelegateAttributeName, <span class="literal">nil</span>];</div><div class="line">        [attachText setAttributes:attr range:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, <span class="number">1</span>)];</div><div class="line">        <span class="keyword">self</span>.attStr = attachText;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)drawRect:(<span class="built_in">CGRect</span>)rect &#123;</div><div class="line"></div><div class="line">    [<span class="keyword">super</span> drawRect:rect];</div><div class="line"></div><div class="line">    <span class="built_in">CGContextRef</span> context = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line"></div><div class="line">    <span class="comment">//变换坐标</span></div><div class="line">    <span class="built_in">CGContextSetTextMatrix</span>(context, <span class="built_in">CGAffineTransformIdentity</span>);</div><div class="line">    <span class="built_in">CGContextTranslateCTM</span>(context, <span class="number">0</span>, <span class="keyword">self</span>.bounds.size.height);</div><div class="line">    <span class="built_in">CGContextScaleCTM</span>(context, <span class="number">1.0</span>, <span class="number">-1.0</span>);</div><div class="line"></div><div class="line">    <span class="comment">//设置文本绘制的路径</span></div><div class="line">    <span class="built_in">CGMutablePathRef</span> path = <span class="built_in">CGPathCreateMutable</span>();</div><div class="line">    <span class="built_in">CGPathAddRect</span>(path, <span class="literal">NULL</span>, <span class="keyword">self</span>.bounds);</div><div class="line"></div><div class="line">    <span class="built_in">NSMutableAttributedString</span> * attStr = [[<span class="built_in">NSMutableAttributedString</span> alloc] initWithString:str5];</div><div class="line">    [attStr insertAttributedString:<span class="keyword">self</span>.attStr atIndex:<span class="number">50</span>];</div><div class="line"></div><div class="line">    <span class="built_in">CTFramesetterRef</span> framesetter = <span class="built_in">CTFramesetterCreateWithAttributedString</span>((<span class="built_in">CFAttributedStringRef</span>)attStr);</div><div class="line">    <span class="built_in">CTFrameRef</span> frame = <span class="built_in">CTFramesetterCreateFrame</span>(framesetter, <span class="built_in">CFRangeMake</span>(<span class="number">0</span>, attStr.length), path, <span class="literal">NULL</span>);</div><div class="line"></div><div class="line">    <span class="comment">//计算要替换的CTRun的具体位置</span></div><div class="line">    <span class="built_in">NSArray</span> * lines = (<span class="built_in">NSArray</span> *)<span class="built_in">CTFrameGetLines</span>(frame);</div><div class="line">    <span class="built_in">NSUInteger</span> lineCount = lines.count;</div><div class="line">    <span class="built_in">CGPoint</span> lineOrigins[lineCount];</div><div class="line">    <span class="built_in">CTFrameGetLineOrigins</span>(frame, <span class="built_in">CFRangeMake</span>(<span class="number">0</span>, <span class="number">0</span>), lineOrigins);</div><div class="line">    <span class="comment">//循环遍历每一个CTLine中的每一个CTRun，找到要替换的那个CTRun，并且计算它的位置</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; lineCount; i++) &#123;</div><div class="line">        <span class="built_in">CTLineRef</span> line = (__bridge <span class="built_in">CTLineRef</span>)lines[i];</div><div class="line">        <span class="built_in">CFArrayRef</span> runs = <span class="built_in">CTLineGetGlyphRuns</span>(line);</div><div class="line">        <span class="built_in">CFIndex</span> runCount = <span class="built_in">CFArrayGetCount</span>(runs);</div><div class="line">        <span class="built_in">CGPoint</span> lineOrigin = lineOrigins[i];</div><div class="line">        <span class="built_in">CGFloat</span> lineAscent;</div><div class="line">        <span class="built_in">CGFloat</span> lineDescent;</div><div class="line">        <span class="built_in">CTLineGetTypographicBounds</span>(line, &amp;lineAscent, &amp;lineDescent, <span class="literal">NULL</span>);</div><div class="line">        <span class="keyword">for</span> (<span class="built_in">CFIndex</span> k = <span class="number">0</span>; k &lt; runCount; k++)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">CTRunRef</span> run = <span class="built_in">CFArrayGetValueAtIndex</span>(runs, k);</div><div class="line">            <span class="built_in">NSDictionary</span> *runAttributes = (<span class="built_in">NSDictionary</span> *)<span class="built_in">CTRunGetAttributes</span>(run);</div><div class="line">            <span class="built_in">CTRunDelegateRef</span> delegate = (__bridge <span class="built_in">CTRunDelegateRef</span>)[runAttributes valueForKey:(<span class="keyword">id</span>)kCTRunDelegateAttributeName];</div><div class="line">            <span class="keyword">if</span> (<span class="literal">nil</span> == delegate)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="built_in">CGFloat</span> xOffset = <span class="built_in">CTLineGetOffsetForStringIndex</span>(line, <span class="built_in">CTRunGetStringRange</span>(run).location, <span class="literal">nil</span>);</div><div class="line">            <span class="built_in">CGRect</span> rect = <span class="built_in">CGRectMake</span>(lineOrigin.x + xOffset, lineOrigin.y - lineDescent, <span class="number">30</span>, <span class="number">30</span>);</div><div class="line"></div><div class="line">            <span class="comment">//绘制图片</span></div><div class="line">            <span class="built_in">CGContextDrawImage</span>(context, rect, [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"010"</span>].CGImage);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">CTFrameDraw</span>(frame, context);</div><div class="line"></div><div class="line">    <span class="built_in">CFRelease</span>(frame);</div><div class="line">    <span class="built_in">CFRelease</span>(path);</div><div class="line">    <span class="built_in">CFRelease</span>(framesetter);</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>下面总结一下CoreText的优缺点：</p>
+<ul>
+<li>优点：功能强大，支持iOS3.2以后的所有系统</li>
+<li>缺点：纯C的接口，使用复杂，需要自己管理内存</li>
+</ul>
+<p>CoreText更加详细的介绍推荐大家可以看看唐巧大神的《iOS开发进阶》第十七章的内容。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liujinlongxa.com/2015/10/04/iOS中的富文本技术(2)CoreText框架/" data-id="civ7gro3x000ah4m05sl7q72j" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/10/04/iOS运行时初探-使用运行时机制向Category中添加属性/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          iOS运行时初探 使用运行时机制向Category中添加属性
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/04/iOS中的多线程编程/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">iOS中的多线程编程</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS-Tips/">iOS Tips</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/">iOS开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/树莓派/">树莓派</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Autolayout/">Autolayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CocoaPods/">CocoaPods</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CoreAnimation/">CoreAnimation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Emoji表情/">Emoji表情</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDFA/">IDFA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSAttributedString/">NSAttributedString</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH/">SSH</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scheme/">Scheme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Target/">Target</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIButton/">UIButton</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UILabel/">UILabel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebDAV/">WebDAV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS开发/">iOS开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ownCloud/">ownCloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/加密解密/">加密解密</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/本地化/">本地化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树莓派/">树莓派</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/预处理宏/">预处理宏</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Autolayout/" style="font-size: 10px;">Autolayout</a> <a href="/tags/CocoaPods/" style="font-size: 10px;">CocoaPods</a> <a href="/tags/CoreAnimation/" style="font-size: 10px;">CoreAnimation</a> <a href="/tags/Emoji表情/" style="font-size: 10px;">Emoji表情</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDFA/" style="font-size: 10px;">IDFA</a> <a href="/tags/NSAttributedString/" style="font-size: 10px;">NSAttributedString</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/Scheme/" style="font-size: 10px;">Scheme</a> <a href="/tags/Swift/" style="font-size: 10px;">Swift</a> <a href="/tags/Target/" style="font-size: 15px;">Target</a> <a href="/tags/UIButton/" style="font-size: 10px;">UIButton</a> <a href="/tags/UILabel/" style="font-size: 15px;">UILabel</a> <a href="/tags/WebDAV/" style="font-size: 10px;">WebDAV</a> <a href="/tags/iOS开发/" style="font-size: 10px;">iOS开发</a> <a href="/tags/ownCloud/" style="font-size: 10px;">ownCloud</a> <a href="/tags/其他/" style="font-size: 20px;">其他</a> <a href="/tags/加密解密/" style="font-size: 10px;">加密解密</a> <a href="/tags/本地化/" style="font-size: 10px;">本地化</a> <a href="/tags/树莓派/" style="font-size: 10px;">树莓派</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/预处理宏/" style="font-size: 10px;">预处理宏</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/11/05/使用nat123实现外网ssh连接内网树莓派设备/">使用nat123实现外网ssh连接内网树莓派设备</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/28/Swift3中的预处理宏/">Swift3中的预处理宏</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/26/给多个Target添加CocoaPods/">给多个Target添加CocoaPods</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/25/如何获取WebView的UserAgent/">如何获取WebView的UserAgent</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/18/iOS10无法获取IDFA的问题/">iOS10无法获取IDFA的问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 liujinlongxa<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

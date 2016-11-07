@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CoreAnimation编程指南学习笔记(2) | liujinlongxa的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第六章 动画动画类
+CABasicAnimation提供了在图层的属性值间简单的插入。
+CAKeyframeAnimation提供支持关键帧动画。你指定动画的一个图层属性的关键路径，一个表示在动画的每个阶段的价值的数组，还有一个关键帧时间的数组和时间函数。
+CATransition提供了一个影响整个图层的内容过渡效果。在动画显示过程中采用淡出（fade）、推出(push)、显露(reveal)图层">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CoreAnimation编程指南学习笔记(2)">
+<meta property="og:url" content="http://liujinlongxa.com/2015/12/13/CoreAnimation编程指南学习笔记(2)/index.html">
+<meta property="og:site_name" content="liujinlongxa的技术博客">
+<meta property="og:description" content="第六章 动画动画类
+CABasicAnimation提供了在图层的属性值间简单的插入。
+CAKeyframeAnimation提供支持关键帧动画。你指定动画的一个图层属性的关键路径，一个表示在动画的每个阶段的价值的数组，还有一个关键帧时间的数组和时间函数。
+CATransition提供了一个影响整个图层的内容过渡效果。在动画显示过程中采用淡出（fade）、推出(push)、显露(reveal)图层">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/2015-12-13_10-42-53.jpg">
+<meta property="og:updated_time" content="2016-11-06T02:47:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CoreAnimation编程指南学习笔记(2)">
+<meta name="twitter:description" content="第六章 动画动画类
+CABasicAnimation提供了在图层的属性值间简单的插入。
+CAKeyframeAnimation提供支持关键帧动画。你指定动画的一个图层属性的关键路径，一个表示在动画的每个阶段的价值的数组，还有一个关键帧时间的数组和时间函数。
+CATransition提供了一个影响整个图层的内容过渡效果。在动画显示过程中采用淡出（fade）、推出(push)、显露(reveal)图层">
+<meta name="twitter:image" content="http://7xn88v.com1.z0.glb.clouddn.com/2015-12-13_10-42-53.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="liujinlongxa的技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">liujinlongxa的技术博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://liujinlongxa.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-CoreAnimation编程指南学习笔记(2)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/12/13/CoreAnimation编程指南学习笔记(2)/" class="article-date">
+  <time datetime="2015-12-12T16:00:00.000Z" itemprop="datePublished">2015-12-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CoreAnimation编程指南学习笔记(2)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第六章-动画"><a href="#第六章-动画" class="headerlink" title="第六章 动画"></a>第六章 动画</h2><h3 id="动画类"><a href="#动画类" class="headerlink" title="动画类"></a>动画类</h3><ul>
+<li>CABasicAnimation提供了在图层的属性值间简单的插入。</li>
+<li>CAKeyframeAnimation提供支持关键帧动画。你指定动画的一个图层属性的关键路径，一个表示在动画的每个阶段的价值的数组，还有一个关键帧时间的数组和时间函数。</li>
+<li>CATransition提供了一个影响整个图层的内容过渡效果。在动画显示过程中采用淡出（fade）、推出(push)、显露(reveal)图层的内容。 常用的过渡效果可以通过提供你自己定制的核心图像滤镜来扩展。</li>
+</ul>
+<h3 id="隐式动画"><a href="#隐式动画" class="headerlink" title="隐式动画"></a>隐式动画</h3><p>隐式动画指所有修改CALayer的可动画属性，默认会都会带有动画。例如<code>self.layer.position = CGPointMake(200, 200);</code>默认是带有动画效果的。注意一定是修改layer属性，修改UIView的属性，默认是不带有隐式动画的。而且UIView默认带有的layer属性也是不带隐式动画的。</p>
+<h3 id="显示动画"><a href="#显示动画" class="headerlink" title="显示动画"></a>显示动画</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CABasicAnimation</span> *anim = [<span class="built_in">CABasicAnimation</span> 	animationWithKeyPath:<span class="string">@"opacity"</span>];</div><div class="line">   anim.fromValue = @(<span class="number">1.0</span>);</div><div class="line">   anim.toValue = @(<span class="number">0.5</span>);</div><div class="line">   anim.autoreverses = <span class="literal">YES</span>;</div><div class="line">   anim.repeatCount = <span class="number">10</span>;</div><div class="line">   anim.duration = <span class="number">2</span>;</div><div class="line">   [<span class="keyword">self</span>.layer addAnimation:anim forKey:<span class="string">@"anim"</span>];</div></pre></td></tr></table></figure>
+<h2 id="第七章-事务"><a href="#第七章-事务" class="headerlink" title="第七章 事务"></a>第七章 事务</h2><p>图层的每一个改变都是事务的一部分。隐式分为显示事务和隐式事务。隐式事务由系统自动创建和提交，在修改图层属性时，系统会自动创建一个事务，在下一次运行循环时自动提交。显示事务由用户程序控制创建和提交。一旦创建了显示事务，系统就不会再创建隐式事务。</p>
+<h3 id="使用显式事务禁止隐式动画"><a href="#使用显式事务禁止隐式动画" class="headerlink" title="使用显式事务禁止隐式动画"></a>使用显式事务禁止隐式动画</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[<span class="built_in">CATransaction</span> begin];</div><div class="line">   [<span class="built_in">CATransaction</span> setDisableActions:<span class="literal">YES</span>];</div><div class="line">   <span class="keyword">self</span>.layer.position = <span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">200</span>);</div><div class="line">   [<span class="built_in">CATransaction</span> commit];</div></pre></td></tr></table></figure>
+<h3 id="修改隐式动画的动画时长"><a href="#修改隐式动画的动画时长" class="headerlink" title="修改隐式动画的动画时长"></a>修改隐式动画的动画时长</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[<span class="built_in">CATransaction</span> begin];</div><div class="line">   [<span class="built_in">CATransaction</span> setAnimationDuration:<span class="number">2.0</span>];</div><div class="line">   <span class="keyword">self</span>.layer.position = <span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">200</span>);</div><div class="line">   [<span class="built_in">CATransaction</span> commit];</div></pre></td></tr></table></figure>
+<h2 id="第八章-KVC"><a href="#第八章-KVC" class="headerlink" title="第八章 KVC"></a>第八章 KVC</h2><p>CoreAnimation是通过KVC来实现对不同字段或关键路径进行动画的，使用方法如下</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[theLayer setValue:[<span class="built_in">NSNumber</span> numberWithInteger:<span class="number">50</span>] forKey:<span class="string">@"someKey"</span>];</div></pre></td></tr></table></figure>
+<p>使用<code>defaultValueForKey:</code>可以获取字段的默认值。</p>
+<p>CAAnimation提供支持使用关键路径访问选择的结构字段。目前支持的字段如下</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/2015-12-13_10-42-53.jpg" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liujinlongxa.com/2015/12/13/CoreAnimation编程指南学习笔记(2)/" data-id="civ7gro4n0013h4m08dedarv9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/12/20/RAC学习笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          RAC学习笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/12/06/CoreAnimation编程指南学习笔记(1)/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">CoreAnimation编程指南学习笔记(1)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS-Tips/">iOS Tips</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/">iOS开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/树莓派/">树莓派</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Autolayout/">Autolayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CocoaPods/">CocoaPods</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CoreAnimation/">CoreAnimation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Emoji表情/">Emoji表情</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDFA/">IDFA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSAttributedString/">NSAttributedString</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH/">SSH</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scheme/">Scheme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Target/">Target</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIButton/">UIButton</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UILabel/">UILabel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebDAV/">WebDAV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS开发/">iOS开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ownCloud/">ownCloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/加密解密/">加密解密</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/本地化/">本地化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树莓派/">树莓派</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/预处理宏/">预处理宏</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Autolayout/" style="font-size: 10px;">Autolayout</a> <a href="/tags/CocoaPods/" style="font-size: 10px;">CocoaPods</a> <a href="/tags/CoreAnimation/" style="font-size: 10px;">CoreAnimation</a> <a href="/tags/Emoji表情/" style="font-size: 10px;">Emoji表情</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDFA/" style="font-size: 10px;">IDFA</a> <a href="/tags/NSAttributedString/" style="font-size: 10px;">NSAttributedString</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/Scheme/" style="font-size: 10px;">Scheme</a> <a href="/tags/Swift/" style="font-size: 10px;">Swift</a> <a href="/tags/Target/" style="font-size: 15px;">Target</a> <a href="/tags/UIButton/" style="font-size: 10px;">UIButton</a> <a href="/tags/UILabel/" style="font-size: 15px;">UILabel</a> <a href="/tags/WebDAV/" style="font-size: 10px;">WebDAV</a> <a href="/tags/iOS开发/" style="font-size: 10px;">iOS开发</a> <a href="/tags/ownCloud/" style="font-size: 10px;">ownCloud</a> <a href="/tags/其他/" style="font-size: 20px;">其他</a> <a href="/tags/加密解密/" style="font-size: 10px;">加密解密</a> <a href="/tags/本地化/" style="font-size: 10px;">本地化</a> <a href="/tags/树莓派/" style="font-size: 10px;">树莓派</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/预处理宏/" style="font-size: 10px;">预处理宏</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/11/05/使用nat123实现外网ssh连接内网树莓派设备/">使用nat123实现外网ssh连接内网树莓派设备</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/28/Swift3中的预处理宏/">Swift3中的预处理宏</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/26/给多个Target添加CocoaPods/">给多个Target添加CocoaPods</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/25/如何获取WebView的UserAgent/">如何获取WebView的UserAgent</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/18/iOS10无法获取IDFA的问题/">iOS10无法获取IDFA的问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 liujinlongxa<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
