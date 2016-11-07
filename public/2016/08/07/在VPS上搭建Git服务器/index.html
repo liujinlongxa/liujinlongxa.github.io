@@ -1,11 +1,92 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
+<!doctype html>
+
+
+
   
-  <title>在VPS上搭建Git服务器 | liujinlongxa的技术博客</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="昨天尝试了在自己的VPS上搭建一个git服务器，中间踩了很多坑，下面是我整个搭建的过程。
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Git," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="liujinlongxa的技术博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/source/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="昨天尝试了在自己的VPS上搭建一个git服务器，中间踩了很多坑，下面是我整个搭建的过程。
 具体流程第一步：安装Git打开VPS(这里我用的是搬运工，怎么购买VPS可以参考我的这篇博客)的控制后台，进入Shell，然后输入命令：
 1yum install -y git
 执行完后如图：
@@ -59,79 +140,223 @@
 第二步：添加用户输入命令
 12adduser gitsu">
 <meta name="twitter:image" content="http://7xn88v.com1.z0.glb.clouddn.com/b9dd798ab599b9b53adebee98ebe5bbd.png">
-  
-    <link rel="alternate" href="/atom.xml" title="liujinlongxa的技术博客" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  
 
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://liujinlongxa.com/2016/08/07/在VPS上搭建Git服务器/"/>
+
+  <title> 在VPS上搭建Git服务器 | liujinlongxa的技术博客 </title>
 </head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">liujinlongxa的技术博客</a>
-      </h1>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">liujinlongxa的技术博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
       
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
         
-          <a class="main-nav-link" href="/">Home</a>
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
         
-      </nav>
-      <nav id="sub-nav">
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://liujinlongxa.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-在VPS上搭建Git服务器" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/08/07/在VPS上搭建Git服务器/" class="article-date">
-  <time datetime="2016-08-07T07:27:52.000Z" itemprop="datePublished">2016-08-07</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Git/">Git</a>
-  </div>
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      在VPS上搭建Git服务器
-    </h1>
+      
+    </ul>
   
 
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                在VPS上搭建Git服务器
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-07T15:27:52+08:00" content="2016-08-07">
+              2016-08-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/07/在VPS上搭建Git服务器/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/07/在VPS上搭建Git服务器/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
       
         <p>昨天尝试了在自己的VPS上搭建一个git服务器，中间踩了很多坑，下面是我整个搭建的过程。</p>
 <h2 id="具体流程"><a href="#具体流程" class="headerlink" title="具体流程"></a>具体流程</h2><h3 id="第一步：安装Git"><a href="#第一步：安装Git" class="headerlink" title="第一步：安装Git"></a>第一步：安装Git</h3><p>打开VPS(这里我用的是<a href="https://bandwagonhost.com/index.php" target="_blank" rel="external">搬运工</a>，怎么购买VPS可以参考我的<a href="http://liujinlongxa.com/2016/06/11/%E6%89%93%E9%80%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BF%BB%E5%A2%99VPS:%E6%90%AC%E8%BF%90%E5%B7%A5VPS%E8%B4%AD%E4%B9%B0%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B%E5%85%A8%E8%AE%B0%E5%BD%95/">这篇博客</a>)的控制后台，进入Shell，然后输入命令：</p>
@@ -204,143 +429,369 @@
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://liujinlongxa.com/2016/08/07/在VPS上搭建Git服务器/" data-id="civ7gro6c002hh4m0375gs4mm" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
 
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Git/" rel="tag">#Git</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/30/使用HTTPS方法clone下来的Git仓库push时报错/" rel="next" title="使用HTTPS方法clone下来的Git仓库push时报错">
+                <i class="fa fa-chevron-left"></i> 使用HTTPS方法clone下来的Git仓库push时报错
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/24/使用ownCloud作为OmniFocus的云同步服务器/" rel="prev" title="使用ownCloud作为OmniFocus的云同步服务器">
+                使用ownCloud作为OmniFocus的云同步服务器 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
     </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
-  
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
     
-<nav id="article-nav">
-  
-    <a href="/2016/08/24/使用ownCloud作为OmniFocus的云同步服务器/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
+      <div class="ds-thread" data-thread-key="2016/08/07/在VPS上搭建Git服务器/"
+           data-title="在VPS上搭建Git服务器" data-url="http://liujinlongxa.com/2016/08/07/在VPS上搭建Git服务器/">
+      </div>
+    
+  </div>
+
+
+        </div>
         
-          使用ownCloud作为OmniFocus的云同步服务器
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/smallhead.png"
+               alt="liujinlongxa" />
+          <p class="site-author-name" itemprop="name">liujinlongxa</p>
+          <p class="site-description motion-element" itemprop="description">生命永不息，Coding永不止</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">51</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/liujinlongxa" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/JaylonLiu" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1523828165" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://mrscorpion.github.io" title="泊" target="_blank">泊</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#具体流程"><span class="nav-number">1.</span> <span class="nav-text">具体流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一步：安装Git"><span class="nav-number">1.1.</span> <span class="nav-text">第一步：安装Git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步：添加用户"><span class="nav-number">1.2.</span> <span class="nav-text">第二步：添加用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三步：创建仓库"><span class="nav-number">1.3.</span> <span class="nav-text">第三步：创建仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四步：创建证书"><span class="nav-number">1.4.</span> <span class="nav-text">第四步：创建证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第五步：打开服务器RSA验证"><span class="nav-number">1.5.</span> <span class="nav-text">第五步：打开服务器RSA验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第六步：修改指定服务器的ssh端口"><span class="nav-number">1.6.</span> <span class="nav-text">第六步：修改指定服务器的ssh端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第七步：创建本地仓库"><span class="nav-number">1.7.</span> <span class="nav-text">第七步：创建本地仓库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到的坑"><span class="nav-number">2.</span> <span class="nav-text">遇到的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器与客户端ssh端口不一致"><span class="nav-number">2.1.</span> <span class="nav-text">服务器与客户端ssh端口不一致</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ssh验证失败"><span class="nav-number">2.2.</span> <span class="nav-text">ssh验证失败</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
         
       </div>
-    </a>
-  
-  
-    <a href="/2016/07/30/使用HTTPS方法clone下来的Git仓库push时报错/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">使用HTTPS方法clone下来的Git仓库push时报错</div>
-    </a>
-  
-</nav>
+    </main>
 
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
   
-</article>
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">liujinlongxa</span>
+</div>
 
-</section>
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
         
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS-Tips/">iOS Tips</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/">iOS开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/树莓派/">树莓派</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
-    </div>
-  </div>
 
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Autolayout/">Autolayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CocoaPods/">CocoaPods</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CoreAnimation/">CoreAnimation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Emoji表情/">Emoji表情</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDFA/">IDFA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSAttributedString/">NSAttributedString</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH/">SSH</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scheme/">Scheme</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Target/">Target</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIButton/">UIButton</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UILabel/">UILabel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebDAV/">WebDAV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS开发/">iOS开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ownCloud/">ownCloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/加密解密/">加密解密</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/本地化/">本地化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树莓派/">树莓派</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/预处理宏/">预处理宏</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Autolayout/" style="font-size: 10px;">Autolayout</a> <a href="/tags/CocoaPods/" style="font-size: 10px;">CocoaPods</a> <a href="/tags/CoreAnimation/" style="font-size: 10px;">CoreAnimation</a> <a href="/tags/Emoji表情/" style="font-size: 10px;">Emoji表情</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDFA/" style="font-size: 10px;">IDFA</a> <a href="/tags/NSAttributedString/" style="font-size: 10px;">NSAttributedString</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/Scheme/" style="font-size: 10px;">Scheme</a> <a href="/tags/Swift/" style="font-size: 10px;">Swift</a> <a href="/tags/Target/" style="font-size: 15px;">Target</a> <a href="/tags/UIButton/" style="font-size: 10px;">UIButton</a> <a href="/tags/UILabel/" style="font-size: 15px;">UILabel</a> <a href="/tags/WebDAV/" style="font-size: 10px;">WebDAV</a> <a href="/tags/iOS开发/" style="font-size: 10px;">iOS开发</a> <a href="/tags/ownCloud/" style="font-size: 10px;">ownCloud</a> <a href="/tags/其他/" style="font-size: 20px;">其他</a> <a href="/tags/加密解密/" style="font-size: 10px;">加密解密</a> <a href="/tags/本地化/" style="font-size: 10px;">本地化</a> <a href="/tags/树莓派/" style="font-size: 10px;">树莓派</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/预处理宏/" style="font-size: 10px;">预处理宏</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2016/11/05/使用nat123实现外网ssh连接内网树莓派设备/">使用nat123实现外网ssh连接内网树莓派设备</a>
-          </li>
-        
-          <li>
-            <a href="/2016/10/28/Swift3中的预处理宏/">Swift3中的预处理宏</a>
-          </li>
-        
-          <li>
-            <a href="/2016/10/26/给多个Target添加CocoaPods/">给多个Target添加CocoaPods</a>
-          </li>
-        
-          <li>
-            <a href="/2016/10/25/如何获取WebView的UserAgent/">如何获取WebView的UserAgent</a>
-          </li>
-        
-          <li>
-            <a href="/2016/10/18/iOS10无法获取IDFA的问题/">iOS10无法获取IDFA的问题</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
         
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2016 liujinlongxa<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
     </div>
   </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
+
   
-    <a href="/" class="mobile-nav-link">Home</a>
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
   
-    <a href="/archives" class="mobile-nav-link">Archives</a>
+
+
+
   
-</nav>
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
     
+  
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"liujinlongxa"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js"></script>
 
-  </div>
+
+  
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>
