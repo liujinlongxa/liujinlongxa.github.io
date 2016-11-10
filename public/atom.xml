@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://liujinlongxa.com/"/>
-  <updated>2016-11-06T02:47:02.000Z</updated>
+  <updated>2016-11-10T13:20:24.000Z</updated>
   <id>http://liujinlongxa.com/</id>
   
   <author>
@@ -14,6 +14,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Objective-C中如何忽略warning</title>
+    <link href="http://liujinlongxa.com/2016/11/10/Objective-C%E4%B8%AD%E5%A6%82%E4%BD%95%E5%BF%BD%E7%95%A5warning/"/>
+    <id>http://liujinlongxa.com/2016/11/10/Objective-C中如何忽略warning/</id>
+    <published>2016-11-10T13:05:51.000Z</published>
+    <updated>2016-11-10T13:20:24.000Z</updated>
+    
+    <content type="html">&lt;p&gt;经常会在有些第三方框架里看到这样的代码：&lt;/p&gt;
+&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#pragma clang diagnostic push&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#pragma clang diagnostic ignored &lt;span class=&quot;meta-string&quot;&gt;&quot;-Wgnu&quot;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt; *pathToBeMatched = &lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (method &amp;amp;&amp;amp; path) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        pathToBeMatched = [[[&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt; requestWithMethod:(method ?: &lt;span class=&quot;string&quot;&gt;@&quot;GET&quot;&lt;/span&gt;) path:path parameters:&lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt;] URL] path];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#pragma clang diagnostic pop&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这段代码的前两句和最后一句的作用是忽略中间的代码的某种警告（warning），如果我们的代码中有些警告希望被忽略，可以使用这种方法忽略警告。&lt;/p&gt;
+&lt;p&gt;其中第二句代码的&lt;code&gt;-Wgnu&lt;/code&gt;是警告类型，可以通过以下方法查看警告类型。&lt;/p&gt;
+&lt;p&gt;首先Command+b编译代码，然后Command+8来到报告导航栏，选中刚才的那次编译，如下图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/ba9ee4f9e59a474670f251598e7978d6.png&quot; alt=&quot;1&quot;&gt;&lt;/p&gt;
+&lt;p&gt;然后在左侧，找到相应的警告详情，点击左边的&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/f12763686090a1cec73de963526971be.png&quot; alt=&quot;2&quot;&gt;按钮可以打开详情，然后就可以在最底部的警告描述里找到警告的类型，如下图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/4d8b40432de09a56e50622b099f002bb.png&quot; alt=&quot;3&quot;&gt;&lt;/p&gt;
+&lt;p&gt;以上就是OC忽略警告的方法。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;经常会在有些第三方框架里看到这样的代码：&lt;/p&gt;
+&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;lin
+    
+    </summary>
+    
+      <category term="iOS Tips" scheme="http://liujinlongxa.com/categories/iOS-Tips/"/>
+    
+    
+      <category term="Objective-C" scheme="http://liujinlongxa.com/tags/Objective-C/"/>
+    
+  </entry>
   
   <entry>
     <title>使用nat123实现外网ssh连接内网树莓派设备</title>
@@ -798,43 +830,6 @@
     
     
       <category term="其他" scheme="http://liujinlongxa.com/tags/%E5%85%B6%E4%BB%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>设置富文本字间距，文字不能居中对齐</title>
-    <link href="http://liujinlongxa.com/2016/07/03/%E8%AE%BE%E7%BD%AE%E5%AF%8C%E6%96%87%E6%9C%AC%E5%AD%97%E9%97%B4%E8%B7%9D%EF%BC%8C%E6%96%87%E5%AD%97%E4%B8%8D%E8%83%BD%E5%B1%85%E4%B8%AD%E5%AF%B9%E9%BD%90/"/>
-    <id>http://liujinlongxa.com/2016/07/03/设置富文本字间距，文字不能居中对齐/</id>
-    <published>2016-07-03T10:40:19.000Z</published>
-    <updated>2016-11-06T02:47:02.000Z</updated>
-    
-    <content type="html">&lt;p&gt;最近有一个需求，需要设置一个UILabel的字间距，我马上就想到了富文本，于是就写了下面的代码&lt;/p&gt;
-&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt; *str = &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.label.text;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSDictionary&lt;/span&gt; *attribute = @&amp;#123;&lt;span class=&quot;built_in&quot;&gt;NSKernAttributeName&lt;/span&gt;:@(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;),&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                            &lt;span class=&quot;built_in&quot;&gt;NSFontAttributeName&lt;/span&gt;:[&lt;span class=&quot;built_in&quot;&gt;UIFont&lt;/span&gt; systemFontOfSize:&lt;span class=&quot;number&quot;&gt;15&lt;/span&gt;]&amp;#125;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSAttributedString&lt;/span&gt; *attStr = [[&lt;span class=&quot;built_in&quot;&gt;NSAttributedString&lt;/span&gt; alloc] initWithString:str attributes:attribute];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.label.attributedText = attStr;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;其中NSKernAttributeName属性就是设置文字的字间距。但是，现在就有一个问题，设置字间距后，原本居中显示的文字，不能居中显示了。&lt;/p&gt;
-&lt;p&gt;这是我设置字间距之前的label&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/3cba47225e6b1a02cfad6885a67d83ed.png&quot; alt=&quot;1&quot;&gt;&lt;/p&gt;
-&lt;p&gt;这是我设置了字间距后的label&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/424954a63f3e38514b84ab7277269336.png&quot; alt=&quot;2&quot;&gt;&lt;/p&gt;
-&lt;p&gt;“你”字距左边距明显要比”鸿”字的右边距要大。&lt;/p&gt;
-&lt;p&gt;经过一阵Google，在StackOverflow上找到了相同的问题，链接是&lt;a href=&quot;http://stackoverflow.com/questions/23741850/nsstring-drawinrectwithattributes-not-correctly-centered-when-using-nskernattr&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://stackoverflow.com/questions/23741850/nsstring-drawinrectwithattributes-not-correctly-centered-when-using-nskernattr&lt;/a&gt;，根据问题回答里的做法，我把代码做了修改，如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt; *str = &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.label.text;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSMutableAttributedString&lt;/span&gt; *mutAttStr = [[&lt;span class=&quot;built_in&quot;&gt;NSMutableAttributedString&lt;/span&gt; alloc] initWithString:str];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;[mutAttStr addAttribute:&lt;span class=&quot;built_in&quot;&gt;NSKernAttributeName&lt;/span&gt; value:@(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;) range:&lt;span class=&quot;built_in&quot;&gt;NSMakeRange&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, str.length - &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;)];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;[mutAttStr addAttribute:&lt;span class=&quot;built_in&quot;&gt;NSFontAttributeName&lt;/span&gt; value:[&lt;span class=&quot;built_in&quot;&gt;UIFont&lt;/span&gt; systemFontOfSize:&lt;span class=&quot;number&quot;&gt;15&lt;/span&gt;] range:&lt;span class=&quot;built_in&quot;&gt;NSMakeRange&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, str.length)];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.label.attributedText = [mutAttStr &lt;span class=&quot;keyword&quot;&gt;copy&lt;/span&gt;];&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;修改后效果如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/35b1f58bf08aa3dc7b827edb1da01e80.png&quot; alt=&quot;3&quot;&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最近有一个需求，需要设置一个UILabel的字间距，我马上就想到了富文本，于是就写了下面的代码&lt;/p&gt;
-&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;l
-    
-    </summary>
-    
-      <category term="iOS Tips" scheme="http://liujinlongxa.com/categories/iOS-Tips/"/>
-    
-    
-      <category term="UILabel" scheme="http://liujinlongxa.com/tags/UILabel/"/>
-    
-      <category term="NSAttributedString" scheme="http://liujinlongxa.com/tags/NSAttributedString/"/>
     
   </entry>
   

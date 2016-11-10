@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="UIButton," />
+  <meta name="keywords" content="Objective-C," />
 
 
 
@@ -86,19 +86,23 @@
 
 
 
-<meta name="description" content="UIButton在使用setAttributedTitle:forState:设置了富文本标题后，是使用setTitle:forState:设置标题是没有效果的，解决方案是先把富文本去掉，然后再使用setTitle:forState:设置标题，或者直接使用setAttributedTitle:forState:重新设置不带属性的富文本。代码如下：
-12[self.payButton setAttr">
+<meta name="description" content="经常会在有些第三方框架里看到这样的代码：
+1234567#pragma clang diagnostic push#pragma clang diagnostic ignored &quot;-Wgnu&quot;    NSString *pathToBeMatched = nil;    if (method &amp;amp;&amp;amp; path) &amp;#123;        pathToBeMatched = [[[">
 <meta property="og:type" content="article">
-<meta property="og:title" content="UIButton设置标题无效">
-<meta property="og:url" content="http://liujinlongxa.com/2016/07/26/UIButton设置标题无效/index.html">
+<meta property="og:title" content="Objective-C中如何忽略warning">
+<meta property="og:url" content="http://liujinlongxa.com/2016/11/10/Objective-C中如何忽略warning/index.html">
 <meta property="og:site_name" content="liujinlongxa的技术博客">
-<meta property="og:description" content="UIButton在使用setAttributedTitle:forState:设置了富文本标题后，是使用setTitle:forState:设置标题是没有效果的，解决方案是先把富文本去掉，然后再使用setTitle:forState:设置标题，或者直接使用setAttributedTitle:forState:重新设置不带属性的富文本。代码如下：
-12[self.payButton setAttr">
-<meta property="og:updated_time" content="2016-11-06T02:47:02.000Z">
+<meta property="og:description" content="经常会在有些第三方框架里看到这样的代码：
+1234567#pragma clang diagnostic push#pragma clang diagnostic ignored &quot;-Wgnu&quot;    NSString *pathToBeMatched = nil;    if (method &amp;amp;&amp;amp; path) &amp;#123;        pathToBeMatched = [[[">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/ba9ee4f9e59a474670f251598e7978d6.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/f12763686090a1cec73de963526971be.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/4d8b40432de09a56e50622b099f002bb.png">
+<meta property="og:updated_time" content="2016-11-10T13:20:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="UIButton设置标题无效">
-<meta name="twitter:description" content="UIButton在使用setAttributedTitle:forState:设置了富文本标题后，是使用setTitle:forState:设置标题是没有效果的，解决方案是先把富文本去掉，然后再使用setTitle:forState:设置标题，或者直接使用setAttributedTitle:forState:重新设置不带属性的富文本。代码如下：
-12[self.payButton setAttr">
+<meta name="twitter:title" content="Objective-C中如何忽略warning">
+<meta name="twitter:description" content="经常会在有些第三方框架里看到这样的代码：
+1234567#pragma clang diagnostic push#pragma clang diagnostic ignored &quot;-Wgnu&quot;    NSString *pathToBeMatched = nil;    if (method &amp;amp;&amp;amp; path) &amp;#123;        pathToBeMatched = [[[">
+<meta name="twitter:image" content="http://7xn88v.com1.z0.glb.clouddn.com/ba9ee4f9e59a474670f251598e7978d6.png">
 
 
 
@@ -119,9 +123,9 @@
 
 
 
-  <link rel="canonical" href="http://liujinlongxa.com/2016/07/26/UIButton设置标题无效/"/>
+  <link rel="canonical" href="http://liujinlongxa.com/2016/11/10/Objective-C中如何忽略warning/"/>
 
-  <title> UIButton设置标题无效 | liujinlongxa的技术博客 </title>
+  <title> Objective-C中如何忽略warning | liujinlongxa的技术博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -251,7 +255,7 @@
             
             
               
-                UIButton设置标题无效
+                Objective-C中如何忽略warning
               
             
           </h1>
@@ -263,8 +267,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-26T23:19:02+08:00" content="2016-07-26">
-              2016-07-26
+            <time itemprop="dateCreated" datetime="2016-11-10T21:05:51+08:00" content="2016-11-10">
+              2016-11-10
             </time>
           </span>
 
@@ -293,8 +297,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/26/UIButton设置标题无效/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/26/UIButton设置标题无效/" itemprop="commentsCount"></span>
+                <a href="/2016/11/10/Objective-C中如何忽略warning/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/10/Objective-C中如何忽略warning/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -317,8 +321,15 @@
       
 
       
-        <p>UIButton在使用<code>setAttributedTitle:forState:</code>设置了富文本标题后，是使用<code>setTitle:forState:</code>设置标题是没有效果的，解决方案是先把富文本去掉，然后再使用<code>setTitle:forState:</code>设置标题，或者直接使用<code>setAttributedTitle:forState:</code>重新设置不带属性的富文本。代码如下：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[<span class="keyword">self</span>.payButton setAttributedTitle:<span class="literal">nil</span> forState:<span class="built_in">UIControlStateNormal</span>];</div><div class="line">[<span class="keyword">self</span>.payButton setTitle:<span class="string">@"余额不足，去充值"</span> forState:<span class="built_in">UIControlStateNormal</span>];</div></pre></td></tr></table></figure>
+        <p>经常会在有些第三方框架里看到这样的代码：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma clang diagnostic push</span></div><div class="line"><span class="meta">#pragma clang diagnostic ignored <span class="meta-string">"-Wgnu"</span></span></div><div class="line">    <span class="built_in">NSString</span> *pathToBeMatched = <span class="literal">nil</span>;</div><div class="line">    <span class="keyword">if</span> (method &amp;&amp; path) &#123;</div><div class="line">        pathToBeMatched = [[[<span class="keyword">self</span> requestWithMethod:(method ?: <span class="string">@"GET"</span>) path:path parameters:<span class="literal">nil</span>] URL] path];</div><div class="line">    &#125;</div><div class="line"><span class="meta">#pragma clang diagnostic pop</span></div></pre></td></tr></table></figure>
+<p>这段代码的前两句和最后一句的作用是忽略中间的代码的某种警告（warning），如果我们的代码中有些警告希望被忽略，可以使用这种方法忽略警告。</p>
+<p>其中第二句代码的<code>-Wgnu</code>是警告类型，可以通过以下方法查看警告类型。</p>
+<p>首先Command+b编译代码，然后Command+8来到报告导航栏，选中刚才的那次编译，如下图：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/ba9ee4f9e59a474670f251598e7978d6.png" alt="1"></p>
+<p>然后在左侧，找到相应的警告详情，点击左边的<img src="http://7xn88v.com1.z0.glb.clouddn.com/f12763686090a1cec73de963526971be.png" alt="2">按钮可以打开详情，然后就可以在最底部的警告描述里找到警告的类型，如下图：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/4d8b40432de09a56e50622b099f002bb.png" alt="3"></p>
+<p>以上就是OC忽略警告的方法。</p>
 
       
     </div>
@@ -341,7 +352,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/UIButton/" rel="tag">#UIButton</a>
+            <a href="/tags/Objective-C/" rel="tag">#Objective-C</a>
           
         </div>
       
@@ -350,17 +361,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/10/深入理解CoreAnimation的fillMode和isRemovedOnCompletion/" rel="next" title="深入理解CoreAnimation的fillMode和isRemovedOnCompletion">
-                <i class="fa fa-chevron-left"></i> 深入理解CoreAnimation的fillMode和isRemovedOnCompletion
+              <a href="/2016/11/05/使用nat123实现外网ssh连接内网树莓派设备/" rel="next" title="使用nat123实现外网ssh连接内网树莓派设备">
+                <i class="fa fa-chevron-left"></i> 使用nat123实现外网ssh连接内网树莓派设备
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/30/使用HTTPS方法clone下来的Git仓库push时报错/" rel="prev" title="使用HTTPS方法clone下来的Git仓库push时报错">
-                使用HTTPS方法clone下来的Git仓库push时报错 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -386,8 +393,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/07/26/UIButton设置标题无效/"
-           data-title="UIButton设置标题无效" data-url="http://liujinlongxa.com/2016/07/26/UIButton设置标题无效/">
+      <div class="ds-thread" data-thread-key="2016/11/10/Objective-C中如何忽略warning/"
+           data-title="Objective-C中如何忽略warning" data-url="http://liujinlongxa.com/2016/11/10/Objective-C中如何忽略warning/">
       </div>
     
   </div>
