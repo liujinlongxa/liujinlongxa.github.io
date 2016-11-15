@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://liujinlongxa.com/"/>
-  <updated>2016-11-10T13:20:24.000Z</updated>
+  <updated>2016-11-15T02:03:44.000Z</updated>
   <id>http://liujinlongxa.com/</id>
   
   <author>
@@ -14,6 +14,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用defaults命令获取iOS项目版本号</title>
+    <link href="http://liujinlongxa.com/2016/11/15/%E4%BD%BF%E7%94%A8defaults%E5%91%BD%E4%BB%A4%E8%8E%B7%E5%8F%96iOS%E9%A1%B9%E7%9B%AE%E7%89%88%E6%9C%AC%E5%8F%B7/"/>
+    <id>http://liujinlongxa.com/2016/11/15/使用defaults命令获取iOS项目版本号/</id>
+    <published>2016-11-15T01:51:44.000Z</published>
+    <updated>2016-11-15T02:03:44.000Z</updated>
+    
+    <content type="html">&lt;p&gt;defaults命令可以用来读取和修改plist文件，因此可以用它来读取iOS项目里的Info.plist文件，具体用法如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;defaults read &amp;lt;plist文件的绝对路径&amp;gt; &amp;lt;Key&amp;gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;例如，读取项目的版本号，则名为如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;defaults read ~/Project/Info.plist CFBundleShortVersionString&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这里要注意，&lt;strong&gt;路径一定要是绝对路径，不能是相对路径&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;有了这个命令，我们就可以很方便的在脚本中获取版本号，编写一些更复杂的应用。&lt;/p&gt;
+&lt;p&gt;其实，获取版本号还可以使用xcode自带的&lt;a href=&quot;https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/agvtool.1.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;agvtool&lt;/a&gt;，但是如果项目中有多个.xcodeproj文件，agvtool就不能正确获取版本号了，暂时还没找到解决方案。&lt;/p&gt;
+&lt;h3 id=&quot;参考资料&quot;&gt;&lt;a href=&quot;#参考资料&quot; class=&quot;headerlink&quot; title=&quot;参考资料&quot;&gt;&lt;/a&gt;参考资料&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://developer.apple.com/library/content/qa/qa1827/_index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Automating Version and Build Numbers Using agvtool&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/nomad/shenzhen/issues/160&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Include Build Number in ipa info command&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;defaults命令可以用来读取和修改plist文件，因此可以用它来读取iOS项目里的Info.plist文件，具体用法如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;d
+    
+    </summary>
+    
+      <category term="iOS Tips" scheme="http://liujinlongxa.com/categories/iOS-Tips/"/>
+    
+    
+      <category term="其他" scheme="http://liujinlongxa.com/tags/%E5%85%B6%E4%BB%96/"/>
+    
+  </entry>
   
   <entry>
     <title>Objective-C中如何忽略warning</title>
@@ -799,30 +830,6 @@
     
       &lt;p&gt;可以设置xib以Xcode7.x的方法打开，参考如下&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/37851459/the-document-main-storyboard-requires-xcode-8-0-or
-    
-    </summary>
-    
-      <category term="iOS Tips" scheme="http://liujinlongxa.com/categories/iOS-Tips/"/>
-    
-    
-      <category term="其他" scheme="http://liujinlongxa.com/tags/%E5%85%B6%E4%BB%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Could not load the xxx image referenced from a nib in the bundle with identifier xxxx问题</title>
-    <link href="http://liujinlongxa.com/2016/07/03/Could-not-load-the-xxx-image-referenced-from-a-nib-in-the-bundle-with-identifier-xxxx%E9%97%AE%E9%A2%98/"/>
-    <id>http://liujinlongxa.com/2016/07/03/Could-not-load-the-xxx-image-referenced-from-a-nib-in-the-bundle-with-identifier-xxxx问题/</id>
-    <published>2016-07-03T10:51:49.000Z</published>
-    <updated>2016-11-06T02:47:02.000Z</updated>
-    
-    <content type="html">&lt;p&gt;出现在非retina的屏幕上，不能正确加载xib上的图片，只能通过代码重新设置图片。还没有找到其他解决办法。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;出现在非retina的屏幕上，不能正确加载xib上的图片，只能通过代码重新设置图片。还没有找到其他解决办法。&lt;/p&gt;
-
     
     </summary>
     
