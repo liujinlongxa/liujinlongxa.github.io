@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://liujinlongxa.com/"/>
-  <updated>2016-11-15T02:03:44.000Z</updated>
+  <updated>2016-11-27T06:31:50.000Z</updated>
   <id>http://liujinlongxa.com/</id>
   
   <author>
@@ -14,6 +14,49 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Xcode如何设置在编译前自动运行脚本</title>
+    <link href="http://liujinlongxa.com/2016/11/27/Xcode%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E5%9C%A8%E7%BC%96%E8%AF%91%E5%89%8D%E8%87%AA%E5%8A%A8%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC/"/>
+    <id>http://liujinlongxa.com/2016/11/27/Xcode如何设置在编译前自动运行脚本/</id>
+    <published>2016-11-27T04:45:13.000Z</published>
+    <updated>2016-11-27T06:31:50.000Z</updated>
+    
+    <content type="html">&lt;p&gt;有时我们可能需要在iOS项目打包前执行一些操作，例如更新资源，修改配置等等，手动修改太麻烦也太Low了，那有没有自动执行的方法呢？&lt;/p&gt;
+&lt;p&gt;当然有，这里我会列举三种方法，并且着重讲解一下最后一种方法&lt;/p&gt;
+&lt;h3 id=&quot;三种方法&quot;&gt;&lt;a href=&quot;#三种方法&quot; class=&quot;headerlink&quot; title=&quot;三种方法&quot;&gt;&lt;/a&gt;三种方法&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;第一种方法：如果你使用的是脚本进行打包，那么事情就简单了，在执行xcodebuild命令前，执行你想做的操作就可以了。&lt;/li&gt;
+&lt;li&gt;第二种方法：使用CI平台，最常用的就是jenkins，一般的CI平台都支持在编译前执行脚本。&lt;/li&gt;
+&lt;li&gt;第三种方法：如果你使用的是Xcode Archive进行打包，那么就要用到下面的方法添加编译前执行的脚本。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;具体步骤&quot;&gt;&lt;a href=&quot;#具体步骤&quot; class=&quot;headerlink&quot; title=&quot;具体步骤&quot;&gt;&lt;/a&gt;具体步骤&lt;/h3&gt;&lt;p&gt;打开项目配置，选择Build Phases&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/5335ab06bc21202c00fa0014d2df47a3.png&quot; alt=&quot;1&quot;&gt;&lt;/p&gt;
+&lt;p&gt;点击左上角的加号，选择New Run Script Phase&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/63c4d36a01c97b137892fa32fb78a028.png&quot; alt=&quot;2&quot;&gt;&lt;/p&gt;
+&lt;p&gt;这样就可以创建一个新Script Phase，然后在黑色区域写入你的脚本&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/f247183d1bc837e1d67ea5ae04281be5.png&quot; alt=&quot;3&quot;&gt;&lt;/p&gt;
+&lt;p&gt;在脚本中，你可以使用一些环境变量，例如&lt;code&gt;${SRCROOT}&lt;/code&gt;表示项目的根目录，&lt;code&gt;${CONFIGURATION}&lt;/code&gt;表示项目的Configuration，更多可以使用的环境变量可以参考&lt;a href=&quot;https://developer.apple.com/legacy/library/documentation/DeveloperTools/Reference/XcodeBuildSettingRef/0-Introduction/introduction.html#//apple_ref/doc/uid/TP40003931-CH1-SW1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;苹果官方文档&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;最后一步，也是最关键的一步（我在这里卡了半天），选中你创建的Script Phase，然后按住鼠标，把它拖到Compile Source的上面，这样你的脚本才会在代码编译前执行，否则脚本是在代码编译后执行的，如下图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/d44a9e7f77e737fce5826e39d74a3d9d.png&quot; alt=&quot;4&quot;&gt;&lt;/p&gt;
+&lt;p&gt;这样在编译时就会自动执行脚本了。上图中的脚本内容是在Release下编译时自动执行一个Python脚本。脚本的输出内容可以在Build Log里找到，如下图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/7bef4677d75f71376b834102880f364b.png&quot; alt=&quot;5&quot;&gt;&lt;/p&gt;
+&lt;p&gt;以上就是整个配置过程，希望这篇文章对您有帮助。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;有时我们可能需要在iOS项目打包前执行一些操作，例如更新资源，修改配置等等，手动修改太麻烦也太Low了，那有没有自动执行的方法呢？&lt;/p&gt;
+&lt;p&gt;当然有，这里我会列举三种方法，并且着重讲解一下最后一种方法&lt;/p&gt;
+&lt;h3 id=&quot;三种方法&quot;&gt;&lt;a href=&quot;#三种方法&quot; 
+    
+    </summary>
+    
+      <category term="iOS Tips" scheme="http://liujinlongxa.com/categories/iOS-Tips/"/>
+    
+    
+      <category term="Xcode" scheme="http://liujinlongxa.com/tags/Xcode/"/>
+    
+  </entry>
   
   <entry>
     <title>使用defaults命令获取iOS项目版本号</title>
@@ -812,31 +855,6 @@
     
     
       <category term="CoreAnimation" scheme="http://liujinlongxa.com/tags/CoreAnimation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>用XCode8打开Xib后项目不能在XCode7上运行</title>
-    <link href="http://liujinlongxa.com/2016/07/03/%E7%94%A8XCode8%E6%89%93%E5%BC%80Xib%E5%90%8E%E9%A1%B9%E7%9B%AE%E4%B8%8D%E8%83%BD%E5%9C%A8XCode7%E4%B8%8A%E8%BF%90%E8%A1%8C/"/>
-    <id>http://liujinlongxa.com/2016/07/03/用XCode8打开Xib后项目不能在XCode7上运行/</id>
-    <published>2016-07-03T10:56:06.000Z</published>
-    <updated>2016-11-06T02:47:02.000Z</updated>
-    
-    <content type="html">&lt;p&gt;可以设置xib以Xcode7.x的方法打开，参考如下&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/37851459/the-document-main-storyboard-requires-xcode-8-0-or-later&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;The document Main.storyboard requires Xcode 8.0 or later&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;可以设置xib以Xcode7.x的方法打开，参考如下&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/37851459/the-document-main-storyboard-requires-xcode-8-0-or
-    
-    </summary>
-    
-      <category term="iOS Tips" scheme="http://liujinlongxa.com/categories/iOS-Tips/"/>
-    
-    
-      <category term="其他" scheme="http://liujinlongxa.com/tags/%E5%85%B6%E4%BB%96/"/>
     
   </entry>
   
