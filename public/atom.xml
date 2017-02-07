@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://liujinlongxa.com/"/>
-  <updated>2016-12-20T16:28:10.000Z</updated>
+  <updated>2017-02-07T03:47:41.000Z</updated>
   <id>http://liujinlongxa.com/</id>
   
   <author>
@@ -14,6 +14,49 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS开发适配HTTPS总结</title>
+    <link href="http://liujinlongxa.com/2017/02/07/iOS%E5%BC%80%E5%8F%91%E9%80%82%E9%85%8DHTTPS%E6%80%BB%E7%BB%93/"/>
+    <id>http://liujinlongxa.com/2017/02/07/iOS开发适配HTTPS总结/</id>
+    <published>2017-02-07T01:46:33.000Z</published>
+    <updated>2017-02-07T03:47:41.000Z</updated>
+    
+    <content type="html">&lt;p&gt;年前给公司的项目适配了HTTPS，本来年前就该写这篇博客的，一直拖到现在才写。&lt;/p&gt;
+&lt;p&gt;本文的主要内容就是对整个适配过程做一个总结。网上有很多详细的教程，具体的适配过程本文就不再赘述了，这里主要总结一下我在适配过程中越到的问题以及一些经验。&lt;/p&gt;
+&lt;h2 id=&quot;测试自建证书&quot;&gt;&lt;a href=&quot;#测试自建证书&quot; class=&quot;headerlink&quot; title=&quot;测试自建证书&quot;&gt;&lt;/a&gt;测试自建证书&lt;/h2&gt;&lt;p&gt;适配完成后可以使用自建证书进行测试，关于如何创建自建证书，网上有很多教程，可以自行百度。如果你使用的是AFNetworking框架，使用自建证书也非常简单，首先见证书(abc.cer)导入项目，然后加入代码如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.sessionManager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[&lt;span class=&quot;built_in&quot;&gt;NSURLSessionConfiguration&lt;/span&gt; defaultSessionConfiguration]];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;securityPolicy.allowInvalidCertificates = &lt;span class=&quot;literal&quot;&gt;YES&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;securityPolicy.validatesDomainName = &lt;span class=&quot;literal&quot;&gt;YES&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt; *path = [[&lt;span class=&quot;built_in&quot;&gt;NSBundle&lt;/span&gt; mainBundle] pathForResource:&lt;span class=&quot;string&quot;&gt;@&quot;abc.cer&quot;&lt;/span&gt; ofType:&lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSData&lt;/span&gt; *certData = [&lt;span class=&quot;built_in&quot;&gt;NSData&lt;/span&gt; dataWithContentsOfFile:path];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSSet&lt;/span&gt; *set = [&lt;span class=&quot;built_in&quot;&gt;NSSet&lt;/span&gt; setWithObjects:certData, &lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (certData) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    securityPolicy.pinnedCertificates = set;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.sessionManager.securityPolicy = securityPolicy;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;当然，正式环境还是需要使用CA机构颁发的证书，使用CA机构颁发的证书不需要导入证书，只需要加入以下代码即可：&lt;/p&gt;
+&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.sessionManager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[&lt;span class=&quot;built_in&quot;&gt;NSURLSessionConfiguration&lt;/span&gt; defaultSessionConfiguration]];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;AFSecurityPolicy *policy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.sessionManager.securityPolicy = securityPolicy;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;配置NSExceptionDomains&quot;&gt;&lt;a href=&quot;#配置NSExceptionDomains&quot; class=&quot;headerlink&quot; title=&quot;配置NSExceptionDomains&quot;&gt;&lt;/a&gt;配置NSExceptionDomains&lt;/h2&gt;&lt;p&gt;项目中一些不能使用HTTPS协议的请求，需要配置NSExceptionDomains。很多第三方服务的请求还没有支持HTTPS，这就需要我们把这些请求添加到NSExceptionDomains中。可以使用Charles抓包看有哪些第三方请求需要添加到NSExceptionDomains中。&lt;/p&gt;
+&lt;p&gt;另外，为了防止域名劫持，项目中可能会直接使用IP进行请求，我再测试过程中发现，即使不添加NSExceptionDomains，直接使用IP也可以正常请求。&lt;/p&gt;
+&lt;p&gt;对于WebView里的请求，可以NSAllowsArbitraryLoadsInWebContent字段来声明绕过ATS。&lt;/p&gt;
+&lt;p&gt;对于多媒体播放请求（使用AVFoundation），可以使用NSAllowsArbitraryLoadsInMedia字段来声明绕过ATS。&lt;/p&gt;
+&lt;h2 id=&quot;多环境配置&quot;&gt;&lt;a href=&quot;#多环境配置&quot; class=&quot;headerlink&quot; title=&quot;多环境配置&quot;&gt;&lt;/a&gt;多环境配置&lt;/h2&gt;&lt;p&gt;一般公司服务器都会有多个环境（测试环境，正式环境等），证书一般只配置在正式环境上，这就要求我们在测试环境下需要关闭ATS。如果每次都手动修改Info.plist文件来关闭ATS，不但麻烦，也可能导致配置的信息丢失。一种比较好做法是创建多个Info.plist，根据不同的环境，自动切换使用不同的Info.plist。&lt;/p&gt;
+&lt;p&gt;如下，创建多个Info.plist&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/0c578284b3e0e8649ec145e1413f3d7a.png&quot; alt=&quot;2&quot;&gt;&lt;/p&gt;
+&lt;p&gt;然后在Build Setting中配置不同的环境使用不同的Info.plist&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/190482fe4f86763e6184834be9cff0bf.png&quot; alt=&quot;3&quot;&gt;&lt;/p&gt;
+&lt;p&gt;这样做有一个不好的地方是如果修改了Info.plist文件，需要同时修改两个。但这也比每次切换环境修改Info.plist要好，因为毕竟修改Info.plist的情况还是比较少的。&lt;/p&gt;
+&lt;p&gt;以上就是我在适配HTTPS过程中遇到的一些问题，希望对大家有所帮助。&lt;/p&gt;
+&lt;p&gt;参考资料：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.2cto.com/kf/201611/570823.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS开发适配HTTPS详细教程&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://onevcat.com/2016/06/ios-10-ats/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;关于iOS10中ATS的问题&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;年前给公司的项目适配了HTTPS，本来年前就该写这篇博客的，一直拖到现在才写。&lt;/p&gt;
+&lt;p&gt;本文的主要内容就是对整个适配过程做一个总结。网上有很多详细的教程，具体的适配过程本文就不再赘述了，这里主要总结一下我在适配过程中越到的问题以及一些经验。&lt;/p&gt;
+&lt;h2 id=&quot;测
+    
+    </summary>
+    
+      <category term="iOS开发" scheme="http://liujinlongxa.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="HTTPS" scheme="http://liujinlongxa.com/tags/HTTPS/"/>
+    
+  </entry>
   
   <entry>
     <title>使用NSURLProtocol时要注意的一些问题</title>
@@ -52,7 +95,7 @@
     <link href="http://liujinlongxa.com/2016/11/27/Xcode%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E5%9C%A8%E7%BC%96%E8%AF%91%E5%89%8D%E8%87%AA%E5%8A%A8%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC/"/>
     <id>http://liujinlongxa.com/2016/11/27/Xcode如何设置在编译前自动运行脚本/</id>
     <published>2016-11-27T04:45:13.000Z</published>
-    <updated>2016-11-27T06:31:50.000Z</updated>
+    <updated>2016-12-20T16:30:08.000Z</updated>
     
     <content type="html">&lt;p&gt;有时我们可能需要在iOS项目打包前执行一些操作，例如更新资源，修改配置等等，手动修改太麻烦也太Low了，那有没有自动执行的方法呢？&lt;/p&gt;
 &lt;p&gt;当然有，这里我会列举三种方法，并且着重讲解一下最后一种方法&lt;/p&gt;
@@ -806,30 +849,6 @@
     
     
       <category term="Git" scheme="http://liujinlongxa.com/tags/Git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>UIButton设置标题无效</title>
-    <link href="http://liujinlongxa.com/2016/07/26/UIButton%E8%AE%BE%E7%BD%AE%E6%A0%87%E9%A2%98%E6%97%A0%E6%95%88/"/>
-    <id>http://liujinlongxa.com/2016/07/26/UIButton设置标题无效/</id>
-    <published>2016-07-26T15:19:02.000Z</published>
-    <updated>2016-11-06T02:47:02.000Z</updated>
-    
-    <content type="html">&lt;p&gt;UIButton在使用&lt;code&gt;setAttributedTitle:forState:&lt;/code&gt;设置了富文本标题后，是使用&lt;code&gt;setTitle:forState:&lt;/code&gt;设置标题是没有效果的，解决方案是先把富文本去掉，然后再使用&lt;code&gt;setTitle:forState:&lt;/code&gt;设置标题，或者直接使用&lt;code&gt;setAttributedTitle:forState:&lt;/code&gt;重新设置不带属性的富文本。代码如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;[&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.payButton setAttributedTitle:&lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt; forState:&lt;span class=&quot;built_in&quot;&gt;UIControlStateNormal&lt;/span&gt;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;[&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.payButton setTitle:&lt;span class=&quot;string&quot;&gt;@&quot;余额不足，去充值&quot;&lt;/span&gt; forState:&lt;span class=&quot;built_in&quot;&gt;UIControlStateNormal&lt;/span&gt;];&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;UIButton在使用&lt;code&gt;setAttributedTitle:forState:&lt;/code&gt;设置了富文本标题后，是使用&lt;code&gt;setTitle:forState:&lt;/code&gt;设置标题是没有效果的，解决方案是先把富文本去掉，然后再使用&lt;code&gt;setTit
-    
-    </summary>
-    
-      <category term="iOS Tips" scheme="http://liujinlongxa.com/categories/iOS-Tips/"/>
-    
-    
-      <category term="UIButton" scheme="http://liujinlongxa.com/tags/UIButton/"/>
     
   </entry>
   
