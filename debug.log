@@ -14300,3 +14300,5 @@
 {"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":44258,"level":30,"msg":"Deploying: \u001b[35mgit\u001b[39m","time":"2017-03-01T14:46:19.834Z","v":0}
 {"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":44258,"level":30,"msg":"Clearing .deploy_git folder...","time":"2017-03-01T14:46:19.843Z","v":0}
 {"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":44258,"level":30,"msg":"Copying files from public folder...","time":"2017-03-01T14:46:19.844Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":44258,"level":30,"msg":"Have a nice day","time":"2017-03-01T14:51:22.415Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":44258,"level":20,"msg":"Database saved","time":"2017-03-01T14:51:22.419Z","v":0}
