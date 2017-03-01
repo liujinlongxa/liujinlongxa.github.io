@@ -1,0 +1,713 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="HTTPS," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="liujinlongxa的技术博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/source/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="年前给公司的项目适配了HTTPS，本来年前就该写这篇博客的，一直拖到现在才写。
+本文的主要内容就是对整个适配过程做一个总结。网上有很多详细的教程，具体的适配过程本文就不再赘述了，这里主要总结一下我在适配过程中越到的问题以及一些经验。
+测试自建证书适配完成后可以使用自建证书进行测试，关于如何创建自建证书，网上有很多教程，可以自行百度。如果你使用的是AFNetworking框架，使用自建证书也非常简单">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发适配HTTPS总结">
+<meta property="og:url" content="http://liujinlongxa.com/2017/02/07/iOS开发适配HTTPS总结/index.html">
+<meta property="og:site_name" content="liujinlongxa的技术博客">
+<meta property="og:description" content="年前给公司的项目适配了HTTPS，本来年前就该写这篇博客的，一直拖到现在才写。
+本文的主要内容就是对整个适配过程做一个总结。网上有很多详细的教程，具体的适配过程本文就不再赘述了，这里主要总结一下我在适配过程中越到的问题以及一些经验。
+测试自建证书适配完成后可以使用自建证书进行测试，关于如何创建自建证书，网上有很多教程，可以自行百度。如果你使用的是AFNetworking框架，使用自建证书也非常简单">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/0c578284b3e0e8649ec145e1413f3d7a.png">
+<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/190482fe4f86763e6184834be9cff0bf.png">
+<meta property="og:updated_time" content="2017-03-01T06:42:53.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发适配HTTPS总结">
+<meta name="twitter:description" content="年前给公司的项目适配了HTTPS，本来年前就该写这篇博客的，一直拖到现在才写。
+本文的主要内容就是对整个适配过程做一个总结。网上有很多详细的教程，具体的适配过程本文就不再赘述了，这里主要总结一下我在适配过程中越到的问题以及一些经验。
+测试自建证书适配完成后可以使用自建证书进行测试，关于如何创建自建证书，网上有很多教程，可以自行百度。如果你使用的是AFNetworking框架，使用自建证书也非常简单">
+<meta name="twitter:image" content="http://7xn88v.com1.z0.glb.clouddn.com/0c578284b3e0e8649ec145e1413f3d7a.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://liujinlongxa.com/2017/02/07/iOS开发适配HTTPS总结/"/>
+
+  <title> iOS开发适配HTTPS总结 | liujinlongxa的技术博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">liujinlongxa的技术博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS开发适配HTTPS总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-07T09:46:33+08:00" content="2017-02-07">
+              2017-02-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/02/07/iOS开发适配HTTPS总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/07/iOS开发适配HTTPS总结/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>年前给公司的项目适配了HTTPS，本来年前就该写这篇博客的，一直拖到现在才写。</p>
+<p>本文的主要内容就是对整个适配过程做一个总结。网上有很多详细的教程，具体的适配过程本文就不再赘述了，这里主要总结一下我在适配过程中越到的问题以及一些经验。</p>
+<h2 id="测试自建证书"><a href="#测试自建证书" class="headerlink" title="测试自建证书"></a>测试自建证书</h2><p>适配完成后可以使用自建证书进行测试，关于如何创建自建证书，网上有很多教程，可以自行百度。如果你使用的是AFNetworking框架，使用自建证书也非常简单，首先见证书(abc.cer)导入项目，然后加入代码如下：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">self</span>.sessionManager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[<span class="built_in">NSURLSessionConfiguration</span> defaultSessionConfiguration]];</div><div class="line"></div><div class="line">AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];</div><div class="line">securityPolicy.allowInvalidCertificates = <span class="literal">YES</span>;</div><div class="line">securityPolicy.validatesDomainName = <span class="literal">YES</span>;</div><div class="line"></div><div class="line"><span class="built_in">NSString</span> *path = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:<span class="string">@"abc.cer"</span> ofType:<span class="literal">nil</span>];</div><div class="line"><span class="built_in">NSData</span> *certData = [<span class="built_in">NSData</span> dataWithContentsOfFile:path];</div><div class="line"><span class="built_in">NSSet</span> *set = [<span class="built_in">NSSet</span> setWithObjects:certData, <span class="literal">nil</span>];</div><div class="line"><span class="keyword">if</span> (certData) &#123;</div><div class="line">    securityPolicy.pinnedCertificates = set;</div><div class="line">&#125;</div><div class="line"><span class="keyword">self</span>.sessionManager.securityPolicy = securityPolicy;</div></pre></td></tr></table></figure>
+<p>当然，正式环境还是需要使用CA机构颁发的证书，使用CA机构颁发的证书不需要导入证书，只需要加入以下代码即可：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">self</span>.sessionManager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[<span class="built_in">NSURLSessionConfiguration</span> defaultSessionConfiguration]];</div><div class="line"></div><div class="line">AFSecurityPolicy *policy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];</div><div class="line"><span class="keyword">self</span>.sessionManager.securityPolicy = securityPolicy;</div></pre></td></tr></table></figure>
+<h2 id="配置NSExceptionDomains"><a href="#配置NSExceptionDomains" class="headerlink" title="配置NSExceptionDomains"></a>配置NSExceptionDomains</h2><p>项目中一些不能使用HTTPS协议的请求，需要配置NSExceptionDomains。很多第三方服务的请求还没有支持HTTPS，这就需要我们把这些请求添加到NSExceptionDomains中。可以使用Charles抓包看有哪些第三方请求需要添加到NSExceptionDomains中。</p>
+<p>另外，为了防止域名劫持，项目中可能会直接使用IP进行请求，我再测试过程中发现，即使不添加NSExceptionDomains，直接使用IP也可以正常请求。</p>
+<p>对于WebView里的请求，可以NSAllowsArbitraryLoadsInWebContent字段来声明绕过ATS。</p>
+<p>对于多媒体播放请求（使用AVFoundation），可以使用NSAllowsArbitraryLoadsInMedia字段来声明绕过ATS。</p>
+<h2 id="多环境配置"><a href="#多环境配置" class="headerlink" title="多环境配置"></a>多环境配置</h2><p>一般公司服务器都会有多个环境（测试环境，正式环境等），证书一般只配置在正式环境上，这就要求我们在测试环境下需要关闭ATS。如果每次都手动修改Info.plist文件来关闭ATS，不但麻烦，也可能导致配置的信息丢失。一种比较好做法是创建多个Info.plist，根据不同的环境，自动切换使用不同的Info.plist。</p>
+<p>如下，创建多个Info.plist</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/0c578284b3e0e8649ec145e1413f3d7a.png" alt="2"></p>
+<p>然后在Build Setting中配置不同的环境使用不同的Info.plist</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/190482fe4f86763e6184834be9cff0bf.png" alt="3"></p>
+<p>这样做有一个不好的地方是如果修改了Info.plist文件，需要同时修改两个。但这也比每次切换环境修改Info.plist要好，因为毕竟修改Info.plist的情况还是比较少的。</p>
+<p>以上就是我在适配HTTPS过程中遇到的一些问题，希望对大家有所帮助。</p>
+<p>参考资料：</p>
+<p><a href="http://www.2cto.com/kf/201611/570823.html" target="_blank" rel="external">iOS开发适配HTTPS详细教程</a><br><a href="https://onevcat.com/2016/06/ios-10-ats/" target="_blank" rel="external">关于iOS10中ATS的问题</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTTPS/" rel="tag">#HTTPS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/20/使用NSURLProtocol注意的一些问题/" rel="next" title="使用NSURLProtocol时要注意的一些问题">
+                <i class="fa fa-chevron-left"></i> 使用NSURLProtocol时要注意的一些问题
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/01/深入理解git-merge和git-rebase/" rel="prev" title="深入理解git merge和git rebase">
+                深入理解git merge和git rebase <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/02/07/iOS开发适配HTTPS总结/"
+           data-title="iOS开发适配HTTPS总结" data-url="http://liujinlongxa.com/2017/02/07/iOS开发适配HTTPS总结/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/smallhead.png"
+               alt="liujinlongxa" />
+          <p class="site-author-name" itemprop="name">liujinlongxa</p>
+          <p class="site-description motion-element" itemprop="description">生命永不息，Coding永不止</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">57</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/liujinlongxa" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/JaylonLiu" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1523828165" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://mrscorpion.github.io" title="泊" target="_blank">泊</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#测试自建证书"><span class="nav-number">1.</span> <span class="nav-text">测试自建证书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置NSExceptionDomains"><span class="nav-number">2.</span> <span class="nav-text">配置NSExceptionDomains</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多环境配置"><span class="nav-number">3.</span> <span class="nav-text">多环境配置</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">liujinlongxa</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"liujinlongxa"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
