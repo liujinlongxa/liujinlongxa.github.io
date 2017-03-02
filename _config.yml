@@ -71,9 +71,9 @@ theme: next
 deploy:
   type: git
   repository:
-      github: git@github.com:liujinlongxa/liujinlongxa.github.io.git
-      branch: master
-      #gitcafe: git@git.coding.net:jianxin2008/jianxin2008.git,master
+    #   github: git@github.com:liujinlongxa/liujinlongxa.github.io.git
+    #   branch: master
+      gitcafe: git@git.coding.net:jianxin2008/jianxin2008.git,master
 
 # 多说评论
 duoshuo_shortname: liujinlongxa

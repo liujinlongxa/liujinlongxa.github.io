@@ -15474,3 +15474,25 @@
 {"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":1660,"level":30,"msg":"Deploying: \u001b[35mgit\u001b[39m","time":"2017-03-02T01:35:29.038Z","v":0}
 {"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":1660,"level":30,"msg":"Clearing .deploy_git folder...","time":"2017-03-02T01:35:29.044Z","v":0}
 {"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":1660,"level":30,"msg":"Copying files from public folder...","time":"2017-03-02T01:35:29.090Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":1660,"level":30,"msg":"See you again","time":"2017-03-02T01:37:57.436Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":1660,"level":20,"msg":"Database saved","time":"2017-03-02T01:37:57.439Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":1714,"level":20,"msg":"Hexo version: \u001b[35m3.2.2\u001b[39m","time":"2017-03-02T01:38:24.373Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":1714,"level":20,"msg":"Working directory: \u001b[35m~/Documents/Study/Blog/HexoBlog/\u001b[39m","time":"2017-03-02T01:38:24.376Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":1714,"level":20,"msg":"Config loaded: \u001b[35m~/Documents/Study/Blog/HexoBlog/_config.yml\u001b[39m","time":"2017-03-02T01:38:24.452Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":1714,"level":20,"msg":"Script loaded: \u001b[35mthemes/next/scripts/merge-configs.js\u001b[39m","time":"2017-03-02T01:38:24.463Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":1714,"level":20,"msg":"Script loaded: \u001b[35mthemes/next/scripts/tags/full-image.js\u001b[39m","time":"2017-03-02T01:38:24.463Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":1714,"level":20,"msg":"Script loaded: \u001b[35mthemes/next/scripts/tags/group-pictures.js\u001b[39m","time":"2017-03-02T01:38:24.464Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":1714,"level":20,"msg":"Script loaded: \u001b[35mthemes/next/scripts/tags/center-quote.js\u001b[39m","time":"2017-03-02T01:38:24.465Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":1714,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-deployer-git\u001b[39m","time":"2017-03-02T01:38:24.467Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":1714,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-archive\u001b[39m","time":"2017-03-02T01:38:24.469Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":1714,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-category\u001b[39m","time":"2017-03-02T01:38:24.470Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":1714,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-feed\u001b[39m","time":"2017-03-02T01:38:24.473Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":1714,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-tag\u001b[39m","time":"2017-03-02T01:38:24.474Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":1714,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-renderer-stylus\u001b[39m","time":"2017-03-02T01:38:24.475Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":1714,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-generator-index\u001b[39m","time":"2017-03-02T01:38:24.476Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":1714,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-renderer-marked\u001b[39m","time":"2017-03-02T01:38:24.480Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":1714,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-server\u001b[39m","time":"2017-03-02T01:38:24.523Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":1714,"level":20,"msg":"Plugin loaded: \u001b[35mhexo-renderer-ejs\u001b[39m","time":"2017-03-02T01:38:24.525Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":1714,"level":30,"msg":"Deploying: \u001b[35mgit\u001b[39m","time":"2017-03-02T01:38:24.527Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":1714,"level":30,"msg":"Clearing .deploy_git folder...","time":"2017-03-02T01:38:24.532Z","v":0}
+{"name":"hexo","hostname":"Liujinlongxc-PC.local","pid":1714,"level":30,"msg":"Copying files from public folder...","time":"2017-03-02T01:38:24.575Z","v":0}
