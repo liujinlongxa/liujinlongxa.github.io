@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://liujinlongxa.com/"/>
-  <updated>2017-03-01T15:21:36.000Z</updated>
+  <updated>2017-03-06T03:50:48.000Z</updated>
   <id>http://liujinlongxa.com/</id>
   
   <author>
@@ -16,11 +16,61 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>深入理解git merge和git rebase（续）</title>
+    <link href="http://liujinlongxa.com/2017/03/06/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3git-merge%E5%92%8Cgit-rebase%EF%BC%88%E7%BB%AD%EF%BC%89/"/>
+    <id>http://liujinlongxa.com/2017/03/06/深入理解git-merge和git-rebase（续）/</id>
+    <published>2017-03-06T01:34:43.000Z</published>
+    <updated>2017-03-06T03:50:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文接上一篇，主要讲解一下git rebase的用法和使用中注意的事项。</p>
+<h2 id="git-rebase"><a href="#git-rebase" class="headerlink" title="git rebase"></a>git rebase</h2><h3 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h3><p>git rebase，也叫做变基，也是Git种一种合并代码的手段，与git merge不同的是，rebase是直接将一个分支从他们的共同父节点开始后的所有Commit依次合并到另外一个分支上。如下图：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/e3bdbc7fff28676ccefdcb16f4d43095.png" alt="1"></p>
+<p>两个分支develop和master，如果通过命令<code>git merge</code>将develop分支合并到master分支，Git会将‘C’，‘3’以及两个分支的共同父节点‘B’进行三路合并，合并完成后生成一个新节点，如下图：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/ce919bb1921ee5c302baafbb0f45785f.png" alt="2"></p>
+<p>如果<code>git rebase</code>将develop分支变基到master分支上，Git会将develop分支上的所有commit(1,2,3)依次合并到master，每一次合并都会生成一个新的提交(如下图1’,2’,3’)，合并完成后，如下图：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/0478f567c5748186a200cd4da8b5ddd8.png" alt="3"></p>
+<p>可以明显的看到，使用<code>git rebase</code>，分支线依然保持为一条，分支线看起来也没有那么乱，这也是<code>git rebase</code>相对于<code>git merge</code>的一个优点，但是另一方面，<code>git rebase</code>在合并每一个提交并生成一个新的提交时，会改写原来提交的提交时间（不会改写提交人），而且<code>git rebase</code>也没有留下合并的痕迹，可追溯性没那么强。</p>
+<h3 id="为什么那么多冲突"><a href="#为什么那么多冲突" class="headerlink" title="为什么那么多冲突"></a>为什么那么多冲突</h3><p>在使用<code>git rebase</code>的过程中经常会遇到这种情况，在执行的<code>git rebase</code>操作后，遇到了一个冲突，修改冲突后执行<code>git rebase --continue</code>，然后又来一个冲突，冲突一个接一个，而且有时候同一个冲突会出现好几次。</p>
+<p>其实，这是由rebase的原理造成的，Git在合并每一个Commit时都会判断是否有冲突，如下图：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/90ff7dd4f79dddc65656820254dba48b.png" alt="4"></p>
+<p>两个分支develop和master以及他们各自的文件内容，现在要将develop变基到master上，Git会先将develop的第一个commit和master分支的最新提交合并，合并后如下：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/31c92a8c54e271fb69053a22c984c6dd.png" alt="5"></p>
+<p>会报一个冲突，解决完冲突后，执行<code>git rebase --continue</code>，根据冲突不同的解决方案，可能会与不同的结果，如下图：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/74efc09f8e231d078914a36f5223e289.png" alt="6"></p>
+<p>上图中的两种冲突解决方案，在执行<code>git rebase --continue</code>后，依然再会报一个冲突，应为在合并develop的第二个提交时，依然有冲突。下面的解决方案则不会造成再次冲突，因为这种解决方案是完全用develop分支覆盖了master分支，如下图：</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/510fa8570fd012eb1723d6c521eb5cc6.png" alt="7"></p>
+<p>以上就是造成<code>git rebase</code>冲突太多的具体原因。</p>
+<h3 id="有那么点用的rerere"><a href="#有那么点用的rerere" class="headerlink" title="有那么点用的rerere"></a>有那么点用的rerere</h3><p>冲突太多怎么办，Git提供了一个辅助工具<code>git rerere</code>命令，具体用法可以参考<a href="https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-Rerere" target="_blank" rel="external">git rerere</a>。rerere命令能够记住解决一个冲突的方法，这样在下一次看到相同冲突时，Git 可以为你自动地解决它。</p>
+<p>那么rerere能够避免<code>git rebase</code>带来的冲突吗，答案是否定的。因为rerere在判断两个冲突是否为相同冲突是根据冲突体的两部分是否完全一样来进行的，就上面的例子而言，不管是哪种冲突解决方案，第一次和第二次冲突的冲突体都不完全一样，因此rerere都不会自动帮我们修复。</p>
+<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/b80ef2ec61407d7a737a0997da6c960d.png" alt="8"></p>
+<p>而且，rerere命令也会记住错误的冲突解决方案，下次遇到相同的冲突时会直接应用错误的方案。不过你可以使用<code>git rerere forget &lt;pathspec&gt;</code>命令来删除Git记住的冲突解决方案。</p>
+<p>说了这么多，那rerere命令到底有什么用呢？</p>
+<p><code>git rerere</code>命令为我们提供了一种减少冲突的方案：当你要保证一个长期分支会干净地合并，但是又不想要一串中间的合并提交。 将rerere功能打开后偶尔合并，解决冲突，然后返回到合并前。 如果你持续这样做，那么最终的合并会很容易，因为rerere可以为你自动做所有的事情。<code>git rerere</code>也可以将冲突的解决方案共享给项目组的其他成员。</p>
+<p>所以说rerere命令还有一点用的，不过他并不能彻底解决冲突多的问题，减少冲突还是需要我们在平时使用时规范git的使用方法，使用统一的git工作流。</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>本来打算写一篇的，但是因为太长了，所以分为两篇来写。由于写的比较仓促，文中如果有什么纰漏，欢迎指出。</p>
+<p>参考资料：<br><a href="https://git-scm.com/book/zh/v2" target="_blank" rel="external">Pro Git</a><br><a href="http://stackoverflow.com/questions/13825079/why-do-i-have-to-resolve-the-same-conflict-over-and-over" target="_blank" rel="external">Why do I have to resolve the same conflict over and over?</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文接上一篇，主要讲解一下git rebase的用法和使用中注意的事项。&lt;/p&gt;
+&lt;h2 id=&quot;git-rebase&quot;&gt;&lt;a href=&quot;#git-rebase&quot; class=&quot;headerlink&quot; title=&quot;git rebase&quot;&gt;&lt;/a&gt;git rebase&lt;/
+    
+    </summary>
+    
+      <category term="Git" scheme="http://liujinlongxa.com/categories/Git/"/>
+    
+    
+      <category term="Git" scheme="http://liujinlongxa.com/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
     <title>深入理解git merge和git rebase</title>
     <link href="http://liujinlongxa.com/2017/03/01/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3git-merge%E5%92%8Cgit-rebase/"/>
     <id>http://liujinlongxa.com/2017/03/01/深入理解git-merge和git-rebase/</id>
     <published>2017-03-01T07:08:21.000Z</published>
-    <updated>2017-03-01T15:21:36.000Z</updated>
+    <updated>2017-03-06T02:37:50.000Z</updated>
     
     <content type="html"><![CDATA[<p><code>git merge</code>和<code>git rebase</code>是我们平时在使用Git过程中用到比较多的两个命令。本文将主要介绍这个两个命令的基本用法以及使用中应该注意的事项。</p>
 <h2 id="git-merge"><a href="#git-merge" class="headerlink" title="git merge"></a>git merge</h2><h3 id="不同的合并方式"><a href="#不同的合并方式" class="headerlink" title="不同的合并方式"></a>不同的合并方式</h3><p>顾名思义，<code>git merge</code>是用来将一个分支的代码合并到另一个分支。如下图，将develop分支上的代码合并到master分支上。</p>
@@ -34,13 +84,13 @@
 <p>不使用<code>Fast-forward</code>的方式进行合并，Git会为合并生成一个新的提交，合并后的结果如下图：</p>
 <p><img src="http://7xn88v.com1.z0.glb.clouddn.com/091081cb40b5eedbc5dc4ab2c8e4e13e.png" alt="5"></p>
 <p>Commit C即是Git自动生成的合并提交。一般情况下我们在合并代码时都会加上<code>--no-ff</code>，这样可以更清晰的看见合并操作。</p>
-<p>另外还有一种情况，如下图：</p>
+<h3 id="一个不大不小的坑"><a href="#一个不大不小的坑" class="headerlink" title="一个不大不小的坑"></a>一个不大不小的坑</h3><p>如下图：</p>
 <p><img src="http://7xn88v.com1.z0.glb.clouddn.com/e92aed55a7593922b525c2723894b202.png" alt="6"></p>
 <p> 在牵出develop分支后，master分支又有了新的提交C，这时候如果把develop分支合并到master，就不能简单的通过移动master分支头指针来进行了，这时候默认执行的是<strong>recursive</strong>(递归)的策略进行合并的，这种策略下，Git会对两个分支的头结点（C与3）以及他们的共同父节点（B）进行三路合并，这种情况下就可能出现代码冲突。</p>
 <p> 而且Git在合并两个分支时，并不会根据Commit的提交时间来判断哪个分支的代码更新，这就可能造成一个隐藏的问题：</p>
 <p> 想象一下这种场景，一个团队内分为两个小组分别开发A和B两个功能版本，A版本的开发人员修改了某个文件（假定是file1），B版本的的开发人员发现他也要对file1做同样的修改才能继续开发，于是他对file1做了同样的修改（或者使用cherry-pick把A版本的相应的commit拉过来）。过了一段时间，A版本的开发人员发现他以前对file1的修改有问题，于是又把file1改了回去，而这时候B版本的开发人员并没有做同样的修改。这样，将来A版本和B版本合并到主干分支后，B版本的代码就会覆盖A的修改，于是错误的代码又被合并到了主干分支上。下面就是这个过程的示意图：</p>
 <p><img src="http://7xn88v.com1.z0.glb.clouddn.com/51b92d9f3934ffa53a1f2c9770a9895f.png" alt="7"></p>
-<p>如图，需要1，2，3表示的是Commit的提交顺序，FeatureA分支在commit 2上把文件内容改为了<code>bbb111</code>, FeatureB分支把文件内容改为了<code>bbb222</code>，在commit 6上FeatureA有吧内容改回了<code>AAA</code>，而B分支没有做同样的修改，当把FeatureA合并到主干时，由于FeatureA相对于共通父节点Commit 1来说没有变化，因此就会使用FeatureB的内容作为最终的内容，而且这种情况下不会报任何冲突。这就极有可能造成错误的代码又被合并到了主干分支上，而且这种问题极难被察觉，就好像莫名其妙的发现代码丢失了一样。</p>
+<p>如图，序号1，2，3表示的是Commit的提交顺序，FeatureA分支在commit 2上把文件内容改为了<code>bbb111</code>, FeatureB分支把文件内容改为了<code>bbb222</code>，在commit 6上FeatureA有吧内容改回了<code>AAA</code>，而B分支没有做同样的修改，当把FeatureA合并到主干时，由于FeatureA相对于共通父节点Commit 1来说没有变化，因此就会使用FeatureB的内容作为最终的内容，而且这种情况下不会报任何冲突。这就极有可能造成错误的代码又被合并到了主干分支上，而且这种问题极难被察觉，就好像莫名其妙的发现代码丢失了一样。</p>
 <p>要避免这种情况的发生，只能从流程上来规范git的操作。如果一个修改要应用到多个分支上，应该单独为这个修改建立一个临时分支，修改完成后，每一个需要用到这个修改的分支都合并这个临时分支。将来如果这个临时分支又有了新的提交，依然是每个分支都要合并。这样就可以避免出现上面的情况。</p>
 <p>未完待续。</p>
 ]]></content>
@@ -761,97 +811,6 @@
       <category term="WebDAV" scheme="http://liujinlongxa.com/tags/WebDAV/"/>
     
       <category term="ownCloud" scheme="http://liujinlongxa.com/tags/ownCloud/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在VPS上搭建Git服务器</title>
-    <link href="http://liujinlongxa.com/2016/08/07/%E5%9C%A8VPS%E4%B8%8A%E6%90%AD%E5%BB%BAGit%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    <id>http://liujinlongxa.com/2016/08/07/在VPS上搭建Git服务器/</id>
-    <published>2016-08-07T07:27:52.000Z</published>
-    <updated>2017-03-01T06:42:53.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>昨天尝试了在自己的VPS上搭建一个git服务器，中间踩了很多坑，下面是我整个搭建的过程。</p>
-<h2 id="具体流程"><a href="#具体流程" class="headerlink" title="具体流程"></a>具体流程</h2><h3 id="第一步：安装Git"><a href="#第一步：安装Git" class="headerlink" title="第一步：安装Git"></a>第一步：安装Git</h3><p>打开VPS(这里我用的是<a href="https://bandwagonhost.com/index.php" target="_blank" rel="external">搬运工</a>，怎么购买VPS可以参考我的<a href="http://liujinlongxa.com/2016/06/11/%E6%89%93%E9%80%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BF%BB%E5%A2%99VPS:%E6%90%AC%E8%BF%90%E5%B7%A5VPS%E8%B4%AD%E4%B9%B0%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B%E5%85%A8%E8%AE%B0%E5%BD%95/">这篇博客</a>)的控制后台，进入Shell，然后输入命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install -y git</div></pre></td></tr></table></figure>
-<p>执行完后如图：</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/b9dd798ab599b9b53adebee98ebe5bbd.png" alt="2"></p>
-<p>查看Git版本，如果能显示Git版本，则说明安装成功。</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/d7cdff1b7006e2c9b5f1e521319d903c.png" alt="3"></p>
-<h3 id="第二步：添加用户"><a href="#第二步：添加用户" class="headerlink" title="第二步：添加用户"></a>第二步：添加用户</h3><p>输入命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">adduser git</div><div class="line">su git</div></pre></td></tr></table></figure>
-<p>添加一个名为git的用户，并且将当前用户切换到git</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/c5350088190cd59d220b4942b9d87eae.png" alt="4"></p>
-<h3 id="第三步：创建仓库"><a href="#第三步：创建仓库" class="headerlink" title="第三步：创建仓库"></a>第三步：创建仓库</h3><p>创建一个文件夹用来存放git仓库，然后输入命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init --bare mycode.git</div></pre></td></tr></table></figure>
-<p>这样就可以创建一个裸仓库，因为服务器上的Git仓库纯粹是为了共享，所以不让用户直接登录到服务器上去改工作区，如下图：</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/c58f27e2d859d984c844371a43a37ab8.png" alt="5"></p>
-<p>把服务器的git仓库的用户组改为git</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/26a614c08121e4b0f8783551208e2d19.png" alt="6"></p>
-<p>这样仓库就创建完了</p>
-<h3 id="第四步：创建证书"><a href="#第四步：创建证书" class="headerlink" title="第四步：创建证书"></a>第四步：创建证书</h3><p>在服务器/homg/git目录下创建文件夹.ssh，然后在.ssh文件夹里创建authorized_keys</p>
-<p><strong> 注意：一定要切换到git用户下再创建，否则使用root用户创建，会因为文件夹权限的问题而造成RSA校验失败，我就是在这里卡了半天 </strong></p>
-<p>然后在客户端创建公钥，即~/.ssh/id_rsa.pub文件里的内容，然后把公钥填入服务器的authorized_keys文件中</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/9eca6530c312dc064c8901735ef9942e.png" alt="7"></p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/7c38fa2c806440f162b83208038a8dc9.png" alt="8"></p>
-<h3 id="第五步：打开服务器RSA验证"><a href="#第五步：打开服务器RSA验证" class="headerlink" title="第五步：打开服务器RSA验证"></a>第五步：打开服务器RSA验证</h3><p>进入服务器/etc/ssh目录，使用vim打开sshd_config（建议先做一个备份），修改如下内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">RSAAuthentication yes     </div><div class="line">PubkeyAuthentication yes     </div><div class="line">AuthorizedKeysFile  .ssh/authorized_keys</div></pre></td></tr></table></figure>
-<p>大部分Linux系统的RSA认证默认就是开启的，如果已经开启，则可以忽略(在这里也卡了好久😭)</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/9d534724207d6319fcf654142e91ba24.png" alt="9"></p>
-<p>然后保存退出，重新启动sshd</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/74d02be9217b7ea806af5970560ac956.png" alt="10"></p>
-<h3 id="第六步：修改指定服务器的ssh端口"><a href="#第六步：修改指定服务器的ssh端口" class="headerlink" title="第六步：修改指定服务器的ssh端口"></a>第六步：修改指定服务器的ssh端口</h3><p>一般ssh访问默认的端口是22，但是搬运工VPS修改了ssh访问的端口，而Git访问还是用还是22端口，因此要修改Git使用ssh访问的端口(在这里也卡了好久😭)，要查看ssh端口可以在服务器的sshd_config文件中查看，如下：</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/b2f7743ffae9917e88f0ace60e11637b.png" alt="11"></p>
-<p> 如果不想修改服务器端口配置，可以修改客户端访问端口。在客户端的/~/.ssh/config文件中添加如下两行，第一行是服务器的地址，第二行是服务器的端口</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/17e45daf40d28f1174387104a3daef40.png" alt="12"></p>
-<p>这样就修改了访问指定服务器时的ssh端口。</p>
-<h3 id="第七步：创建本地仓库"><a href="#第七步：创建本地仓库" class="headerlink" title="第七步：创建本地仓库"></a>第七步：创建本地仓库</h3><p>经过以上六步，一个Git服务器就建立好了，现在你就可以把仓库clone下来，然后开始使用了。</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/285c535aa2610ae916b1f964617a8d68.png" alt="13"></p>
-<h2 id="遇到的坑"><a href="#遇到的坑" class="headerlink" title="遇到的坑"></a>遇到的坑</h2><p>在整个搭建过程中，我也踩了很多坑，下面对这些坑做一个总结。</p>
-<h3 id="服务器与客户端ssh端口不一致"><a href="#服务器与客户端ssh端口不一致" class="headerlink" title="服务器与客户端ssh端口不一致"></a>服务器与客户端ssh端口不一致</h3><p>在完成创建证书之后，按理说，应该已经可以clone仓库了，但是我尝试克隆会报如下错误：</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/e5bc21bbdb55bcdf473e6addf69cf495.png" alt="14"></p>
-<p>网上找了很多方法，最后发现是因为客户端和服务器的ssh端口不一致导致，修改了客户端的ssh访问端口才解决了这个问题。</p>
-<p>相关参考：<a href="http://zengrong.net/post/1544.htm" target="_blank" rel="external">修改了SSH默认端口之后，如何配置git？</a></p>
-<h3 id="ssh验证失败"><a href="#ssh验证失败" class="headerlink" title="ssh验证失败"></a>ssh验证失败</h3><p>修改了ssh端口后，可以访问仓库了，但是每次访问都要输入密码，按理说我已经创建了证书，并且也把公钥放到了服务器，为什么还是不行呢？</p>
-<p>找了半天，发现服务器的RSA身份校验压根就没有开启，ssh在校验时是先使用RSA进行校验，如果校验失败再使用密码进行校验。修改sshd_config文件，打开身份校验，参照上面的第五步。</p>
-<p>打开身份校验之后，发现还是要输入密码。最初我的做法是关闭服务器的ssh密码校验，修改服务器/etc/ssh/sshd_config文件如下内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PasswordAuthentication no</div></pre></td></tr></table></figure>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/fadd0406c6a9e9c02402e170082c82c7.png" alt="15"></p>
-<p>然后重启sshd。</p>
-<p>这样修改了之后，由于禁止了密码验证的方式，而RSA验证又失败，所以压根验证失败，访问都访问不了了。</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/2b0a4555687ea4fe8326f690ee35533e.png" alt="16"></p>
-<p>然后我尝试看Log，输入命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh git@xxx.xxx.xxx.xxx -vvv</div></pre></td></tr></table></figure>
-<p>从Log上看，客户端已经把key传给了服务器，但是服务器在验证时失败了，所以八成可能是服务器的问题。</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/8ec00cb79352b30a2f95a1b48410cdfe.png" alt="20"></p>
-<p>然后我又根据<a href="http://www.androiddev.net/ssh-public-key-authentication-error/" target="_blank" rel="external">这篇博客</a>修改了目录的权限，但是还是不行。</p>
-<p>根据<a href="http://flysnowxf.iteye.com/blog/1567570" target="_blank" rel="external">这篇博客</a>关闭了SELinux也还是不行。</p>
-<p>然后我又根据<a href="http://blog.csdn.net/lansesl2008/article/details/16113193" target="_blank" rel="external">这篇博客</a>打开了ssh的log，修改sshd_config如下内容：</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/3dc7b3340f6b693b047ecbee93400564.png" alt="17"></p>
-<p>然后又重新登录和退出几次ssh，在/var/log/secure里看到了如下内容：</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/4f320784c4d9d731d53b3792856ec4dd.png" alt="18"></p>
-<p>并没有什么有用的信息，不知道是不是我的Log配置的有问题。</p>
-<p>找了很多资料，有很多文章都提到了文件夹权限的问题，于是我又回到服务器git目录下看了一下文件夹的权限：</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/c9be98241282c46c0111cb25e1be9aa4.png" alt="19"></p>
-<p>原来我在创建.ssh目录是用的是root账户，所有造成ssh在进行身份认证时没有权限方位.ssh目录，导致认证失败。输入命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chown git .ssh</div></pre></td></tr></table></figure>
-<p>将.ssh文件夹的所属用户改为git，.ssh里的authorized_keys文件也做相同的处理，这样改了之后终于可以验证成功了，并且不用输入密码了。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>整个搭建过程用了将近一天的时间，虽然过程有些曲折，但是最终还是成功了，而且这个过程中我也学到了不少的东西，更加深入的了解了ssh服务。</p>
-<p>希望这篇文章能对大家在搭建git服务器时有所帮助。</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://blog.csdn.net/wave_1102/article/details/47779401" target="_blank" rel="external">在CentOS下搭建自己的Git服务器</a><br><a href="http://blog.csdn.net/jacky0922/article/details/17999271" target="_blank" rel="external">ssh无密码登录认证失败</a><br><a href="http://blog.csdn.net/lansesl2008/article/details/16113193" target="_blank" rel="external">sshd_config配置详解</a><br><a href="http://www.androiddev.net/ssh-public-key-authentication-error/" target="_blank" rel="external">一个SSH 公钥登录失败的问题及解决经验</a><br><a href="http://www.linuxquestions.org/questions/linux-newbie-8/permission-denied-publickey-gssapi-keyex-gssapi-with-mic-password-4175413607/" target="_blank" rel="external">Permission denied (publickey, gssapi-keyex,gssapi-with-mic,password)</a><br><a href="http://flysnowxf.iteye.com/blog/1567570" target="_blank" rel="external">ssh使用公钥授权不通过的问题解决</a><br><a href="http://zengrong.net/post/1544.htm" target="_blank" rel="external">修改了SSH默认端口之后，如何配置git？</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;昨天尝试了在自己的VPS上搭建一个git服务器，中间踩了很多坑，下面是我整个搭建的过程。&lt;/p&gt;
-&lt;h2 id=&quot;具体流程&quot;&gt;&lt;a href=&quot;#具体流程&quot; class=&quot;headerlink&quot; title=&quot;具体流程&quot;&gt;&lt;/a&gt;具体流程&lt;/h2&gt;&lt;h3 id=&quot;第一步：安
-    
-    </summary>
-    
-      <category term="Git" scheme="http://liujinlongxa.com/categories/Git/"/>
-    
-    
-      <category term="Git" scheme="http://liujinlongxa.com/tags/Git/"/>
     
   </entry>
   
