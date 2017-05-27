@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://liujinlongxa.com/"/>
-  <updated>2017-03-27T09:04:04.000Z</updated>
+  <updated>2017-05-27T02:14:10.000Z</updated>
   <id>http://liujinlongxa.com/</id>
   
   <author>
@@ -14,6 +14,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>修改模态界面的转场动画</title>
+    <link href="http://liujinlongxa.com/2017/05/27/%E4%BF%AE%E6%94%B9%E6%A8%A1%E6%80%81%E7%95%8C%E9%9D%A2%E7%9A%84%E8%BD%AC%E5%9C%BA%E5%8A%A8%E7%94%BB/"/>
+    <id>http://liujinlongxa.com/2017/05/27/修改模态界面的转场动画/</id>
+    <published>2017-05-27T01:21:38.000Z</published>
+    <updated>2017-05-27T02:14:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>模态（Modal）界面弹出动画一般是从下往上推出，如果要修改转场动画，可以设置modalTransitionStyle属性，代码如下：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ViewController *vc = [[ViewController alloc] init];</div><div class="line">vc.modalTransitionStyle = <span class="built_in">UIModalTransitionStyleFlipHorizontal</span>;</div><div class="line">[<span class="keyword">self</span> presentViewController:vc animated:<span class="literal">YES</span> completion:<span class="literal">nil</span>];</div></pre></td></tr></table></figure>
+<p>modalTransitionStyle是一个枚举，有以下四个值，分别代表四种不同的转场效果，</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">UIModalTransitionStyleCoverVertical</span> = <span class="number">0</span>,</div><div class="line"><span class="built_in">UIModalTransitionStyleFlipHorizontal</span>,</div><div class="line"><span class="built_in">UIModalTransitionStyleCrossDissolve</span>,</div><div class="line"><span class="built_in">UIModalTransitionStylePartialCurl</span></div></pre></td></tr></table></figure>
+<p>如果上面四种效果都不能满足你的需求，还可以使用CATransition进一步定制你的转场动画，代码如下：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">ViewController *vc = [[ViewController alloc] init];</div><div class="line"><span class="built_in">CATransition</span> *transition = [<span class="built_in">CATransition</span> animation];</div><div class="line">transition.type = kCATransitionMoveIn;</div><div class="line">transition.subtype = kCATransitionFromLeft;</div><div class="line">transition.duration = <span class="number">3.0</span>;</div><div class="line">transition.timingFunction = [<span class="built_in">CAMediaTimingFunction</span> functionWithName:kCAMediaTimingFunctionEaseIn];</div><div class="line">[<span class="keyword">self</span>.view.window.layer addAnimation:transition forKey:<span class="string">@"tran"</span>];</div><div class="line">[<span class="keyword">self</span> presentViewController:vc animated:<span class="literal">NO</span> completion:<span class="literal">nil</span>];</div></pre></td></tr></table></figure>
+<p>使用CATransition的type和subtype两个属性可以定制16中转场动画，同时CATransition还可以设置转场持续的时间（duration）以及动画速度控制函数（timingFunction）等属性。注意，一定要把动画加载控制器view的window上。</p>
+<p>完成代码，包括present和dismiss</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">ViewController *vc = [[ViewController alloc] init];</div><div class="line"><span class="built_in">CATransition</span> *presentTransition = [<span class="built_in">CATransition</span> animation];</div><div class="line">presentTransition.type = kCATransitionMoveIn;</div><div class="line">presentTransition.subtype = kCATransitionFromLeft;</div><div class="line">presentTransition.duration = <span class="number">3.0</span>;</div><div class="line">presentTransition.timingFunction = [<span class="built_in">CAMediaTimingFunction</span> functionWithName:kCAMediaTimingFunctionEaseIn];</div><div class="line">[<span class="keyword">self</span>.view.window.layer addAnimation:presentTransition forKey:<span class="string">@"presentTransition"</span>];</div><div class="line">[<span class="keyword">self</span> presentViewController:vc animated:<span class="literal">NO</span> completion:<span class="literal">nil</span>];</div><div class="line"></div><div class="line"></div><div class="line"><span class="built_in">CATransition</span> *dismissTransition = [<span class="built_in">CATransition</span> animation];</div><div class="line">dismissTransition.type = kCATransitionMoveIn;</div><div class="line">dismissTransition.subtype = kCATransitionFromRight;</div><div class="line">dismissTransition.duration = <span class="number">3.0</span>;</div><div class="line">dismissTransition.timingFunction = [<span class="built_in">CAMediaTimingFunction</span> functionWithName:kCAMediaTimingFunctionEaseIn];</div><div class="line">[<span class="keyword">self</span>.view.window.layer addAnimation:dismissTransition forKey:<span class="string">@"dismissTransition"</span>];</div><div class="line">[<span class="keyword">self</span> dismissViewControllerAnimated:<span class="literal">NO</span> completion:<span class="literal">nil</span>];</div></pre></td></tr></table></figure>
+<p>如果CATransition的16种转场动画还不能满足你的需求，iOS7之后，可以使用UIViewControllerAnimatedTransitioning协议完全自定义转场动画，还能实现手势控制转动画。具体代码可以参考我写的这个<a href="https://github.com/liujinlongxa/AnimationTransition" target="_blank" rel="external">Demo</a>。</p>
+<p>以上就是我对模态界面转场动画的一个总结。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;模态（Modal）界面弹出动画一般是从下往上推出，如果要修改转场动画，可以设置modalTransitionStyle属性，代码如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter
+    
+    </summary>
+    
+      <category term="iOS开发" scheme="http://liujinlongxa.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="转场动画" scheme="http://liujinlongxa.com/tags/%E8%BD%AC%E5%9C%BA%E5%8A%A8%E7%94%BB/"/>
+    
+      <category term="CATransition" scheme="http://liujinlongxa.com/tags/CATransition/"/>
+    
+  </entry>
   
   <entry>
     <title>如何获取分享h5页面时的缩略图</title>
@@ -729,56 +765,6 @@
     
     
       <category term="其他" scheme="http://liujinlongxa.com/tags/%E5%85%B6%E4%BB%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mac下生成RSA密钥对要注意的问题</title>
-    <link href="http://liujinlongxa.com/2016/08/25/Mac%E4%B8%8B%E7%94%9F%E6%88%90RSA%E5%AF%86%E9%92%A5%E5%AF%B9%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <id>http://liujinlongxa.com/2016/08/25/Mac下生成RSA密钥对要注意的问题/</id>
-    <published>2016-08-25T15:50:06.000Z</published>
-    <updated>2017-03-01T06:42:53.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>生成RSA密钥一般使用的Openssl，方法如下：</p>
-<p>在终端输入命令openssl然后敲回车，进入openssl命令输入模式，如下：</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/d0eff7b11f3bb040e28e46de5393d9d2.png" alt="1"></p>
-<p>然后输入一下三行命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">genrsa -out rsa_private_key.pem 1024</div><div class="line">pkcs8 -topk8 -in rsa_private_key.pem -out pkcs8_rsa_private_key.pem -nocrypt</div><div class="line">rsa -in rsa_private_key.pem -pubout -out rsa_public_key.pem</div></pre></td></tr></table></figure>
-<p>然后输入exit退出openssl命令输入模式，这样会在当前目录生成三个文件，如下：</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/980dc450a7d1f4db0759d42ac882f54a.png" alt="2"></p>
-<p>其中：</p>
-<ul>
-<li>rsa_private_key.pem为私钥</li>
-<li>rsa_public_key.pem为公钥</li>
-<li>pkcs8_rsa_private_key.pem为PKCS#8编码的私钥</li>
-</ul>
-<p>公钥没有问题，主要是私钥，私钥有两个，两个有什么区别，到底该用哪一个呢？</p>
-<p>主要区别在于：</p>
-<ul>
-<li>rsa_private_key.pem为PKCS#1编码，只包含RSA的密钥信息，是以”—–BEGIN RSA PRIVATE KEY—–”开头，以”—–END RSA PRIVATE KEY—–”结尾，如下图：</li>
-</ul>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/9927f538bea6e031960a0a908076ccdd.png" alt="3"></p>
-<ul>
-<li>pkcs8_rsa_private_key.pem为PKCS#8编码，除了包含RSA密钥信息外，还包含一些附加信息，例如version和算法等，是以”—–BEGIN PRIVATE KEY—–”开头，以”—–END PRIVATE KEY—–”结尾的，如下图：</li>
-</ul>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/b98831c564629c062c9bfcb5f7868625.png" alt="4"></p>
-<p>Mac默认生成的是PKCS#1编码的私钥，而有的系统生成私钥是PKCS#8编码，具体用哪个这要看你的加密代码里是否对附加信息进行了校验判断，如果进行了校验，则应该使用PKCS#8编码的私钥，否则应该使用PKCS#1编码的私钥。</p>
-<p>我使用的是<a href="https://github.com/ideawu/Objective-C-RSA" target="_blank" rel="external">这个第三方库</a>进行加密解密的，里面对附加信息进行了校验，所以应该使用PKCS#8编码的密钥。</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://github.com/ideawu/Objective-C-RSA" target="_blank" rel="external">Objective-C-RSA</a><br><a href="https://github.com/ideawu/Objective-C-RSA/issues/15" target="_blank" rel="external">Objective-C-RSA Issuse #15</a><br><a href="http://www.tuicool.com/articles/Rbu6zm" target="_blank" rel="external">openssl生成RSA格式，并转为pkcs8格式</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;生成RSA密钥一般使用的Openssl，方法如下：&lt;/p&gt;
-&lt;p&gt;在终端输入命令openssl然后敲回车，进入openssl命令输入模式，如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xn88v.com1.z0.glb.clouddn.com/d0eff7b11
-    
-    </summary>
-    
-      <category term="其他" scheme="http://liujinlongxa.com/categories/%E5%85%B6%E4%BB%96/"/>
-    
-    
-      <category term="加密解密" scheme="http://liujinlongxa.com/tags/%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86/"/>
     
   </entry>
   
