@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://liujinlongxa.com/"/>
-  <updated>2017-06-12T03:41:33.000Z</updated>
+  <updated>2017-06-12T03:42:57.000Z</updated>
   <id>http://liujinlongxa.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://liujinlongxa.com/2017/06/12/%E9%80%9A%E8%BF%87XCode%E6%9F%A5%E7%9C%8BAPP%E7%9A%84%E6%B2%99%E7%9B%92%E5%86%85%E5%AE%B9/"/>
     <id>http://liujinlongxa.com/2017/06/12/通过XCode查看APP的沙盒内容/</id>
     <published>2017-06-12T03:24:36.000Z</published>
-    <updated>2017-06-12T03:41:33.000Z</updated>
+    <updated>2017-06-12T03:42:57.000Z</updated>
     
     <content type="html"><![CDATA[<p>有时我们在开发APP过程中可能需要查看沙盒的内容，对于模拟器来说已经有一个很好用的工具<a href="https://simpholders.com/" target="_blank" rel="external">Simpholders</a>，如果是真机该如何查看沙盒的内容呢？</p>
 <p>其实XCode已经自带了这个功能，下面就介绍一下通过XCode查看APP沙盒内容的方法。</p>
@@ -28,7 +28,7 @@
 <p><img src="http://7xn88v.com1.z0.glb.clouddn.com/03a71dd7225206a6f3546fbdb09208b8.png" alt="1"></p>
 <p>然后选中你要查看沙盒的APP，然后点击下发的齿轮按钮，选择”Download Container…”</p>
 <p><img src="http://7xn88v.com1.z0.glb.clouddn.com/16142a7b444769ef7137725fe12203df.png" alt="2"></p>
-<p>然后选择一个文件夹保存下载的文件。下载完成后就会有一个以xcappdata为后缀的文件，然后右键”查看包内容”就可以看到APP沙盒里的内容了。</p>
+<p>然后选择一个文件夹保存下载的文件。下载完成后就会有一个以xcappdata为后缀的文件，然后右键点击”查看包内容”就可以看到APP沙盒里的内容了。</p>
 <p>以上就是通过XCode查看APP沙盒内容的方法，这个方法只能查看你通过XCode运行安装的APP的沙盒，其他的APP是不能查看的。</p>
 ]]></content>
     
