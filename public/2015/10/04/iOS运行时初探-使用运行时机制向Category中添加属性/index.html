@@ -86,26 +86,18 @@
 
 
 
-<meta name="description" content="前言了解OC的都应该知道，在一般情况下，我们是不能向Category中添加属性的，只能添加方法，但有些情况向，我们确实需要向Category中添加属性，而且很多系统的API也有一些在Category添加属性的情况，例如我们属性的UITableView的section和row属性，就是定义在一个名为NSIndexPath的分类里的，如下
-
-那这到底是怎么实现的呢？
-iOS运行时机制简介iOS运行时机">
+<meta name="description" content="前言了解OC的都应该知道，在一般情况下，我们是不能向Category中添加属性的，只能添加方法，但有些情况向，我们确实需要向Category中添加属性，而且很多系统的API也有一些在Category添加属性的情况，例如我们属性的UITableView的section和row属性，就是定义在一个名为NSIndexPath的分类里的，如下  那这到底是怎么实现的呢？ iOS运行时机制简介iOS运行时机">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS运行时初探 使用运行时机制向Category中添加属性">
 <meta property="og:url" content="http://liujinlongxa.com/2015/10/04/iOS运行时初探-使用运行时机制向Category中添加属性/index.html">
 <meta property="og:site_name" content="liujinlongxa的技术博客">
-<meta property="og:description" content="前言了解OC的都应该知道，在一般情况下，我们是不能向Category中添加属性的，只能添加方法，但有些情况向，我们确实需要向Category中添加属性，而且很多系统的API也有一些在Category添加属性的情况，例如我们属性的UITableView的section和row属性，就是定义在一个名为NSIndexPath的分类里的，如下
-
-那这到底是怎么实现的呢？
-iOS运行时机制简介iOS运行时机">
+<meta property="og:description" content="前言了解OC的都应该知道，在一般情况下，我们是不能向Category中添加属性的，只能添加方法，但有些情况向，我们确实需要向Category中添加属性，而且很多系统的API也有一些在Category添加属性的情况，例如我们属性的UITableView的section和row属性，就是定义在一个名为NSIndexPath的分类里的，如下  那这到底是怎么实现的呢？ iOS运行时机制简介iOS运行时机">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://img.blog.csdn.net/20150531230308155">
 <meta property="og:updated_time" content="2017-03-01T06:42:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS运行时初探 使用运行时机制向Category中添加属性">
-<meta name="twitter:description" content="前言了解OC的都应该知道，在一般情况下，我们是不能向Category中添加属性的，只能添加方法，但有些情况向，我们确实需要向Category中添加属性，而且很多系统的API也有一些在Category添加属性的情况，例如我们属性的UITableView的section和row属性，就是定义在一个名为NSIndexPath的分类里的，如下
-
-那这到底是怎么实现的呢？
-iOS运行时机制简介iOS运行时机">
+<meta name="twitter:description" content="前言了解OC的都应该知道，在一般情况下，我们是不能向Category中添加属性的，只能添加方法，但有些情况向，我们确实需要向Category中添加属性，而且很多系统的API也有一些在Category添加属性的情况，例如我们属性的UITableView的section和row属性，就是定义在一个名为NSIndexPath的分类里的，如下  那这到底是怎么实现的呢？ iOS运行时机制简介iOS运行时机">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20150531230308155">
 
 
@@ -329,7 +321,7 @@ iOS运行时机制简介iOS运行时机">
 <p><img src="http://img.blog.csdn.net/20150531230308155" alt="这里写图片描述"></p>
 <p>那这到底是怎么实现的呢？</p>
 <h2 id="iOS运行时机制简介"><a href="#iOS运行时机制简介" class="headerlink" title="iOS运行时机制简介"></a>iOS运行时机制简介</h2><p>iOS运行时机制，简单来说，就是苹果给开发这提供的一套在运行时动态创建类、添加属性/方法（不止这些，还有一些其他功能）的API，它是一套纯C语言的API，使用相应的API就可以通过Category给一个原本存在的类添加属性。</p>
-<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;objc/runtime.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSObject</span> (<span class="title">CategoryWithProperty</span>)</span></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> *  要在Category中扩展的属性</div><div class="line"> */</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSObject</span> *property;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSObject</span> (<span class="title">CategoryWithProperty</span>)</span></div><div class="line"></div><div class="line">- (<span class="built_in">NSObject</span> *)property &#123;</div><div class="line">    <span class="keyword">return</span> objc_getAssociatedObject(<span class="keyword">self</span>, <span class="keyword">@selector</span>(property));</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)setProperty:(<span class="built_in">NSObject</span> *)value &#123;</div><div class="line">    objc_setAssociatedObject(<span class="keyword">self</span>, <span class="keyword">@selector</span>(property), value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;objc/runtime.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSObject</span> (<span class="title">CategoryWithProperty</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  要在Category中扩展的属性</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSObject</span> *property;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSObject</span> (<span class="title">CategoryWithProperty</span>)</span></span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSObject</span> *)property &#123;</span><br><span class="line">    <span class="keyword">return</span> objc_getAssociatedObject(<span class="keyword">self</span>, <span class="keyword">@selector</span>(property));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)setProperty:(<span class="built_in">NSObject</span> *)value &#123;</span><br><span class="line">    objc_setAssociatedObject(<span class="keyword">self</span>, <span class="keyword">@selector</span>(property), value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
 <p>这样就可以在Category中添加属性了。</p>
 
       
@@ -438,7 +430,7 @@ iOS运行时机制简介iOS运行时机">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">61</span>
+              <span class="site-state-item-count">62</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -446,7 +438,7 @@ iOS运行时机制简介iOS运行时机">
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -455,7 +447,7 @@ iOS运行时机制简介iOS运行时机">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

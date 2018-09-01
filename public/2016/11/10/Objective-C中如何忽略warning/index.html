@@ -86,22 +86,21 @@
 
 
 
-<meta name="description" content="经常会在有些第三方框架里看到这样的代码：
-1234567#pragma clang diagnostic push#pragma clang diagnostic ignored &quot;-Wgnu&quot;    NSString *pathToBeMatched = nil;    if (method &amp;amp;&amp;amp; path) &amp;#123;        pathToBeMatched = [[[">
+<meta name="description" content="经常会在有些第三方框架里看到这样的代码： 1234567#pragma clang diagnostic push#pragma clang diagnostic ignored &quot;-Wgnu&quot;    NSString *pathToBeMatched = nil;    if (method &amp;amp;&amp;amp; path) &amp;#123;        pathToBeMatched = [[[">
+<meta name="keywords" content="Objective-C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Objective-C中如何忽略warning">
 <meta property="og:url" content="http://liujinlongxa.com/2016/11/10/Objective-C中如何忽略warning/index.html">
 <meta property="og:site_name" content="liujinlongxa的技术博客">
-<meta property="og:description" content="经常会在有些第三方框架里看到这样的代码：
-1234567#pragma clang diagnostic push#pragma clang diagnostic ignored &quot;-Wgnu&quot;    NSString *pathToBeMatched = nil;    if (method &amp;amp;&amp;amp; path) &amp;#123;        pathToBeMatched = [[[">
+<meta property="og:description" content="经常会在有些第三方框架里看到这样的代码： 1234567#pragma clang diagnostic push#pragma clang diagnostic ignored &quot;-Wgnu&quot;    NSString *pathToBeMatched = nil;    if (method &amp;amp;&amp;amp; path) &amp;#123;        pathToBeMatched = [[[">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/ba9ee4f9e59a474670f251598e7978d6.png">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/f12763686090a1cec73de963526971be.png">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/4d8b40432de09a56e50622b099f002bb.png">
 <meta property="og:updated_time" content="2017-03-01T06:42:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Objective-C中如何忽略warning">
-<meta name="twitter:description" content="经常会在有些第三方框架里看到这样的代码：
-1234567#pragma clang diagnostic push#pragma clang diagnostic ignored &quot;-Wgnu&quot;    NSString *pathToBeMatched = nil;    if (method &amp;amp;&amp;amp; path) &amp;#123;        pathToBeMatched = [[[">
+<meta name="twitter:description" content="经常会在有些第三方框架里看到这样的代码： 1234567#pragma clang diagnostic push#pragma clang diagnostic ignored &quot;-Wgnu&quot;    NSString *pathToBeMatched = nil;    if (method &amp;amp;&amp;amp; path) &amp;#123;        pathToBeMatched = [[[">
 <meta name="twitter:image" content="http://7xn88v.com1.z0.glb.clouddn.com/ba9ee4f9e59a474670f251598e7978d6.png">
 
 
@@ -322,7 +321,7 @@
 
       
         <p>经常会在有些第三方框架里看到这样的代码：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma clang diagnostic push</span></div><div class="line"><span class="meta">#pragma clang diagnostic ignored <span class="meta-string">"-Wgnu"</span></span></div><div class="line">    <span class="built_in">NSString</span> *pathToBeMatched = <span class="literal">nil</span>;</div><div class="line">    <span class="keyword">if</span> (method &amp;&amp; path) &#123;</div><div class="line">        pathToBeMatched = [[[<span class="keyword">self</span> requestWithMethod:(method ?: <span class="string">@"GET"</span>) path:path parameters:<span class="literal">nil</span>] URL] path];</div><div class="line">    &#125;</div><div class="line"><span class="meta">#pragma clang diagnostic pop</span></div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#pragma clang diagnostic push</span></span><br><span class="line"><span class="meta">#pragma clang diagnostic ignored <span class="meta-string">"-Wgnu"</span></span></span><br><span class="line">    <span class="built_in">NSString</span> *pathToBeMatched = <span class="literal">nil</span>;</span><br><span class="line">    <span class="keyword">if</span> (method &amp;&amp; path) &#123;</span><br><span class="line">        pathToBeMatched = [[[<span class="keyword">self</span> requestWithMethod:(method ?: <span class="string">@"GET"</span>) path:path parameters:<span class="literal">nil</span>] URL] path];</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">#pragma clang diagnostic pop</span></span><br></pre></td></tr></table></figure>
 <p>这段代码的前两句和最后一句的作用是忽略中间的代码的某种警告（warning），如果我们的代码中有些警告希望被忽略，可以使用这种方法忽略警告。</p>
 <p>其中第二句代码的<code>-Wgnu</code>是警告类型，可以通过以下方法查看警告类型。</p>
 <p>首先Command+b编译代码，然后Command+8来到报告导航栏，选中刚才的那次编译，如下图：</p>
@@ -443,7 +442,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">61</span>
+              <span class="site-state-item-count">62</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -451,7 +450,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -460,7 +459,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

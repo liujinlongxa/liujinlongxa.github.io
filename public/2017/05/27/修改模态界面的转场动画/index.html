@@ -86,19 +86,18 @@
 
 
 
-<meta name="description" content="模态（Modal）界面弹出动画一般是从下往上推出，如果要修改转场动画，可以设置modalTransitionStyle属性，代码如下：
-123ViewController *vc = [[ViewController alloc] init];vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;[self presentVi">
+<meta name="description" content="模态（Modal）界面弹出动画一般是从下往上推出，如果要修改转场动画，可以设置modalTransitionStyle属性，代码如下： 123ViewController *vc = [[ViewController alloc] init];vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;[self presentVi">
+<meta name="keywords" content="转场动画,CATransition">
 <meta property="og:type" content="article">
 <meta property="og:title" content="修改模态界面的转场动画">
 <meta property="og:url" content="http://liujinlongxa.com/2017/05/27/修改模态界面的转场动画/index.html">
 <meta property="og:site_name" content="liujinlongxa的技术博客">
-<meta property="og:description" content="模态（Modal）界面弹出动画一般是从下往上推出，如果要修改转场动画，可以设置modalTransitionStyle属性，代码如下：
-123ViewController *vc = [[ViewController alloc] init];vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;[self presentVi">
+<meta property="og:description" content="模态（Modal）界面弹出动画一般是从下往上推出，如果要修改转场动画，可以设置modalTransitionStyle属性，代码如下： 123ViewController *vc = [[ViewController alloc] init];vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;[self presentVi">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-05-27T02:14:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="修改模态界面的转场动画">
-<meta name="twitter:description" content="模态（Modal）界面弹出动画一般是从下往上推出，如果要修改转场动画，可以设置modalTransitionStyle属性，代码如下：
-123ViewController *vc = [[ViewController alloc] init];vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;[self presentVi">
+<meta name="twitter:description" content="模态（Modal）界面弹出动画一般是从下往上推出，如果要修改转场动画，可以设置modalTransitionStyle属性，代码如下： 123ViewController *vc = [[ViewController alloc] init];vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;[self presentVi">
 
 
 
@@ -318,15 +317,15 @@
 
       
         <p>模态（Modal）界面弹出动画一般是从下往上推出，如果要修改转场动画，可以设置modalTransitionStyle属性，代码如下：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ViewController *vc = [[ViewController alloc] init];</div><div class="line">vc.modalTransitionStyle = <span class="built_in">UIModalTransitionStyleFlipHorizontal</span>;</div><div class="line">[<span class="keyword">self</span> presentViewController:vc animated:<span class="literal">YES</span> completion:<span class="literal">nil</span>];</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ViewController *vc = [[ViewController alloc] init];</span><br><span class="line">vc.modalTransitionStyle = <span class="built_in">UIModalTransitionStyleFlipHorizontal</span>;</span><br><span class="line">[<span class="keyword">self</span> presentViewController:vc animated:<span class="literal">YES</span> completion:<span class="literal">nil</span>];</span><br></pre></td></tr></table></figure>
 <p>modalTransitionStyle是一个枚举，有以下四个值，分别代表四种不同的转场效果，</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">UIModalTransitionStyleCoverVertical</span> = <span class="number">0</span>,</div><div class="line"><span class="built_in">UIModalTransitionStyleFlipHorizontal</span>,</div><div class="line"><span class="built_in">UIModalTransitionStyleCrossDissolve</span>,</div><div class="line"><span class="built_in">UIModalTransitionStylePartialCurl</span></div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIModalTransitionStyleCoverVertical</span> = <span class="number">0</span>,</span><br><span class="line"><span class="built_in">UIModalTransitionStyleFlipHorizontal</span>,</span><br><span class="line"><span class="built_in">UIModalTransitionStyleCrossDissolve</span>,</span><br><span class="line"><span class="built_in">UIModalTransitionStylePartialCurl</span></span><br></pre></td></tr></table></figure>
 <p>如果上面四种效果都不能满足你的需求，还可以使用CATransition进一步定制你的转场动画，代码如下：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">ViewController *vc = [[ViewController alloc] init];</div><div class="line"><span class="built_in">CATransition</span> *transition = [<span class="built_in">CATransition</span> animation];</div><div class="line">transition.type = kCATransitionMoveIn;</div><div class="line">transition.subtype = kCATransitionFromLeft;</div><div class="line">transition.duration = <span class="number">3.0</span>;</div><div class="line">transition.timingFunction = [<span class="built_in">CAMediaTimingFunction</span> functionWithName:kCAMediaTimingFunctionEaseIn];</div><div class="line">[<span class="keyword">self</span>.view.window.layer addAnimation:transition forKey:<span class="string">@"tran"</span>];</div><div class="line">[<span class="keyword">self</span> presentViewController:vc animated:<span class="literal">NO</span> completion:<span class="literal">nil</span>];</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ViewController *vc = [[ViewController alloc] init];</span><br><span class="line"><span class="built_in">CATransition</span> *transition = [<span class="built_in">CATransition</span> animation];</span><br><span class="line">transition.type = kCATransitionMoveIn;</span><br><span class="line">transition.subtype = kCATransitionFromLeft;</span><br><span class="line">transition.duration = <span class="number">3.0</span>;</span><br><span class="line">transition.timingFunction = [<span class="built_in">CAMediaTimingFunction</span> functionWithName:kCAMediaTimingFunctionEaseIn];</span><br><span class="line">[<span class="keyword">self</span>.view.window.layer addAnimation:transition forKey:<span class="string">@"tran"</span>];</span><br><span class="line">[<span class="keyword">self</span> presentViewController:vc animated:<span class="literal">NO</span> completion:<span class="literal">nil</span>];</span><br></pre></td></tr></table></figure>
 <p>使用CATransition的type和subtype两个属性可以定制16中转场动画，同时CATransition还可以设置转场持续的时间（duration）以及动画速度控制函数（timingFunction）等属性。注意，一定要把动画加载控制器view的window上。</p>
 <p>完成代码，包括present和dismiss</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">ViewController *vc = [[ViewController alloc] init];</div><div class="line"><span class="built_in">CATransition</span> *presentTransition = [<span class="built_in">CATransition</span> animation];</div><div class="line">presentTransition.type = kCATransitionMoveIn;</div><div class="line">presentTransition.subtype = kCATransitionFromLeft;</div><div class="line">presentTransition.duration = <span class="number">3.0</span>;</div><div class="line">presentTransition.timingFunction = [<span class="built_in">CAMediaTimingFunction</span> functionWithName:kCAMediaTimingFunctionEaseIn];</div><div class="line">[<span class="keyword">self</span>.view.window.layer addAnimation:presentTransition forKey:<span class="string">@"presentTransition"</span>];</div><div class="line">[<span class="keyword">self</span> presentViewController:vc animated:<span class="literal">NO</span> completion:<span class="literal">nil</span>];</div><div class="line"></div><div class="line"></div><div class="line"><span class="built_in">CATransition</span> *dismissTransition = [<span class="built_in">CATransition</span> animation];</div><div class="line">dismissTransition.type = kCATransitionMoveIn;</div><div class="line">dismissTransition.subtype = kCATransitionFromRight;</div><div class="line">dismissTransition.duration = <span class="number">3.0</span>;</div><div class="line">dismissTransition.timingFunction = [<span class="built_in">CAMediaTimingFunction</span> functionWithName:kCAMediaTimingFunctionEaseIn];</div><div class="line">[<span class="keyword">self</span>.view.window.layer addAnimation:dismissTransition forKey:<span class="string">@"dismissTransition"</span>];</div><div class="line">[<span class="keyword">self</span> dismissViewControllerAnimated:<span class="literal">NO</span> completion:<span class="literal">nil</span>];</div></pre></td></tr></table></figure>
-<p>如果CATransition的16种转场动画还不能满足你的需求，iOS7之后，可以使用UIViewControllerAnimatedTransitioning协议完全自定义转场动画，还能实现手势控制转动画。具体代码可以参考我写的这个<a href="https://github.com/liujinlongxa/AnimationTransition" target="_blank" rel="external">Demo</a>。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">ViewController *vc = [[ViewController alloc] init];</span><br><span class="line"><span class="built_in">CATransition</span> *presentTransition = [<span class="built_in">CATransition</span> animation];</span><br><span class="line">presentTransition.type = kCATransitionMoveIn;</span><br><span class="line">presentTransition.subtype = kCATransitionFromLeft;</span><br><span class="line">presentTransition.duration = <span class="number">3.0</span>;</span><br><span class="line">presentTransition.timingFunction = [<span class="built_in">CAMediaTimingFunction</span> functionWithName:kCAMediaTimingFunctionEaseIn];</span><br><span class="line">[<span class="keyword">self</span>.view.window.layer addAnimation:presentTransition forKey:<span class="string">@"presentTransition"</span>];</span><br><span class="line">[<span class="keyword">self</span> presentViewController:vc animated:<span class="literal">NO</span> completion:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">CATransition</span> *dismissTransition = [<span class="built_in">CATransition</span> animation];</span><br><span class="line">dismissTransition.type = kCATransitionMoveIn;</span><br><span class="line">dismissTransition.subtype = kCATransitionFromRight;</span><br><span class="line">dismissTransition.duration = <span class="number">3.0</span>;</span><br><span class="line">dismissTransition.timingFunction = [<span class="built_in">CAMediaTimingFunction</span> functionWithName:kCAMediaTimingFunctionEaseIn];</span><br><span class="line">[<span class="keyword">self</span>.view.window.layer addAnimation:dismissTransition forKey:<span class="string">@"dismissTransition"</span>];</span><br><span class="line">[<span class="keyword">self</span> dismissViewControllerAnimated:<span class="literal">NO</span> completion:<span class="literal">nil</span>];</span><br></pre></td></tr></table></figure>
+<p>如果CATransition的16种转场动画还不能满足你的需求，iOS7之后，可以使用UIViewControllerAnimatedTransitioning协议完全自定义转场动画，还能实现手势控制转动画。具体代码可以参考我写的这个<a href="https://github.com/liujinlongxa/AnimationTransition" target="_blank" rel="noopener">Demo</a>。</p>
 <p>以上就是我对模态界面转场动画的一个总结。</p>
 
       
@@ -443,7 +442,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">61</span>
+              <span class="site-state-item-count">62</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -451,7 +450,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -460,7 +459,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

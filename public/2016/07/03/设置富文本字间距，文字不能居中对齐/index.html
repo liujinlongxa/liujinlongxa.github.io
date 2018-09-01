@@ -86,22 +86,21 @@
 
 
 
-<meta name="description" content="最近有一个需求，需要设置一个UILabel的字间距，我马上就想到了富文本，于是就写了下面的代码
-12345NSString *str = self.label.text;NSDictionary *attribute = @&amp;#123;NSKernAttributeName:@(10),                            NSFontAttributeName:[UIFont">
+<meta name="description" content="最近有一个需求，需要设置一个UILabel的字间距，我马上就想到了富文本，于是就写了下面的代码 12345NSString *str = self.label.text;NSDictionary *attribute = @&amp;#123;NSKernAttributeName:@(10),                            NSFontAttributeName:[UIFont">
+<meta name="keywords" content="UILabel,NSAttributedString">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设置富文本字间距，文字不能居中对齐">
 <meta property="og:url" content="http://liujinlongxa.com/2016/07/03/设置富文本字间距，文字不能居中对齐/index.html">
 <meta property="og:site_name" content="liujinlongxa的技术博客">
-<meta property="og:description" content="最近有一个需求，需要设置一个UILabel的字间距，我马上就想到了富文本，于是就写了下面的代码
-12345NSString *str = self.label.text;NSDictionary *attribute = @&amp;#123;NSKernAttributeName:@(10),                            NSFontAttributeName:[UIFont">
+<meta property="og:description" content="最近有一个需求，需要设置一个UILabel的字间距，我马上就想到了富文本，于是就写了下面的代码 12345NSString *str = self.label.text;NSDictionary *attribute = @&amp;#123;NSKernAttributeName:@(10),                            NSFontAttributeName:[UIFont">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/3cba47225e6b1a02cfad6885a67d83ed.png">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/424954a63f3e38514b84ab7277269336.png">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/35b1f58bf08aa3dc7b827edb1da01e80.png">
 <meta property="og:updated_time" content="2017-03-01T06:42:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设置富文本字间距，文字不能居中对齐">
-<meta name="twitter:description" content="最近有一个需求，需要设置一个UILabel的字间距，我马上就想到了富文本，于是就写了下面的代码
-12345NSString *str = self.label.text;NSDictionary *attribute = @&amp;#123;NSKernAttributeName:@(10),                            NSFontAttributeName:[UIFont">
+<meta name="twitter:description" content="最近有一个需求，需要设置一个UILabel的字间距，我马上就想到了富文本，于是就写了下面的代码 12345NSString *str = self.label.text;NSDictionary *attribute = @&amp;#123;NSKernAttributeName:@(10),                            NSFontAttributeName:[UIFont">
 <meta name="twitter:image" content="http://7xn88v.com1.z0.glb.clouddn.com/3cba47225e6b1a02cfad6885a67d83ed.png">
 
 
@@ -322,15 +321,15 @@
 
       
         <p>最近有一个需求，需要设置一个UILabel的字间距，我马上就想到了富文本，于是就写了下面的代码</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSString</span> *str = <span class="keyword">self</span>.label.text;</div><div class="line"><span class="built_in">NSDictionary</span> *attribute = @&#123;<span class="built_in">NSKernAttributeName</span>:@(<span class="number">10</span>),</div><div class="line">                            <span class="built_in">NSFontAttributeName</span>:[<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">15</span>]&#125;;</div><div class="line"><span class="built_in">NSAttributedString</span> *attStr = [[<span class="built_in">NSAttributedString</span> alloc] initWithString:str attributes:attribute];</div><div class="line"><span class="keyword">self</span>.label.attributedText = attStr;</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *str = <span class="keyword">self</span>.label.text;</span><br><span class="line"><span class="built_in">NSDictionary</span> *attribute = @&#123;<span class="built_in">NSKernAttributeName</span>:@(<span class="number">10</span>),</span><br><span class="line">                            <span class="built_in">NSFontAttributeName</span>:[<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">15</span>]&#125;;</span><br><span class="line"><span class="built_in">NSAttributedString</span> *attStr = [[<span class="built_in">NSAttributedString</span> alloc] initWithString:str attributes:attribute];</span><br><span class="line"><span class="keyword">self</span>.label.attributedText = attStr;</span><br></pre></td></tr></table></figure>
 <p>其中NSKernAttributeName属性就是设置文字的字间距。但是，现在就有一个问题，设置字间距后，原本居中显示的文字，不能居中显示了。</p>
 <p>这是我设置字间距之前的label</p>
 <p><img src="http://7xn88v.com1.z0.glb.clouddn.com/3cba47225e6b1a02cfad6885a67d83ed.png" alt="1"></p>
 <p>这是我设置了字间距后的label</p>
 <p><img src="http://7xn88v.com1.z0.glb.clouddn.com/424954a63f3e38514b84ab7277269336.png" alt="2"></p>
 <p>“你”字距左边距明显要比”鸿”字的右边距要大。</p>
-<p>经过一阵Google，在StackOverflow上找到了相同的问题，链接是<a href="http://stackoverflow.com/questions/23741850/nsstring-drawinrectwithattributes-not-correctly-centered-when-using-nskernattr" target="_blank" rel="external">http://stackoverflow.com/questions/23741850/nsstring-drawinrectwithattributes-not-correctly-centered-when-using-nskernattr</a>，根据问题回答里的做法，我把代码做了修改，如下：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSString</span> *str = <span class="keyword">self</span>.label.text;</div><div class="line"><span class="built_in">NSMutableAttributedString</span> *mutAttStr = [[<span class="built_in">NSMutableAttributedString</span> alloc] initWithString:str];</div><div class="line">[mutAttStr addAttribute:<span class="built_in">NSKernAttributeName</span> value:@(<span class="number">10</span>) range:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, str.length - <span class="number">1</span>)];</div><div class="line">[mutAttStr addAttribute:<span class="built_in">NSFontAttributeName</span> value:[<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">15</span>] range:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, str.length)];</div><div class="line"><span class="keyword">self</span>.label.attributedText = [mutAttStr <span class="keyword">copy</span>];</div></pre></td></tr></table></figure>
+<p>经过一阵Google，在StackOverflow上找到了相同的问题，链接是<a href="http://stackoverflow.com/questions/23741850/nsstring-drawinrectwithattributes-not-correctly-centered-when-using-nskernattr" target="_blank" rel="noopener">http://stackoverflow.com/questions/23741850/nsstring-drawinrectwithattributes-not-correctly-centered-when-using-nskernattr</a>，根据问题回答里的做法，我把代码做了修改，如下：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *str = <span class="keyword">self</span>.label.text;</span><br><span class="line"><span class="built_in">NSMutableAttributedString</span> *mutAttStr = [[<span class="built_in">NSMutableAttributedString</span> alloc] initWithString:str];</span><br><span class="line">[mutAttStr addAttribute:<span class="built_in">NSKernAttributeName</span> value:@(<span class="number">10</span>) range:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, str.length - <span class="number">1</span>)];</span><br><span class="line">[mutAttStr addAttribute:<span class="built_in">NSFontAttributeName</span> value:[<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">15</span>] range:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, str.length)];</span><br><span class="line"><span class="keyword">self</span>.label.attributedText = [mutAttStr <span class="keyword">copy</span>];</span><br></pre></td></tr></table></figure>
 <p>修改后效果如下：</p>
 <p><img src="http://7xn88v.com1.z0.glb.clouddn.com/35b1f58bf08aa3dc7b827edb1da01e80.png" alt="3"></p>
 
@@ -448,7 +447,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">61</span>
+              <span class="site-state-item-count">62</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -456,7 +455,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -465,7 +464,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

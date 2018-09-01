@@ -87,11 +87,13 @@
 
 
 <meta name="description" content="前言在移动客户端开发过程中，服务器一般都会提供多个环境的API接口，例如测试环境(TEST_ENV)，发布环境(RELEASE_ENV)，预发布环境(PRERELEASE_ENV)等，我们客户端在打包的时候需要在不同的阶段打不同环境的包，最简单的做法就是在代码里直接修改URL来切换不同的环境。但是这种做法太Low了，而且也不易于使用脚本自动打包。本文的主要内容就是介绍一种不修改代码达到配置不同环境">
+<meta name="keywords" content="Target,Scheme">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS多环境配置实践">
 <meta property="og:url" content="http://liujinlongxa.com/2016/10/07/iOS多环境配置实践/index.html">
 <meta property="og:site_name" content="liujinlongxa的技术博客">
 <meta property="og:description" content="前言在移动客户端开发过程中，服务器一般都会提供多个环境的API接口，例如测试环境(TEST_ENV)，发布环境(RELEASE_ENV)，预发布环境(PRERELEASE_ENV)等，我们客户端在打包的时候需要在不同的阶段打不同环境的包，最简单的做法就是在代码里直接修改URL来切换不同的环境。但是这种做法太Low了，而且也不易于使用脚本自动打包。本文的主要内容就是介绍一种不修改代码达到配置不同环境">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/ec6ceac9d953c320c0cbf0bfe55ee361.png">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/463b4e2b32269ab485d9f160315e1d75.png">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/4e99d383134b80176fedbe7853327b6f.png">
@@ -333,8 +335,8 @@
 <li>代码中大量使用了DEBUG宏，因此要求每个环境都应该区分DEBUG和RELEASE，即在任一环境下都可能需要打DEBUG包或RELEASE包</li>
 </ol>
 <p>为此，我编写了一份测试代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">#if TEST_ENV // 测试环境</div><div class="line">#if DEBUG</div><div class="line">    NSLog(@&quot;hello test env debug&quot;);</div><div class="line">#else</div><div class="line">    NSLog(@&quot;hello test env release&quot;);</div><div class="line">#endif</div><div class="line">#endif</div><div class="line"></div><div class="line">#if RELEASE_ENV // 发布环境</div><div class="line">#if DEBUG</div><div class="line">    NSLog(@&quot;hello release env debug&quot;);</div><div class="line">#else</div><div class="line">    NSLog(@&quot;hello release env release&quot;);</div><div class="line">#endif</div><div class="line">#endif</div><div class="line"></div><div class="line">#if PRERELEASE_ENV // 预发布环境</div><div class="line">#if DEBUG</div><div class="line">    NSLog(@&quot;hello pre-relase env debug&quot;);</div><div class="line">#else</div><div class="line">    NSLog(@&quot;hello pre-relase env release&quot;);</div><div class="line">#endif</div><div class="line">#endif</div></pre></td></tr></table></figure>
-<h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><h3 id="1-为每一个环境创建一个Target"><a href="#1-为每一个环境创建一个Target" class="headerlink" title="1. 为每一个环境创建一个Target"></a>1. 为每一个环境创建一个Target</h3><p>创建项目后，项目本身就会有一个Target（如果不了解Target的概念可以看一下<a href="https://developer.apple.com/library/content/featuredarticles/XcodeConcepts/Concept-Targets.html" target="_blank" rel="external">这篇官方文档</a>）,我们可以把这个Target就作为某一个环境的Target，这里我们把它作为发布环境的Target，然后还需要创建测试环境和预发布环境的Target，方法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#if TEST_ENV // 测试环境</span><br><span class="line">#if DEBUG</span><br><span class="line">    NSLog(@&quot;hello test env debug&quot;);</span><br><span class="line">#else</span><br><span class="line">    NSLog(@&quot;hello test env release&quot;);</span><br><span class="line">#endif</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">#if RELEASE_ENV // 发布环境</span><br><span class="line">#if DEBUG</span><br><span class="line">    NSLog(@&quot;hello release env debug&quot;);</span><br><span class="line">#else</span><br><span class="line">    NSLog(@&quot;hello release env release&quot;);</span><br><span class="line">#endif</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">#if PRERELEASE_ENV // 预发布环境</span><br><span class="line">#if DEBUG</span><br><span class="line">    NSLog(@&quot;hello pre-relase env debug&quot;);</span><br><span class="line">#else</span><br><span class="line">    NSLog(@&quot;hello pre-relase env release&quot;);</span><br><span class="line">#endif</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+<h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><h3 id="1-为每一个环境创建一个Target"><a href="#1-为每一个环境创建一个Target" class="headerlink" title="1. 为每一个环境创建一个Target"></a>1. 为每一个环境创建一个Target</h3><p>创建项目后，项目本身就会有一个Target（如果不了解Target的概念可以看一下<a href="https://developer.apple.com/library/content/featuredarticles/XcodeConcepts/Concept-Targets.html" target="_blank" rel="noopener">这篇官方文档</a>）,我们可以把这个Target就作为某一个环境的Target，这里我们把它作为发布环境的Target，然后还需要创建测试环境和预发布环境的Target，方法如下：</p>
 <p>在项目配置界面左侧，选中Target，点击右键，选择”Duplicate”，复制一个新的Target，如下图：</p>
 <p><img src="http://7xn88v.com1.z0.glb.clouddn.com/ec6ceac9d953c320c0cbf0bfe55ee361.png" alt="1"></p>
 <p>然后在弹出的菜单中点击”Duplicate Only”</p>
@@ -363,9 +365,9 @@
 <p><img src="http://7xn88v.com1.z0.glb.clouddn.com/98681390ae672ce58b2a541c3068e4c6.png" alt="10"></p>
 <p>要设置不同的图标，需要在Build Settings里找到”Asset Calalog App Icon Set Name”，其默认值是AppIcon，可以为不同Target设置不同的Icon Set Name，然后在Assets.xcassets中添加对应的Image Set即可。</p>
 <p><img src="http://7xn88v.com1.z0.glb.clouddn.com/a9fa6a0db2bccb6d5945fe5c3f4d8360.png" alt="11"></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文是通过多个Target来实现多环境配置的，其实除了本文介绍的方法，还有其他方法可以实现多环境配置，具体可以参考<a href="http://www.jianshu.com/p/83b6e781eb51" target="_blank" rel="external">这篇文章</a>。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文是通过多个Target来实现多环境配置的，其实除了本文介绍的方法，还有其他方法可以实现多环境配置，具体可以参考<a href="http://www.jianshu.com/p/83b6e781eb51" target="_blank" rel="noopener">这篇文章</a>。</p>
 <p>有了多环境配置，就可以很方便的实现多环境自动打包，如果在加入持续集成系统（例如jenkins等），就可以非常优雅的打包。这个以后有时间会专门写一篇博客来介绍相关内容。</p>
-<p>参考资料：<br><a href="http://www.jianshu.com/p/83b6e781eb51" target="_blank" rel="external">手把手教你给一个iOS app配置多个环境变量</a><br><a href="http://www.cocoachina.com/ios/20151023/13869.html" target="_blank" rel="external">iOS开发必备–环境变量配置(Debug &amp; Release)</a><br><a href="http://kevindelord.io/2016/06/08/project-configuration/" target="_blank" rel="external">Xcode Project Configuration</a></p>
+<p>参考资料：<br><a href="http://www.jianshu.com/p/83b6e781eb51" target="_blank" rel="noopener">手把手教你给一个iOS app配置多个环境变量</a><br><a href="http://www.cocoachina.com/ios/20151023/13869.html" target="_blank" rel="noopener">iOS开发必备–环境变量配置(Debug &amp; Release)</a><br><a href="http://kevindelord.io/2016/06/08/project-configuration/" target="_blank" rel="noopener">Xcode Project Configuration</a></p>
 
       
     </div>
@@ -481,7 +483,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">61</span>
+              <span class="site-state-item-count">62</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -489,7 +491,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -498,7 +500,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

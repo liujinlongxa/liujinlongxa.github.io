@@ -86,19 +86,18 @@
 
 
 
-<meta name="description" content="在制作APP升级提示框时，需要APP的最新版本信息，苹果提供了”http://itunes.apple.com/lookup?id=123123&amp;quot;接口用于查询AppStore上的APP的详细信息，参数id表示的是应用程序的AppId。
-如果在iTunesConnect上对应用的版本描述信息做了本地化，上述接口只会返回首选语言的描述信息，如果要返回特定语言的描述信息，还要加上两个参数:">
+<meta name="description" content="在制作APP升级提示框时，需要APP的最新版本信息，苹果提供了”http://itunes.apple.com/lookup?id=123123&amp;quot;接口用于查询AppStore上的APP的详细信息，参数id表示的是应用程序的AppId。 如果在iTunesConnect上对应用的版本描述信息做了本地化，上述接口只会返回首选语言的描述信息，如果要返回特定语言的描述信息，还要加上两个参数:">
+<meta name="keywords" content="本地化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="获取本地化的APP版本描述信息">
 <meta property="og:url" content="http://liujinlongxa.com/2016/10/09/获取本地化的APP版本描述信息/index.html">
 <meta property="og:site_name" content="liujinlongxa的技术博客">
-<meta property="og:description" content="在制作APP升级提示框时，需要APP的最新版本信息，苹果提供了”http://itunes.apple.com/lookup?id=123123&amp;quot;接口用于查询AppStore上的APP的详细信息，参数id表示的是应用程序的AppId。
-如果在iTunesConnect上对应用的版本描述信息做了本地化，上述接口只会返回首选语言的描述信息，如果要返回特定语言的描述信息，还要加上两个参数:">
+<meta property="og:description" content="在制作APP升级提示框时，需要APP的最新版本信息，苹果提供了”http://itunes.apple.com/lookup?id=123123&amp;quot;接口用于查询AppStore上的APP的详细信息，参数id表示的是应用程序的AppId。 如果在iTunesConnect上对应用的版本描述信息做了本地化，上述接口只会返回首选语言的描述信息，如果要返回特定语言的描述信息，还要加上两个参数:">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-03-01T06:42:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="获取本地化的APP版本描述信息">
-<meta name="twitter:description" content="在制作APP升级提示框时，需要APP的最新版本信息，苹果提供了”http://itunes.apple.com/lookup?id=123123&amp;quot;接口用于查询AppStore上的APP的详细信息，参数id表示的是应用程序的AppId。
-如果在iTunesConnect上对应用的版本描述信息做了本地化，上述接口只会返回首选语言的描述信息，如果要返回特定语言的描述信息，还要加上两个参数:">
+<meta name="twitter:description" content="在制作APP升级提示框时，需要APP的最新版本信息，苹果提供了”http://itunes.apple.com/lookup?id=123123&amp;quot;接口用于查询AppStore上的APP的详细信息，参数id表示的是应用程序的AppId。 如果在iTunesConnect上对应用的版本描述信息做了本地化，上述接口只会返回首选语言的描述信息，如果要返回特定语言的描述信息，还要加上两个参数:">
 
 
 
@@ -317,20 +316,20 @@
       
 
       
-        <p>在制作APP升级提示框时，需要APP的最新版本信息，苹果提供了”<a href="http://itunes.apple.com/lookup?id=123123&quot;接口用于查询AppStore上的APP的详细信息，参数id表示的是应用程序的AppId。" target="_blank" rel="external">http://itunes.apple.com/lookup?id=123123&quot;接口用于查询AppStore上的APP的详细信息，参数id表示的是应用程序的AppId。</a></p>
+        <p>在制作APP升级提示框时，需要APP的最新版本信息，苹果提供了”<a href="http://itunes.apple.com/lookup?id=123123&quot;接口用于查询AppStore上的APP的详细信息，参数id表示的是应用程序的AppId。" target="_blank" rel="noopener">http://itunes.apple.com/lookup?id=123123&quot;接口用于查询AppStore上的APP的详细信息，参数id表示的是应用程序的AppId。</a></p>
 <p>如果在iTunesConnect上对应用的版本描述信息做了本地化，上述接口只会返回首选语言的描述信息，如果要返回特定语言的描述信息，还要加上两个参数:</p>
 <ul>
-<li>country: 国家参数，CN表示中国，US表示美国，国家代码可以在<a href="https://zh.wikipedia.org/wiki/ISO_3166-1" target="_blank" rel="external">这里</a>找到</li>
-<li>lang: 语言参数，zh_cn表示中文，zh_tw表示繁体中文，en_us表示美国英国，语言编码可以参考<a href="https://zh.wikipedia.org/wiki/%E5%8C%BA%E5%9F%9F%E8%AE%BE%E7%BD%AE" target="_blank" rel="external">维基百科</a></li>
+<li>country: 国家参数，CN表示中国，US表示美国，国家代码可以在<a href="https://zh.wikipedia.org/wiki/ISO_3166-1" target="_blank" rel="noopener">这里</a>找到</li>
+<li>lang: 语言参数，zh_cn表示中文，zh_tw表示繁体中文，en_us表示美国英国，语言编码可以参考<a href="https://zh.wikipedia.org/wiki/%E5%8C%BA%E5%9F%9F%E8%AE%BE%E7%BD%AE" target="_blank" rel="noopener">维基百科</a></li>
 </ul>
 <p>例如：</p>
 <ul>
-<li>要获取中文的描述信息，应该调用<a href="http://itunes.apple.com/lookup?id=123123&amp;country=CN&amp;lang=zh_cn" target="_blank" rel="external">http://itunes.apple.com/lookup?id=123123&amp;country=CN&amp;lang=zh_cn</a></li>
-<li>要获取繁体中文的描述信息，应该调用<a href="http://itunes.apple.com/lookup?id=123123&amp;country=TW&amp;lang=zh_tw" target="_blank" rel="external">http://itunes.apple.com/lookup?id=123123&amp;country=TW&amp;lang=zh_tw</a></li>
-<li>要获取英文的描述信息，应该调用<a href="http://itunes.apple.com/lookup?id=123123&amp;country=US&amp;lang=en_us" target="_blank" rel="external">http://itunes.apple.com/lookup?id=123123&amp;country=US&amp;lang=en_us</a></li>
+<li>要获取中文的描述信息，应该调用<a href="http://itunes.apple.com/lookup?id=123123&amp;country=CN&amp;lang=zh_cn" target="_blank" rel="noopener">http://itunes.apple.com/lookup?id=123123&amp;country=CN&amp;lang=zh_cn</a></li>
+<li>要获取繁体中文的描述信息，应该调用<a href="http://itunes.apple.com/lookup?id=123123&amp;country=TW&amp;lang=zh_tw" target="_blank" rel="noopener">http://itunes.apple.com/lookup?id=123123&amp;country=TW&amp;lang=zh_tw</a></li>
+<li>要获取英文的描述信息，应该调用<a href="http://itunes.apple.com/lookup?id=123123&amp;country=US&amp;lang=en_us" target="_blank" rel="noopener">http://itunes.apple.com/lookup?id=123123&amp;country=US&amp;lang=en_us</a></li>
 </ul>
 <p>参考资料：</p>
-<p><a href="https://zh.wikipedia.org/wiki/%E5%8C%BA%E5%9F%9F%E8%AE%BE%E7%BD%AE" target="_blank" rel="external">语言区域</a><br><a href="https://zh.wikipedia.org/wiki/ISO_3166-1" target="_blank" rel="external">ISO_3166-1</a><br><a href="https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/" target="_blank" rel="external">iTunes Affiliate Resources</a><br><a href="http://blog.hoachuck.biz/blog/2012/07/01/playing-around-with-app-store-meta-data/" target="_blank" rel="external">Playing Around With App Store Meta Data</a></p>
+<p><a href="https://zh.wikipedia.org/wiki/%E5%8C%BA%E5%9F%9F%E8%AE%BE%E7%BD%AE" target="_blank" rel="noopener">语言区域</a><br><a href="https://zh.wikipedia.org/wiki/ISO_3166-1" target="_blank" rel="noopener">ISO_3166-1</a><br><a href="https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/" target="_blank" rel="noopener">iTunes Affiliate Resources</a><br><a href="http://blog.hoachuck.biz/blog/2012/07/01/playing-around-with-app-store-meta-data/" target="_blank" rel="noopener">Playing Around With App Store Meta Data</a></p>
 
       
     </div>
@@ -444,7 +443,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">61</span>
+              <span class="site-state-item-count">62</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -452,7 +451,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -461,7 +460,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

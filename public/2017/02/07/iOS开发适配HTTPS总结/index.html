@@ -86,24 +86,20 @@
 
 
 
-<meta name="description" content="年前给公司的项目适配了HTTPS，本来年前就该写这篇博客的，一直拖到现在才写。
-本文的主要内容就是对整个适配过程做一个总结。网上有很多详细的教程，具体的适配过程本文就不再赘述了，这里主要总结一下我在适配过程中越到的问题以及一些经验。
-测试自建证书适配完成后可以使用自建证书进行测试，关于如何创建自建证书，网上有很多教程，可以自行百度。如果你使用的是AFNetworking框架，使用自建证书也非常简单">
+<meta name="description" content="年前给公司的项目适配了HTTPS，本来年前就该写这篇博客的，一直拖到现在才写。 本文的主要内容就是对整个适配过程做一个总结。网上有很多详细的教程，具体的适配过程本文就不再赘述了，这里主要总结一下我在适配过程中越到的问题以及一些经验。 测试自建证书适配完成后可以使用自建证书进行测试，关于如何创建自建证书，网上有很多教程，可以自行百度。如果你使用的是AFNetworking框架，使用自建证书也非常简单">
+<meta name="keywords" content="HTTPS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS开发适配HTTPS总结">
 <meta property="og:url" content="http://liujinlongxa.com/2017/02/07/iOS开发适配HTTPS总结/index.html">
 <meta property="og:site_name" content="liujinlongxa的技术博客">
-<meta property="og:description" content="年前给公司的项目适配了HTTPS，本来年前就该写这篇博客的，一直拖到现在才写。
-本文的主要内容就是对整个适配过程做一个总结。网上有很多详细的教程，具体的适配过程本文就不再赘述了，这里主要总结一下我在适配过程中越到的问题以及一些经验。
-测试自建证书适配完成后可以使用自建证书进行测试，关于如何创建自建证书，网上有很多教程，可以自行百度。如果你使用的是AFNetworking框架，使用自建证书也非常简单">
+<meta property="og:description" content="年前给公司的项目适配了HTTPS，本来年前就该写这篇博客的，一直拖到现在才写。 本文的主要内容就是对整个适配过程做一个总结。网上有很多详细的教程，具体的适配过程本文就不再赘述了，这里主要总结一下我在适配过程中越到的问题以及一些经验。 测试自建证书适配完成后可以使用自建证书进行测试，关于如何创建自建证书，网上有很多教程，可以自行百度。如果你使用的是AFNetworking框架，使用自建证书也非常简单">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/0c578284b3e0e8649ec145e1413f3d7a.png">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/190482fe4f86763e6184834be9cff0bf.png">
 <meta property="og:updated_time" content="2017-03-01T06:42:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发适配HTTPS总结">
-<meta name="twitter:description" content="年前给公司的项目适配了HTTPS，本来年前就该写这篇博客的，一直拖到现在才写。
-本文的主要内容就是对整个适配过程做一个总结。网上有很多详细的教程，具体的适配过程本文就不再赘述了，这里主要总结一下我在适配过程中越到的问题以及一些经验。
-测试自建证书适配完成后可以使用自建证书进行测试，关于如何创建自建证书，网上有很多教程，可以自行百度。如果你使用的是AFNetworking框架，使用自建证书也非常简单">
+<meta name="twitter:description" content="年前给公司的项目适配了HTTPS，本来年前就该写这篇博客的，一直拖到现在才写。 本文的主要内容就是对整个适配过程做一个总结。网上有很多详细的教程，具体的适配过程本文就不再赘述了，这里主要总结一下我在适配过程中越到的问题以及一些经验。 测试自建证书适配完成后可以使用自建证书进行测试，关于如何创建自建证书，网上有很多教程，可以自行百度。如果你使用的是AFNetworking框架，使用自建证书也非常简单">
 <meta name="twitter:image" content="http://7xn88v.com1.z0.glb.clouddn.com/0c578284b3e0e8649ec145e1413f3d7a.png">
 
 
@@ -326,9 +322,9 @@
         <p>年前给公司的项目适配了HTTPS，本来年前就该写这篇博客的，一直拖到现在才写。</p>
 <p>本文的主要内容就是对整个适配过程做一个总结。网上有很多详细的教程，具体的适配过程本文就不再赘述了，这里主要总结一下我在适配过程中越到的问题以及一些经验。</p>
 <h2 id="测试自建证书"><a href="#测试自建证书" class="headerlink" title="测试自建证书"></a>测试自建证书</h2><p>适配完成后可以使用自建证书进行测试，关于如何创建自建证书，网上有很多教程，可以自行百度。如果你使用的是AFNetworking框架，使用自建证书也非常简单，首先见证书(abc.cer)导入项目，然后加入代码如下：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">self</span>.sessionManager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[<span class="built_in">NSURLSessionConfiguration</span> defaultSessionConfiguration]];</div><div class="line"></div><div class="line">AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];</div><div class="line">securityPolicy.allowInvalidCertificates = <span class="literal">YES</span>;</div><div class="line">securityPolicy.validatesDomainName = <span class="literal">YES</span>;</div><div class="line"></div><div class="line"><span class="built_in">NSString</span> *path = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:<span class="string">@"abc.cer"</span> ofType:<span class="literal">nil</span>];</div><div class="line"><span class="built_in">NSData</span> *certData = [<span class="built_in">NSData</span> dataWithContentsOfFile:path];</div><div class="line"><span class="built_in">NSSet</span> *set = [<span class="built_in">NSSet</span> setWithObjects:certData, <span class="literal">nil</span>];</div><div class="line"><span class="keyword">if</span> (certData) &#123;</div><div class="line">    securityPolicy.pinnedCertificates = set;</div><div class="line">&#125;</div><div class="line"><span class="keyword">self</span>.sessionManager.securityPolicy = securityPolicy;</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.sessionManager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[<span class="built_in">NSURLSessionConfiguration</span> defaultSessionConfiguration]];</span><br><span class="line"></span><br><span class="line">AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];</span><br><span class="line">securityPolicy.allowInvalidCertificates = <span class="literal">YES</span>;</span><br><span class="line">securityPolicy.validatesDomainName = <span class="literal">YES</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSString</span> *path = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:<span class="string">@"abc.cer"</span> ofType:<span class="literal">nil</span>];</span><br><span class="line"><span class="built_in">NSData</span> *certData = [<span class="built_in">NSData</span> dataWithContentsOfFile:path];</span><br><span class="line"><span class="built_in">NSSet</span> *set = [<span class="built_in">NSSet</span> setWithObjects:certData, <span class="literal">nil</span>];</span><br><span class="line"><span class="keyword">if</span> (certData) &#123;</span><br><span class="line">    securityPolicy.pinnedCertificates = set;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">self</span>.sessionManager.securityPolicy = securityPolicy;</span><br></pre></td></tr></table></figure>
 <p>当然，正式环境还是需要使用CA机构颁发的证书，使用CA机构颁发的证书不需要导入证书，只需要加入以下代码即可：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">self</span>.sessionManager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[<span class="built_in">NSURLSessionConfiguration</span> defaultSessionConfiguration]];</div><div class="line"></div><div class="line">AFSecurityPolicy *policy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];</div><div class="line"><span class="keyword">self</span>.sessionManager.securityPolicy = securityPolicy;</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.sessionManager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[<span class="built_in">NSURLSessionConfiguration</span> defaultSessionConfiguration]];</span><br><span class="line"></span><br><span class="line">AFSecurityPolicy *policy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];</span><br><span class="line"><span class="keyword">self</span>.sessionManager.securityPolicy = securityPolicy;</span><br></pre></td></tr></table></figure>
 <h2 id="配置NSExceptionDomains"><a href="#配置NSExceptionDomains" class="headerlink" title="配置NSExceptionDomains"></a>配置NSExceptionDomains</h2><p>项目中一些不能使用HTTPS协议的请求，需要配置NSExceptionDomains。很多第三方服务的请求还没有支持HTTPS，这就需要我们把这些请求添加到NSExceptionDomains中。可以使用Charles抓包看有哪些第三方请求需要添加到NSExceptionDomains中。</p>
 <p>另外，为了防止域名劫持，项目中可能会直接使用IP进行请求，我再测试过程中发现，即使不添加NSExceptionDomains，直接使用IP也可以正常请求。</p>
 <p>对于WebView里的请求，可以NSAllowsArbitraryLoadsInWebContent字段来声明绕过ATS。</p>
@@ -341,7 +337,7 @@
 <p>这样做有一个不好的地方是如果修改了Info.plist文件，需要同时修改两个。但这也比每次切换环境修改Info.plist要好，因为毕竟修改Info.plist的情况还是比较少的。</p>
 <p>以上就是我在适配HTTPS过程中遇到的一些问题，希望对大家有所帮助。</p>
 <p>参考资料：</p>
-<p><a href="http://www.2cto.com/kf/201611/570823.html" target="_blank" rel="external">iOS开发适配HTTPS详细教程</a><br><a href="https://onevcat.com/2016/06/ios-10-ats/" target="_blank" rel="external">关于iOS10中ATS的问题</a></p>
+<p><a href="http://www.2cto.com/kf/201611/570823.html" target="_blank" rel="noopener">iOS开发适配HTTPS详细教程</a><br><a href="https://onevcat.com/2016/06/ios-10-ats/" target="_blank" rel="noopener">关于iOS10中ATS的问题</a></p>
 
       
     </div>
@@ -455,7 +451,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">61</span>
+              <span class="site-state-item-count">62</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -463,7 +459,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -472,7 +468,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

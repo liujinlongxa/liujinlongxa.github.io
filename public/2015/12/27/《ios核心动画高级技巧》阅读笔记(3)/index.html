@@ -86,48 +86,19 @@
 
 
 
-<meta name="description" content="第四章 视觉效果圆角
-设置CALayer的cornerRadius属性来设置圆角，并且要把maskToBounds设置为YES
-
-边框
-设置CALayer的borderColor和borderWidth可以设置边框的颜色和宽度
-
-阴影
-shadowColor:阴影的颜色
-shadowOpacity:阴影的透明度
-shadowOffset:阴影的偏移
-shadowRadius:阴影的模糊度，即模糊半">
+<meta name="description" content="第四章 视觉效果圆角 设置CALayer的cornerRadius属性来设置圆角，并且要把maskToBounds设置为YES  边框 设置CALayer的borderColor和borderWidth可以设置边框的颜色和宽度  阴影 shadowColor:阴影的颜色 shadowOpacity:阴影的透明度 shadowOffset:阴影的偏移 shadowRadius:阴影的模糊度，即模糊半">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《ios核心动画高级技巧》阅读笔记(3)">
 <meta property="og:url" content="http://liujinlongxa.com/2015/12/27/《ios核心动画高级技巧》阅读笔记(3)/index.html">
 <meta property="og:site_name" content="liujinlongxa的技术博客">
-<meta property="og:description" content="第四章 视觉效果圆角
-设置CALayer的cornerRadius属性来设置圆角，并且要把maskToBounds设置为YES
-
-边框
-设置CALayer的borderColor和borderWidth可以设置边框的颜色和宽度
-
-阴影
-shadowColor:阴影的颜色
-shadowOpacity:阴影的透明度
-shadowOffset:阴影的偏移
-shadowRadius:阴影的模糊度，即模糊半">
+<meta property="og:description" content="第四章 视觉效果圆角 设置CALayer的cornerRadius属性来设置圆角，并且要把maskToBounds设置为YES  边框 设置CALayer的borderColor和borderWidth可以设置边框的颜色和宽度  阴影 shadowColor:阴影的颜色 shadowOpacity:阴影的透明度 shadowOffset:阴影的偏移 shadowRadius:阴影的模糊度，即模糊半">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/87291a0061be6a254bd4937851ecf4d8.png">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/dda57bde043a3358e1cbc03af4fcbcf1.png">
 <meta property="og:updated_time" content="2017-03-01T06:42:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《ios核心动画高级技巧》阅读笔记(3)">
-<meta name="twitter:description" content="第四章 视觉效果圆角
-设置CALayer的cornerRadius属性来设置圆角，并且要把maskToBounds设置为YES
-
-边框
-设置CALayer的borderColor和borderWidth可以设置边框的颜色和宽度
-
-阴影
-shadowColor:阴影的颜色
-shadowOpacity:阴影的透明度
-shadowOffset:阴影的偏移
-shadowRadius:阴影的模糊度，即模糊半">
+<meta name="twitter:description" content="第四章 视觉效果圆角 设置CALayer的cornerRadius属性来设置圆角，并且要把maskToBounds设置为YES  边框 设置CALayer的borderColor和borderWidth可以设置边框的颜色和宽度  阴影 shadowColor:阴影的颜色 shadowOpacity:阴影的透明度 shadowOffset:阴影的偏移 shadowRadius:阴影的模糊度，即模糊半">
 <meta name="twitter:image" content="http://7xn88v.com1.z0.glb.clouddn.com/87291a0061be6a254bd4937851ecf4d8.png">
 
 
@@ -362,7 +333,7 @@ shadowRadius:阴影的模糊度，即模糊半">
 <li>shadowPath:指定阴影的路径。</li>
 <li>设置ImageView,label等的阴影，并不是设置他们边界的阴影，而是设置里面内容的阴影，例如设置label的阴影，设置的是label中文字的阴影。</li>
 </ul>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)viewDidAppear:(<span class="built_in">BOOL</span>)animated &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidAppear:animated];</div><div class="line">    <span class="keyword">self</span>.buleView.hidden = <span class="literal">YES</span>;</div><div class="line">    <span class="keyword">self</span>.layerView.layer.shadowColor = [<span class="built_in">UIColor</span> redColor].CGColor;</div><div class="line">    <span class="keyword">self</span>.layerView.layer.shadowOpacity = <span class="number">1</span>;</div><div class="line">    <span class="keyword">self</span>.layerView.layer.shadowRadius = <span class="number">10</span>;</div><div class="line"></div><div class="line">    <span class="built_in">CGMutablePathRef</span> path = <span class="built_in">CGPathCreateMutable</span>();</div><div class="line">    <span class="built_in">CGPathAddEllipseInRect</span>(path, <span class="literal">NULL</span>, <span class="keyword">self</span>.layerView.bounds);</div><div class="line">    <span class="keyword">self</span>.layerView.layer.shadowPath = path;</div><div class="line">    <span class="built_in">CGPathRelease</span>(path);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidAppear:(<span class="built_in">BOOL</span>)animated &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidAppear:animated];</span><br><span class="line">    <span class="keyword">self</span>.buleView.hidden = <span class="literal">YES</span>;</span><br><span class="line">    <span class="keyword">self</span>.layerView.layer.shadowColor = [<span class="built_in">UIColor</span> redColor].CGColor;</span><br><span class="line">    <span class="keyword">self</span>.layerView.layer.shadowOpacity = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">self</span>.layerView.layer.shadowRadius = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">CGMutablePathRef</span> path = <span class="built_in">CGPathCreateMutable</span>();</span><br><span class="line">    <span class="built_in">CGPathAddEllipseInRect</span>(path, <span class="literal">NULL</span>, <span class="keyword">self</span>.layerView.bounds);</span><br><span class="line">    <span class="keyword">self</span>.layerView.layer.shadowPath = path;</span><br><span class="line">    <span class="built_in">CGPathRelease</span>(path);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="图层蒙版"><a href="#图层蒙版" class="headerlink" title="图层蒙版"></a>图层蒙版</h3><ul>
 <li>mask:CALayer的mask属性定义了父图层的部分可见区域，父图层与mask的关系如下图</li>
 </ul>
@@ -371,7 +342,7 @@ shadowRadius:阴影的模糊度，即模糊半">
 <li>虽然设置了mask，但是视图的事件响应区域任然是原视图的区域</li>
 <li>mask是可以动态设置的，只要改变mask的大小，就可以对视图的显示区域进行动画</li>
 </ul>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)viewDidAppear:(<span class="built_in">BOOL</span>)animated &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidAppear:animated];</div><div class="line">    <span class="built_in">CAShapeLayer</span> *mask = [<span class="built_in">CAShapeLayer</span> layer];</div><div class="line">    <span class="built_in">UIBezierPath</span> *path = [<span class="built_in">UIBezierPath</span> bezierPathWithOvalInRect:<span class="keyword">self</span>.greenBtn.bounds];</div><div class="line">    mask.path = path.CGPath;</div><div class="line">    <span class="keyword">self</span>.greenBtn.layer.mask = mask;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span>&lt;<span class="built_in">UITouch</span> *&gt; *)touches withEvent:(<span class="built_in">UIEvent</span> *)event &#123;</div><div class="line"></div><div class="line">    <span class="built_in">UIBezierPath</span> *endPath = [<span class="built_in">UIBezierPath</span> bezierPathWithRect:<span class="keyword">self</span>.greenBtn.bounds];</div><div class="line">    <span class="built_in">CAShapeLayer</span> *layer = (<span class="built_in">CAShapeLayer</span> *)<span class="keyword">self</span>.greenBtn.layer.mask;</div><div class="line"></div><div class="line">    <span class="comment">// 动画</span></div><div class="line">    <span class="built_in">CABasicAnimation</span> *animation = [<span class="built_in">CABasicAnimation</span> animationWithKeyPath:<span class="string">@"path"</span>];</div><div class="line">    animation.duration = <span class="number">1</span>;</div><div class="line">    animation.fromValue = (<span class="keyword">id</span>)layer.path;</div><div class="line">    animation.toValue = (__bridge <span class="keyword">id</span> _Nullable)(endPath.CGPath);</div><div class="line">    animation.removedOnCompletion = <span class="literal">NO</span>;</div><div class="line">    animation.fillMode = kCAFillModeForwards;</div><div class="line">    [layer addAnimation:animation forKey:<span class="string">@"shapeLayerPath"</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidAppear:(<span class="built_in">BOOL</span>)animated &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidAppear:animated];</span><br><span class="line">    <span class="built_in">CAShapeLayer</span> *mask = [<span class="built_in">CAShapeLayer</span> layer];</span><br><span class="line">    <span class="built_in">UIBezierPath</span> *path = [<span class="built_in">UIBezierPath</span> bezierPathWithOvalInRect:<span class="keyword">self</span>.greenBtn.bounds];</span><br><span class="line">    mask.path = path.CGPath;</span><br><span class="line">    <span class="keyword">self</span>.greenBtn.layer.mask = mask;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span>&lt;<span class="built_in">UITouch</span> *&gt; *)touches withEvent:(<span class="built_in">UIEvent</span> *)event &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">UIBezierPath</span> *endPath = [<span class="built_in">UIBezierPath</span> bezierPathWithRect:<span class="keyword">self</span>.greenBtn.bounds];</span><br><span class="line">    <span class="built_in">CAShapeLayer</span> *layer = (<span class="built_in">CAShapeLayer</span> *)<span class="keyword">self</span>.greenBtn.layer.mask;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 动画</span></span><br><span class="line">    <span class="built_in">CABasicAnimation</span> *animation = [<span class="built_in">CABasicAnimation</span> animationWithKeyPath:<span class="string">@"path"</span>];</span><br><span class="line">    animation.duration = <span class="number">1</span>;</span><br><span class="line">    animation.fromValue = (<span class="keyword">id</span>)layer.path;</span><br><span class="line">    animation.toValue = (__bridge <span class="keyword">id</span> _Nullable)(endPath.CGPath);</span><br><span class="line">    animation.removedOnCompletion = <span class="literal">NO</span>;</span><br><span class="line">    animation.fillMode = kCAFillModeForwards;</span><br><span class="line">    [layer addAnimation:animation forKey:<span class="string">@"shapeLayerPath"</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="拉伸过滤"><a href="#拉伸过滤" class="headerlink" title="拉伸过滤"></a>拉伸过滤</h3><ul>
 <li>minificationFilter:缩小图片的拉伸算法</li>
 <li>magnificationFilter:方法图片的拉伸算法</li>
@@ -417,8 +388,8 @@ shadowRadius:阴影的模糊度，即模糊半">
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/12/27/《ios核心动画高级技巧》阅读笔记(2)/" rel="prev" title="《ios核心动画高级技巧》阅读笔记(2)">
-                《ios核心动画高级技巧》阅读笔记(2) <i class="fa fa-chevron-right"></i>
+              <a href="/2016/01/01/自动打包工具shenzhen使用简介/" rel="prev" title="自动打包工具shenzhen使用简介">
+                自动打包工具shenzhen使用简介 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -491,7 +462,7 @@ shadowRadius:阴影的模糊度，即模糊半">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">61</span>
+              <span class="site-state-item-count">62</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -499,7 +470,7 @@ shadowRadius:阴影的模糊度，即模糊半">
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -508,7 +479,7 @@ shadowRadius:阴影的模糊度，即模糊半">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

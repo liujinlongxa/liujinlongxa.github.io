@@ -86,36 +86,19 @@
 
 
 
-<meta name="description" content="第一章 图层树CoreAnimation简介
-动画只是CoreAnimation特性的冰山一角
-CoreAnimation是一个复合引擎，它的职责就是尽可能快地组合屏幕上不同的可视内容，这个内容被分解成独立的图层，存储在一个叫图层树的体系中。
-
-图层与视图
-CALayer类在概念上和UIView类似，同样是一些被层级关系树管理的矩形块，同样可以含有一些内容。他有一些方法和属性用来做动画和变换。
-和">
+<meta name="description" content="第一章 图层树CoreAnimation简介 动画只是CoreAnimation特性的冰山一角 CoreAnimation是一个复合引擎，它的职责就是尽可能快地组合屏幕上不同的可视内容，这个内容被分解成独立的图层，存储在一个叫图层树的体系中。  图层与视图 CALayer类在概念上和UIView类似，同样是一些被层级关系树管理的矩形块，同样可以含有一些内容。他有一些方法和属性用来做动画和变换。 和">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《ios核心动画高级技巧》阅读笔记(1)">
 <meta property="og:url" content="http://liujinlongxa.com/2015/12/27/《ios核心动画高级技巧》阅读笔记(1)/index.html">
 <meta property="og:site_name" content="liujinlongxa的技术博客">
-<meta property="og:description" content="第一章 图层树CoreAnimation简介
-动画只是CoreAnimation特性的冰山一角
-CoreAnimation是一个复合引擎，它的职责就是尽可能快地组合屏幕上不同的可视内容，这个内容被分解成独立的图层，存储在一个叫图层树的体系中。
-
-图层与视图
-CALayer类在概念上和UIView类似，同样是一些被层级关系树管理的矩形块，同样可以含有一些内容。他有一些方法和属性用来做动画和变换。
-和">
+<meta property="og:description" content="第一章 图层树CoreAnimation简介 动画只是CoreAnimation特性的冰山一角 CoreAnimation是一个复合引擎，它的职责就是尽可能快地组合屏幕上不同的可视内容，这个内容被分解成独立的图层，存储在一个叫图层树的体系中。  图层与视图 CALayer类在概念上和UIView类似，同样是一些被层级关系树管理的矩形块，同样可以含有一些内容。他有一些方法和属性用来做动画和变换。 和">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/004ddacd5a9506600889fc2c32686262.png">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/01278b2b759e5b3c5fc5ae2a961a71ee.png">
 <meta property="og:updated_time" content="2017-03-01T06:42:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《ios核心动画高级技巧》阅读笔记(1)">
-<meta name="twitter:description" content="第一章 图层树CoreAnimation简介
-动画只是CoreAnimation特性的冰山一角
-CoreAnimation是一个复合引擎，它的职责就是尽可能快地组合屏幕上不同的可视内容，这个内容被分解成独立的图层，存储在一个叫图层树的体系中。
-
-图层与视图
-CALayer类在概念上和UIView类似，同样是一些被层级关系树管理的矩形块，同样可以含有一些内容。他有一些方法和属性用来做动画和变换。
-和">
+<meta name="twitter:description" content="第一章 图层树CoreAnimation简介 动画只是CoreAnimation特性的冰山一角 CoreAnimation是一个复合引擎，它的职责就是尽可能快地组合屏幕上不同的可视内容，这个内容被分解成独立的图层，存储在一个叫图层树的体系中。  图层与视图 CALayer类在概念上和UIView类似，同样是一些被层级关系树管理的矩形块，同样可以含有一些内容。他有一些方法和属性用来做动画和变换。 和">
 <meta name="twitter:image" content="http://7xn88v.com1.z0.glb.clouddn.com/004ddacd5a9506600889fc2c32686262.png">
 
 
@@ -359,7 +342,7 @@ CALayer类在概念上和UIView类似，同样是一些被层级关系树管理�
 <h3 id="使用图层"><a href="#使用图层" class="headerlink" title="使用图层"></a>使用图层</h3><ul>
 <li>可以直接在UIView的layer属性中添加图层，如下</li>
 </ul>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line"></div><div class="line">    <span class="built_in">CALayer</span> *blueLayer = [[<span class="built_in">CALayer</span> alloc] init];</div><div class="line">    blueLayer.frame = <span class="built_in">CGRectMake</span>(<span class="number">50</span>, <span class="number">50</span>, <span class="number">50</span>, <span class="number">50</span>);</div><div class="line">    blueLayer.backgroundColor = [<span class="built_in">UIColor</span> blueColor].CGColor;</div><div class="line">    [<span class="keyword">self</span>.layerView.layer addSublayer:blueLayer];</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">CALayer</span> *blueLayer = [[<span class="built_in">CALayer</span> alloc] init];</span><br><span class="line">    blueLayer.frame = <span class="built_in">CGRectMake</span>(<span class="number">50</span>, <span class="number">50</span>, <span class="number">50</span>, <span class="number">50</span>);</span><br><span class="line">    blueLayer.backgroundColor = [<span class="built_in">UIColor</span> blueColor].CGColor;</span><br><span class="line">    [<span class="keyword">self</span>.layerView.layer addSublayer:blueLayer];</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>使用图层而不使用视图的情况<ul>
 <li>开发可以在MacOS上运行的跨平台应用</li>
@@ -419,8 +402,8 @@ CALayer类在概念上和UIView类似，同样是一些被层级关系树管理�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/12/20/RAC学习笔记/" rel="next" title="RAC学习笔记">
-                <i class="fa fa-chevron-left"></i> RAC学习笔记
+              <a href="/2015/12/27/《ios核心动画高级技巧》阅读笔记(2)/" rel="next" title="《ios核心动画高级技巧》阅读笔记(2)">
+                <i class="fa fa-chevron-left"></i> 《ios核心动画高级技巧》阅读笔记(2)
               </a>
             
           </div>
@@ -501,7 +484,7 @@ CALayer类在概念上和UIView类似，同样是一些被层级关系树管理�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">61</span>
+              <span class="site-state-item-count">62</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -509,7 +492,7 @@ CALayer类在概念上和UIView类似，同样是一些被层级关系树管理�
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -518,7 +501,7 @@ CALayer类在概念上和UIView类似，同样是一些被层级关系树管理�
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

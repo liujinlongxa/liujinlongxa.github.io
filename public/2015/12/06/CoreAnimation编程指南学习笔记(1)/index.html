@@ -86,40 +86,17 @@
 
 
 
-<meta name="description" content="第一章：核心动画概念CoreAnimation框架中类的分类
-
-提供显示内容的图层类
-动画和计时类
-布局和约束类
-事务类，在原子更新的时候组合图层类
-
-图层类（Layer Classes）CALayer是所有层类的父类，几个常见的图层子类：CAScrollLayer,CATextLayer,CATiledLayer等
-动画类和计时类CAAnimation是动画类的基类，他实现了CAMediaTim">
+<meta name="description" content="第一章：核心动画概念CoreAnimation框架中类的分类  提供显示内容的图层类 动画和计时类 布局和约束类 事务类，在原子更新的时候组合图层类  图层类（Layer Classes）CALayer是所有层类的父类，几个常见的图层子类：CAScrollLayer,CATextLayer,CATiledLayer等 动画类和计时类CAAnimation是动画类的基类，他实现了CAMediaTim">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CoreAnimation编程指南学习笔记(1)">
 <meta property="og:url" content="http://liujinlongxa.com/2015/12/06/CoreAnimation编程指南学习笔记(1)/index.html">
 <meta property="og:site_name" content="liujinlongxa的技术博客">
-<meta property="og:description" content="第一章：核心动画概念CoreAnimation框架中类的分类
-
-提供显示内容的图层类
-动画和计时类
-布局和约束类
-事务类，在原子更新的时候组合图层类
-
-图层类（Layer Classes）CALayer是所有层类的父类，几个常见的图层子类：CAScrollLayer,CATextLayer,CATiledLayer等
-动画类和计时类CAAnimation是动画类的基类，他实现了CAMediaTim">
+<meta property="og:description" content="第一章：核心动画概念CoreAnimation框架中类的分类  提供显示内容的图层类 动画和计时类 布局和约束类 事务类，在原子更新的时候组合图层类  图层类（Layer Classes）CALayer是所有层类的父类，几个常见的图层子类：CAScrollLayer,CATextLayer,CATiledLayer等 动画类和计时类CAAnimation是动画类的基类，他实现了CAMediaTim">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-03-01T06:42:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CoreAnimation编程指南学习笔记(1)">
-<meta name="twitter:description" content="第一章：核心动画概念CoreAnimation框架中类的分类
-
-提供显示内容的图层类
-动画和计时类
-布局和约束类
-事务类，在原子更新的时候组合图层类
-
-图层类（Layer Classes）CALayer是所有层类的父类，几个常见的图层子类：CAScrollLayer,CATextLayer,CATiledLayer等
-动画类和计时类CAAnimation是动画类的基类，他实现了CAMediaTim">
+<meta name="twitter:description" content="第一章：核心动画概念CoreAnimation框架中类的分类  提供显示内容的图层类 动画和计时类 布局和约束类 事务类，在原子更新的时候组合图层类  图层类（Layer Classes）CALayer是所有层类的父类，几个常见的图层子类：CAScrollLayer,CATextLayer,CATiledLayer等 动画类和计时类CAAnimation是动画类的基类，他实现了CAMediaTim">
 
 
 
@@ -367,9 +344,9 @@
 </ul>
 <p>ios中，每个UIView的实例会自动创建一个CALayer类的实体，视图为图层提供了底层的事件处理，图层为视图提供了显示的内容。</p>
 <h2 id="第五章：图层的内容"><a href="#第五章：图层的内容" class="headerlink" title="第五章：图层的内容"></a>第五章：图层的内容</h2><p>使用CALayer无需创建继承子类，直接设置CALayer的contents属性即可，contents属性是一个CGImageRef类型，这样子创建比使用UIImageView效率要高</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">self</span>.myLayer = [[<span class="built_in">CALayer</span> alloc] init];</div><div class="line"><span class="keyword">self</span>.myLayer.bounds = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line"><span class="keyword">self</span>.myLayer.position = <span class="built_in">CGPointMake</span>(<span class="number">100</span>, <span class="number">100</span>);</div><div class="line"><span class="keyword">self</span>.myLayer.backgroundColor = [<span class="built_in">UIColor</span> redColor].CGColor;</div><div class="line"><span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"1.JPG"</span>];</div><div class="line"><span class="keyword">self</span>.myLayer.contents = (__bridge <span class="keyword">id</span> _Nullable)(image.CGImage);</div><div class="line">[<span class="keyword">self</span>.view.layer addSublayer:<span class="keyword">self</span>.myLayer];</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.myLayer = [[<span class="built_in">CALayer</span> alloc] init];</span><br><span class="line"><span class="keyword">self</span>.myLayer.bounds = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line"><span class="keyword">self</span>.myLayer.position = <span class="built_in">CGPointMake</span>(<span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line"><span class="keyword">self</span>.myLayer.backgroundColor = [<span class="built_in">UIColor</span> redColor].CGColor;</span><br><span class="line"><span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"1.JPG"</span>];</span><br><span class="line"><span class="keyword">self</span>.myLayer.contents = (__bridge <span class="keyword">id</span> _Nullable)(image.CGImage);</span><br><span class="line">[<span class="keyword">self</span>.view.layer addSublayer:<span class="keyword">self</span>.myLayer];</span><br></pre></td></tr></table></figure>
 <p>也可以通过代理方法，提供CALayer的内容，有两个代理方法：<code>- (void)displayLayer:(CALayer *)theLayer</code>与<code>- (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx</code>, 要通知系统重绘图层，只需要调用CALayer的<code>setNeedsDisplay</code>或者<code>setNeedsDisplayInRect:</code>方法或者把图层的needsDisplayOnBoundsChange属性值设置为YES即可。</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)drawLayer:(<span class="built_in">CALayer</span> *)layer inContext:(<span class="built_in">CGContextRef</span>)ctx &#123;</div><div class="line">    <span class="built_in">CGMutablePathRef</span> thePath = <span class="built_in">CGPathCreateMutable</span>();</div><div class="line">    <span class="built_in">CGPathMoveToPoint</span>(thePath,<span class="literal">NULL</span>,<span class="number">15.0</span>f,<span class="number">15.</span>f);</div><div class="line">    <span class="built_in">CGPathAddCurveToPoint</span>(thePath,</div><div class="line">                          <span class="literal">NULL</span>,</div><div class="line">                          <span class="number">15.</span>f,<span class="number">250.0</span>f,</div><div class="line">                          <span class="number">295.0</span>f,<span class="number">250.0</span>f,</div><div class="line">                          <span class="number">295.0</span>f,<span class="number">15.0</span>f);</div><div class="line">    <span class="built_in">CGContextBeginPath</span>(ctx);</div><div class="line">    <span class="built_in">CGContextAddPath</span>(ctx, thePath );</div><div class="line">    <span class="built_in">CGContextSetLineWidth</span>(ctx, <span class="number">5</span>);</div><div class="line">    <span class="built_in">CGContextStrokePath</span>(ctx);</div><div class="line">    <span class="comment">// release the path</span></div><div class="line">    <span class="built_in">CFRelease</span>(thePath);</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)displayLayer:(<span class="built_in">CALayer</span> *)layer &#123;</div><div class="line">    <span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"1.JPG"</span>];</div><div class="line">    layer.contents = (__bridge <span class="keyword">id</span> _Nullable)(image.CGImage);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)drawLayer:(<span class="built_in">CALayer</span> *)layer inContext:(<span class="built_in">CGContextRef</span>)ctx &#123;</span><br><span class="line">    <span class="built_in">CGMutablePathRef</span> thePath = <span class="built_in">CGPathCreateMutable</span>();</span><br><span class="line">    <span class="built_in">CGPathMoveToPoint</span>(thePath,<span class="literal">NULL</span>,<span class="number">15.0</span>f,<span class="number">15.</span>f);</span><br><span class="line">    <span class="built_in">CGPathAddCurveToPoint</span>(thePath,</span><br><span class="line">                          <span class="literal">NULL</span>,</span><br><span class="line">                          <span class="number">15.</span>f,<span class="number">250.0</span>f,</span><br><span class="line">                          <span class="number">295.0</span>f,<span class="number">250.0</span>f,</span><br><span class="line">                          <span class="number">295.0</span>f,<span class="number">15.0</span>f);</span><br><span class="line">    <span class="built_in">CGContextBeginPath</span>(ctx);</span><br><span class="line">    <span class="built_in">CGContextAddPath</span>(ctx, thePath );</span><br><span class="line">    <span class="built_in">CGContextSetLineWidth</span>(ctx, <span class="number">5</span>);</span><br><span class="line">    <span class="built_in">CGContextStrokePath</span>(ctx);</span><br><span class="line">    <span class="comment">// release the path</span></span><br><span class="line">    <span class="built_in">CFRelease</span>(thePath);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)displayLayer:(<span class="built_in">CALayer</span> *)layer &#123;</span><br><span class="line">    <span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"1.JPG"</span>];</span><br><span class="line">    layer.contents = (__bridge <span class="keyword">id</span> _Nullable)(image.CGImage);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>除了设置代理方法，也可以通过继承CALayer，重写<code>display</code>方法或<code>- (void)drawInContext:(CGContextRef)theContext</code>方法来自定义图层</p>
 <p>CALayer的contentsGravity属性相当于UIView的contentMode属性。</p>
 
@@ -479,7 +456,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">61</span>
+              <span class="site-state-item-count">62</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -487,7 +464,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -496,7 +473,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

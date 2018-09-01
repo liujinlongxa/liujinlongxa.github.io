@@ -86,21 +86,19 @@
 
 
 
-<meta name="description" content="前言今天下了XCode7 Beta版，跑了一下自家的APP，结果发现所有服务器请求都返回失败，明明网络正常，怎么会返回失败呢？起初我以为是AFNetworking的问题，于是我写了个demo，去掉AFNetworking，直接用NSURLSession请求数据，也是请求失败。于是乎一顿Google，原来是iOS9（XCode7的模拟器默认是iOS9）的新特性——ATS搞的鬼。
-简介ATS全称为Ap">
+<meta name="description" content="前言今天下了XCode7 Beta版，跑了一下自家的APP，结果发现所有服务器请求都返回失败，明明网络正常，怎么会返回失败呢？起初我以为是AFNetworking的问题，于是我写了个demo，去掉AFNetworking，直接用NSURLSession请求数据，也是请求失败。于是乎一顿Google，原来是iOS9（XCode7的模拟器默认是iOS9）的新特性——ATS搞的鬼。 简介ATS全称为Ap">
 <meta property="og:type" content="article">
 <meta property="og:title" content="适配iOS9（ATS问题）">
 <meta property="og:url" content="http://liujinlongxa.com/2015/10/04/适配iOS9（ATS问题）/index.html">
 <meta property="og:site_name" content="liujinlongxa的技术博客">
-<meta property="og:description" content="前言今天下了XCode7 Beta版，跑了一下自家的APP，结果发现所有服务器请求都返回失败，明明网络正常，怎么会返回失败呢？起初我以为是AFNetworking的问题，于是我写了个demo，去掉AFNetworking，直接用NSURLSession请求数据，也是请求失败。于是乎一顿Google，原来是iOS9（XCode7的模拟器默认是iOS9）的新特性——ATS搞的鬼。
-简介ATS全称为Ap">
+<meta property="og:description" content="前言今天下了XCode7 Beta版，跑了一下自家的APP，结果发现所有服务器请求都返回失败，明明网络正常，怎么会返回失败呢？起初我以为是AFNetworking的问题，于是我写了个demo，去掉AFNetworking，直接用NSURLSession请求数据，也是请求失败。于是乎一顿Google，原来是iOS9（XCode7的模拟器默认是iOS9）的新特性——ATS搞的鬼。 简介ATS全称为Ap">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://img.blog.csdn.net/20150619164549061">
 <meta property="og:image" content="http://img.blog.csdn.net/20150619164722416">
 <meta property="og:updated_time" content="2017-03-01T06:42:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="适配iOS9（ATS问题）">
-<meta name="twitter:description" content="前言今天下了XCode7 Beta版，跑了一下自家的APP，结果发现所有服务器请求都返回失败，明明网络正常，怎么会返回失败呢？起初我以为是AFNetworking的问题，于是我写了个demo，去掉AFNetworking，直接用NSURLSession请求数据，也是请求失败。于是乎一顿Google，原来是iOS9（XCode7的模拟器默认是iOS9）的新特性——ATS搞的鬼。
-简介ATS全称为Ap">
+<meta name="twitter:description" content="前言今天下了XCode7 Beta版，跑了一下自家的APP，结果发现所有服务器请求都返回失败，明明网络正常，怎么会返回失败呢？起初我以为是AFNetworking的问题，于是我写了个demo，去掉AFNetworking，直接用NSURLSession请求数据，也是请求失败。于是乎一顿Google，原来是iOS9（XCode7的模拟器默认是iOS9）的新特性——ATS搞的鬼。 简介ATS全称为Ap">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20150619164549061">
 
 
@@ -327,7 +325,7 @@
 <p>如果你想设置只允许特定host的网络请求，在info.plist文件中加入以下内容</p>
 <p><img src="http://img.blog.csdn.net/20150619164722416" alt="这里写图片描述"></p>
 <p>这样，你在发往<code>baike.baidu.com</code>这个host的请求就都不会被阻止了，你可以注册多个域名。</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html#//apple_ref/doc/uid/TP40016198-DontLinkElementID_13" target="_blank" rel="external">What’s New in iOS9</a><br><a href="http://stackoverflow.com/questions/30739473/nsurlsession-nsurlconnection-http-load-failed" target="_blank" rel="external">NSURLSession/NSURLConnection HTTP load failed</a></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html#//apple_ref/doc/uid/TP40016198-DontLinkElementID_13" target="_blank" rel="noopener">What’s New in iOS9</a><br><a href="http://stackoverflow.com/questions/30739473/nsurlsession-nsurlconnection-http-load-failed" target="_blank" rel="noopener">NSURLSession/NSURLConnection HTTP load failed</a></p>
 
       
     </div>
@@ -435,7 +433,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">61</span>
+              <span class="site-state-item-count">62</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -443,7 +441,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -452,7 +450,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

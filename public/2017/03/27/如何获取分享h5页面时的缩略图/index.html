@@ -86,22 +86,18 @@
 
 
 
-<meta name="description" content="最近产品提了一个需求，在分享应用内h5页面时，不能像以前一样，使用应用的图标作为分享的缩略图，要使用H5页面内的一张图片作为缩略图进行分享。
-我调查了一下市面上一些常见应用的做法，基本上可以总结出三种做法：
-第一种方法：H5页面内指定分享图片地址比较常见的做法是，在h5页面内定义一个JS的全局变量或者json，指定分享用的图片地址，APP内，通过JavaScriptCore获取全局变量，然后用于分">
+<meta name="description" content="最近产品提了一个需求，在分享应用内h5页面时，不能像以前一样，使用应用的图标作为分享的缩略图，要使用H5页面内的一张图片作为缩略图进行分享。 我调查了一下市面上一些常见应用的做法，基本上可以总结出三种做法： 第一种方法：H5页面内指定分享图片地址比较常见的做法是，在h5页面内定义一个JS的全局变量或者json，指定分享用的图片地址，APP内，通过JavaScriptCore获取全局变量，然后用于分">
+<meta name="keywords" content="分享">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何获取分享h5页面时的缩略图">
 <meta property="og:url" content="http://liujinlongxa.com/2017/03/27/如何获取分享h5页面时的缩略图/index.html">
 <meta property="og:site_name" content="liujinlongxa的技术博客">
-<meta property="og:description" content="最近产品提了一个需求，在分享应用内h5页面时，不能像以前一样，使用应用的图标作为分享的缩略图，要使用H5页面内的一张图片作为缩略图进行分享。
-我调查了一下市面上一些常见应用的做法，基本上可以总结出三种做法：
-第一种方法：H5页面内指定分享图片地址比较常见的做法是，在h5页面内定义一个JS的全局变量或者json，指定分享用的图片地址，APP内，通过JavaScriptCore获取全局变量，然后用于分">
+<meta property="og:description" content="最近产品提了一个需求，在分享应用内h5页面时，不能像以前一样，使用应用的图标作为分享的缩略图，要使用H5页面内的一张图片作为缩略图进行分享。 我调查了一下市面上一些常见应用的做法，基本上可以总结出三种做法： 第一种方法：H5页面内指定分享图片地址比较常见的做法是，在h5页面内定义一个JS的全局变量或者json，指定分享用的图片地址，APP内，通过JavaScriptCore获取全局变量，然后用于分">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-03-27T09:04:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何获取分享h5页面时的缩略图">
-<meta name="twitter:description" content="最近产品提了一个需求，在分享应用内h5页面时，不能像以前一样，使用应用的图标作为分享的缩略图，要使用H5页面内的一张图片作为缩略图进行分享。
-我调查了一下市面上一些常见应用的做法，基本上可以总结出三种做法：
-第一种方法：H5页面内指定分享图片地址比较常见的做法是，在h5页面内定义一个JS的全局变量或者json，指定分享用的图片地址，APP内，通过JavaScriptCore获取全局变量，然后用于分">
+<meta name="twitter:description" content="最近产品提了一个需求，在分享应用内h5页面时，不能像以前一样，使用应用的图标作为分享的缩略图，要使用H5页面内的一张图片作为缩略图进行分享。 我调查了一下市面上一些常见应用的做法，基本上可以总结出三种做法： 第一种方法：H5页面内指定分享图片地址比较常见的做法是，在h5页面内定义一个JS的全局变量或者json，指定分享用的图片地址，APP内，通过JavaScriptCore获取全局变量，然后用于分">
 
 
 
@@ -327,7 +323,7 @@
 <p>还有一种是把分享的信息定义在页面头部(head标签里)，QQ音乐就是这样做的。</p>
 <h3 id="第二种做法：固定分享页面内第一张符合条件的图片"><a href="#第二种做法：固定分享页面内第一张符合条件的图片" class="headerlink" title="第二种做法：固定分享页面内第一张符合条件的图片"></a>第二种做法：固定分享页面内第一张符合条件的图片</h3><p>如果H5页面是第三方提供，就不能通过第一种方法去指定分享内容了。这种情况下，大多数应用的做法就是取页面内第一张符合大小的图片作为分享图片。</p>
 <p>这里我写了一个JS函数，只要把这个函数注入到H5页面中，APP就可以通过调用这个方法来获取到第一张符合大小的图片。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getImage</span>(<span class="params">width, height</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> images = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'img'</span>);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> index = <span class="number">0</span>; index &lt; images.length; index++) &#123;</div><div class="line">        <span class="keyword">var</span> img = images[index];</div><div class="line">        <span class="keyword">var</span> imgData = <span class="keyword">new</span> Image();</div><div class="line">        imgData.src = img.src;</div><div class="line">        <span class="keyword">if</span> (imgData.width &gt; width &amp;&amp; imgData.height &gt; height) &#123;</div><div class="line">            <span class="keyword">return</span> imgData.src;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getImage</span>(<span class="params">width, height</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> images = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'img'</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> index = <span class="number">0</span>; index &lt; images.length; index++) &#123;</span><br><span class="line">        <span class="keyword">var</span> img = images[index];</span><br><span class="line">        <span class="keyword">var</span> imgData = <span class="keyword">new</span> Image();</span><br><span class="line">        imgData.src = img.src;</span><br><span class="line">        <span class="keyword">if</span> (imgData.width &gt; width &amp;&amp; imgData.height &gt; height) &#123;</span><br><span class="line">            <span class="keyword">return</span> imgData.src;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>具体这样做的应用有：微信，今日头条</p>
 <h3 id="第三种做法：对页面进行截图，使用截图进行分享"><a href="#第三种做法：对页面进行截图，使用截图进行分享" class="headerlink" title="第三种做法：对页面进行截图，使用截图进行分享"></a>第三种做法：对页面进行截图，使用截图进行分享</h3><p>有些应用在分享时会对H5页面进行截图，然后把截图作为分享的内容。</p>
 <p>具体这样做的应用有：微博，UC浏览器</p>
@@ -445,7 +441,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">61</span>
+              <span class="site-state-item-count">62</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -453,7 +449,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -462,7 +458,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

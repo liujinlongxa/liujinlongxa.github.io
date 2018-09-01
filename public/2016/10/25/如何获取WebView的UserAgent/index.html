@@ -86,22 +86,18 @@
 
 
 
-<meta name="description" content="项目中用到了WebView的UserAgent，可以通过以下方式获取到：
-12UIWebView* webView = [[UIWebView alloc] init];NSString* secretAgent = [webView stringByEvaluatingJavaScriptFromString:@&quot;navigator.userAgent&quot;];
-如果是WKWebView，可以通过以">
+<meta name="description" content="项目中用到了WebView的UserAgent，可以通过以下方式获取到： 12UIWebView* webView = [[UIWebView alloc] init];NSString* secretAgent = [webView stringByEvaluatingJavaScriptFromString:@&quot;navigator.userAgent&quot;]; 如果是WKWebView，可以通过以">
+<meta name="keywords" content="其他">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何获取WebView的UserAgent">
 <meta property="og:url" content="http://liujinlongxa.com/2016/10/25/如何获取WebView的UserAgent/index.html">
 <meta property="og:site_name" content="liujinlongxa的技术博客">
-<meta property="og:description" content="项目中用到了WebView的UserAgent，可以通过以下方式获取到：
-12UIWebView* webView = [[UIWebView alloc] init];NSString* secretAgent = [webView stringByEvaluatingJavaScriptFromString:@&quot;navigator.userAgent&quot;];
-如果是WKWebView，可以通过以">
+<meta property="og:description" content="项目中用到了WebView的UserAgent，可以通过以下方式获取到： 12UIWebView* webView = [[UIWebView alloc] init];NSString* secretAgent = [webView stringByEvaluatingJavaScriptFromString:@&quot;navigator.userAgent&quot;]; 如果是WKWebView，可以通过以">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-03-01T06:42:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何获取WebView的UserAgent">
-<meta name="twitter:description" content="项目中用到了WebView的UserAgent，可以通过以下方式获取到：
-12UIWebView* webView = [[UIWebView alloc] init];NSString* secretAgent = [webView stringByEvaluatingJavaScriptFromString:@&quot;navigator.userAgent&quot;];
-如果是WKWebView，可以通过以">
+<meta name="twitter:description" content="项目中用到了WebView的UserAgent，可以通过以下方式获取到： 12UIWebView* webView = [[UIWebView alloc] init];NSString* secretAgent = [webView stringByEvaluatingJavaScriptFromString:@&quot;navigator.userAgent&quot;]; 如果是WKWebView，可以通过以">
 
 
 
@@ -321,11 +317,11 @@
 
       
         <p>项目中用到了WebView的UserAgent，可以通过以下方式获取到：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">UIWebView</span>* webView = [[<span class="built_in">UIWebView</span> alloc] init];</div><div class="line"><span class="built_in">NSString</span>* secretAgent = [webView stringByEvaluatingJavaScriptFromString:<span class="string">@"navigator.userAgent"</span>];</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIWebView</span>* webView = [[<span class="built_in">UIWebView</span> alloc] init];</span><br><span class="line"><span class="built_in">NSString</span>* secretAgent = [webView stringByEvaluatingJavaScriptFromString:<span class="string">@"navigator.userAgent"</span>];</span><br></pre></td></tr></table></figure>
 <p>如果是WKWebView，可以通过以下方式获取</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">WKWebView</span> *webView = [[<span class="built_in">WKWebView</span> alloc] init];</div><div class="line">[webView evaluateJavaScript:<span class="string">@"navigator.userAgent"</span> completionHandler:^(<span class="keyword">id</span> _Nullable userAgent, <span class="built_in">NSError</span> * _Nullable error) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"userAgent: %@"</span>, userAgent);</div><div class="line">&#125;];</div><div class="line"><span class="keyword">self</span>.webView = webView; <span class="comment">// 注意，一定要对webView进行强引用</span></div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">WKWebView</span> *webView = [[<span class="built_in">WKWebView</span> alloc] init];</span><br><span class="line">[webView evaluateJavaScript:<span class="string">@"navigator.userAgent"</span> completionHandler:^(<span class="keyword">id</span> _Nullable userAgent, <span class="built_in">NSError</span> * _Nullable error) &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"userAgent: %@"</span>, userAgent);</span><br><span class="line">&#125;];</span><br><span class="line"><span class="keyword">self</span>.webView = webView; <span class="comment">// 注意，一定要对webView进行强引用</span></span><br></pre></td></tr></table></figure>
 <p>获取到的值的为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Mozilla/5.0 (iPhone; CPU iPhone OS 10_0_1 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) Mobile/14A403</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/5.0 (iPhone; CPU iPhone OS 10_0_1 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) Mobile/14A403</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -439,7 +435,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">61</span>
+              <span class="site-state-item-count">62</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -447,7 +443,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -456,7 +452,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

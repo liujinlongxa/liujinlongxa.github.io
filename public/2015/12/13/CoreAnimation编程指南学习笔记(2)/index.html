@@ -86,26 +86,18 @@
 
 
 
-<meta name="description" content="第六章 动画动画类
-CABasicAnimation提供了在图层的属性值间简单的插入。
-CAKeyframeAnimation提供支持关键帧动画。你指定动画的一个图层属性的关键路径，一个表示在动画的每个阶段的价值的数组，还有一个关键帧时间的数组和时间函数。
-CATransition提供了一个影响整个图层的内容过渡效果。在动画显示过程中采用淡出（fade）、推出(push)、显露(reveal)图层">
+<meta name="description" content="第六章 动画动画类 CABasicAnimation提供了在图层的属性值间简单的插入。 CAKeyframeAnimation提供支持关键帧动画。你指定动画的一个图层属性的关键路径，一个表示在动画的每个阶段的价值的数组，还有一个关键帧时间的数组和时间函数。 CATransition提供了一个影响整个图层的内容过渡效果。在动画显示过程中采用淡出（fade）、推出(push)、显露(reveal)图层">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CoreAnimation编程指南学习笔记(2)">
 <meta property="og:url" content="http://liujinlongxa.com/2015/12/13/CoreAnimation编程指南学习笔记(2)/index.html">
 <meta property="og:site_name" content="liujinlongxa的技术博客">
-<meta property="og:description" content="第六章 动画动画类
-CABasicAnimation提供了在图层的属性值间简单的插入。
-CAKeyframeAnimation提供支持关键帧动画。你指定动画的一个图层属性的关键路径，一个表示在动画的每个阶段的价值的数组，还有一个关键帧时间的数组和时间函数。
-CATransition提供了一个影响整个图层的内容过渡效果。在动画显示过程中采用淡出（fade）、推出(push)、显露(reveal)图层">
+<meta property="og:description" content="第六章 动画动画类 CABasicAnimation提供了在图层的属性值间简单的插入。 CAKeyframeAnimation提供支持关键帧动画。你指定动画的一个图层属性的关键路径，一个表示在动画的每个阶段的价值的数组，还有一个关键帧时间的数组和时间函数。 CATransition提供了一个影响整个图层的内容过渡效果。在动画显示过程中采用淡出（fade）、推出(push)、显露(reveal)图层">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/2015-12-13_10-42-53.jpg">
 <meta property="og:updated_time" content="2017-03-01T06:42:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CoreAnimation编程指南学习笔记(2)">
-<meta name="twitter:description" content="第六章 动画动画类
-CABasicAnimation提供了在图层的属性值间简单的插入。
-CAKeyframeAnimation提供支持关键帧动画。你指定动画的一个图层属性的关键路径，一个表示在动画的每个阶段的价值的数组，还有一个关键帧时间的数组和时间函数。
-CATransition提供了一个影响整个图层的内容过渡效果。在动画显示过程中采用淡出（fade）、推出(push)、显露(reveal)图层">
+<meta name="twitter:description" content="第六章 动画动画类 CABasicAnimation提供了在图层的属性值间简单的插入。 CAKeyframeAnimation提供支持关键帧动画。你指定动画的一个图层属性的关键路径，一个表示在动画的每个阶段的价值的数组，还有一个关键帧时间的数组和时间函数。 CATransition提供了一个影响整个图层的内容过渡效果。在动画显示过程中采用淡出（fade）、推出(push)、显露(reveal)图层">
 <meta name="twitter:image" content="http://7xn88v.com1.z0.glb.clouddn.com/2015-12-13_10-42-53.jpg">
 
 
@@ -331,12 +323,12 @@ CATransition提供了一个影响整个图层的内容过渡效果。在动画�
 <li>CATransition提供了一个影响整个图层的内容过渡效果。在动画显示过程中采用淡出（fade）、推出(push)、显露(reveal)图层的内容。 常用的过渡效果可以通过提供你自己定制的核心图像滤镜来扩展。</li>
 </ul>
 <h3 id="隐式动画"><a href="#隐式动画" class="headerlink" title="隐式动画"></a>隐式动画</h3><p>隐式动画指所有修改CALayer的可动画属性，默认会都会带有动画。例如<code>self.layer.position = CGPointMake(200, 200);</code>默认是带有动画效果的。注意一定是修改layer属性，修改UIView的属性，默认是不带有隐式动画的。而且UIView默认带有的layer属性也是不带隐式动画的。</p>
-<h3 id="显示动画"><a href="#显示动画" class="headerlink" title="显示动画"></a>显示动画</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CABasicAnimation</span> *anim = [<span class="built_in">CABasicAnimation</span> 	animationWithKeyPath:<span class="string">@"opacity"</span>];</div><div class="line">   anim.fromValue = @(<span class="number">1.0</span>);</div><div class="line">   anim.toValue = @(<span class="number">0.5</span>);</div><div class="line">   anim.autoreverses = <span class="literal">YES</span>;</div><div class="line">   anim.repeatCount = <span class="number">10</span>;</div><div class="line">   anim.duration = <span class="number">2</span>;</div><div class="line">   [<span class="keyword">self</span>.layer addAnimation:anim forKey:<span class="string">@"anim"</span>];</div></pre></td></tr></table></figure>
+<h3 id="显示动画"><a href="#显示动画" class="headerlink" title="显示动画"></a>显示动画</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CABasicAnimation</span> *anim = [<span class="built_in">CABasicAnimation</span> 	animationWithKeyPath:<span class="string">@"opacity"</span>];</span><br><span class="line">   anim.fromValue = @(<span class="number">1.0</span>);</span><br><span class="line">   anim.toValue = @(<span class="number">0.5</span>);</span><br><span class="line">   anim.autoreverses = <span class="literal">YES</span>;</span><br><span class="line">   anim.repeatCount = <span class="number">10</span>;</span><br><span class="line">   anim.duration = <span class="number">2</span>;</span><br><span class="line">   [<span class="keyword">self</span>.layer addAnimation:anim forKey:<span class="string">@"anim"</span>];</span><br></pre></td></tr></table></figure>
 <h2 id="第七章-事务"><a href="#第七章-事务" class="headerlink" title="第七章 事务"></a>第七章 事务</h2><p>图层的每一个改变都是事务的一部分。隐式分为显示事务和隐式事务。隐式事务由系统自动创建和提交，在修改图层属性时，系统会自动创建一个事务，在下一次运行循环时自动提交。显示事务由用户程序控制创建和提交。一旦创建了显示事务，系统就不会再创建隐式事务。</p>
-<h3 id="使用显式事务禁止隐式动画"><a href="#使用显式事务禁止隐式动画" class="headerlink" title="使用显式事务禁止隐式动画"></a>使用显式事务禁止隐式动画</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[<span class="built_in">CATransaction</span> begin];</div><div class="line">   [<span class="built_in">CATransaction</span> setDisableActions:<span class="literal">YES</span>];</div><div class="line">   <span class="keyword">self</span>.layer.position = <span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">200</span>);</div><div class="line">   [<span class="built_in">CATransaction</span> commit];</div></pre></td></tr></table></figure>
-<h3 id="修改隐式动画的动画时长"><a href="#修改隐式动画的动画时长" class="headerlink" title="修改隐式动画的动画时长"></a>修改隐式动画的动画时长</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[<span class="built_in">CATransaction</span> begin];</div><div class="line">   [<span class="built_in">CATransaction</span> setAnimationDuration:<span class="number">2.0</span>];</div><div class="line">   <span class="keyword">self</span>.layer.position = <span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">200</span>);</div><div class="line">   [<span class="built_in">CATransaction</span> commit];</div></pre></td></tr></table></figure>
+<h3 id="使用显式事务禁止隐式动画"><a href="#使用显式事务禁止隐式动画" class="headerlink" title="使用显式事务禁止隐式动画"></a>使用显式事务禁止隐式动画</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[<span class="built_in">CATransaction</span> begin];</span><br><span class="line">   [<span class="built_in">CATransaction</span> setDisableActions:<span class="literal">YES</span>];</span><br><span class="line">   <span class="keyword">self</span>.layer.position = <span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">200</span>);</span><br><span class="line">   [<span class="built_in">CATransaction</span> commit];</span><br></pre></td></tr></table></figure>
+<h3 id="修改隐式动画的动画时长"><a href="#修改隐式动画的动画时长" class="headerlink" title="修改隐式动画的动画时长"></a>修改隐式动画的动画时长</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[<span class="built_in">CATransaction</span> begin];</span><br><span class="line">   [<span class="built_in">CATransaction</span> setAnimationDuration:<span class="number">2.0</span>];</span><br><span class="line">   <span class="keyword">self</span>.layer.position = <span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">200</span>);</span><br><span class="line">   [<span class="built_in">CATransaction</span> commit];</span><br></pre></td></tr></table></figure>
 <h2 id="第八章-KVC"><a href="#第八章-KVC" class="headerlink" title="第八章 KVC"></a>第八章 KVC</h2><p>CoreAnimation是通过KVC来实现对不同字段或关键路径进行动画的，使用方法如下</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[theLayer setValue:[<span class="built_in">NSNumber</span> numberWithInteger:<span class="number">50</span>] forKey:<span class="string">@"someKey"</span>];</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[theLayer setValue:[<span class="built_in">NSNumber</span> numberWithInteger:<span class="number">50</span>] forKey:<span class="string">@"someKey"</span>];</span><br></pre></td></tr></table></figure>
 <p>使用<code>defaultValueForKey:</code>可以获取字段的默认值。</p>
 <p>CAAnimation提供支持使用关键路径访问选择的结构字段。目前支持的字段如下</p>
 <p><img src="http://7xn88v.com1.z0.glb.clouddn.com/2015-12-13_10-42-53.jpg" alt=""></p>
@@ -447,7 +439,7 @@ CATransition提供了一个影响整个图层的内容过渡效果。在动画�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">61</span>
+              <span class="site-state-item-count">62</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -455,7 +447,7 @@ CATransition提供了一个影响整个图层的内容过渡效果。在动画�
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -464,7 +456,7 @@ CATransition提供了一个影响整个图层的内容过渡效果。在动画�
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

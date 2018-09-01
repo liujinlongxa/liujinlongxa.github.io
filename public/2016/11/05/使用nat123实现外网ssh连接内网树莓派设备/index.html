@@ -86,24 +86,20 @@
 
 
 
-<meta name="description" content="树莓派是一款基于Linux的单板机电脑。最近入手了一块，打算作为Linux服务器来使用。
-树莓派自带以太网接口和Wifi模块，可以通过网线或Wifi连接网络。但是由于我家里的网络是电信的光纤网络，用的是电信配的路由器，各个终端都是通过Wifi或网线连到这个路由上，因此各个终端相当于处于局域网，外网无法通过ip直接访问到内网的树莓派设备，这样如果我在树莓派上搭建一个服务器，外网就无法访问。
-一般这种">
+<meta name="description" content="树莓派是一款基于Linux的单板机电脑。最近入手了一块，打算作为Linux服务器来使用。 树莓派自带以太网接口和Wifi模块，可以通过网线或Wifi连接网络。但是由于我家里的网络是电信的光纤网络，用的是电信配的路由器，各个终端都是通过Wifi或网线连到这个路由上，因此各个终端相当于处于局域网，外网无法通过ip直接访问到内网的树莓派设备，这样如果我在树莓派上搭建一个服务器，外网就无法访问。 一般这种">
+<meta name="keywords" content="树莓派,SSH,网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用nat123实现外网ssh连接内网树莓派设备">
 <meta property="og:url" content="http://liujinlongxa.com/2016/11/05/使用nat123实现外网ssh连接内网树莓派设备/index.html">
 <meta property="og:site_name" content="liujinlongxa的技术博客">
-<meta property="og:description" content="树莓派是一款基于Linux的单板机电脑。最近入手了一块，打算作为Linux服务器来使用。
-树莓派自带以太网接口和Wifi模块，可以通过网线或Wifi连接网络。但是由于我家里的网络是电信的光纤网络，用的是电信配的路由器，各个终端都是通过Wifi或网线连到这个路由上，因此各个终端相当于处于局域网，外网无法通过ip直接访问到内网的树莓派设备，这样如果我在树莓派上搭建一个服务器，外网就无法访问。
-一般这种">
+<meta property="og:description" content="树莓派是一款基于Linux的单板机电脑。最近入手了一块，打算作为Linux服务器来使用。 树莓派自带以太网接口和Wifi模块，可以通过网线或Wifi连接网络。但是由于我家里的网络是电信的光纤网络，用的是电信配的路由器，各个终端都是通过Wifi或网线连到这个路由上，因此各个终端相当于处于局域网，外网无法通过ip直接访问到内网的树莓派设备，这样如果我在树莓派上搭建一个服务器，外网就无法访问。 一般这种">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/7855931f84f019009241b787d7c35f87.png">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/d784b452f4e1a71ef9555fd783b95386.png">
 <meta property="og:updated_time" content="2017-03-01T06:42:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用nat123实现外网ssh连接内网树莓派设备">
-<meta name="twitter:description" content="树莓派是一款基于Linux的单板机电脑。最近入手了一块，打算作为Linux服务器来使用。
-树莓派自带以太网接口和Wifi模块，可以通过网线或Wifi连接网络。但是由于我家里的网络是电信的光纤网络，用的是电信配的路由器，各个终端都是通过Wifi或网线连到这个路由上，因此各个终端相当于处于局域网，外网无法通过ip直接访问到内网的树莓派设备，这样如果我在树莓派上搭建一个服务器，外网就无法访问。
-一般这种">
+<meta name="twitter:description" content="树莓派是一款基于Linux的单板机电脑。最近入手了一块，打算作为Linux服务器来使用。 树莓派自带以太网接口和Wifi模块，可以通过网线或Wifi连接网络。但是由于我家里的网络是电信的光纤网络，用的是电信配的路由器，各个终端都是通过Wifi或网线连到这个路由上，因此各个终端相当于处于局域网，外网无法通过ip直接访问到内网的树莓派设备，这样如果我在树莓派上搭建一个服务器，外网就无法访问。 一般这种">
 <meta name="twitter:image" content="http://7xn88v.com1.z0.glb.clouddn.com/7855931f84f019009241b787d7c35f87.png">
 
 
@@ -323,16 +319,16 @@
       
 
       
-        <p><a href="https://zh.wikipedia.org/zh-cn/%E6%A0%91%E8%8E%93%E6%B4%BE" target="_blank" rel="external">树莓派</a>是一款基于Linux的单板机电脑。最近入手了一块，打算作为Linux服务器来使用。</p>
+        <p><a href="https://zh.wikipedia.org/zh-cn/%E6%A0%91%E8%8E%93%E6%B4%BE" target="_blank" rel="noopener">树莓派</a>是一款基于Linux的单板机电脑。最近入手了一块，打算作为Linux服务器来使用。</p>
 <p>树莓派自带以太网接口和Wifi模块，可以通过网线或Wifi连接网络。但是由于我家里的网络是电信的光纤网络，用的是电信配的路由器，各个终端都是通过Wifi或网线连到这个路由上，因此各个终端相当于处于局域网，外网无法通过ip直接访问到内网的树莓派设备，这样如果我在树莓派上搭建一个服务器，外网就无法访问。</p>
-<p>一般这种问题，只需要在路由器上设置一下<a href="http://www.hrtl.com.cn/News_398.aspx" target="_blank" rel="external">端口映射</a>就可通过外网访问内网主机了，但是电信配的这个路由器不支持设置端口映射（吐槽一下，电信自带的路由器简直弱爆了），所有就没办法通过设置路由器的方法解决。</p>
-<p>经过一番探索，找了一种可行的方案：<a href="http://www.nat123.com/" target="_blank" rel="external">nat123</a>。nat123是一家专业提供端口映射和域名解析的网站，下面我就详细介绍一下如何使用nat123来实现外网访问内网树莓派设备。</p>
-<h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><h3 id="第一步-准备工作"><a href="#第一步-准备工作" class="headerlink" title="第一步 准备工作"></a>第一步 准备工作</h3><p>确保在内网环境下可以通过ssh访问树莓派，如何在树莓派上配置ssh，可以参考<a href="http://www.itnose.net/detail/6109563.html" target="_blank" rel="external">这篇文章</a></p>
-<h3 id="第二步-注册nat123"><a href="#第二步-注册nat123" class="headerlink" title="第二步 注册nat123"></a>第二步 注册nat123</h3><p>打开<a href="http://www.nat123.com/" target="_blank" rel="external">nat123</a>官网，点击右上角的注册按钮完成注册</p>
-<h3 id="第三步-在树莓派上安装nat123-Linux版"><a href="#第三步-在树莓派上安装nat123-Linux版" class="headerlink" title="第三步 在树莓派上安装nat123 Linux版"></a>第三步 在树莓派上安装nat123 Linux版</h3><p>打开树莓派，按照<a href="http://www.nat123.com/pages_17_600.jsp" target="_blank" rel="external">这篇文章</a>的内容安装并启动相关软件。这里注意要根据你树莓派上的操作系统选择不同的安装方式，如果安装的官方操作系统Raspbian，应该选用Debian系统的安装方式。</p>
-<h3 id="第四步-配置端口映射"><a href="#第四步-配置端口映射" class="headerlink" title="第四步 配置端口映射"></a>第四步 配置端口映射</h3><p>登录<a href="http://www.nat123.com/" target="_blank" rel="external">nat123</a>，在左侧的用户中心点击“端口映射添加”，如下图：</p>
+<p>一般这种问题，只需要在路由器上设置一下<a href="http://www.hrtl.com.cn/News_398.aspx" target="_blank" rel="noopener">端口映射</a>就可通过外网访问内网主机了，但是电信配的这个路由器不支持设置端口映射（吐槽一下，电信自带的路由器简直弱爆了），所有就没办法通过设置路由器的方法解决。</p>
+<p>经过一番探索，找了一种可行的方案：<a href="http://www.nat123.com/" target="_blank" rel="noopener">nat123</a>。nat123是一家专业提供端口映射和域名解析的网站，下面我就详细介绍一下如何使用nat123来实现外网访问内网树莓派设备。</p>
+<h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><h3 id="第一步-准备工作"><a href="#第一步-准备工作" class="headerlink" title="第一步 准备工作"></a>第一步 准备工作</h3><p>确保在内网环境下可以通过ssh访问树莓派，如何在树莓派上配置ssh，可以参考<a href="http://www.itnose.net/detail/6109563.html" target="_blank" rel="noopener">这篇文章</a></p>
+<h3 id="第二步-注册nat123"><a href="#第二步-注册nat123" class="headerlink" title="第二步 注册nat123"></a>第二步 注册nat123</h3><p>打开<a href="http://www.nat123.com/" target="_blank" rel="noopener">nat123</a>官网，点击右上角的注册按钮完成注册</p>
+<h3 id="第三步-在树莓派上安装nat123-Linux版"><a href="#第三步-在树莓派上安装nat123-Linux版" class="headerlink" title="第三步 在树莓派上安装nat123 Linux版"></a>第三步 在树莓派上安装nat123 Linux版</h3><p>打开树莓派，按照<a href="http://www.nat123.com/pages_17_600.jsp" target="_blank" rel="noopener">这篇文章</a>的内容安装并启动相关软件。这里注意要根据你树莓派上的操作系统选择不同的安装方式，如果安装的官方操作系统Raspbian，应该选用Debian系统的安装方式。</p>
+<h3 id="第四步-配置端口映射"><a href="#第四步-配置端口映射" class="headerlink" title="第四步 配置端口映射"></a>第四步 配置端口映射</h3><p>登录<a href="http://www.nat123.com/" target="_blank" rel="noopener">nat123</a>，在左侧的用户中心点击“端口映射添加”，如下图：</p>
 <p><img src="http://7xn88v.com1.z0.glb.clouddn.com/7855931f84f019009241b787d7c35f87.png" alt="1"></p>
-<p>应用类型选择“其他（非网站）”，这里我要实现的是通过ssh访问树莓派，所有不是80端口，具体应该根据自己的需求选择应用类型，可以参考<a href="http://www.nat123.com/Pages_8_570.jsp" target="_blank" rel="external">这篇文章</a>。</p>
+<p>应用类型选择“其他（非网站）”，这里我要实现的是通过ssh访问树莓派，所有不是80端口，具体应该根据自己的需求选择应用类型，可以参考<a href="http://www.nat123.com/Pages_8_570.jsp" target="_blank" rel="noopener">这篇文章</a>。</p>
 <p><img src="http://7xn88v.com1.z0.glb.clouddn.com/d784b452f4e1a71ef9555fd783b95386.png" alt="2"></p>
 <p>下面解释一下每一项的含义：</p>
 <ul>
@@ -345,7 +341,7 @@
 <p>然后点击“确认保存”，这里需要认证，认证需要收费（30￥），付款完成后，再次点击“确认保存”，就可以保存成功。可以在左侧的“端口映射列表”里查看和修改添加的端口映射。</p>
 <p>这样就完成了端口映射的添加。</p>
 <h3 id="第五步-外网访问"><a href="#第五步-外网访问" class="headerlink" title="第五步 外网访问"></a>第五步 外网访问</h3><p>这时就已经可以通过外网访问了，在外网环境下打开终端，输入命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh pi@45067491.nat123.net -p 22996</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh pi@45067491.nat123.net -p 22996</span><br></pre></td></tr></table></figure>
 <p>然后输入密码，就可以通过ssh访问树莓派了。这里”pi”是你在树莓派里的用户名，-p参数是刚才的端口号。</p>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>以上就是我使用nat123实现外网访问内网树莓派设备的这个过程。整个过程并不复杂，但是我在进行的过程中还是磕磕绊绊折腾了好久才完全整好，不过这个过程中还是学到了不少的东西。</p>
 <p>由于水平有限，如果上文中有不正确的地方，欢迎大家交流指正。</p>
@@ -466,7 +462,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">61</span>
+              <span class="site-state-item-count">62</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -474,7 +470,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -483,7 +479,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

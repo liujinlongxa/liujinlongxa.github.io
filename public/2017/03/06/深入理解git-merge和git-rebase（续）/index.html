@@ -86,18 +86,14 @@
 
 
 
-<meta name="description" content="本文接上一篇，主要讲解一下git rebase的用法和使用中注意的事项。
-git rebase基本原理git rebase，也叫做变基，也是Git种一种合并代码的手段，与git merge不同的是，rebase是直接将一个分支从他们的共同父节点开始后的所有Commit依次合并到另外一个分支上。如下图：
-
-两个分支develop和master，如果通过命令git merge将develop分支合并到">
+<meta name="description" content="本文接上一篇，主要讲解一下git rebase的用法和使用中注意的事项。 git rebase基本原理git rebase，也叫做变基，也是Git种一种合并代码的手段，与git merge不同的是，rebase是直接将一个分支从他们的共同父节点开始后的所有Commit依次合并到另外一个分支上。如下图：  两个分支develop和master，如果通过命令git merge将develop分支合并到">
+<meta name="keywords" content="Git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解git merge和git rebase（续）">
 <meta property="og:url" content="http://liujinlongxa.com/2017/03/06/深入理解git-merge和git-rebase（续）/index.html">
 <meta property="og:site_name" content="liujinlongxa的技术博客">
-<meta property="og:description" content="本文接上一篇，主要讲解一下git rebase的用法和使用中注意的事项。
-git rebase基本原理git rebase，也叫做变基，也是Git种一种合并代码的手段，与git merge不同的是，rebase是直接将一个分支从他们的共同父节点开始后的所有Commit依次合并到另外一个分支上。如下图：
-
-两个分支develop和master，如果通过命令git merge将develop分支合并到">
+<meta property="og:description" content="本文接上一篇，主要讲解一下git rebase的用法和使用中注意的事项。 git rebase基本原理git rebase，也叫做变基，也是Git种一种合并代码的手段，与git merge不同的是，rebase是直接将一个分支从他们的共同父节点开始后的所有Commit依次合并到另外一个分支上。如下图：  两个分支develop和master，如果通过命令git merge将develop分支合并到">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/e3bdbc7fff28676ccefdcb16f4d43095.png">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/ce919bb1921ee5c302baafbb0f45785f.png">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/0478f567c5748186a200cd4da8b5ddd8.png">
@@ -109,10 +105,7 @@ git rebase基本原理git rebase，也叫做变基，也是Git种一种合并代
 <meta property="og:updated_time" content="2017-03-06T03:50:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解git merge和git rebase（续）">
-<meta name="twitter:description" content="本文接上一篇，主要讲解一下git rebase的用法和使用中注意的事项。
-git rebase基本原理git rebase，也叫做变基，也是Git种一种合并代码的手段，与git merge不同的是，rebase是直接将一个分支从他们的共同父节点开始后的所有Commit依次合并到另外一个分支上。如下图：
-
-两个分支develop和master，如果通过命令git merge将develop分支合并到">
+<meta name="twitter:description" content="本文接上一篇，主要讲解一下git rebase的用法和使用中注意的事项。 git rebase基本原理git rebase，也叫做变基，也是Git种一种合并代码的手段，与git merge不同的是，rebase是直接将一个分支从他们的共同父节点开始后的所有Commit依次合并到另外一个分支上。如下图：  两个分支develop和master，如果通过命令git merge将develop分支合并到">
 <meta name="twitter:image" content="http://7xn88v.com1.z0.glb.clouddn.com/e3bdbc7fff28676ccefdcb16f4d43095.png">
 
 
@@ -350,7 +343,7 @@ git rebase基本原理git rebase，也叫做变基，也是Git种一种合并代
 <p>上图中的两种冲突解决方案，在执行<code>git rebase --continue</code>后，依然再会报一个冲突，应为在合并develop的第二个提交时，依然有冲突。下面的解决方案则不会造成再次冲突，因为这种解决方案是完全用develop分支覆盖了master分支，如下图：</p>
 <p><img src="http://7xn88v.com1.z0.glb.clouddn.com/510fa8570fd012eb1723d6c521eb5cc6.png" alt="7"></p>
 <p>以上就是造成<code>git rebase</code>冲突太多的具体原因。</p>
-<h3 id="有那么点用的rerere"><a href="#有那么点用的rerere" class="headerlink" title="有那么点用的rerere"></a>有那么点用的rerere</h3><p>冲突太多怎么办，Git提供了一个辅助工具<code>git rerere</code>命令，具体用法可以参考<a href="https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-Rerere" target="_blank" rel="external">git rerere</a>。rerere命令能够记住解决一个冲突的方法，这样在下一次看到相同冲突时，Git 可以为你自动地解决它。</p>
+<h3 id="有那么点用的rerere"><a href="#有那么点用的rerere" class="headerlink" title="有那么点用的rerere"></a>有那么点用的rerere</h3><p>冲突太多怎么办，Git提供了一个辅助工具<code>git rerere</code>命令，具体用法可以参考<a href="https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-Rerere" target="_blank" rel="noopener">git rerere</a>。rerere命令能够记住解决一个冲突的方法，这样在下一次看到相同冲突时，Git 可以为你自动地解决它。</p>
 <p>那么rerere能够避免<code>git rebase</code>带来的冲突吗，答案是否定的。因为rerere在判断两个冲突是否为相同冲突是根据冲突体的两部分是否完全一样来进行的，就上面的例子而言，不管是哪种冲突解决方案，第一次和第二次冲突的冲突体都不完全一样，因此rerere都不会自动帮我们修复。</p>
 <p><img src="http://7xn88v.com1.z0.glb.clouddn.com/b80ef2ec61407d7a737a0997da6c960d.png" alt="8"></p>
 <p>而且，rerere命令也会记住错误的冲突解决方案，下次遇到相同的冲突时会直接应用错误的方案。不过你可以使用<code>git rerere forget &lt;pathspec&gt;</code>命令来删除Git记住的冲突解决方案。</p>
@@ -358,7 +351,7 @@ git rebase基本原理git rebase，也叫做变基，也是Git种一种合并代
 <p><code>git rerere</code>命令为我们提供了一种减少冲突的方案：当你要保证一个长期分支会干净地合并，但是又不想要一串中间的合并提交。 将rerere功能打开后偶尔合并，解决冲突，然后返回到合并前。 如果你持续这样做，那么最终的合并会很容易，因为rerere可以为你自动做所有的事情。<code>git rerere</code>也可以将冲突的解决方案共享给项目组的其他成员。</p>
 <p>所以说rerere命令还有一点用的，不过他并不能彻底解决冲突多的问题，减少冲突还是需要我们在平时使用时规范git的使用方法，使用统一的git工作流。</p>
 <h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>本来打算写一篇的，但是因为太长了，所以分为两篇来写。由于写的比较仓促，文中如果有什么纰漏，欢迎指出。</p>
-<p>参考资料：<br><a href="https://git-scm.com/book/zh/v2" target="_blank" rel="external">Pro Git</a><br><a href="http://stackoverflow.com/questions/13825079/why-do-i-have-to-resolve-the-same-conflict-over-and-over" target="_blank" rel="external">Why do I have to resolve the same conflict over and over?</a></p>
+<p>参考资料：<br><a href="https://git-scm.com/book/zh/v2" target="_blank" rel="noopener">Pro Git</a><br><a href="http://stackoverflow.com/questions/13825079/why-do-i-have-to-resolve-the-same-conflict-over-and-over" target="_blank" rel="noopener">Why do I have to resolve the same conflict over and over?</a></p>
 
       
     </div>
@@ -472,7 +465,7 @@ git rebase基本原理git rebase，也叫做变基，也是Git种一种合并代
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">61</span>
+              <span class="site-state-item-count">62</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -480,7 +473,7 @@ git rebase基本原理git rebase，也叫做变基，也是Git种一种合并代
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -489,7 +482,7 @@ git rebase基本原理git rebase，也叫做变基，也是Git种一种合并代
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

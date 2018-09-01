@@ -86,25 +86,18 @@
 
 
 
-<meta name="description" content="基本用法一般我们使用CocoaPods进行依赖管理时，如果项目里只有一个Target，则Podfile文件的格式应该是：
-123target &apos;ZipApp&apos; do  # ZipApp为Target名称  pod &apos;SSZipArchive&apos;end
-如果项目中有多个Target，可以定义多个这样的block，如下：
-1234567target &apos;ZipApp&apos; do  # ZipApp为Targe">
+<meta name="description" content="基本用法一般我们使用CocoaPods进行依赖管理时，如果项目里只有一个Target，则Podfile文件的格式应该是： 123target &apos;ZipApp&apos; do  # ZipApp为Target名称  pod &apos;SSZipArchive&apos;end 如果项目中有多个Target，可以定义多个这样的block，如下： 1234567target &apos;ZipApp&apos; do  # ZipApp为Targe">
+<meta name="keywords" content="Target,CocoaPods">
 <meta property="og:type" content="article">
 <meta property="og:title" content="给多个Target添加CocoaPods">
 <meta property="og:url" content="http://liujinlongxa.com/2016/10/26/给多个Target添加CocoaPods/index.html">
 <meta property="og:site_name" content="liujinlongxa的技术博客">
-<meta property="og:description" content="基本用法一般我们使用CocoaPods进行依赖管理时，如果项目里只有一个Target，则Podfile文件的格式应该是：
-123target &apos;ZipApp&apos; do  # ZipApp为Target名称  pod &apos;SSZipArchive&apos;end
-如果项目中有多个Target，可以定义多个这样的block，如下：
-1234567target &apos;ZipApp&apos; do  # ZipApp为Targe">
+<meta property="og:description" content="基本用法一般我们使用CocoaPods进行依赖管理时，如果项目里只有一个Target，则Podfile文件的格式应该是： 123target &apos;ZipApp&apos; do  # ZipApp为Target名称  pod &apos;SSZipArchive&apos;end 如果项目中有多个Target，可以定义多个这样的block，如下： 1234567target &apos;ZipApp&apos; do  # ZipApp为Targe">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-03-01T06:42:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="给多个Target添加CocoaPods">
-<meta name="twitter:description" content="基本用法一般我们使用CocoaPods进行依赖管理时，如果项目里只有一个Target，则Podfile文件的格式应该是：
-123target &apos;ZipApp&apos; do  # ZipApp为Target名称  pod &apos;SSZipArchive&apos;end
-如果项目中有多个Target，可以定义多个这样的block，如下：
-1234567target &apos;ZipApp&apos; do  # ZipApp为Targe">
+<meta name="twitter:description" content="基本用法一般我们使用CocoaPods进行依赖管理时，如果项目里只有一个Target，则Podfile文件的格式应该是： 123target &apos;ZipApp&apos; do  # ZipApp为Target名称  pod &apos;SSZipArchive&apos;end 如果项目中有多个Target，可以定义多个这样的block，如下： 1234567target &apos;ZipApp&apos; do  # ZipApp为Targe">
 
 
 
@@ -324,15 +317,15 @@
 
       
         <h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>一般我们使用CocoaPods进行依赖管理时，如果项目里只有一个Target，则Podfile文件的格式应该是：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">target <span class="string">'ZipApp'</span> <span class="keyword">do</span>  <span class="comment"># ZipApp为Target名称</span></div><div class="line">  pod <span class="string">'SSZipArchive'</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">target <span class="string">'ZipApp'</span> <span class="keyword">do</span>  <span class="comment"># ZipApp为Target名称</span></span><br><span class="line">  pod <span class="string">'SSZipArchive'</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 <p>如果项目中有多个Target，可以定义多个这样的block，如下：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">target <span class="string">'ZipApp'</span> <span class="keyword">do</span>  <span class="comment"># ZipApp为Target名称</span></div><div class="line">  pod <span class="string">'SSZipArchive'</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">target <span class="string">'ZipAppTest'</span> <span class="keyword">do</span>  <span class="comment"># ZipAppTest为另一个Target名称</span></div><div class="line">  pod <span class="string">'SSZipArchive'</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">target <span class="string">'ZipApp'</span> <span class="keyword">do</span>  <span class="comment"># ZipApp为Target名称</span></span><br><span class="line">  pod <span class="string">'SSZipArchive'</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">target <span class="string">'ZipAppTest'</span> <span class="keyword">do</span>  <span class="comment"># ZipAppTest为另一个Target名称</span></span><br><span class="line">  pod <span class="string">'SSZipArchive'</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 <p>如果多个Target的依赖的库都是一样的，没有必要每一个Target都把所有库都写一遍，可以定义一个函数，写法如下：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">common_pods</span></span></div><div class="line">    pod <span class="string">'SSZipArchive'</span></div><div class="line">    pod <span class="string">'AFNetworking'</span></div><div class="line">    pod <span class="string">'JSPatch'</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">target <span class="string">'ZipApp'</span> <span class="keyword">do</span>  <span class="comment"># ZipApp即使Target名称</span></div><div class="line">  common_pods</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">target <span class="string">'ZipAppTest'</span> <span class="keyword">do</span></div><div class="line">    common_pods</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">common_pods</span></span></span><br><span class="line">    pod <span class="string">'SSZipArchive'</span></span><br><span class="line">    pod <span class="string">'AFNetworking'</span></span><br><span class="line">    pod <span class="string">'JSPatch'</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">target <span class="string">'ZipApp'</span> <span class="keyword">do</span>  <span class="comment"># ZipApp即使Target名称</span></span><br><span class="line">  common_pods</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">target <span class="string">'ZipAppTest'</span> <span class="keyword">do</span></span><br><span class="line">    common_pods</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 <h3 id="其他的用法"><a href="#其他的用法" class="headerlink" title="其他的用法"></a>其他的用法</h3><p>如果多个Target有嵌套关系，即一个Target是另一个Target的父Target，则可以写成以下形式：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">target <span class="string">'ZipApp'</span> <span class="keyword">do</span></div><div class="line">  pod <span class="string">'SSZipArchive'</span></div><div class="line"></div><div class="line">  target <span class="string">'ZipAppTests'</span> <span class="keyword">do</span></div><div class="line">    inherit! <span class="symbol">:search_paths</span> <span class="comment"># 这句话表示子Target继承了父Target包含的pod，即ZipAppTests这个Target里包含了SSZipArchive和Nimble两个pod</span></div><div class="line">    pod <span class="string">'Nimble'</span></div><div class="line">  <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">target <span class="string">'ZipApp'</span> <span class="keyword">do</span></span><br><span class="line">  pod <span class="string">'SSZipArchive'</span></span><br><span class="line"></span><br><span class="line">  target <span class="string">'ZipAppTests'</span> <span class="keyword">do</span></span><br><span class="line">    inherit! <span class="symbol">:search_paths</span> <span class="comment"># 这句话表示子Target继承了父Target包含的pod，即ZipAppTests这个Target里包含了SSZipArchive和Nimble两个pod</span></span><br><span class="line">    pod <span class="string">'Nimble'</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 <p>如果一个Workspace里包含了多个Project，并且每一个Project都有不同的Target，则可以使用以下形式定义多个Project的Target：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">target <span class="string">'Target1'</span> <span class="keyword">do</span></div><div class="line">  project <span class="string">'Project1'</span></div><div class="line">  pod <span class="string">'AFNetworking'</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">target <span class="string">'Target2'</span> <span class="keyword">do</span></div><div class="line">  project <span class="string">'Project2'</span></div><div class="line">  pod <span class="string">'JSPatch'</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">target <span class="string">'Target1'</span> <span class="keyword">do</span></span><br><span class="line">  project <span class="string">'Project1'</span></span><br><span class="line">  pod <span class="string">'AFNetworking'</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">target <span class="string">'Target2'</span> <span class="keyword">do</span></span><br><span class="line">  project <span class="string">'Project2'</span></span><br><span class="line">  pod <span class="string">'JSPatch'</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -448,7 +441,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">61</span>
+              <span class="site-state-item-count">62</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -456,7 +449,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -465,7 +458,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

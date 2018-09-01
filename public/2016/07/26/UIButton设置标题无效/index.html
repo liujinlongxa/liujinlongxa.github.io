@@ -86,19 +86,18 @@
 
 
 
-<meta name="description" content="UIButton在使用setAttributedTitle:forState:设置了富文本标题后，是使用setTitle:forState:设置标题是没有效果的，解决方案是先把富文本去掉，然后再使用setTitle:forState:设置标题，或者直接使用setAttributedTitle:forState:重新设置不带属性的富文本。代码如下：
-12[self.payButton setAttr">
+<meta name="description" content="UIButton在使用setAttributedTitle:forState:设置了富文本标题后，是使用setTitle:forState:设置标题是没有效果的，解决方案是先把富文本去掉，然后再使用setTitle:forState:设置标题，或者直接使用setAttributedTitle:forState:重新设置不带属性的富文本。代码如下： 12[self.payButton setAttr">
+<meta name="keywords" content="UIButton">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UIButton设置标题无效">
 <meta property="og:url" content="http://liujinlongxa.com/2016/07/26/UIButton设置标题无效/index.html">
 <meta property="og:site_name" content="liujinlongxa的技术博客">
-<meta property="og:description" content="UIButton在使用setAttributedTitle:forState:设置了富文本标题后，是使用setTitle:forState:设置标题是没有效果的，解决方案是先把富文本去掉，然后再使用setTitle:forState:设置标题，或者直接使用setAttributedTitle:forState:重新设置不带属性的富文本。代码如下：
-12[self.payButton setAttr">
+<meta property="og:description" content="UIButton在使用setAttributedTitle:forState:设置了富文本标题后，是使用setTitle:forState:设置标题是没有效果的，解决方案是先把富文本去掉，然后再使用setTitle:forState:设置标题，或者直接使用setAttributedTitle:forState:重新设置不带属性的富文本。代码如下： 12[self.payButton setAttr">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-03-01T06:42:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UIButton设置标题无效">
-<meta name="twitter:description" content="UIButton在使用setAttributedTitle:forState:设置了富文本标题后，是使用setTitle:forState:设置标题是没有效果的，解决方案是先把富文本去掉，然后再使用setTitle:forState:设置标题，或者直接使用setAttributedTitle:forState:重新设置不带属性的富文本。代码如下：
-12[self.payButton setAttr">
+<meta name="twitter:description" content="UIButton在使用setAttributedTitle:forState:设置了富文本标题后，是使用setTitle:forState:设置标题是没有效果的，解决方案是先把富文本去掉，然后再使用setTitle:forState:设置标题，或者直接使用setAttributedTitle:forState:重新设置不带属性的富文本。代码如下： 12[self.payButton setAttr">
 
 
 
@@ -318,7 +317,7 @@
 
       
         <p>UIButton在使用<code>setAttributedTitle:forState:</code>设置了富文本标题后，是使用<code>setTitle:forState:</code>设置标题是没有效果的，解决方案是先把富文本去掉，然后再使用<code>setTitle:forState:</code>设置标题，或者直接使用<code>setAttributedTitle:forState:</code>重新设置不带属性的富文本。代码如下：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[<span class="keyword">self</span>.payButton setAttributedTitle:<span class="literal">nil</span> forState:<span class="built_in">UIControlStateNormal</span>];</div><div class="line">[<span class="keyword">self</span>.payButton setTitle:<span class="string">@"余额不足，去充值"</span> forState:<span class="built_in">UIControlStateNormal</span>];</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span>.payButton setAttributedTitle:<span class="literal">nil</span> forState:<span class="built_in">UIControlStateNormal</span>];</span><br><span class="line">[<span class="keyword">self</span>.payButton setTitle:<span class="string">@"余额不足，去充值"</span> forState:<span class="built_in">UIControlStateNormal</span>];</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -432,7 +431,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">61</span>
+              <span class="site-state-item-count">62</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -440,7 +439,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -449,7 +448,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

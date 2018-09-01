@@ -92,6 +92,7 @@
 <meta property="og:url" content="http://liujinlongxa.com/2015/11/07/ContentHugging与ContentCompressionResistance/index.html">
 <meta property="og:site_name" content="liujinlongxa的技术博客">
 <meta property="og:description" content="最近在使用Autolayout遇到了一个问题，我设置了一个UILabel的宽度约束，希望这个UILabel在显示时，如果内容宽度没有超过约束的宽度，则以约束的宽度显示，如果内容宽度超过约束的宽度，则以内容的宽度显示，这时，如果只设置宽度约束，UILabel会始终以约束的宽度显示，如果降低宽度约束，则UILabel就会使用以内容的宽度显示，始终无法达到我想要的效果，于是一番Google，便发现了Co">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-11-07%20at%2022.46.17.png">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-11-07%20at%2022.15.10.png">
 <meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-11-07%20at%2022.30.26.png">
@@ -351,7 +352,7 @@
 <p><img src="http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-11-07%20at%2023.02.49.png" alt="image"></p>
 <p>这是因为当宽度约束的优先级大于ContentCompressionResistancePriority，优先以约束的宽度显示，当宽度约束的优先级小于ContentCompressionResistancePriority<br>时，如果Label的大小小于内容的大小，则会按实际内容的大小显示</p>
 <p>除了在SB中设置外，还可以在代码中设置，代码如下：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">// 设置水平方向上内容紧缩的优先级为高</span></div><div class="line">[<span class="keyword">self</span>.label setContentHuggingPriority:<span class="built_in">UILayoutPriorityDefaultHigh</span> forAxis:<span class="built_in">UILayoutConstraintAxisHorizontal</span>];</div><div class="line"></div><div class="line"><span class="comment">// 设置垂直方向上阻止内容紧缩的优先级为低</span></div><div class="line">[<span class="keyword">self</span>.label setContentCompressionResistancePriority:<span class="built_in">UILayoutPriorityDefaultLow</span> forAxis:<span class="built_in">UILayoutConstraintAxisVertical</span>];</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 设置水平方向上内容紧缩的优先级为高</span></span><br><span class="line">[<span class="keyword">self</span>.label setContentHuggingPriority:<span class="built_in">UILayoutPriorityDefaultHigh</span> forAxis:<span class="built_in">UILayoutConstraintAxisHorizontal</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置垂直方向上阻止内容紧缩的优先级为低</span></span><br><span class="line">[<span class="keyword">self</span>.label setContentCompressionResistancePriority:<span class="built_in">UILayoutPriorityDefaultLow</span> forAxis:<span class="built_in">UILayoutConstraintAxisVertical</span>];</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -459,7 +460,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">61</span>
+              <span class="site-state-item-count">62</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -467,7 +468,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -476,7 +477,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
