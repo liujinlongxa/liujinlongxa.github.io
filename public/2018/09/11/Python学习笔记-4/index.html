@@ -1,0 +1,784 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Python," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="liujinlongxa的技术博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/source/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="正则表达式正则表达式的定义 定义：正则表达式是一个特殊的字符序列，一个字符串是否与我们所设定的这样的字符序列相匹配。 作用：快速检索文本，实现一些替换文本的操作 Python 中的正则表达式模块：re  元字符和普通字符 普通字符：abc 元字符：\d, \D, \f, \n等，每种元字符都有不同的含义 正则表达式就是普通字符和元字符组成的  字符集 中括号中的字符是或的关系 取反使用^ 范围：[">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python学习笔记(4)">
+<meta property="og:url" content="http://liujinlongxa.com/2018/09/11/Python学习笔记-4/index.html">
+<meta property="og:site_name" content="liujinlongxa的技术博客">
+<meta property="og:description" content="正则表达式正则表达式的定义 定义：正则表达式是一个特殊的字符序列，一个字符串是否与我们所设定的这样的字符序列相匹配。 作用：快速检索文本，实现一些替换文本的操作 Python 中的正则表达式模块：re  元字符和普通字符 普通字符：abc 元字符：\d, \D, \f, \n等，每种元字符都有不同的含义 正则表达式就是普通字符和元字符组成的  字符集 中括号中的字符是或的关系 取反使用^ 范围：[">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://pecqz8zqd.bkt.clouddn.com/a222d6640d76f895c8ce620a3719dc4e.png">
+<meta property="og:updated_time" content="2018-09-10T23:35:41.693Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python学习笔记(4)">
+<meta name="twitter:description" content="正则表达式正则表达式的定义 定义：正则表达式是一个特殊的字符序列，一个字符串是否与我们所设定的这样的字符序列相匹配。 作用：快速检索文本，实现一些替换文本的操作 Python 中的正则表达式模块：re  元字符和普通字符 普通字符：abc 元字符：\d, \D, \f, \n等，每种元字符都有不同的含义 正则表达式就是普通字符和元字符组成的  字符集 中括号中的字符是或的关系 取反使用^ 范围：[">
+<meta name="twitter:image" content="http://pecqz8zqd.bkt.clouddn.com/a222d6640d76f895c8ce620a3719dc4e.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://liujinlongxa.com/2018/09/11/Python学习笔记-4/"/>
+
+  <title> Python学习笔记(4) | liujinlongxa的技术博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">liujinlongxa的技术博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Python学习笔记(4)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-09-11T07:13:15+08:00" content="2018-09-11">
+              2018-09-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/09/11/Python学习笔记-4/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/09/11/Python学习笔记-4/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><h3 id="正则表达式的定义"><a href="#正则表达式的定义" class="headerlink" title="正则表达式的定义"></a>正则表达式的定义</h3><ul>
+<li>定义：正则表达式是一个特殊的字符序列，一个字符串是否与我们所设定的这样的字符序列相匹配。</li>
+<li>作用：快速检索文本，实现一些替换文本的操作</li>
+<li>Python 中的正则表达式模块：re</li>
+</ul>
+<h3 id="元字符和普通字符"><a href="#元字符和普通字符" class="headerlink" title="元字符和普通字符"></a>元字符和普通字符</h3><ul>
+<li>普通字符：<code>abc</code></li>
+<li>元字符：<code>\d, \D, \f, \n</code>等，每种元字符都有不同的含义</li>
+<li>正则表达式就是普通字符和元字符组成的</li>
+</ul>
+<h3 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h3><ul>
+<li>中括号中的字符是<code>或</code>的关系</li>
+<li>取反使用<code>^</code></li>
+<li>范围：<code>[a-z], [a-zA-Z]</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">'abc, acc, adc, aec, afc, ahc'</span></span><br><span class="line">r = re.findall(<span class="string">'a[^cfC]c'</span>, s) <span class="comment"># 表示已a开头，c结尾，中间的一个字母不是c,f,C中的任何一个</span></span><br><span class="line">print(r) <span class="comment"># ['abc', 'adc', 'aec', 'ahc']</span></span><br></pre></td></tr></table></figure>
+<h3 id="概括字符集"><a href="#概括字符集" class="headerlink" title="概括字符集"></a>概括字符集</h3><ul>
+<li><code>\d</code> 代表数字，相当于<code>[0-9]</code></li>
+<li><code>\D</code> 代表非数字，相当于<code>[^0-9]</code></li>
+<li><code>\w</code> 代表单词字符，相当于<code>[0-9a-zA-Z_]</code></li>
+<li><code>\W</code> 代表非单词字符，相当于<code>[^0-9a-zA-Z_]</code></li>
+<li><code>\s</code> 代表空白字符</li>
+<li><code>\S</code> 代表非空白字符</li>
+<li><code>.</code> 代表除换行符的所有字符</li>
+</ul>
+<h3 id="数量词"><a href="#数量词" class="headerlink" title="数量词"></a>数量词</h3><ul>
+<li><code>[a-z]{3,6}</code> 匹配 3 到 6 次</li>
+</ul>
+<h3 id="贪婪和非贪婪"><a href="#贪婪和非贪婪" class="headerlink" title="贪婪和非贪婪"></a>贪婪和非贪婪</h3><ul>
+<li>贪婪：尽可能多的匹配，一直到不满足条件为止</li>
+<li>非贪婪：一旦满足条件就停止匹配</li>
+<li>Python 倾向于贪婪模式</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 匹配3-6个字母，贪婪模式下，会匹配尽可能多的字母，直到不满足条件，因此会匹配出['python', 'java', 'php']</span></span><br><span class="line"><span class="comment"># 非贪婪模式下会匹配3个字符，【'pyt', 'hon', 'jav', 'php']</span></span><br><span class="line">a = <span class="string">'python 111java678php'</span></span><br><span class="line">r = re.findall(<span class="string">'[a-z]&#123;3,6&#125;'</span>, a) <span class="comment"># 贪婪模式</span></span><br><span class="line">r = re.findall(<span class="string">'[a-z]&#123;3,6&#125;?'</span>, a) <span class="comment"># 非贪婪模式，加一个问号</span></span><br></pre></td></tr></table></figure>
+<h3 id="匹配-0-次，1-次或无限次"><a href="#匹配-0-次，1-次或无限次" class="headerlink" title="匹配 0 次，1 次或无限次"></a>匹配 0 次，1 次或无限次</h3><ul>
+<li><code>*</code>匹配前面的字符 0 次或 n 次</li>
+<li><code>+</code>匹配前面的字符 1 次或 n 次</li>
+<li><code>?</code>匹配前面的字符 0 次或 1 次，要与非贪婪模式的问号区分</li>
+</ul>
+<h3 id="边界匹配符"><a href="#边界匹配符" class="headerlink" title="边界匹配符"></a>边界匹配符</h3><ul>
+<li><code>^</code>首部，<code>^000</code>开头三个字符为<code>000</code></li>
+<li><code>$</code>尾部，<code>000$</code>结尾三个字符为<code>000</code></li>
+</ul>
+<h3 id="组"><a href="#组" class="headerlink" title="组"></a>组</h3><ul>
+<li>一个括号对应一组，<code>(Python){3}</code>，把一个组重复 3 次</li>
+<li>组中的每个字符是且的关系</li>
+</ul>
+<h3 id="匹配模式参数"><a href="#匹配模式参数" class="headerlink" title="匹配模式参数"></a>匹配模式参数</h3><ul>
+<li>忽略字母大小写: <code>re.I</code></li>
+<li><code>.</code>表示匹配任意字符: <code>re.S</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">'abc, acc, adc, aec, afc, ahc, aFc'</span></span><br><span class="line">r = re.findall(<span class="string">'a[cf]c'</span>, s, re.I) <span class="comment"># 忽略大小写</span></span><br><span class="line">print(r) <span class="comment"># ['acc', 'afc', 'aFc']</span></span><br></pre></td></tr></table></figure>
+<h3 id="re-sub-正则替换"><a href="#re-sub-正则替换" class="headerlink" title="re.sub 正则替换"></a>re.sub 正则替换</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">'python 111java678php'</span></span><br><span class="line">r1 = re.sub(<span class="string">'\w&#123;3,6&#125;'</span>, <span class="string">"hhh"</span>, a, <span class="number">1</span>)  <span class="comment"># 最后一个参数1表示替换几个</span></span><br><span class="line"></span><br><span class="line">print(r1)  <span class="comment"># hhh 111java678php</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">convert</span><span class="params">(value)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'aa'</span> + value.group()  <span class="comment"># value.group()为匹配到的字符串</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 第二个参数为一个函数，匹配到后会把匹配的结果传给函数执行，并把函数返回的结果作为替换字符串</span></span><br><span class="line">r2 = re.sub(<span class="string">'\w&#123;3,6&#125;'</span>, convert, a)</span><br><span class="line">print(r2)  <span class="comment"># aapython 111java678php</span></span><br></pre></td></tr></table></figure>
+<h3 id="match-与-search-函数"><a href="#match-与-search-函数" class="headerlink" title="match 与 search 函数"></a>match 与 search 函数</h3><ul>
+<li>match 函数：从字符串的首字母开始匹配，如果首字母没有匹配到则返回空</li>
+<li>search 函数：搜索字符串，知道找到第一个符合要求的字符串</li>
+<li>match 和 search 只匹配一个结果，findall 会匹配所有符合条件的字符串</li>
+</ul>
+<h3 id="group-分组"><a href="#group-分组" class="headerlink" title="group 分组"></a>group 分组</h3><ul>
+<li>使用括号进行分组</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">'life is short, i use python, i love python'</span></span><br><span class="line">r = re.search(<span class="string">'life(.*)python(.*)python'</span>, s)</span><br><span class="line">print(r.group(<span class="number">0</span>)) <span class="comment"># `life is short, i use python, i love python` (默认第0个分组为字符串本身)</span></span><br><span class="line">print(r.group(<span class="number">1</span>)) <span class="comment"># ` is short, i use`</span></span><br><span class="line">print(r.group(<span class="number">2</span>)) <span class="comment"># `, i love`</span></span><br><span class="line">print(r.group(<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>)) <span class="comment"># ('life is short, i use python, i love python', ' is short, i use ', ', i love ')</span></span><br><span class="line">print(r.groups())  <span class="comment"># (' is short, i use ', ', i love ') (不会返回完整字符串)</span></span><br></pre></td></tr></table></figure>
+<h2 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h2><h3 id="理解-JSON"><a href="#理解-JSON" class="headerlink" title="理解 JSON"></a>理解 JSON</h3><ul>
+<li>JSON 是一种轻量级的数据格式</li>
+<li>字符串是 JSON 的表现形式</li>
+<li>JSON 字符串：符合 JSON 格式的字符串</li>
+<li>JSON 对象：Python 中没有 JSON 对象，JS 中有 JSON 对象</li>
+</ul>
+<h3 id="JSON-的特点"><a href="#JSON-的特点" class="headerlink" title="JSON 的特点"></a>JSON 的特点</h3><ul>
+<li>易于阅读</li>
+<li>易于解析</li>
+<li>网络传输效率高</li>
+<li>跨语言交换数据</li>
+</ul>
+<h3 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h3><ul>
+<li>Python 中会把 JSON 字符串解析成字典或列表</li>
+<li>Python 中的数据类型对应 JSON 中的数据类型：</li>
+</ul>
+<p><img src="http://pecqz8zqd.bkt.clouddn.com/a222d6640d76f895c8ce620a3719dc4e.png" alt="1"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="comment"># 这里必须是里面是双引号，外面是单引号，false和true首字符必须小写</span></span><br><span class="line">s = <span class="string">'&#123;"name": "ljl", "age": 12, "flag": true&#125;'</span></span><br><span class="line">a = json.loads(s)  <span class="comment"># Python中会把JSON字符串解析成字典或列表</span></span><br><span class="line">print(a) <span class="comment"># &#123;'name': 'ljl', 'age': 12, 'flag': True&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s1 = json.dumps(a)</span><br><span class="line">print(s1)</span><br></pre></td></tr></table></figure>
+<h2 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h2><h3 id="枚举类型（Python3）"><a href="#枚举类型（Python3）" class="headerlink" title="枚举类型（Python3）"></a>枚举类型（Python3）</h3><ul>
+<li>枚举也是一个类</li>
+<li>枚举在 Python3 中才有，Python2 中没有枚举类</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> enum <span class="keyword">import</span> Enum</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">VIP</span><span class="params">(Enum)</span>:</span></span><br><span class="line">    YELLOW = <span class="number">1</span></span><br><span class="line">    GREEN = <span class="number">2</span></span><br><span class="line">    BLACK = <span class="number">3</span></span><br><span class="line">    RED = <span class="number">4</span></span><br><span class="line"></span><br><span class="line">print(VIP.YELLOW)  <span class="comment"># VIP.YELLOW</span></span><br><span class="line">print(VIP.YELLOW == VIP.GREEN)  <span class="comment"># false</span></span><br></pre></td></tr></table></figure>
+<h3 id="枚举的优势"><a href="#枚举的优势" class="headerlink" title="枚举的优势"></a>枚举的优势</h3><ul>
+<li>不可变</li>
+<li>值不会重复</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> enum <span class="keyword">import</span> Enum</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">VIP</span><span class="params">(Enum)</span>:</span></span><br><span class="line">    YELLOW = <span class="number">1</span></span><br><span class="line">    GREEN = <span class="number">2</span></span><br><span class="line">    BLACK = <span class="number">3</span></span><br><span class="line">    RED = <span class="number">4</span></span><br><span class="line">    <span class="comment"># BLACK = 5  # error</span></span><br><span class="line">    YELLOW_ALIAS = <span class="number">1</span> <span class="comment"># YELLOW的别名</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(VIP.YELLOW)  <span class="comment"># VIP.YELLOW</span></span><br><span class="line">print(VIP.YELLOW == VIP.GREEN)  <span class="comment"># false</span></span><br><span class="line">VIP.YELLOW = <span class="number">3</span>  <span class="comment"># error，枚举的值不能改变</span></span><br></pre></td></tr></table></figure>
+<h3 id="枚举的操作"><a href="#枚举的操作" class="headerlink" title="枚举的操作"></a>枚举的操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">print(VIP.YELLOW)  <span class="comment"># VIP.YELLOW，枚举类型</span></span><br><span class="line">print(VIP.YELLOW.value)  <span class="comment"># 1，枚举的值</span></span><br><span class="line">print(VIP.YELLOW.name)  <span class="comment"># YELLOW，枚举的名字</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 枚举的遍历，遍历时别名不会遍历</span></span><br><span class="line"><span class="comment"># VIP.YELLOW</span></span><br><span class="line"><span class="comment"># VIP.GREEN</span></span><br><span class="line"><span class="comment"># VIP.BLACK</span></span><br><span class="line"><span class="comment"># VIP.RED</span></span><br><span class="line"><span class="keyword">for</span> v <span class="keyword">in</span> VIP:</span><br><span class="line">    print(v)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 遍历枚举的所有值，包括别名</span></span><br><span class="line"><span class="keyword">for</span> v <span class="keyword">in</span> VIP.__members__:</span><br><span class="line">    print(v)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 枚举的比较</span></span><br><span class="line">print(VIP.YELLOW == VIP.GREEN) <span class="comment"># false</span></span><br><span class="line">print(VIP.YELLOW == VIP.YELLOW) <span class="comment"># false</span></span><br><span class="line">print(VIP.YELLOW == <span class="number">1</span>)  <span class="comment"># false</span></span><br><span class="line"><span class="comment"># print(VIP.YELLOW &lt; VIP.GREEN)  # error，枚举不可以进行大小比较</span></span><br><span class="line">print(VIP.YELLOW.value == <span class="number">1</span>)  <span class="comment"># true</span></span><br><span class="line">print(VIP.YELLOW == VIP.YELLOW_ALIAS)  <span class="comment"># true</span></span><br></pre></td></tr></table></figure>
+<h3 id="枚举的转换"><a href="#枚举的转换" class="headerlink" title="枚举的转换"></a>枚举的转换</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">VIP</span><span class="params">(Enum)</span>:</span></span><br><span class="line">    YELLOW = <span class="number">1</span></span><br><span class="line">    GREEN = <span class="number">2</span></span><br><span class="line">    BLACK = <span class="number">3</span></span><br><span class="line">    RED = <span class="number">4</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = VIP(<span class="number">1</span>)  <span class="comment"># a 初始化为VIP.YELLOW</span></span><br><span class="line">print(a) <span class="comment"># VIP.YELLOW</span></span><br><span class="line">print(a == VIP.YELLOW)  <span class="comment"># true</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag">#Python</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/04/Python学习笔记-3/" rel="next" title="Python学习笔记(3)">
+                <i class="fa fa-chevron-left"></i> Python学习笔记(3)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2018/09/11/Python学习笔记-4/"
+           data-title="Python学习笔记(4)" data-url="http://liujinlongxa.com/2018/09/11/Python学习笔记-4/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/smallhead.png"
+               alt="liujinlongxa" />
+          <p class="site-author-name" itemprop="name">liujinlongxa</p>
+          <p class="site-description motion-element" itemprop="description">生命永不息，Coding永不止</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">65</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/liujinlongxa" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/JaylonLiu" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1523828165" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://mrscorpion.github.io" title="泊" target="_blank">泊</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式"><span class="nav-number">1.</span> <span class="nav-text">正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#正则表达式的定义"><span class="nav-number">1.1.</span> <span class="nav-text">正则表达式的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元字符和普通字符"><span class="nav-number">1.2.</span> <span class="nav-text">元字符和普通字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符集"><span class="nav-number">1.3.</span> <span class="nav-text">字符集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#概括字符集"><span class="nav-number">1.4.</span> <span class="nav-text">概括字符集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数量词"><span class="nav-number">1.5.</span> <span class="nav-text">数量词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#贪婪和非贪婪"><span class="nav-number">1.6.</span> <span class="nav-text">贪婪和非贪婪</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匹配-0-次，1-次或无限次"><span class="nav-number">1.7.</span> <span class="nav-text">匹配 0 次，1 次或无限次</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#边界匹配符"><span class="nav-number">1.8.</span> <span class="nav-text">边界匹配符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组"><span class="nav-number">1.9.</span> <span class="nav-text">组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匹配模式参数"><span class="nav-number">1.10.</span> <span class="nav-text">匹配模式参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#re-sub-正则替换"><span class="nav-number">1.11.</span> <span class="nav-text">re.sub 正则替换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#match-与-search-函数"><span class="nav-number">1.12.</span> <span class="nav-text">match 与 search 函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#group-分组"><span class="nav-number">1.13.</span> <span class="nav-text">group 分组</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON"><span class="nav-number">2.</span> <span class="nav-text">JSON</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#理解-JSON"><span class="nav-number">2.1.</span> <span class="nav-text">理解 JSON</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON-的特点"><span class="nav-number">2.2.</span> <span class="nav-text">JSON 的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反序列化"><span class="nav-number">2.3.</span> <span class="nav-text">反序列化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#序列化"><span class="nav-number">2.4.</span> <span class="nav-text">序列化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#枚举"><span class="nav-number">3.</span> <span class="nav-text">枚举</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#枚举类型（Python3）"><span class="nav-number">3.1.</span> <span class="nav-text">枚举类型（Python3）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#枚举的优势"><span class="nav-number">3.2.</span> <span class="nav-text">枚举的优势</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#枚举的操作"><span class="nav-number">3.3.</span> <span class="nav-text">枚举的操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#枚举的转换"><span class="nav-number">3.4.</span> <span class="nav-text">枚举的转换</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">liujinlongxa</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+<!--
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+  -->
+  <a href="http://www.miitbeian.gov.cn">
+            粤ICP证17133280号
+        </a>
+</div>
+<br>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"liujinlongxa"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
