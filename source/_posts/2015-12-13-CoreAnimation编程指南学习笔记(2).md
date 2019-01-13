@@ -62,4 +62,4 @@ CoreAnimation是通过KVC来实现对不同字段或关键路径进行动画的�
 
 CAAnimation提供支持使用关键路径访问选择的结构字段。目前支持的字段如下
 
-![](http://7xn88v.com1.z0.glb.clouddn.com/2015-12-13_10-42-53.jpg)
+![](http://oldblog.shicishuzhai.com/2015-12-13_10-42-53.jpg)

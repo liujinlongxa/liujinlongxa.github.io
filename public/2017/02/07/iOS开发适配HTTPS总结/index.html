@@ -94,13 +94,13 @@
 <meta property="og:site_name" content="liujinlongxa的技术博客">
 <meta property="og:description" content="年前给公司的项目适配了HTTPS，本来年前就该写这篇博客的，一直拖到现在才写。 本文的主要内容就是对整个适配过程做一个总结。网上有很多详细的教程，具体的适配过程本文就不再赘述了，这里主要总结一下我在适配过程中越到的问题以及一些经验。 测试自建证书适配完成后可以使用自建证书进行测试，关于如何创建自建证书，网上有很多教程，可以自行百度。如果你使用的是AFNetworking框架，使用自建证书也非常简单">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/0c578284b3e0e8649ec145e1413f3d7a.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/190482fe4f86763e6184834be9cff0bf.png">
-<meta property="og:updated_time" content="2019-01-13T03:52:08.059Z">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/0c578284b3e0e8649ec145e1413f3d7a.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/190482fe4f86763e6184834be9cff0bf.png">
+<meta property="og:updated_time" content="2019-01-13T04:00:21.974Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发适配HTTPS总结">
 <meta name="twitter:description" content="年前给公司的项目适配了HTTPS，本来年前就该写这篇博客的，一直拖到现在才写。 本文的主要内容就是对整个适配过程做一个总结。网上有很多详细的教程，具体的适配过程本文就不再赘述了，这里主要总结一下我在适配过程中越到的问题以及一些经验。 测试自建证书适配完成后可以使用自建证书进行测试，关于如何创建自建证书，网上有很多教程，可以自行百度。如果你使用的是AFNetworking框架，使用自建证书也非常简单">
-<meta name="twitter:image" content="http://7xn88v.com1.z0.glb.clouddn.com/0c578284b3e0e8649ec145e1413f3d7a.png">
+<meta name="twitter:image" content="http://oldblog.shicishuzhai.com/0c578284b3e0e8649ec145e1413f3d7a.png">
 
 
 
@@ -331,9 +331,9 @@
 <p>对于多媒体播放请求（使用AVFoundation），可以使用NSAllowsArbitraryLoadsInMedia字段来声明绕过ATS。</p>
 <h2 id="多环境配置"><a href="#多环境配置" class="headerlink" title="多环境配置"></a>多环境配置</h2><p>一般公司服务器都会有多个环境（测试环境，正式环境等），证书一般只配置在正式环境上，这就要求我们在测试环境下需要关闭ATS。如果每次都手动修改Info.plist文件来关闭ATS，不但麻烦，也可能导致配置的信息丢失。一种比较好做法是创建多个Info.plist，根据不同的环境，自动切换使用不同的Info.plist。</p>
 <p>如下，创建多个Info.plist</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/0c578284b3e0e8649ec145e1413f3d7a.png" alt="2"></p>
+<p><img src="http://oldblog.shicishuzhai.com/0c578284b3e0e8649ec145e1413f3d7a.png" alt="2"></p>
 <p>然后在Build Setting中配置不同的环境使用不同的Info.plist</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/190482fe4f86763e6184834be9cff0bf.png" alt="3"></p>
+<p><img src="http://oldblog.shicishuzhai.com/190482fe4f86763e6184834be9cff0bf.png" alt="3"></p>
 <p>这样做有一个不好的地方是如果修改了Info.plist文件，需要同时修改两个。但这也比每次切换环境修改Info.plist要好，因为毕竟修改Info.plist的情况还是比较少的。</p>
 <p>以上就是我在适配HTTPS过程中遇到的一些问题，希望对大家有所帮助。</p>
 <p>参考资料：</p>

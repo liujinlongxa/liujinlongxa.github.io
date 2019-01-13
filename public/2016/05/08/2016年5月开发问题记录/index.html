@@ -93,14 +93,14 @@
 <meta property="og:site_name" content="liujinlongxa的技术博客">
 <meta property="og:description" content="这是我最近工作中遇到的问题，做一个简单的记录。 设置导航栏透明项目中有一个界面的导航栏是透明的，效果如下：  我首先想到的是: 1self.navigationController.navigationBar.barTintColor = [UIColor clearColor]; 但是设置了没有效果，然后又是一顿Google，找到了如下的解决方案： 123456// 设置导航栏背景图为一个透明的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/d2b06aad44ccf25b3088bf3268f6de26.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/664bd5d66be86fc7d0327fa63c0b8958.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/dab95307496966b3e7f51b6f8fa22308.png">
-<meta property="og:updated_time" content="2019-01-13T03:52:08.046Z">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/d2b06aad44ccf25b3088bf3268f6de26.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/664bd5d66be86fc7d0327fa63c0b8958.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/dab95307496966b3e7f51b6f8fa22308.png">
+<meta property="og:updated_time" content="2019-01-13T04:01:04.540Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2016年5月开发问题记录">
 <meta name="twitter:description" content="这是我最近工作中遇到的问题，做一个简单的记录。 设置导航栏透明项目中有一个界面的导航栏是透明的，效果如下：  我首先想到的是: 1self.navigationController.navigationBar.barTintColor = [UIColor clearColor]; 但是设置了没有效果，然后又是一顿Google，找到了如下的解决方案： 123456// 设置导航栏背景图为一个透明的">
-<meta name="twitter:image" content="http://7xn88v.com1.z0.glb.clouddn.com/d2b06aad44ccf25b3088bf3268f6de26.png">
+<meta name="twitter:image" content="http://oldblog.shicishuzhai.com/d2b06aad44ccf25b3088bf3268f6de26.png">
 
 
 
@@ -321,7 +321,7 @@
       
         <p>这是我最近工作中遇到的问题，做一个简单的记录。</p>
 <h2 id="设置导航栏透明"><a href="#设置导航栏透明" class="headerlink" title="设置导航栏透明"></a>设置导航栏透明</h2><p>项目中有一个界面的导航栏是透明的，效果如下：</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/d2b06aad44ccf25b3088bf3268f6de26.png" alt="1-1"></p>
+<p><img src="http://oldblog.shicishuzhai.com/d2b06aad44ccf25b3088bf3268f6de26.png" alt="1-1"></p>
 <p>我首先想到的是:</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.navigationController.navigationBar.barTintColor = [<span class="built_in">UIColor</span> clearColor];</span><br></pre></td></tr></table></figure>
 <p>但是设置了没有效果，然后又是一顿Google，找到了如下的解决方案：</p>
@@ -329,9 +329,9 @@
 <h2 id="设置UIPageControl左对齐"><a href="#设置UIPageControl左对齐" class="headerlink" title="设置UIPageControl左对齐"></a>设置UIPageControl左对齐</h2><p>UIPageControl默认是居中对齐的，要设置它左对齐，需要进行在布局是，根据UIPageControl点的个数，计算UIPageControl的中心点X的坐标。代码如下：</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)layoutSubviews &#123;</span><br><span class="line">    <span class="built_in">CGSize</span> pageSize = [<span class="keyword">self</span>.pageControl sizeForNumberOfPages:<span class="keyword">self</span>.pageControl.numberOfPages];</span><br><span class="line">    [<span class="keyword">self</span>.pageControl setCenterX:<span class="number">20</span> + pageSize.width / <span class="number">2</span>];</span><br><span class="line">    [<span class="keyword">self</span>.pageControl setOriginY:<span class="built_in">CGRectGetHeight</span>(<span class="keyword">self</span>.frame) - <span class="number">14</span> - <span class="built_in">CGRectGetHeight</span>(<span class="keyword">self</span>.pageControl.frame)];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>效果如下：</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/664bd5d66be86fc7d0327fa63c0b8958.png" alt="2-1"></p>
+<p><img src="http://oldblog.shicishuzhai.com/664bd5d66be86fc7d0327fa63c0b8958.png" alt="2-1"></p>
 <h2 id="设置UILabel的内边距"><a href="#设置UILabel的内边距" class="headerlink" title="设置UILabel的内边距"></a>设置UILabel的内边距</h2><p>项目中要实现如下的一个标签（不可点击）：</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/dab95307496966b3e7f51b6f8fa22308.png" alt="3-1"></p>
+<p><img src="http://oldblog.shicishuzhai.com/dab95307496966b3e7f51b6f8fa22308.png" alt="3-1"></p>
 <p>一种方案是直接使用UIButton来实现，因为UIButton有titleEdgeInsets属性，可以设置文字的内边距，我这里尝试使用了UILabel来实现，UILabel默认是不可以设置内边距的，但是可以通过自定义Label来实现，实现代码如下：</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"LMRPaddingLabel.h"</span></span></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">LMRPaddingLabel</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)drawTextInRect:(<span class="built_in">CGRect</span>)rect &#123;</span><br><span class="line">    <span class="built_in">UIEdgeInsets</span> insets = &#123;<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>&#125;;</span><br><span class="line">    [<span class="keyword">super</span> drawTextInRect:<span class="built_in">UIEdgeInsetsInsetRect</span>(rect, insets)];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">CGSize</span>)intrinsicContentSize &#123;</span><br><span class="line">    <span class="built_in">CGSize</span> size = [<span class="keyword">super</span> intrinsicContentSize];</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">CGSizeMake</span>(size.width + <span class="number">4</span>, size.height + <span class="number">4</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
 <p>这样，LMRPaddingLabel就会有2个点的内边距，相关问题可参考：<a href="http://stackoverflow.com/questions/19437579/ios-add-left-padding-to-uilabel" target="_blank" rel="noopener">ios add left padding to uilabel</a></p>

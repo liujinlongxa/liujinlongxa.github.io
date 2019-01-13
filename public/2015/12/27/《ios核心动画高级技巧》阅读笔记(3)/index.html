@@ -93,13 +93,13 @@
 <meta property="og:site_name" content="liujinlongxa的技术博客">
 <meta property="og:description" content="第四章 视觉效果圆角 设置CALayer的cornerRadius属性来设置圆角，并且要把maskToBounds设置为YES  边框 设置CALayer的borderColor和borderWidth可以设置边框的颜色和宽度  阴影 shadowColor:阴影的颜色 shadowOpacity:阴影的透明度 shadowOffset:阴影的偏移 shadowRadius:阴影的模糊度，即模糊半">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/87291a0061be6a254bd4937851ecf4d8.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/dda57bde043a3358e1cbc03af4fcbcf1.png">
-<meta property="og:updated_time" content="2019-01-13T03:52:08.046Z">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/87291a0061be6a254bd4937851ecf4d8.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/dda57bde043a3358e1cbc03af4fcbcf1.png">
+<meta property="og:updated_time" content="2019-01-13T04:01:04.508Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《ios核心动画高级技巧》阅读笔记(3)">
 <meta name="twitter:description" content="第四章 视觉效果圆角 设置CALayer的cornerRadius属性来设置圆角，并且要把maskToBounds设置为YES  边框 设置CALayer的borderColor和borderWidth可以设置边框的颜色和宽度  阴影 shadowColor:阴影的颜色 shadowOpacity:阴影的透明度 shadowOffset:阴影的偏移 shadowRadius:阴影的模糊度，即模糊半">
-<meta name="twitter:image" content="http://7xn88v.com1.z0.glb.clouddn.com/87291a0061be6a254bd4937851ecf4d8.png">
+<meta name="twitter:image" content="http://oldblog.shicishuzhai.com/87291a0061be6a254bd4937851ecf4d8.png">
 
 
 
@@ -337,7 +337,7 @@
 <h3 id="图层蒙版"><a href="#图层蒙版" class="headerlink" title="图层蒙版"></a>图层蒙版</h3><ul>
 <li>mask:CALayer的mask属性定义了父图层的部分可见区域，父图层与mask的关系如下图</li>
 </ul>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/87291a0061be6a254bd4937851ecf4d8.png" alt="mask"></p>
+<p><img src="http://oldblog.shicishuzhai.com/87291a0061be6a254bd4937851ecf4d8.png" alt="mask"></p>
 <ul>
 <li>虽然设置了mask，但是视图的事件响应区域任然是原视图的区域</li>
 <li>mask是可以动态设置的，只要改变mask的大小，就可以对视图的显示区域进行动画</li>
@@ -351,7 +351,7 @@
 <h3 id="组透明"><a href="#组透明" class="headerlink" title="组透明"></a>组透明</h3><ul>
 <li>改变视图或图层的透明度，其子视图或子图层的透明度也会跟着改变，但是经过叠加后，原本颜色相同的父子视图，变成了不同的视图，如下图：</li>
 </ul>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/dda57bde043a3358e1cbc03af4fcbcf1.png" alt="group-opacity"></p>
+<p><img src="http://oldblog.shicishuzhai.com/dda57bde043a3358e1cbc03af4fcbcf1.png" alt="group-opacity"></p>
 <ul>
 <li>为了解决这种问题，可以在plist中添加”Renders with group opacity”为YES（目前ios9中默认就为YES），或者设置CALayer的shouldRasterize为YES也可以达到相同的效果。</li>
 </ul>

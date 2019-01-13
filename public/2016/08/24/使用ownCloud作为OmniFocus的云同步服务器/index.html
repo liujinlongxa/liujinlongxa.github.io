@@ -94,16 +94,16 @@
 <meta property="og:site_name" content="liujinlongxa的技术博客">
 <meta property="og:description" content="平时一直使用OmniFocus作为自己的时间管理工具，但是由于我使用的是破解版的（正版太贵，买不起啊），同步就变成了一件很麻烦的事。OmniFocus提供了两种同步方式，如下图：  一种是使用Omni官方的服务器同步，这种方式需要注册Omni官方账号，应该只有正版能用吧，我没有尝试；另一种方式是使用WebDAV进行同步，这里着重介绍第二种方式。 本文主要分为以下几个部分：  WebDAV简介 ow">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/901f5c4cb502f3fc557e3c3cfa79ad2f.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/5de5eb45600b86bae8e2c0cfdaadb319.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/264b1ec833e6078643e9c2f40b2bf7aa.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/0da7c4ef259b48e8f608540c27091cbd.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/d7b6c828536bab1e8fa5a69a12332ebf.png">
-<meta property="og:updated_time" content="2019-01-13T03:52:08.050Z">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/901f5c4cb502f3fc557e3c3cfa79ad2f.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/5de5eb45600b86bae8e2c0cfdaadb319.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/264b1ec833e6078643e9c2f40b2bf7aa.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/0da7c4ef259b48e8f608540c27091cbd.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/d7b6c828536bab1e8fa5a69a12332ebf.png">
+<meta property="og:updated_time" content="2019-01-13T04:01:04.540Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用ownCloud作为OmniFocus的云同步服务器">
 <meta name="twitter:description" content="平时一直使用OmniFocus作为自己的时间管理工具，但是由于我使用的是破解版的（正版太贵，买不起啊），同步就变成了一件很麻烦的事。OmniFocus提供了两种同步方式，如下图：  一种是使用Omni官方的服务器同步，这种方式需要注册Omni官方账号，应该只有正版能用吧，我没有尝试；另一种方式是使用WebDAV进行同步，这里着重介绍第二种方式。 本文主要分为以下几个部分：  WebDAV简介 ow">
-<meta name="twitter:image" content="http://7xn88v.com1.z0.glb.clouddn.com/901f5c4cb502f3fc557e3c3cfa79ad2f.png">
+<meta name="twitter:image" content="http://oldblog.shicishuzhai.com/901f5c4cb502f3fc557e3c3cfa79ad2f.png">
 
 
 
@@ -323,7 +323,7 @@
 
       
         <p>平时一直使用OmniFocus作为自己的时间管理工具，但是由于我使用的是破解版的（正版太贵，买不起啊），同步就变成了一件很麻烦的事。OmniFocus提供了两种同步方式，如下图：</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/901f5c4cb502f3fc557e3c3cfa79ad2f.png" alt="1"></p>
+<p><img src="http://oldblog.shicishuzhai.com/901f5c4cb502f3fc557e3c3cfa79ad2f.png" alt="1"></p>
 <p>一种是使用Omni官方的服务器同步，这种方式需要注册Omni官方账号，应该只有正版能用吧，我没有尝试；另一种方式是使用WebDAV进行同步，这里着重介绍第二种方式。</p>
 <p>本文主要分为以下几个部分：</p>
 <ol>
@@ -345,7 +345,7 @@
 <p>然后改变owncloud这个文件的权限，命令如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 777 owncloud</span><br></pre></td></tr></table></figure>
 <h3 id="3-添加管理员账号"><a href="#3-添加管理员账号" class="headerlink" title="3. 添加管理员账号"></a>3. 添加管理员账号</h3><p>使用浏览器访问地址<a href="http://serveraddress/owncloud/" target="_blank" rel="noopener">http://serveraddress/owncloud/</a> (serveraddress即你服务器的ip地址)就可以看到如下页面：</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/5de5eb45600b86bae8e2c0cfdaadb319.png" alt="2"></p>
+<p><img src="http://oldblog.shicishuzhai.com/5de5eb45600b86bae8e2c0cfdaadb319.png" alt="2"></p>
 <p>在这里自定义一个管理员的账号和密码，然后点击FinishSetup，这样一个ownCloud就搭建完成了。</p>
 <h2 id="使用ownCloud作为OmniFocus的同步服务器"><a href="#使用ownCloud作为OmniFocus的同步服务器" class="headerlink" title="使用ownCloud作为OmniFocus的同步服务器"></a>使用ownCloud作为OmniFocus的同步服务器</h2><p>ownCloud搭建完成后，就可以把它作为Omni的同步服务器了，具体方法如下：</p>
 <p>打开OmniFocus的同步设置页面，选择WebDAV方式同步，然后在Address中填入如下地址：</p>
@@ -353,12 +353,12 @@
 <p>http://<serveraddress>/owncloud/remote.php/dav/files/<adminname></adminname></serveraddress></p>
 </blockquote>
 <p><serveraddress>和<adminname>分别替换为你的服务器地址和刚才填的管理员用户名，如下图：</adminname></serveraddress></p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/264b1ec833e6078643e9c2f40b2bf7aa.png" alt="3"></p>
+<p><img src="http://oldblog.shicishuzhai.com/264b1ec833e6078643e9c2f40b2bf7aa.png" alt="3"></p>
 <p>然后点击“Sync Now”进行同步，会提示输入密码，输入刚才添加的管理员密码，然后就可以同步成功了。</p>
 <p>使用浏览器访问<a href="http://serveraddress/owncloud/" target="_blank" rel="noopener">http://serveraddress/owncloud/</a> ，就可以看到刚刚同步上去的文件了，如下图：</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/0da7c4ef259b48e8f608540c27091cbd.png" alt="4"></p>
+<p><img src="http://oldblog.shicishuzhai.com/0da7c4ef259b48e8f608540c27091cbd.png" alt="4"></p>
 <h2 id="ownCloud的一些其他应用"><a href="#ownCloud的一些其他应用" class="headerlink" title="ownCloud的一些其他应用"></a>ownCloud的一些其他应用</h2><p>ownCloud还提供了多平台的客户端，包括iOS，Android，Mac，Windows等，你可以下载一个Mac客户端，然后设置一个同步文件夹，凡是放在这个文件夹里的文件，都会被自动同步到服务器上。如下图：</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/d7b6c828536bab1e8fa5a69a12332ebf.png" alt="5"></p>
+<p><img src="http://oldblog.shicishuzhai.com/d7b6c828536bab1e8fa5a69a12332ebf.png" alt="5"></p>
 <p>我把Quiver的笔记数据也同步到了服务器上。</p>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>其实ownCloud的功能还远不止这些，还有很多功能还待以后慢慢探索。</p>
 <p>类似ownCloud的还有一个叫<a href="https://www.seafile.com/home/" target="_blank" rel="noopener">seafile</a>的服务，两者的区别和优劣可以参考<a href="http://www.zhihu.com/question/23929945" target="_blank" rel="noopener">这里</a>。</p>

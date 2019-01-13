@@ -94,15 +94,15 @@
 <meta property="og:site_name" content="liujinlongxa的技术博客">
 <meta property="og:description" content="生成RSA密钥一般使用的Openssl，方法如下： 在终端输入命令openssl然后敲回车，进入openssl命令输入模式，如下：  然后输入一下三行命令： 123genrsa -out rsa_private_key.pem 1024pkcs8 -topk8 -in rsa_private_key.pem -out pkcs8_rsa_private_key.pem -nocryptrsa -i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/d0eff7b11f3bb040e28e46de5393d9d2.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/980dc450a7d1f4db0759d42ac882f54a.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/9927f538bea6e031960a0a908076ccdd.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/b98831c564629c062c9bfcb5f7868625.png">
-<meta property="og:updated_time" content="2019-01-13T03:52:08.051Z">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/d0eff7b11f3bb040e28e46de5393d9d2.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/980dc450a7d1f4db0759d42ac882f54a.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/9927f538bea6e031960a0a908076ccdd.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/b98831c564629c062c9bfcb5f7868625.png">
+<meta property="og:updated_time" content="2019-01-13T04:01:04.474Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac下生成RSA密钥对要注意的问题">
 <meta name="twitter:description" content="生成RSA密钥一般使用的Openssl，方法如下： 在终端输入命令openssl然后敲回车，进入openssl命令输入模式，如下：  然后输入一下三行命令： 123genrsa -out rsa_private_key.pem 1024pkcs8 -topk8 -in rsa_private_key.pem -out pkcs8_rsa_private_key.pem -nocryptrsa -i">
-<meta name="twitter:image" content="http://7xn88v.com1.z0.glb.clouddn.com/d0eff7b11f3bb040e28e46de5393d9d2.png">
+<meta name="twitter:image" content="http://oldblog.shicishuzhai.com/d0eff7b11f3bb040e28e46de5393d9d2.png">
 
 
 
@@ -323,11 +323,11 @@
       
         <p>生成RSA密钥一般使用的Openssl，方法如下：</p>
 <p>在终端输入命令openssl然后敲回车，进入openssl命令输入模式，如下：</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/d0eff7b11f3bb040e28e46de5393d9d2.png" alt="1"></p>
+<p><img src="http://oldblog.shicishuzhai.com/d0eff7b11f3bb040e28e46de5393d9d2.png" alt="1"></p>
 <p>然后输入一下三行命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">genrsa -out rsa_private_key.pem 1024</span><br><span class="line">pkcs8 -topk8 -in rsa_private_key.pem -out pkcs8_rsa_private_key.pem -nocrypt</span><br><span class="line">rsa -in rsa_private_key.pem -pubout -out rsa_public_key.pem</span><br></pre></td></tr></table></figure>
 <p>然后输入exit退出openssl命令输入模式，这样会在当前目录生成三个文件，如下：</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/980dc450a7d1f4db0759d42ac882f54a.png" alt="2"></p>
+<p><img src="http://oldblog.shicishuzhai.com/980dc450a7d1f4db0759d42ac882f54a.png" alt="2"></p>
 <p>其中：</p>
 <ul>
 <li>rsa_private_key.pem为私钥</li>
@@ -339,11 +339,11 @@
 <ul>
 <li>rsa_private_key.pem为PKCS#1编码，只包含RSA的密钥信息，是以”—–BEGIN RSA PRIVATE KEY—–”开头，以”—–END RSA PRIVATE KEY—–”结尾，如下图：</li>
 </ul>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/9927f538bea6e031960a0a908076ccdd.png" alt="3"></p>
+<p><img src="http://oldblog.shicishuzhai.com/9927f538bea6e031960a0a908076ccdd.png" alt="3"></p>
 <ul>
 <li>pkcs8_rsa_private_key.pem为PKCS#8编码，除了包含RSA密钥信息外，还包含一些附加信息，例如version和算法等，是以”—–BEGIN PRIVATE KEY—–”开头，以”—–END PRIVATE KEY—–”结尾的，如下图：</li>
 </ul>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/b98831c564629c062c9bfcb5f7868625.png" alt="4"></p>
+<p><img src="http://oldblog.shicishuzhai.com/b98831c564629c062c9bfcb5f7868625.png" alt="4"></p>
 <p>Mac默认生成的是PKCS#1编码的私钥，而有的系统生成私钥是PKCS#8编码，具体用哪个这要看你的加密代码里是否对附加信息进行了校验判断，如果进行了校验，则应该使用PKCS#8编码的私钥，否则应该使用PKCS#1编码的私钥。</p>
 <p>我使用的是<a href="https://github.com/ideawu/Objective-C-RSA" target="_blank" rel="noopener">这个第三方库</a>进行加密解密的，里面对附加信息进行了校验，所以应该使用PKCS#8编码的密钥。</p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://github.com/ideawu/Objective-C-RSA" target="_blank" rel="noopener">Objective-C-RSA</a><br><a href="https://github.com/ideawu/Objective-C-RSA/issues/15" target="_blank" rel="noopener">Objective-C-RSA Issuse #15</a><br><a href="http://www.tuicool.com/articles/Rbu6zm" target="_blank" rel="noopener">openssl生成RSA格式，并转为pkcs8格式</a></p>

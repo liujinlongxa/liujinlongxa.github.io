@@ -49,7 +49,7 @@ hexo server
 
 然后打开浏览器，输入http://127.0.0.1:4000/  ，就可以看到预览界面
 
-![1](http://7xn88v.com1.z0.glb.clouddn.com/5f8ddbc140ff9ec8ecbd1bb8bb119b4a.png)
+![1](http://oldblog.shicishuzhai.com/5f8ddbc140ff9ec8ecbd1bb8bb119b4a.png)
 
 ## 配置主题
 
@@ -69,7 +69,7 @@ theme: next
 
 然后开启预览，就可以看到主题已经换成了新的主题
 
-![2](http://7xn88v.com1.z0.glb.clouddn.com/81a90b7504bc5d934c642d1395dd63ed.png)
+![2](http://oldblog.shicishuzhai.com/81a90b7504bc5d934c642d1395dd63ed.png)
 
 更详细的配置可以参考这个主题的[文档](http://theme-next.iissnan.com/)。
 
@@ -96,7 +96,7 @@ NSLog(@"%@", str);
 
 做完这些之后，再次打开预览，就可以看到原来的博客啦。
 
-![3](http://7xn88v.com1.z0.glb.clouddn.com/d8627ec1356b590c21c2c6fba2cffd47.png)
+![3](http://oldblog.shicishuzhai.com/d8627ec1356b590c21c2c6fba2cffd47.png)
 
 ## 部署
 
@@ -129,17 +129,17 @@ $ hexo deploy
 
 到万网购买了一个独立域名（后来才知道DNSPod的解析速度更快一些，后悔了），然后在hexo主目录下的source文件夹中创建一个名为CNAME的文件，里面填写你的独立域名，如下：
 
-![4](http://7xn88v.com1.z0.glb.clouddn.com/307f1cb10cc4a3286cc1dd01b0d4f0ce.png)
+![4](http://oldblog.shicishuzhai.com/307f1cb10cc4a3286cc1dd01b0d4f0ce.png)
 
 然后重新部署一下，这样这个CNAME就会上传到Github仓库的根目录下。如下：
 
-![5](http://7xn88v.com1.z0.glb.clouddn.com/69301b3770b43797bda6fbd110f08f87.png)
+![5](http://oldblog.shicishuzhai.com/69301b3770b43797bda6fbd110f08f87.png)
 
 这里一定要注意，要把CNAME放在source文件夹里，如果直接从Github创建CNAME，重新部署博客后，会删掉添加的CNAME。
 
 然后就是添加域名解析，打开万网域名管理后台，添加如下解析
 
-![6](http://7xn88v.com1.z0.glb.clouddn.com/f696d7662bef60f14f045484df43f22e.png)
+![6](http://oldblog.shicishuzhai.com/f696d7662bef60f14f045484df43f22e.png)
 
 ```
 192.30.252.153
@@ -176,7 +176,7 @@ hexo deploy
 
 解决方法，把这两个文件放在source目录下，这样在部署时就会把这两个文件也放到github的根目录下
 
-![7](http://7xn88v.com1.z0.glb.clouddn.com/b371a047e69935cd2c92c11169483d00.png)
+![7](http://oldblog.shicishuzhai.com/b371a047e69935cd2c92c11169483d00.png)
 
 *  执行hexo deploy后，README.md被渲染成了README.html
 

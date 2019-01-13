@@ -93,14 +93,14 @@
 <meta property="og:site_name" content="liujinlongxa的技术博客">
 <meta property="og:description" content="第三章 图层集合学布局 frame：图层的相对于父图层的外部坐标 bounds：内部坐标 center和position：相对于父图层anchorPoint所在的位置 设置视图的frame，bounds和center，也就是相当于设置图层的frame，bounds和position 一般情况下，frame中的size与bounds中的size是相同的，但是当视图旋转时，frame的size和bou">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/a592d9f689fe8a2818583430f5a8211d.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/99c7a6ddc1d2b162816b2a9ef5ff568f.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/d673bc31fdbe28367ad557ac739a60fd.png">
-<meta property="og:updated_time" content="2019-01-13T03:52:08.045Z">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/a592d9f689fe8a2818583430f5a8211d.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/99c7a6ddc1d2b162816b2a9ef5ff568f.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/d673bc31fdbe28367ad557ac739a60fd.png">
+<meta property="og:updated_time" content="2019-01-13T04:01:04.524Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《ios核心动画高级技巧》阅读笔记(2)">
 <meta name="twitter:description" content="第三章 图层集合学布局 frame：图层的相对于父图层的外部坐标 bounds：内部坐标 center和position：相对于父图层anchorPoint所在的位置 设置视图的frame，bounds和center，也就是相当于设置图层的frame，bounds和position 一般情况下，frame中的size与bounds中的size是相同的，但是当视图旋转时，frame的size和bou">
-<meta name="twitter:image" content="http://7xn88v.com1.z0.glb.clouddn.com/a592d9f689fe8a2818583430f5a8211d.png">
+<meta name="twitter:image" content="http://oldblog.shicishuzhai.com/a592d9f689fe8a2818583430f5a8211d.png">
 
 
 
@@ -326,12 +326,12 @@
 <li>设置视图的frame，bounds和center，也就是相当于设置图层的frame，bounds和position</li>
 <li>一般情况下，frame中的size与bounds中的size是相同的，但是当视图旋转时，frame的size和bounds的size就不一样了，如下图</li>
 </ul>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/a592d9f689fe8a2818583430f5a8211d.png" alt="frame&amp;bounds&amp;center"></p>
+<p><img src="http://oldblog.shicishuzhai.com/a592d9f689fe8a2818583430f5a8211d.png" alt="frame&amp;bounds&amp;center"></p>
 <h3 id="锚点"><a href="#锚点" class="headerlink" title="锚点"></a>锚点</h3><ul>
 <li>锚点是相对于父图层anchorPoint所在的位置。</li>
 <li>默认，锚点位于图层的中点，可以改变锚点的位置，描点改变，frame也会随之改变。</li>
 </ul>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/99c7a6ddc1d2b162816b2a9ef5ff568f.png" alt="anchorPoint"></p>
+<p><img src="http://oldblog.shicishuzhai.com/99c7a6ddc1d2b162816b2a9ef5ff568f.png" alt="anchorPoint"></p>
 <ul>
 <li>改变锚点，position不会改变，但是frame改变了。</li>
 <li>anchorPoint是View在旋转是的轴点，如果想改变view的旋转轴点，改变anchorPoint即可</li>
@@ -348,7 +348,7 @@
 <li>zPosition：表示图层空间z轴上的位置</li>
 <li>zPosition除了可以改变z轴的位置，还可以用来改变图层的先后顺序，如图，如果设置了绿色view的zPosition，绿色View就可以覆盖在蓝色view之上。但是通过这种方法改变视图的层次，是不能改变视图的响应事件的顺序的。</li>
 </ul>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/d673bc31fdbe28367ad557ac739a60fd.png" alt="zPositon"></p>
+<p><img src="http://oldblog.shicishuzhai.com/d673bc31fdbe28367ad557ac739a60fd.png" alt="zPositon"></p>
 <ul>
 <li>anchorPointZ表示z轴上锚点的位置</li>
 </ul>

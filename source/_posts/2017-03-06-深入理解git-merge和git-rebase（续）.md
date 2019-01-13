@@ -14,15 +14,15 @@ date: 2017-03-06 09:34:43
 
 git rebase，也叫做变基，也是Git种一种合并代码的手段，与git merge不同的是，rebase是直接将一个分支从他们的共同父节点开始后的所有Commit依次合并到另外一个分支上。如下图：
 
-![1](http://7xn88v.com1.z0.glb.clouddn.com/e3bdbc7fff28676ccefdcb16f4d43095.png)
+![1](http://oldblog.shicishuzhai.com/e3bdbc7fff28676ccefdcb16f4d43095.png)
 
 两个分支develop和master，如果通过命令`git merge`将develop分支合并到master分支，Git会将‘C’，‘3’以及两个分支的共同父节点‘B’进行三路合并，合并完成后生成一个新节点，如下图：
 
-![2](http://7xn88v.com1.z0.glb.clouddn.com/ce919bb1921ee5c302baafbb0f45785f.png)
+![2](http://oldblog.shicishuzhai.com/ce919bb1921ee5c302baafbb0f45785f.png)
 
 如果`git rebase`将develop分支变基到master分支上，Git会将develop分支上的所有commit(1,2,3)依次合并到master，每一次合并都会生成一个新的提交(如下图1',2',3')，合并完成后，如下图：
 
-![3](http://7xn88v.com1.z0.glb.clouddn.com/0478f567c5748186a200cd4da8b5ddd8.png)
+![3](http://oldblog.shicishuzhai.com/0478f567c5748186a200cd4da8b5ddd8.png)
 
 可以明显的看到，使用`git rebase`，分支线依然保持为一条，分支线看起来也没有那么乱，这也是`git rebase`相对于`git merge`的一个优点，但是另一方面，`git rebase`在合并每一个提交并生成一个新的提交时，会改写原来提交的提交时间（不会改写提交人），而且`git rebase`也没有留下合并的痕迹，可追溯性没那么强。
 
@@ -32,19 +32,19 @@ git rebase，也叫做变基，也是Git种一种合并代码的手段，与git 
 
 其实，这是由rebase的原理造成的，Git在合并每一个Commit时都会判断是否有冲突，如下图：
 
-![4](http://7xn88v.com1.z0.glb.clouddn.com/90ff7dd4f79dddc65656820254dba48b.png)
+![4](http://oldblog.shicishuzhai.com/90ff7dd4f79dddc65656820254dba48b.png)
 
 两个分支develop和master以及他们各自的文件内容，现在要将develop变基到master上，Git会先将develop的第一个commit和master分支的最新提交合并，合并后如下：
 
-![5](http://7xn88v.com1.z0.glb.clouddn.com/31c92a8c54e271fb69053a22c984c6dd.png)
+![5](http://oldblog.shicishuzhai.com/31c92a8c54e271fb69053a22c984c6dd.png)
 
 会报一个冲突，解决完冲突后，执行`git rebase --continue`，根据冲突不同的解决方案，可能会与不同的结果，如下图：
 
-![6](http://7xn88v.com1.z0.glb.clouddn.com/74efc09f8e231d078914a36f5223e289.png)
+![6](http://oldblog.shicishuzhai.com/74efc09f8e231d078914a36f5223e289.png)
 
 上图中的两种冲突解决方案，在执行`git rebase --continue`后，依然再会报一个冲突，应为在合并develop的第二个提交时，依然有冲突。下面的解决方案则不会造成再次冲突，因为这种解决方案是完全用develop分支覆盖了master分支，如下图：
 
-![7](http://7xn88v.com1.z0.glb.clouddn.com/510fa8570fd012eb1723d6c521eb5cc6.png)
+![7](http://oldblog.shicishuzhai.com/510fa8570fd012eb1723d6c521eb5cc6.png)
 
 以上就是造成`git rebase`冲突太多的具体原因。
 
@@ -54,7 +54,7 @@ git rebase，也叫做变基，也是Git种一种合并代码的手段，与git 
 
 那么rerere能够避免`git rebase`带来的冲突吗，答案是否定的。因为rerere在判断两个冲突是否为相同冲突是根据冲突体的两部分是否完全一样来进行的，就上面的例子而言，不管是哪种冲突解决方案，第一次和第二次冲突的冲突体都不完全一样，因此rerere都不会自动帮我们修复。
 
-![8](http://7xn88v.com1.z0.glb.clouddn.com/b80ef2ec61407d7a737a0997da6c960d.png)
+![8](http://oldblog.shicishuzhai.com/b80ef2ec61407d7a737a0997da6c960d.png)
 
 而且，rerere命令也会记住错误的冲突解决方案，下次遇到相同的冲突时会直接应用错误的方案。不过你可以使用`git rerere forget <pathspec>`命令来删除Git记住的冲突解决方案。
 

@@ -94,30 +94,30 @@
 <meta property="og:site_name" content="liujinlongxa的技术博客">
 <meta property="og:description" content="昨天尝试了在自己的VPS上搭建一个git服务器，中间踩了很多坑，下面是我整个搭建的过程。 具体流程第一步：安装Git打开VPS(这里我用的是搬运工，怎么购买VPS可以参考我的这篇博客)的控制后台，进入Shell，然后输入命令： 1yum install -y git 执行完后如图：  查看Git版本，如果能显示Git版本，则说明安装成功。  第二步：添加用户输入命令 12adduser gitsu">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/b9dd798ab599b9b53adebee98ebe5bbd.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/d7cdff1b7006e2c9b5f1e521319d903c.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/c5350088190cd59d220b4942b9d87eae.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/c58f27e2d859d984c844371a43a37ab8.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/26a614c08121e4b0f8783551208e2d19.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/9eca6530c312dc064c8901735ef9942e.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/7c38fa2c806440f162b83208038a8dc9.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/9d534724207d6319fcf654142e91ba24.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/74d02be9217b7ea806af5970560ac956.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/b2f7743ffae9917e88f0ace60e11637b.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/17e45daf40d28f1174387104a3daef40.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/285c535aa2610ae916b1f964617a8d68.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/e5bc21bbdb55bcdf473e6addf69cf495.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/fadd0406c6a9e9c02402e170082c82c7.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/2b0a4555687ea4fe8326f690ee35533e.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/8ec00cb79352b30a2f95a1b48410cdfe.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/3dc7b3340f6b693b047ecbee93400564.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/4f320784c4d9d731d53b3792856ec4dd.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/c9be98241282c46c0111cb25e1be9aa4.png">
-<meta property="og:updated_time" content="2019-01-13T03:52:08.050Z">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/b9dd798ab599b9b53adebee98ebe5bbd.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/d7cdff1b7006e2c9b5f1e521319d903c.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/c5350088190cd59d220b4942b9d87eae.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/c58f27e2d859d984c844371a43a37ab8.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/26a614c08121e4b0f8783551208e2d19.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/9eca6530c312dc064c8901735ef9942e.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/7c38fa2c806440f162b83208038a8dc9.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/9d534724207d6319fcf654142e91ba24.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/74d02be9217b7ea806af5970560ac956.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/b2f7743ffae9917e88f0ace60e11637b.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/17e45daf40d28f1174387104a3daef40.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/285c535aa2610ae916b1f964617a8d68.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/e5bc21bbdb55bcdf473e6addf69cf495.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/fadd0406c6a9e9c02402e170082c82c7.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/2b0a4555687ea4fe8326f690ee35533e.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/8ec00cb79352b30a2f95a1b48410cdfe.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/3dc7b3340f6b693b047ecbee93400564.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/4f320784c4d9d731d53b3792856ec4dd.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/c9be98241282c46c0111cb25e1be9aa4.png">
+<meta property="og:updated_time" content="2019-01-13T04:01:04.581Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在VPS上搭建Git服务器">
 <meta name="twitter:description" content="昨天尝试了在自己的VPS上搭建一个git服务器，中间踩了很多坑，下面是我整个搭建的过程。 具体流程第一步：安装Git打开VPS(这里我用的是搬运工，怎么购买VPS可以参考我的这篇博客)的控制后台，进入Shell，然后输入命令： 1yum install -y git 执行完后如图：  查看Git版本，如果能显示Git版本，则说明安装成功。  第二步：添加用户输入命令 12adduser gitsu">
-<meta name="twitter:image" content="http://7xn88v.com1.z0.glb.clouddn.com/b9dd798ab599b9b53adebee98ebe5bbd.png">
+<meta name="twitter:image" content="http://oldblog.shicishuzhai.com/b9dd798ab599b9b53adebee98ebe5bbd.png">
 
 
 
@@ -340,64 +340,64 @@
 <h2 id="具体流程"><a href="#具体流程" class="headerlink" title="具体流程"></a>具体流程</h2><h3 id="第一步：安装Git"><a href="#第一步：安装Git" class="headerlink" title="第一步：安装Git"></a>第一步：安装Git</h3><p>打开VPS(这里我用的是<a href="https://bandwagonhost.com/index.php" target="_blank" rel="noopener">搬运工</a>，怎么购买VPS可以参考我的<a href="http://liujinlongxa.com/2016/06/11/%E6%89%93%E9%80%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BF%BB%E5%A2%99VPS:%E6%90%AC%E8%BF%90%E5%B7%A5VPS%E8%B4%AD%E4%B9%B0%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B%E5%85%A8%E8%AE%B0%E5%BD%95/">这篇博客</a>)的控制后台，进入Shell，然后输入命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y git</span><br></pre></td></tr></table></figure>
 <p>执行完后如图：</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/b9dd798ab599b9b53adebee98ebe5bbd.png" alt="2"></p>
+<p><img src="http://oldblog.shicishuzhai.com/b9dd798ab599b9b53adebee98ebe5bbd.png" alt="2"></p>
 <p>查看Git版本，如果能显示Git版本，则说明安装成功。</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/d7cdff1b7006e2c9b5f1e521319d903c.png" alt="3"></p>
+<p><img src="http://oldblog.shicishuzhai.com/d7cdff1b7006e2c9b5f1e521319d903c.png" alt="3"></p>
 <h3 id="第二步：添加用户"><a href="#第二步：添加用户" class="headerlink" title="第二步：添加用户"></a>第二步：添加用户</h3><p>输入命令</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adduser git</span><br><span class="line">su git</span><br></pre></td></tr></table></figure>
 <p>添加一个名为git的用户，并且将当前用户切换到git</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/c5350088190cd59d220b4942b9d87eae.png" alt="4"></p>
+<p><img src="http://oldblog.shicishuzhai.com/c5350088190cd59d220b4942b9d87eae.png" alt="4"></p>
 <h3 id="第三步：创建仓库"><a href="#第三步：创建仓库" class="headerlink" title="第三步：创建仓库"></a>第三步：创建仓库</h3><p>创建一个文件夹用来存放git仓库，然后输入命令</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init --bare mycode.git</span><br></pre></td></tr></table></figure>
 <p>这样就可以创建一个裸仓库，因为服务器上的Git仓库纯粹是为了共享，所以不让用户直接登录到服务器上去改工作区，如下图：</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/c58f27e2d859d984c844371a43a37ab8.png" alt="5"></p>
+<p><img src="http://oldblog.shicishuzhai.com/c58f27e2d859d984c844371a43a37ab8.png" alt="5"></p>
 <p>把服务器的git仓库的用户组改为git</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/26a614c08121e4b0f8783551208e2d19.png" alt="6"></p>
+<p><img src="http://oldblog.shicishuzhai.com/26a614c08121e4b0f8783551208e2d19.png" alt="6"></p>
 <p>这样仓库就创建完了</p>
 <h3 id="第四步：创建证书"><a href="#第四步：创建证书" class="headerlink" title="第四步：创建证书"></a>第四步：创建证书</h3><p>在服务器/homg/git目录下创建文件夹.ssh，然后在.ssh文件夹里创建authorized_keys</p>
 <p><strong> 注意：一定要切换到git用户下再创建，否则使用root用户创建，会因为文件夹权限的问题而造成RSA校验失败，我就是在这里卡了半天 </strong></p>
 <p>然后在客户端创建公钥，即~/.ssh/id_rsa.pub文件里的内容，然后把公钥填入服务器的authorized_keys文件中</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/9eca6530c312dc064c8901735ef9942e.png" alt="7"></p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/7c38fa2c806440f162b83208038a8dc9.png" alt="8"></p>
+<p><img src="http://oldblog.shicishuzhai.com/9eca6530c312dc064c8901735ef9942e.png" alt="7"></p>
+<p><img src="http://oldblog.shicishuzhai.com/7c38fa2c806440f162b83208038a8dc9.png" alt="8"></p>
 <h3 id="第五步：打开服务器RSA验证"><a href="#第五步：打开服务器RSA验证" class="headerlink" title="第五步：打开服务器RSA验证"></a>第五步：打开服务器RSA验证</h3><p>进入服务器/etc/ssh目录，使用vim打开sshd_config（建议先做一个备份），修改如下内容</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RSAAuthentication yes     </span><br><span class="line">PubkeyAuthentication yes     </span><br><span class="line">AuthorizedKeysFile  .ssh/authorized_keys</span><br></pre></td></tr></table></figure>
 <p>大部分Linux系统的RSA认证默认就是开启的，如果已经开启，则可以忽略(在这里也卡了好久😭)</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/9d534724207d6319fcf654142e91ba24.png" alt="9"></p>
+<p><img src="http://oldblog.shicishuzhai.com/9d534724207d6319fcf654142e91ba24.png" alt="9"></p>
 <p>然后保存退出，重新启动sshd</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/74d02be9217b7ea806af5970560ac956.png" alt="10"></p>
+<p><img src="http://oldblog.shicishuzhai.com/74d02be9217b7ea806af5970560ac956.png" alt="10"></p>
 <h3 id="第六步：修改指定服务器的ssh端口"><a href="#第六步：修改指定服务器的ssh端口" class="headerlink" title="第六步：修改指定服务器的ssh端口"></a>第六步：修改指定服务器的ssh端口</h3><p>一般ssh访问默认的端口是22，但是搬运工VPS修改了ssh访问的端口，而Git访问还是用还是22端口，因此要修改Git使用ssh访问的端口(在这里也卡了好久😭)，要查看ssh端口可以在服务器的sshd_config文件中查看，如下：</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/b2f7743ffae9917e88f0ace60e11637b.png" alt="11"></p>
+<p><img src="http://oldblog.shicishuzhai.com/b2f7743ffae9917e88f0ace60e11637b.png" alt="11"></p>
 <p> 如果不想修改服务器端口配置，可以修改客户端访问端口。在客户端的/~/.ssh/config文件中添加如下两行，第一行是服务器的地址，第二行是服务器的端口</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/17e45daf40d28f1174387104a3daef40.png" alt="12"></p>
+<p><img src="http://oldblog.shicishuzhai.com/17e45daf40d28f1174387104a3daef40.png" alt="12"></p>
 <p>这样就修改了访问指定服务器时的ssh端口。</p>
 <h3 id="第七步：创建本地仓库"><a href="#第七步：创建本地仓库" class="headerlink" title="第七步：创建本地仓库"></a>第七步：创建本地仓库</h3><p>经过以上六步，一个Git服务器就建立好了，现在你就可以把仓库clone下来，然后开始使用了。</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/285c535aa2610ae916b1f964617a8d68.png" alt="13"></p>
+<p><img src="http://oldblog.shicishuzhai.com/285c535aa2610ae916b1f964617a8d68.png" alt="13"></p>
 <h2 id="遇到的坑"><a href="#遇到的坑" class="headerlink" title="遇到的坑"></a>遇到的坑</h2><p>在整个搭建过程中，我也踩了很多坑，下面对这些坑做一个总结。</p>
 <h3 id="服务器与客户端ssh端口不一致"><a href="#服务器与客户端ssh端口不一致" class="headerlink" title="服务器与客户端ssh端口不一致"></a>服务器与客户端ssh端口不一致</h3><p>在完成创建证书之后，按理说，应该已经可以clone仓库了，但是我尝试克隆会报如下错误：</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/e5bc21bbdb55bcdf473e6addf69cf495.png" alt="14"></p>
+<p><img src="http://oldblog.shicishuzhai.com/e5bc21bbdb55bcdf473e6addf69cf495.png" alt="14"></p>
 <p>网上找了很多方法，最后发现是因为客户端和服务器的ssh端口不一致导致，修改了客户端的ssh访问端口才解决了这个问题。</p>
 <p>相关参考：<a href="http://zengrong.net/post/1544.htm" target="_blank" rel="noopener">修改了SSH默认端口之后，如何配置git？</a></p>
 <h3 id="ssh验证失败"><a href="#ssh验证失败" class="headerlink" title="ssh验证失败"></a>ssh验证失败</h3><p>修改了ssh端口后，可以访问仓库了，但是每次访问都要输入密码，按理说我已经创建了证书，并且也把公钥放到了服务器，为什么还是不行呢？</p>
 <p>找了半天，发现服务器的RSA身份校验压根就没有开启，ssh在校验时是先使用RSA进行校验，如果校验失败再使用密码进行校验。修改sshd_config文件，打开身份校验，参照上面的第五步。</p>
 <p>打开身份校验之后，发现还是要输入密码。最初我的做法是关闭服务器的ssh密码校验，修改服务器/etc/ssh/sshd_config文件如下内容：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PasswordAuthentication no</span><br></pre></td></tr></table></figure>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/fadd0406c6a9e9c02402e170082c82c7.png" alt="15"></p>
+<p><img src="http://oldblog.shicishuzhai.com/fadd0406c6a9e9c02402e170082c82c7.png" alt="15"></p>
 <p>然后重启sshd。</p>
 <p>这样修改了之后，由于禁止了密码验证的方式，而RSA验证又失败，所以压根验证失败，访问都访问不了了。</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/2b0a4555687ea4fe8326f690ee35533e.png" alt="16"></p>
+<p><img src="http://oldblog.shicishuzhai.com/2b0a4555687ea4fe8326f690ee35533e.png" alt="16"></p>
 <p>然后我尝试看Log，输入命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh git@xxx.xxx.xxx.xxx -vvv</span><br></pre></td></tr></table></figure>
 <p>从Log上看，客户端已经把key传给了服务器，但是服务器在验证时失败了，所以八成可能是服务器的问题。</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/8ec00cb79352b30a2f95a1b48410cdfe.png" alt="20"></p>
+<p><img src="http://oldblog.shicishuzhai.com/8ec00cb79352b30a2f95a1b48410cdfe.png" alt="20"></p>
 <p>然后我又根据<a href="http://www.androiddev.net/ssh-public-key-authentication-error/" target="_blank" rel="noopener">这篇博客</a>修改了目录的权限，但是还是不行。</p>
 <p>根据<a href="http://flysnowxf.iteye.com/blog/1567570" target="_blank" rel="noopener">这篇博客</a>关闭了SELinux也还是不行。</p>
 <p>然后我又根据<a href="http://blog.csdn.net/lansesl2008/article/details/16113193" target="_blank" rel="noopener">这篇博客</a>打开了ssh的log，修改sshd_config如下内容：</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/3dc7b3340f6b693b047ecbee93400564.png" alt="17"></p>
+<p><img src="http://oldblog.shicishuzhai.com/3dc7b3340f6b693b047ecbee93400564.png" alt="17"></p>
 <p>然后又重新登录和退出几次ssh，在/var/log/secure里看到了如下内容：</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/4f320784c4d9d731d53b3792856ec4dd.png" alt="18"></p>
+<p><img src="http://oldblog.shicishuzhai.com/4f320784c4d9d731d53b3792856ec4dd.png" alt="18"></p>
 <p>并没有什么有用的信息，不知道是不是我的Log配置的有问题。</p>
 <p>找了很多资料，有很多文章都提到了文件夹权限的问题，于是我又回到服务器git目录下看了一下文件夹的权限：</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/c9be98241282c46c0111cb25e1be9aa4.png" alt="19"></p>
+<p><img src="http://oldblog.shicishuzhai.com/c9be98241282c46c0111cb25e1be9aa4.png" alt="19"></p>
 <p>原来我在创建.ssh目录是用的是root账户，所有造成ssh在进行身份认证时没有权限方位.ssh目录，导致认证失败。输入命令</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown git .ssh</span><br></pre></td></tr></table></figure>
 <p>将.ssh文件夹的所属用户改为git，.ssh里的authorized_keys文件也做相同的处理，这样改了之后终于可以验证成功了，并且不用输入密码了。</p>

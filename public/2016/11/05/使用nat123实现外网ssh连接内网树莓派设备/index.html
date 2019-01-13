@@ -94,13 +94,13 @@
 <meta property="og:site_name" content="liujinlongxa的技术博客">
 <meta property="og:description" content="树莓派是一款基于Linux的单板机电脑。最近入手了一块，打算作为Linux服务器来使用。 树莓派自带以太网接口和Wifi模块，可以通过网线或Wifi连接网络。但是由于我家里的网络是电信的光纤网络，用的是电信配的路由器，各个终端都是通过Wifi或网线连到这个路由上，因此各个终端相当于处于局域网，外网无法通过ip直接访问到内网的树莓派设备，这样如果我在树莓派上搭建一个服务器，外网就无法访问。 一般这种">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/7855931f84f019009241b787d7c35f87.png">
-<meta property="og:image" content="http://7xn88v.com1.z0.glb.clouddn.com/d784b452f4e1a71ef9555fd783b95386.png">
-<meta property="og:updated_time" content="2019-01-13T03:52:08.058Z">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/7855931f84f019009241b787d7c35f87.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/d784b452f4e1a71ef9555fd783b95386.png">
+<meta property="og:updated_time" content="2019-01-13T04:01:04.474Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用nat123实现外网ssh连接内网树莓派设备">
 <meta name="twitter:description" content="树莓派是一款基于Linux的单板机电脑。最近入手了一块，打算作为Linux服务器来使用。 树莓派自带以太网接口和Wifi模块，可以通过网线或Wifi连接网络。但是由于我家里的网络是电信的光纤网络，用的是电信配的路由器，各个终端都是通过Wifi或网线连到这个路由上，因此各个终端相当于处于局域网，外网无法通过ip直接访问到内网的树莓派设备，这样如果我在树莓派上搭建一个服务器，外网就无法访问。 一般这种">
-<meta name="twitter:image" content="http://7xn88v.com1.z0.glb.clouddn.com/7855931f84f019009241b787d7c35f87.png">
+<meta name="twitter:image" content="http://oldblog.shicishuzhai.com/7855931f84f019009241b787d7c35f87.png">
 
 
 
@@ -327,9 +327,9 @@
 <h3 id="第二步-注册nat123"><a href="#第二步-注册nat123" class="headerlink" title="第二步 注册nat123"></a>第二步 注册nat123</h3><p>打开<a href="http://www.nat123.com/" target="_blank" rel="noopener">nat123</a>官网，点击右上角的注册按钮完成注册</p>
 <h3 id="第三步-在树莓派上安装nat123-Linux版"><a href="#第三步-在树莓派上安装nat123-Linux版" class="headerlink" title="第三步 在树莓派上安装nat123 Linux版"></a>第三步 在树莓派上安装nat123 Linux版</h3><p>打开树莓派，按照<a href="http://www.nat123.com/pages_17_600.jsp" target="_blank" rel="noopener">这篇文章</a>的内容安装并启动相关软件。这里注意要根据你树莓派上的操作系统选择不同的安装方式，如果安装的官方操作系统Raspbian，应该选用Debian系统的安装方式。</p>
 <h3 id="第四步-配置端口映射"><a href="#第四步-配置端口映射" class="headerlink" title="第四步 配置端口映射"></a>第四步 配置端口映射</h3><p>登录<a href="http://www.nat123.com/" target="_blank" rel="noopener">nat123</a>，在左侧的用户中心点击“端口映射添加”，如下图：</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/7855931f84f019009241b787d7c35f87.png" alt="1"></p>
+<p><img src="http://oldblog.shicishuzhai.com/7855931f84f019009241b787d7c35f87.png" alt="1"></p>
 <p>应用类型选择“其他（非网站）”，这里我要实现的是通过ssh访问树莓派，所有不是80端口，具体应该根据自己的需求选择应用类型，可以参考<a href="http://www.nat123.com/Pages_8_570.jsp" target="_blank" rel="noopener">这篇文章</a>。</p>
-<p><img src="http://7xn88v.com1.z0.glb.clouddn.com/d784b452f4e1a71ef9555fd783b95386.png" alt="2"></p>
+<p><img src="http://oldblog.shicishuzhai.com/d784b452f4e1a71ef9555fd783b95386.png" alt="2"></p>
 <p>下面解释一下每一项的含义：</p>
 <ul>
 <li>应用名称：随便起，这里因为是用于ssh连接的，所以起名为ssh</li>

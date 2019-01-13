@@ -39,7 +39,7 @@ override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
 
 代码中，我们将一个View的y坐标从100移动到500，历时1s，注意开始时间我设定为了`CACurrentMediaTime() + 2.0`，即添加动画2s后才开始执行动画，这样才能看到效果。运行结果如下：
 
-![kCAFillModeRemoved](http://7xn88v.com1.z0.glb.clouddn.com/kCAFillModeRemoved.gif)
+![kCAFillModeRemoved](http://oldblog.shicishuzhai.com/kCAFillModeRemoved.gif)
 
 可以看到，在鼠标点击触发后，2s之后myView才移动到了动画的初始位置100开始执行动画，并且在动画结束后视图又立刻恢复到原来的位置。
 
@@ -61,7 +61,7 @@ override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
 
 运行效果如下：
 
-![kCAFillModeBackwards](http://7xn88v.com1.z0.glb.clouddn.com/kCAFillModeBackwards.gif)
+![kCAFillModeBackwards](http://oldblog.shicishuzhai.com/kCAFillModeBackwards.gif)
 
 可以看到，鼠标点击后，myView立刻移动到了动画的初始位置100，然后2s后开始执行动画。
 
@@ -91,7 +91,7 @@ override func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
 
 代码中添加了`move.isRemovedOnCompletion = false`，即动画执行完后不立刻删除动画，默认情况下，动画执行完后会立刻删除动画。`isRemovedOnCompletion`属性设置为false后，就不会立刻删除。然后我们还添加了`animationDidStop`方法，这个是`CABasicAnimation`的代理方法，在动画执行结束时会被调用。我们在这个方法里延时3s删除动画。运行效果如下：
 
-![kCAFillModeForwards](http://7xn88v.com1.z0.glb.clouddn.com/kCAFillModeForwards.gif)
+![kCAFillModeForwards](http://oldblog.shicishuzhai.com/kCAFillModeForwards.gif)
 
 可以看到，鼠标点击后，myView等了2s才移动到动画初始位置，动画结束后，等待了3s，myView才恢复到原来的位置。也就是动画结束后会保持最后一帧的状态，直到动画被删除掉。
 
@@ -121,7 +121,7 @@ override func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
 
 运行效果如下：
 
-![kCAFillModeBoth](http://7xn88v.com1.z0.glb.clouddn.com/kCAFillModeBoth.gif)
+![kCAFillModeBoth](http://oldblog.shicishuzhai.com/kCAFillModeBoth.gif)
 
 可以看到，鼠标点击后，myView立刻移动到了动画的初始位置，然后动画结束后，等待了3s，myView才恢复到原来的位置。
 

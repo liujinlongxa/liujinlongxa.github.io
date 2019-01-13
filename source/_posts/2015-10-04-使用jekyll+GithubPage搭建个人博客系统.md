@@ -22,18 +22,18 @@ categories: "其他"
 3. 把找好的模板源码下载下来，然后在Github上创建一个空项目，把模板源码上传上去，下面以我用的模板Pithy说明一下具体的过程：
     * 下载模板源码，如下图点击Download下载源码并解压
 
-    ![image](http://7xn88v.com1.z0.glb.clouddn.com/2015-10-04_16-46-21.jpg)
+    ![image](http://oldblog.shicishuzhai.com/2015-10-04_16-46-21.jpg)
 
     * 登录Github，创建一个空项目，取名为：<你的用户名>.github.io
     * 然后把这个空项目clone到本地，把下载好的模板源码拷进去，然后再push到Github上，完成后的效果如下图
 
-    ![image](http://7xn88v.com1.z0.glb.clouddn.com/2015-10-04_16-54-30.jpg)
+    ![image](http://oldblog.shicishuzhai.com/2015-10-04_16-54-30.jpg)
 
 4. 修改模板内容，主要有以下几点
     * 修改_config.yml，具体修改方法可以参照 [http://higrid.net/c-art-blog_jekyll.htm](http://higrid.net/c-art-blog_jekyll.htm#--3)
     * 修改多说账号，这个一般在_layouts/post.html文件中，有的模板中集成了多说，你只需要更改一下shortname即可，有的模板中没有集成多说，添加如下图的代码即可
 
-    ![image](http://7xn88v.com1.z0.glb.clouddn.com/2015-10-04_17-10-06.jpg)
+    ![image](http://oldblog.shicishuzhai.com/2015-10-04_17-10-06.jpg)
 
     * 删除_posts文件夹下的内容，这个文件夹下存放的就是你要发表的博客，大多数模板在这个文件夹中都会有几篇博客，你可以删除他们，
     添加你自己的博客，注意文件名的命名规范：yyyy-MM-dd-博客标题.md，博客的头（两个---之间的内容）可以参考模板自带的博客，
@@ -42,7 +42,7 @@ categories: "其他"
     * 打开终端，进入博客目录，输入命令`jekyll server -w`
     * 打开浏览器，输入`http://localhost:4000/`，这样就可以看到你的博客啦
 
-    ![image](http://7xn88v.com1.z0.glb.clouddn.com/2015-10-04_17-25-46.jpg)
+    ![image](http://oldblog.shicishuzhai.com/2015-10-04_17-25-46.jpg)
 6. 把刚才的修改push到Github上，这样你就有了一个域名为：<你的用户名>.github.io的博客
 
 ## 其他的一些优化

@@ -24,10 +24,10 @@ date: 2016-11-10 21:05:51
 
 首先Command+b编译代码，然后Command+8来到报告导航栏，选中刚才的那次编译，如下图：
 
-![1](http://7xn88v.com1.z0.glb.clouddn.com/ba9ee4f9e59a474670f251598e7978d6.png)
+![1](http://oldblog.shicishuzhai.com/ba9ee4f9e59a474670f251598e7978d6.png)
 
-然后在左侧，找到相应的警告详情，点击左边的![2](http://7xn88v.com1.z0.glb.clouddn.com/f12763686090a1cec73de963526971be.png)按钮可以打开详情，然后就可以在最底部的警告描述里找到警告的类型，如下图：
+然后在左侧，找到相应的警告详情，点击左边的![2](http://oldblog.shicishuzhai.com/f12763686090a1cec73de963526971be.png)按钮可以打开详情，然后就可以在最底部的警告描述里找到警告的类型，如下图：
 
-![3](http://7xn88v.com1.z0.glb.clouddn.com/4d8b40432de09a56e50622b099f002bb.png)
+![3](http://oldblog.shicishuzhai.com/4d8b40432de09a56e50622b099f002bb.png)
 
 以上就是OC忽略警告的方法。

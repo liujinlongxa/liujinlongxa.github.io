@@ -9,36 +9,36 @@ Demo为例，讲解一下如何在Autolayout中应用UIScrollView，希望对大
 
 先看一下最终的效果吧！
 
-![image](http://7xn88v.com1.z0.glb.clouddn.com/AutolayoutDemo.gif)
+![image](http://oldblog.shicishuzhai.com/AutolayoutDemo.gif)
 
 ## 使用Storyboard布局
 
 首先创建一个Single View Application项目，然后在Storyboard中完成如下布局。
 
-![image](http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-10-27%20at%2022.29.54.png)
+![image](http://oldblog.shicishuzhai.com/Screen%20Shot%202015-10-27%20at%2022.29.54.png)
 
 第三个Controller就是我们要实现的界面（以下简称主界面），然后向主界面中拖入一个UIScrollView和一个UIView（姑且叫做A），并且设置UIScrollView的约束如下：
 
-![image](http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-10-27%20at%2022.38.34.png)
+![image](http://oldblog.shicishuzhai.com/Screen%20Shot%202015-10-27%20at%2022.38.34.png)
 
 设置A的约束如下，注意不要添加底边距，或者高度约束
 
-![image](http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-10-27%20at%2022.45.57.png)
+![image](http://oldblog.shicishuzhai.com/Screen%20Shot%202015-10-27%20at%2022.45.57.png)
 
 **注意，这个A和UIScrollView是同一级的，并不是父子视图的关系。A主要是用来辅助计算UIScrollView中内容的高度的。**
 
 此时设置完成后会有约束冲突（A缺少高度约束），先不用在意。接着向UIScrollView中拖入一个UIView（姑且叫做B），然后设置B的宽度和高度约束与A相等，如下图，可以在左侧
 导航视图中拖线设置。
 
-![image](http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-10-27%20at%2022.56.15.png)
+![image](http://oldblog.shicishuzhai.com/Screen%20Shot%202015-10-27%20at%2022.56.15.png)
 
 然后设置B的边界约束如下：
 
-![image](http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-10-27%20at%2022.38.34.png)
+![image](http://oldblog.shicishuzhai.com/Screen%20Shot%202015-10-27%20at%2022.38.34.png)
 
 设置完成后，此时的主界面的结构如下图：
 
-![image](http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-10-27%20at%2022.58.06.png)
+![image](http://oldblog.shicishuzhai.com/Screen%20Shot%202015-10-27%20at%2022.58.06.png)
 
 **B其实就是作为UIScrollView的contentView存在的，把所有原本是UIScrollView中的子控件都应该放在B中。**
 
@@ -55,7 +55,7 @@ Demo为例，讲解一下如何在Autolayout中应用UIScrollView，希望对大
 首先使用CocoaPods安装Masonry，然后在UItableViewController中添加一个cell，并在SB中创建一个新的UIViewController，绑定对应的类AutolayoutViewController，
 如下图：
 
-![image](http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-10-28%20at%2000.05.28.png)
+![image](http://oldblog.shicishuzhai.com/Screen%20Shot%202015-10-28%20at%2000.05.28.png)
 
 在AutolayoutViewController中添加代码，核心代码如下
 

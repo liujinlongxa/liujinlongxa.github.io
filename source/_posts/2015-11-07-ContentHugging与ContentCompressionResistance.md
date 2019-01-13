@@ -26,34 +26,34 @@ categories: "iOS开发"
 
 为类方便观察，给Label加一个背景颜色，设置完运行如下图：
 
-![image](http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-11-07%20at%2022.46.17.png)
+![image](http://oldblog.shicishuzhai.com/Screen%20Shot%202015-11-07%20at%2022.46.17.png)
 
 然后改变宽度约束的优先级为500，如图：
 
-![image](http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-11-07%20at%2022.15.10.png)
+![image](http://oldblog.shicishuzhai.com/Screen%20Shot%202015-11-07%20at%2022.15.10.png)
 
 然后就可以开始设置ContentHuggingPriority与ContentCompressionResistancePriority了，设置界面如下：
 
-![image](http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-11-07%20at%2022.30.26.png)
+![image](http://oldblog.shicishuzhai.com/Screen%20Shot%202015-11-07%20at%2022.30.26.png)
 
 首先设置水平方向上的ContentHuggingPriority为501，运行项目，显示效果如下：
 
-![image](http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-11-07%20at%2022.44.05.png)
+![image](http://oldblog.shicishuzhai.com/Screen%20Shot%202015-11-07%20at%2022.44.05.png)
 
 如果设置水平方向上的ContentHuggingPriority为499，运行项目，显示效果如下：
 
-![image](http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-11-07%20at%2022.46.17.png)
+![image](http://oldblog.shicishuzhai.com/Screen%20Shot%202015-11-07%20at%2022.46.17.png)
 
 这是因为当宽度约束的优先级大于ContentHuggingPriority，优先以约束的宽度显示，当宽度约束的优先级小于ContentHuggingPriority时，如果Label的大小
 大于内容的大小，则会按实际内容的大小显示。
 
 接下来改变Label的宽度约束值为30，然后运行项目，显示效果如下：
 
-![image](http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-11-07%20at%2022.44.05.png)
+![image](http://oldblog.shicishuzhai.com/Screen%20Shot%202015-11-07%20at%2022.44.05.png)
 
 水平方向上ContentCompressionResistancePriority的默认值为750，将其改为499，则显示效果如下：
 
-![image](http://7xn88v.com1.z0.glb.clouddn.com/Screen%20Shot%202015-11-07%20at%2023.02.49.png)
+![image](http://oldblog.shicishuzhai.com/Screen%20Shot%202015-11-07%20at%2023.02.49.png)
 
 这是因为当宽度约束的优先级大于ContentCompressionResistancePriority，优先以约束的宽度显示，当宽度约束的优先级小于ContentCompressionResistancePriority
 时，如果Label的大小小于内容的大小，则会按实际内容的大小显示
