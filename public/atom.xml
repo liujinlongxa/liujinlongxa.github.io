@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://liujinlongxa.com/"/>
-  <updated>2019-01-04T17:12:18.053Z</updated>
+  <updated>2019-01-27T09:30:04.339Z</updated>
   <id>http://liujinlongxa.com/</id>
   
   <author>
@@ -17,20 +17,50 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2018年终总结</title>
-    <link href="http://liujinlongxa.com/2019/01/05/2018%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"/>
-    <id>http://liujinlongxa.com/2019/01/05/2018年终总结/</id>
-    <published>2019-01-04T16:03:00.000Z</published>
-    <updated>2019-01-04T17:12:18.053Z</updated>
+    <title>Flask项目部署：Nginx + Gunicorn</title>
+    <link href="http://liujinlongxa.com/2019/01/27/Flask%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%EF%BC%9ANginx-Gunicorn/"/>
+    <id>http://liujinlongxa.com/2019/01/27/Flask项目部署：Nginx-Gunicorn/</id>
+    <published>2019-01-27T08:45:05.000Z</published>
+    <updated>2019-01-27T09:30:04.339Z</updated>
     
-    <content type="html"><![CDATA[<p>这几天看到到处都是年终总结的博客，自己也来凑凑热闹。我打算写两篇，第一篇是回顾2018，第二篇是展望2019。这是第一篇，主要内容是总结一下自己2018年都做了哪些事情，有哪些得失。</p><h2 id="学习方面"><a href="#学习方面" class="headerlink" title="学习方面"></a>学习方面</h2><p>除了iOS，2018年自己还确实学了不少东西，下面我大概列举了一下自己2018年学的东西：</p><ul><li>HTML/CSS</li><li>JavaScript</li><li>Node.js</li><li>Python/Flask</li><li>Flutter</li><li>React/ReactNative</li><li>微信小程序开发</li></ul><p>虽然学了很多，但是没有太多实践的机会，所有很多东西学的并不是很深入。</p><p>另外，这些东西基本都是在10月份之前学的，10月份开始，由于公司新项目启动，自己进入了疯狂加班状态，学习基本处于半停滞状态。10月份到12月份基本没有学习什么新的东西。</p><p>另外，由于新项目采用Swift语言开发，自己在Swift语言上也有了一些经验。</p><h2 id="工作方面"><a href="#工作方面" class="headerlink" title="工作方面"></a>工作方面</h2><p>2018年已经是我在懒人听书呆的第4个年头了，说实话，我当初也没有想到自己能呆这么久。</p><p>今年工作上最大的事情就是从9月份开始，我作为技术经理，全权负责公司新项目芽芽故事iOS端的开发工作。经过团队（3个人）一起的不懈努力，最终于12月中旬，按时完成了开发任务，没有延期。这是我在懒人第一次完整的负责一个App的整个开发过程，从最开始的立项，架构设计，技术选型，再到模块划分，人员分配等。这个过程中自己确实得到了很大的锻炼。不光是技术上的，还包括沟通，协调，管理等能力也得到了很大的提升。</p><h2 id="生活方面"><a href="#生活方面" class="headerlink" title="生活方面"></a>生活方面</h2><p>年初定的减肥计划，上半年执行的很好，到8月份时最低体重降到了67kg。不过，经过10月，11月，12月的加班，又反弹到了72kg，看来明年还得继续努力啊。</p><p>9月份跟公司一起去日本旅游了一趟，算是了了自己的一桩心愿。</p><p>投资方面，股市暴跌，基金赔了将近1万块。上半年P2P暴雷，虽然自己投的平台没有出事，但还是吓得接连减仓。下半年和朋友合伙投资了一家便利店，最终被合伙人坑了，赔了将近4万，加上基金赔的，基本上把自己去年在数字货币上赚的又都赔进去了，只能怪自己阅历太少，不知人心险恶。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>上面就是我2018年的总结，总的来说，自己在2018年各方面都有所进步（除了体重），但总感觉进步得还是不够快。希望自己在2019年能取得更大的进步。</p>]]></content>
+    <content type="html"><![CDATA[<p>最近在做自己的个人项目诗词书斋，用到了服务器，使用的是自己熟悉的 Flask 框架编写后端接口，写完之后需要部署到阿里云服务器上，本文是我对整个部署流程的一个总结。</p><h3 id="总体方案"><a href="#总体方案" class="headerlink" title="总体方案"></a>总体方案</h3><p>总体方案是 Nginx + Gunicorn，Nginx 负责代理转发，Gunicorn 是一个 WSGI 容器，负责启动应用。我使用的是阿里云 Ubuntu 系统。</p><h3 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h3><ol><li>安装 Nginx</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 更新源</span><br><span class="line">sudo apt-get update</span><br><span class="line"><span class="meta">#</span> 安装nginx</span><br><span class="line">sudo apt-get install nginx</span><br><span class="line"><span class="meta">#</span> 启动nginx</span><br><span class="line">sudo /etc/init.d/nginx start</span><br></pre></td></tr></table></figure><p>启动之后，在浏览器上输入服务器的外网 IP 就可以看到 Nginx 的界面</p><ol start="2"><li>配置 Nginx</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 删除Nginx默认配置文件</span><br><span class="line">sudo rm /etc/nginx/sites-enabled/default</span><br><span class="line"><span class="meta">#</span> 创建自己的配置文件</span><br><span class="line">sudo touch /etc/nginx/sites-available/flask_setting</span><br><span class="line"><span class="meta">#</span> 创建连接</span><br><span class="line">sudo ln /etc/nginx/sites-available/flask_setting /etc/nginx/sites-enabled/flask_setting</span><br><span class="line"><span class="meta">#</span> 编辑配置文件</span><br><span class="line">vim /etc/nginx/sites-enabled/flask_setting</span><br></pre></td></tr></table></figure><p>配置文件内容：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        location / &#123;</span><br><span class="line">                proxy_pass http://127.0.0.1:8000;</span><br><span class="line">                proxy_set_header Host $host;</span><br><span class="line">                proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>解释：127.0.0.1:8000 是 flask 应用运行的本地地址，gunicorn 运行应用默认使用 8000 端口。</p><ol start="3"><li>安装 pipenv</li></ol><p>pipenv 是 Python 的虚拟运行环境。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://raw.githubusercontent.com/kennethreitz/pipenv/master/get-pipenv.py | python</span><br></pre></td></tr></table></figure><ol start="4"><li>安装 Gunicorn</li></ol><p>进入 flask 项目目录，运行虚拟环境</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pipenv shell</span><br><span class="line">pipenv install # 安装flask等项目需要用到的包</span><br><span class="line">pipenv install gunicorn # 安装gunicorn</span><br></pre></td></tr></table></figure><ol start="5"><li>配置 Gunicorn</li></ol><p>在项目目录下创建<code>config.py</code>，填入内容</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">accesslog = <span class="string">"/root/log/access.log"</span>  <span class="comment"># 访问日志文件</span></span><br><span class="line">errorlog = <span class="string">"/root/log/error.log"</span>  <span class="comment"># 错误日志文件</span></span><br><span class="line">loglevel = <span class="string">'info'</span></span><br><span class="line">daemon = <span class="keyword">True</span> <span class="comment"># 作为守护进程运行</span></span><br></pre></td></tr></table></figure><ol start="6"><li>运行</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gunicorn -c config.py release:app</span><br></pre></td></tr></table></figure><p>release 是项目入口文件包名，app 为入口文件中的应用名，即 Flask 对象的名称。</p><h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><p>上面就是整个部署流程，这过程中遇到的问题有如下几个：</p><ol><li>Ubuntu 默认的 Python 版本比较低，如果需要高版本的 Python，需要先安装 Python，再创建虚拟环境。</li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用Python3.7创建虚拟环境</span></span><br><span class="line">pipenv --python <span class="number">3.7</span></span><br></pre></td></tr></table></figure><ol start="2"><li>代码使用 Git 部署，之前使用的 GitHub，后来发现阿里云竟然屏蔽了 GitHub😒，代码拉不下啦，没办法，给项目添加了一个 Coding.net 的远程仓库，这样才可以把代码拉下来。</li></ol><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>以上就是我部署 Flask 项目的整个流程，其实 Python 项目的部署方案有很多种，这只是其中的一种方案。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;这几天看到到处都是年终总结的博客，自己也来凑凑热闹。我打算写两篇，第一篇是回顾2018，第二篇是展望2019。这是第一篇，主要内容是总结一下自己2018年都做了哪些事情，有哪些得失。&lt;/p&gt;
-&lt;h2 id=&quot;学习方面&quot;&gt;&lt;a href=&quot;#学习方面&quot; class=&quot;head
+        &lt;p&gt;最近在做自己的个人项目诗词书斋，用到了服务器，使用的是自己熟悉的 Flask 框架编写后端接口，写完之后需要部署到阿里云服务器上，本文是我对整个部署流程的一个总结。&lt;/p&gt;
+&lt;h3 id=&quot;总体方案&quot;&gt;&lt;a href=&quot;#总体方案&quot; class=&quot;headerlink&quot; t
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="http://liujinlongxa.com/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="http://liujinlongxa.com/tags/Python/"/>
+    
+      <category term="Flask" scheme="http://liujinlongxa.com/tags/Flask/"/>
+    
+      <category term="Backend" scheme="http://liujinlongxa.com/tags/Backend/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2018年终总结</title>
+    <link href="http://liujinlongxa.com/2019/01/05/2018%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"/>
+    <id>http://liujinlongxa.com/2019/01/05/2018年终总结/</id>
+    <published>2019-01-04T16:03:00.000Z</published>
+    <updated>2019-01-27T08:43:02.729Z</updated>
+    
+    <content type="html"><![CDATA[<p>这几天看到到处都是年终总结的博客，自己也来凑凑热闹。我打算写两篇，第一篇是回顾 2018，第二篇是展望 2019。这是第一篇，主要内容是总结一下自己 2018 年都做了哪些事情，有哪些得失。</p><h2 id="学习方面"><a href="#学习方面" class="headerlink" title="学习方面"></a>学习方面</h2><p>除了 iOS，2018 年自己还确实学了不少东西，下面我大概列举了一下自己 2018 年学的东西：</p><ul><li>HTML/CSS</li><li>JavaScript</li><li>Node.js</li><li>Python/Flask</li><li>Flutter</li><li>React/ReactNative</li><li>微信小程序开发</li></ul><p>虽然学了很多，但是没有太多实践的机会，所有很多东西学的并不是很深入。</p><p>另外，这些东西基本都是在 10 月份之前学的，10 月份开始，由于公司新项目启动，自己进入了疯狂加班状态，学习基本处于半停滞状态。10 月份到 12 月份基本没有学习什么新的东西。</p><p>另外，由于新项目采用 Swift 语言开发，自己在 Swift 语言上也有了一些经验。</p><h2 id="工作方面"><a href="#工作方面" class="headerlink" title="工作方面"></a>工作方面</h2><p>2018 年已经是我在懒人听书呆的第 4 个年头了，说实话，我当初也没有想到自己能呆这么久。</p><p>今年工作上最大的事情就是从 9 月份开始，我作为技术经理，全权负责公司新项目芽芽故事 iOS 端的开发工作。经过团队（3 个人）一起的不懈努力，最终于 12 月中旬，按时完成了开发任务，没有延期。这是我在懒人第一次完整的负责一个 App 的整个开发过程，从最开始的立项，架构设计，技术选型，再到模块划分，人员分配等。这个过程中自己确实得到了很大的锻炼。不光是技术上的，还包括沟通，协调，管理等能力也得到了很大的提升。</p><h2 id="生活方面"><a href="#生活方面" class="headerlink" title="生活方面"></a>生活方面</h2><p>年初定的减肥计划，上半年执行的很好，到 8 月份时最低体重降到了 67kg。不过，经过 10 月，11 月，12 月的加班，又反弹到了 72kg，看来明年还得继续努力啊。</p><p>9 月份跟公司一起去日本旅游了一趟，算是了了自己的一桩心愿。</p><p>投资方面，股市暴跌，基金赔了将近 1 万块。上半年 P2P 暴雷，虽然自己投的平台没有出事，但还是吓得接连减仓。下半年和朋友合伙投资了一家便利店，最终被合伙人坑了，赔了将近 4 万，加上基金赔的，基本上把自己去年在数字货币上赚的又都赔进去了，只能怪自己阅历太少，不知人心险恶。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>上面就是我 2018 年的总结，总的来说，2018 年自己的表现并不是很好，年初的很多目标没有完成，留给自己的时间已经不多了，毕竟年龄在那摆着，已经是快奔三的人了。希望自己继续努力加油，在 2019 年能取得更大的进步。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;这几天看到到处都是年终总结的博客，自己也来凑凑热闹。我打算写两篇，第一篇是回顾 2018，第二篇是展望 2019。这是第一篇，主要内容是总结一下自己 2018 年都做了哪些事情，有哪些得失。&lt;/p&gt;
+&lt;h2 id=&quot;学习方面&quot;&gt;&lt;a href=&quot;#学习方面&quot; class=&quot;
       
     
     </summary>
@@ -510,36 +540,6 @@
       <category term="SSH" scheme="http://liujinlongxa.com/tags/SSH/"/>
     
       <category term="网络" scheme="http://liujinlongxa.com/tags/%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Swift3中的预处理宏</title>
-    <link href="http://liujinlongxa.com/2016/10/28/Swift3%E4%B8%AD%E7%9A%84%E9%A2%84%E5%A4%84%E7%90%86%E5%AE%8F/"/>
-    <id>http://liujinlongxa.com/2016/10/28/Swift3中的预处理宏/</id>
-    <published>2016-10-28T09:18:57.000Z</published>
-    <updated>2017-03-01T06:42:53.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Swift中也可以使用预处理宏，只不过和ObjectiveC有点不一样，下面详细说明一下。</p><ul><li>Swift中取消了#define，建议使用全局常量替换宏定义</li><li>Swift中仍然可以使用<code>#if, #elseif, #endif</code>等宏，注意，Swift中是<code>#elseif</code>，而在OC中是<code>#elif</code>。还有<code>#if</code>和<code>#elseif</code>后面的判断条件必须是Bool类型的。</li></ul><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#<span class="keyword">if</span> <span class="literal">false</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"aaaa"</span>)</span><br><span class="line">#elseif <span class="literal">true</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"bbbb"</span>)</span><br><span class="line">#<span class="keyword">else</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"cccc"</span>)</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure><ul><li>Swift中取消了<code>__FUNCTION__, __FILE__, __LINE__</code>，分别改为了<code>#function, #file, #line</code></li></ul><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(#file)</span><br><span class="line"><span class="built_in">print</span>(#line)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">function1</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(#function)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Swift中也可以使用预处理宏，只不过和ObjectiveC有点不一样，下面详细说明一下。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Swift中取消了#define，建议使用全局常量替换宏定义&lt;/li&gt;
-&lt;li&gt;Swift中仍然可以使用&lt;code&gt;#if, #elseif, #endif
-      
-    
-    </summary>
-    
-      <category term="Swift" scheme="http://liujinlongxa.com/categories/Swift/"/>
-    
-    
-      <category term="Swift" scheme="http://liujinlongxa.com/tags/Swift/"/>
-    
-      <category term="预处理宏" scheme="http://liujinlongxa.com/tags/%E9%A2%84%E5%A4%84%E7%90%86%E5%AE%8F/"/>
     
   </entry>
   
