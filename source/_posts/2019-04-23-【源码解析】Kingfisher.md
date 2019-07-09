@@ -160,4 +160,86 @@ if case .success(let msg) = stringResult {
 
 ## 4. Kingfisher 缓存策略？
 
-## 5. Kingfisher 异步加载时怎么处理的？
+Kingfisher 的缓存的核心类是`ImageCache`，其中`memoryStorage`和`diskStorage`属性分别用来处理内存缓存和磁盘缓存。在创建`ImageCache`是，会创建一个名叫`ioQueue`的 DispatchQueue 用来作为读写文件的队列。核心代码如下：
+
+```swift
+public init(
+    memoryStorage: MemoryStorage.Backend<Image>,
+    diskStorage: DiskStorage.Backend<Data>)
+{
+    self.memoryStorage = memoryStorage
+    self.diskStorage = diskStorage
+    let ioQueueName = "com.onevcat.Kingfisher.ImageCache.ioQueue.\(UUID().uuidString)"
+    ioQueue = DispatchQueue(label: ioQueueName)
+
+    // Other code...
+}
+```
+
+### 内存存储
+
+Kingfisher 使用的是`NSCache`，设计的最大占用内存量为系统内存的四分之一，缓存有效时间默认为 300 秒。在创建`MemoryStorage.Backend`时会起一个定时器，定时器到时候会自动清理缓存。
+
+```swift
+// ImageCache.swift
+let totalMemory = ProcessInfo.processInfo.physicalMemory
+let costLimit = totalMemory / 4
+let memoryStorage = MemoryStorage.Backend<Image>(config:
+    .init(totalCostLimit: (costLimit > Int.max) ? Int.max : Int(costLimit)))
+// Other code ...
+
+// MemoryStore.swift
+extension MemoryStorage {
+    /// Represents the config used in a `MemoryStorage`.
+    public struct Config {
+        public var totalCostLimit: Int
+        public var countLimit: Int = .max
+        public var expiration: StorageExpiration = .seconds(300)
+
+        // Other code...
+    }
+}
+```
+
+### 磁盘缓存
+
+Kingfisher 设置默认过期时间为 7 天，每次 APP 进入后台时都会检测是否有已经过期的图片，如果有则删除。
+
+```swift
+// ImageCache.swift
+var diskConfig = DiskStorage.Config(
+    name: name,
+    sizeLimit: 0,
+    directory: cacheDirectoryURL
+)
+
+// Clean Disk Cache
+@objc public func backgroundCleanExpiredDiskCache() {
+    // if 'sharedApplication()' is unavailable, then return
+    guard let sharedApplication = KingfisherWrapper<UIApplication>.shared else { return }
+
+    // Other code ...
+
+    var backgroundTask: UIBackgroundTaskIdentifier!
+    backgroundTask = sharedApplication.beginBackgroundTask {
+        endBackgroundTask(&backgroundTask!)
+    }
+
+    cleanExpiredDiskCache {
+        endBackgroundTask(&backgroundTask!)
+    }
+}
+
+```
+
+### 读取缓存
+
+读取缓存的步骤大致如下：
+
+- 先从内存中读取缓存，如果内存有缓存则直接返回
+- 如果内存中没有，则判断`fromMemoryCacheOrRefresh`这个选项是否是 true，如果是则直接返回错误
+- 如果`fromMemoryCacheOrRefresh`为 false，则异步读取磁盘缓存
+
+### 其他
+
+Kingfisher 针对内存缓存和磁盘缓存分别创建`MemoryStorage` 和 `DiskStorage` 两个 Enum，将所有相关的类或结构体（Backend，Config 等）都作为内部类型放在 Enum 中。这种做法使得代码看起来更加内聚，值得我们借鉴。
