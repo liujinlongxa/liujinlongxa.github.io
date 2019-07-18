@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://liujinlongxa.com/"/>
-  <updated>2019-07-17T17:05:08.815Z</updated>
+  <updated>2019-07-18T16:17:16.721Z</updated>
   <id>http://liujinlongxa.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SwiftUI:在UIKit中使用SwiftUI</title>
+    <link href="http://liujinlongxa.com/2019/07/19/SwiftUI-%E5%9C%A8UIKit%E4%B8%AD%E4%BD%BF%E7%94%A8SwiftUI/"/>
+    <id>http://liujinlongxa.com/2019/07/19/SwiftUI-在UIKit中使用SwiftUI/</id>
+    <published>2019-07-18T16:10:33.000Z</published>
+    <updated>2019-07-18T16:17:16.721Z</updated>
+    
+    <content type="html"><![CDATA[<p>上一篇介绍了如何在 SwiftUI 中使用 UIKit，这篇文章介绍一下如何在 UIKit 中使用 SwiftUIUI。</p><p>在 UIKit 中使用 SwiftUI 要比在 SwiftUI 中使用 SwiftUI 简单很多，只需要使用<code>UIHostingController</code>对 SwiftUI 的控件进行一下包装就可以，代码如下：</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> vc = <span class="type">UIHostingController</span>(rootView: <span class="type">Text</span>(<span class="string">"Hello World"</span>))</span><br></pre></td></tr></table></figure><p>包装出来的结果是一个<code>UIViewController</code>，这样就可以在其他<code>UIView</code>或<code>UIViewController</code>中使用了。可以将这个<code>UIViewController</code>作为一个<code>childViewController</code>加到其他的<code>UIView</code>或<code>UIViewController</code>中去。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;上一篇介绍了如何在 SwiftUI 中使用 UIKit，这篇文章介绍一下如何在 UIKit 中使用 SwiftUIUI。&lt;/p&gt;
+&lt;p&gt;在 UIKit 中使用 SwiftUI 要比在 SwiftUI 中使用 SwiftUI 简单很多，只需要使用&lt;code&gt;UIHosting
+      
+    
+    </summary>
+    
+      <category term="SwiftUI" scheme="http://liujinlongxa.com/categories/SwiftUI/"/>
+    
+    
+      <category term="Swift" scheme="http://liujinlongxa.com/tags/Swift/"/>
+    
+      <category term="SwiftUI" scheme="http://liujinlongxa.com/tags/SwiftUI/"/>
+    
+  </entry>
   
   <entry>
     <title>SwiftUI:在SwiftUI中使用UIKit</title>
@@ -512,32 +540,6 @@
     
     
       <category term="Xcode" scheme="http://liujinlongxa.com/tags/Xcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用defaults命令获取iOS项目版本号</title>
-    <link href="http://liujinlongxa.com/2016/11/15/%E4%BD%BF%E7%94%A8defaults%E5%91%BD%E4%BB%A4%E8%8E%B7%E5%8F%96iOS%E9%A1%B9%E7%9B%AE%E7%89%88%E6%9C%AC%E5%8F%B7/"/>
-    <id>http://liujinlongxa.com/2016/11/15/使用defaults命令获取iOS项目版本号/</id>
-    <published>2016-11-15T01:51:44.000Z</published>
-    <updated>2017-03-01T06:42:53.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>defaults命令可以用来读取和修改plist文件，因此可以用它来读取iOS项目里的Info.plist文件，具体用法如下：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults read &lt;plist文件的绝对路径&gt; &lt;Key&gt;</span><br></pre></td></tr></table></figure><p>例如，读取项目的版本号，则名为如下：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults read ~/Project/Info.plist CFBundleShortVersionString</span><br></pre></td></tr></table></figure><p>这里要注意，<strong>路径一定要是绝对路径，不能是相对路径</strong>。</p><p>有了这个命令，我们就可以很方便的在脚本中获取版本号，编写一些更复杂的应用。</p><p>其实，获取版本号还可以使用xcode自带的<a href="https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/agvtool.1.html" target="_blank" rel="noopener">agvtool</a>，但是如果项目中有多个.xcodeproj文件，agvtool就不能正确获取版本号了，暂时还没找到解决方案。</p><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://developer.apple.com/library/content/qa/qa1827/_index.html" target="_blank" rel="noopener">Automating Version and Build Numbers Using agvtool</a><br><a href="https://github.com/nomad/shenzhen/issues/160" target="_blank" rel="noopener">Include Build Number in ipa info command</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;defaults命令可以用来读取和修改plist文件，因此可以用它来读取iOS项目里的Info.plist文件，具体用法如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;s
-      
-    
-    </summary>
-    
-      <category term="iOS Tips" scheme="http://liujinlongxa.com/categories/iOS-Tips/"/>
-    
-    
-      <category term="其他" scheme="http://liujinlongxa.com/tags/%E5%85%B6%E4%BB%96/"/>
     
   </entry>
   
