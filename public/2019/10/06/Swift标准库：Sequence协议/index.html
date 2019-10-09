@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="Sequence 协议为类型提供了迭代访问的能力，凡是实现了 Sequence 的类型，都快进行迭代访问，即使用for-in语句进行访问，标准库中的Array, Dictionary, Set等类型都实现了 Sequence 协议。下面介绍一下自定义类型如何实现 Sequence 协议。 实现 Sequence 协议的集合有以下两个特点：  集合的个数可以是有限的也可以是无限的 迭代过程中元素不能">
+<meta name="description" content="Sequence 协议为类型提供了迭代访问的能力，凡是实现了 Sequence 的类型，都快进行迭代访问，即使用for-in语句进行访问，标准库中的Array, Dictionary, Set等类型都实现了 Sequence 协议。下面介绍一下自定义类型如何实现 Sequence 协议。 实现 Sequence 协议的集合有以下两个特点：  集合的个数可以是有限的也可以是无限的 只能迭代一次  1">
 <meta name="keywords" content="Swift">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Swift标准库：Sequence协议">
 <meta property="og:url" content="http://liujinlongxa.com/2019/10/06/Swift标准库：Sequence协议/index.html">
 <meta property="og:site_name" content="liujinlongxa的技术博客">
-<meta property="og:description" content="Sequence 协议为类型提供了迭代访问的能力，凡是实现了 Sequence 的类型，都快进行迭代访问，即使用for-in语句进行访问，标准库中的Array, Dictionary, Set等类型都实现了 Sequence 协议。下面介绍一下自定义类型如何实现 Sequence 协议。 实现 Sequence 协议的集合有以下两个特点：  集合的个数可以是有限的也可以是无限的 迭代过程中元素不能">
+<meta property="og:description" content="Sequence 协议为类型提供了迭代访问的能力，凡是实现了 Sequence 的类型，都快进行迭代访问，即使用for-in语句进行访问，标准库中的Array, Dictionary, Set等类型都实现了 Sequence 协议。下面介绍一下自定义类型如何实现 Sequence 协议。 实现 Sequence 协议的集合有以下两个特点：  集合的个数可以是有限的也可以是无限的 只能迭代一次  1">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-06T15:33:14.960Z">
+<meta property="og:updated_time" content="2019-10-09T16:11:22.442Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift标准库：Sequence协议">
-<meta name="twitter:description" content="Sequence 协议为类型提供了迭代访问的能力，凡是实现了 Sequence 的类型，都快进行迭代访问，即使用for-in语句进行访问，标准库中的Array, Dictionary, Set等类型都实现了 Sequence 协议。下面介绍一下自定义类型如何实现 Sequence 协议。 实现 Sequence 协议的集合有以下两个特点：  集合的个数可以是有限的也可以是无限的 迭代过程中元素不能">
+<meta name="twitter:description" content="Sequence 协议为类型提供了迭代访问的能力，凡是实现了 Sequence 的类型，都快进行迭代访问，即使用for-in语句进行访问，标准库中的Array, Dictionary, Set等类型都实现了 Sequence 协议。下面介绍一下自定义类型如何实现 Sequence 协议。 实现 Sequence 协议的集合有以下两个特点：  集合的个数可以是有限的也可以是无限的 只能迭代一次  1">
 
 
 
@@ -320,7 +320,7 @@
 <p>实现 Sequence 协议的集合有以下两个特点：</p>
 <ol>
 <li>集合的个数可以是有限的也可以是无限的</li>
-<li>迭代过程中元素不能重复</li>
+<li>只能迭代一次</li>
 </ol>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Countdown</span>: <span class="title">Sequence</span>, <span class="title">IteratorProtocol</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> <span class="built_in">count</span>: <span class="type">Int</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">next</span><span class="params">()</span></span> -&gt; <span class="type">Int</span>? &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">count</span> == <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">defer</span> &#123; <span class="built_in">count</span> -= <span class="number">1</span> &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">count</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>使用的时候就可以使用<code>for-in</code>语句：</p>
@@ -439,7 +439,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">75</span>
+              <span class="site-state-item-count">76</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

@@ -11,7 +11,7 @@ Sequence 协议为类型提供了迭代访问的能力，凡是实现了 Sequenc
 实现 Sequence 协议的集合有以下两个特点：
 
 1. 集合的个数可以是有限的也可以是无限的
-2. 迭代过程中元素不能重复
+2. 只能迭代一次
 
 ```swift
 struct Countdown: Sequence, IteratorProtocol {
