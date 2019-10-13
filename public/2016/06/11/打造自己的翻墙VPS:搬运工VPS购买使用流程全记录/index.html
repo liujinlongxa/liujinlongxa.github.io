@@ -1,0 +1,691 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="liujinlongxa的技术博客" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/source/favicon.ico?v=5.0.1">
+
+
+
+
+
+
+<meta name="description" content="端午节在家无聊，买了一个VPS，打算做翻墙用，下面是我购买和使用的一个流程全集了，主要以截图为主，文字为辅。 我选的VPS是搬运工，因为网上教程比较多，而且支持支付宝支付（实际证明支付宝支付就是个坑）。 第一步：购买搬运工VPS打开搬运工官网，点击Home  选择一个套餐，点击OrderNow，出现了一个错误界面，没关系，继续点击Please Check…  往下拉，选择一个套餐，显示out of">
+<meta property="og:type" content="article">
+<meta property="og:title" content="打造自己的翻墙VPS:搬运工VPS购买使用流程全记录">
+<meta property="og:url" content="http://liujinlongxa.com/2016/06/11/打造自己的翻墙VPS:搬运工VPS购买使用流程全记录/index.html">
+<meta property="og:site_name" content="liujinlongxa的技术博客">
+<meta property="og:description" content="端午节在家无聊，买了一个VPS，打算做翻墙用，下面是我购买和使用的一个流程全集了，主要以截图为主，文字为辅。 我选的VPS是搬运工，因为网上教程比较多，而且支持支付宝支付（实际证明支付宝支付就是个坑）。 第一步：购买搬运工VPS打开搬运工官网，点击Home  选择一个套餐，点击OrderNow，出现了一个错误界面，没关系，继续点击Please Check…  往下拉，选择一个套餐，显示out of">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/bed44e502ad30c6337a757df1096eb42.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/6521ec84ff41c1c28efcbaf55195b41b.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/4d0c8ffde0ee4fabd1619a2f76cd142d.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/df89863eb89691d23f8ede6df91474ac.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/22185a6765ad03c3c490039547b1a6f9.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/c52d6ec41f2fe7306d95fe02c150ff3c.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/8c5c7146ebeae385a78a0d2ff4f41d50.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/5044a701d5863fb3df75cde054e40bf1.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/b1919f5edb17005e107f2cda76ea6543.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/0d844d6592095394205b3ec705c27c07.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/519dd5c39986045804589fb1c2037bc1.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/32ba5f9b92493a7fae77e566ffeb1899.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/765e9238bfc53b4d7efcf7eddadc1713.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/6c277b288f658f0f46b49692ad44cd07.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/cf4d5ded8facbea9375c69e1736db8b7.png">
+<meta property="og:updated_time" content="2019-01-13T04:01:04.455Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="打造自己的翻墙VPS:搬运工VPS购买使用流程全记录">
+<meta name="twitter:description" content="端午节在家无聊，买了一个VPS，打算做翻墙用，下面是我购买和使用的一个流程全集了，主要以截图为主，文字为辅。 我选的VPS是搬运工，因为网上教程比较多，而且支持支付宝支付（实际证明支付宝支付就是个坑）。 第一步：购买搬运工VPS打开搬运工官网，点击Home  选择一个套餐，点击OrderNow，出现了一个错误界面，没关系，继续点击Please Check…  往下拉，选择一个套餐，显示out of">
+<meta name="twitter:image" content="http://oldblog.shicishuzhai.com/bed44e502ad30c6337a757df1096eb42.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://liujinlongxa.com/2016/06/11/打造自己的翻墙VPS:搬运工VPS购买使用流程全记录/">
+
+  <title> 打造自己的翻墙VPS:搬运工VPS购买使用流程全记录 | liujinlongxa的技术博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">liujinlongxa的技术博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                打造自己的翻墙VPS:搬运工VPS购买使用流程全记录
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-11T00:00:00+08:00" content="2016-06-11">
+              2016-06-11
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/其他/" itemprop="url" rel="index">
+                    <span itemprop="name">其他</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>端午节在家无聊，买了一个VPS，打算做翻墙用，下面是我购买和使用的一个流程全集了，主要以截图为主，文字为辅。</p>
+<p>我选的VPS是<a href="https://bandwagonhost.com/index.php" target="_blank" rel="noopener">搬运工</a>，因为网上教程比较多，而且支持支付宝支付（实际证明支付宝支付就是个坑）。</p>
+<h2 id="第一步：购买搬运工VPS"><a href="#第一步：购买搬运工VPS" class="headerlink" title="第一步：购买搬运工VPS"></a>第一步：购买搬运工VPS</h2><p>打开<a href="https://bandwagonhost.com/index.php" target="_blank" rel="noopener">搬运工</a>官网，点击Home</p>
+<p><img src="http://oldblog.shicishuzhai.com/bed44e502ad30c6337a757df1096eb42.png" alt="1"></p>
+<p>选择一个套餐，点击OrderNow，出现了一个错误界面，没关系，继续点击Please Check…</p>
+<p><img src="http://oldblog.shicishuzhai.com/6521ec84ff41c1c28efcbaf55195b41b.png" alt="2"></p>
+<p>往下拉，选择一个套餐，显示out of stock是已经售罄的，选择一个没有售罄的，点击Order Now（便宜的都卖完了😭😭）</p>
+<p><img src="http://oldblog.shicishuzhai.com/4d0c8ffde0ee4fabd1619a2f76cd142d.png" alt="3"></p>
+<p>我选的是4.99$每月的套餐，然后选择计费周期和机房地址，计费周期有每月，每季度，每半年，每年，机房地址如果开通后觉得速度慢可以换的，选择完成后，点击Add to Cart</p>
+<p><img src="http://oldblog.shicishuzhai.com/df89863eb89691d23f8ede6df91474ac.png" alt="4"></p>
+<p>填写优惠码（如果有的话），然后点击CheckOut提交订单</p>
+<p><img src="http://oldblog.shicishuzhai.com/22185a6765ad03c3c490039547b1a6f9.png" alt="5"></p>
+<p>填写支付信息，可以选择支付宝支付，然后点击Complete Order完成订单</p>
+<p><img src="http://oldblog.shicishuzhai.com/c52d6ec41f2fe7306d95fe02c150ff3c.png" alt="6"></p>
+<p>然后，点击PayNow</p>
+<p><img src="http://oldblog.shicishuzhai.com/8c5c7146ebeae385a78a0d2ff4f41d50.png" alt="7"></p>
+<p>点了好几遍，使用没反应，最后无奈，只能使用PayPal（坑！！）</p>
+<p><img src="http://oldblog.shicishuzhai.com/5044a701d5863fb3df75cde054e40bf1.png" alt="8"></p>
+<p>然后登陆PayPal，确认订单，支付就可了。支付完成后，返回搬运工，可以看到一个订单号，这就说明订单已经完成了。</p>
+<p><img src="http://oldblog.shicishuzhai.com/b1919f5edb17005e107f2cda76ea6543.png" alt="9"></p>
+<h2 id="第二步：如何使用搬运工"><a href="#第二步：如何使用搬运工" class="headerlink" title="第二步：如何使用搬运工"></a>第二步：如何使用搬运工</h2><ul>
+<li>查看主机</li>
+</ul>
+<p><img src="http://oldblog.shicishuzhai.com/0d844d6592095394205b3ec705c27c07.png" alt="10"></p>
+<p><img src="http://oldblog.shicishuzhai.com/519dd5c39986045804589fb1c2037bc1.png" alt="11"></p>
+<p><img src="http://oldblog.shicishuzhai.com/32ba5f9b92493a7fae77e566ffeb1899.png" alt="12"></p>
+<ul>
+<li>管理我的VPS，点击KiwiVM..进入管理界面，这里可以查看服务器的状态，以及进行各种管理操作，具体操作方法可以参考最后我的两篇博客链接。</li>
+</ul>
+<p><img src="http://oldblog.shicishuzhai.com/765e9238bfc53b4d7efcf7eddadc1713.png" alt="13"></p>
+<h2 id="第三步：一键安装shadowsocks（搬运工这个功能太赞啦）"><a href="#第三步：一键安装shadowsocks（搬运工这个功能太赞啦）" class="headerlink" title="第三步：一键安装shadowsocks（搬运工这个功能太赞啦）"></a>第三步：一键安装shadowsocks（搬运工这个功能太赞啦）</h2><p>进入管理界面，然后点击Shadowsocks Server，然后点击Install Sh…</p>
+<p><img src="http://oldblog.shicishuzhai.com/6c277b288f658f0f46b49692ad44cd07.png" alt="14"></p>
+<p>安装完成后，点击返回，就可以看到你的SS的端口和密码</p>
+<p><img src="http://oldblog.shicishuzhai.com/cf4d5ded8facbea9375c69e1736db8b7.png" alt="15"></p>
+<p>然后跟着上图的“What‘s Next”后面的内容，安装并配置Shadowsocks，就可以使用了。</p>
+<p>以上就是这个购买和使用VPS的流程，希望对大家有所帮助。</p>
+<p>Reference:<br><a href="https://blog.phpgao.com/vps.html" target="_blank" rel="noopener">https://blog.phpgao.com/vps.html</a><br><a href="http://www.jianshu.com/p/2f51144c35c9" target="_blank" rel="noopener">http://www.jianshu.com/p/2f51144c35c9</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/05/2016年6月开发问题记录/" rel="next" title="2016年6月开发问题记录">
+                <i class="fa fa-chevron-left"></i> 2016年6月开发问题记录
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/29/GMTC全球移动技术大会见闻/" rel="prev" title="GMTC全球移动技术大会见闻">
+                GMTC全球移动技术大会见闻 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/smallhead.png" alt="liujinlongxa">
+          <p class="site-author-name" itemprop="name">liujinlongxa</p>
+          <p class="site-description motion-element" itemprop="description">生命永不息，Coding永不止</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">76</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/liujinlongxa" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://stackoverflow.com/users/5238100/jinlong-liu" target="_blank" title="Stackoverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                  Stackoverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/JaylonLiu" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步：购买搬运工VPS"><span class="nav-number">1.</span> <span class="nav-text">第一步：购买搬运工VPS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步：如何使用搬运工"><span class="nav-number">2.</span> <span class="nav-text">第二步：如何使用搬运工</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三步：一键安装shadowsocks（搬运工这个功能太赞啦）"><span class="nav-number">3.</span> <span class="nav-text">第三步：一键安装shadowsocks（搬运工这个功能太赞啦）</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">liujinlongxa</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+<!--
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+  -->
+  <a href="http://www.miitbeian.gov.cn">
+            粤ICP证17133280号
+        </a>
+</div>
+<br>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,711 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="liujinlongxa的技术博客" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/source/favicon.ico?v=5.0.1">
+
+
+
+
+
+
+<meta name="description" content="从2号决定要做博客，到现在，总共折腾了两天半，总算把这个博客整好了，这篇文章算我对这个过程的一个总结。 准备工作 安装Git，熟悉Git的常用操作（必须） 注册一个Github账号，熟悉Github的操作（必须） 注册一个多说账号，可以为你的博客增加评论功能（可选）  开始搭建个人博客 安装jekyll，这个网上教程很多，基本上就是先安装ruby，在安装gem，然后安装jekyll。此处就略过了，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用jekyll+Github Pages搭建个人博客">
+<meta property="og:url" content="http://liujinlongxa.com/2015/10/04/使用jekyll+GithubPage搭建个人博客系统/index.html">
+<meta property="og:site_name" content="liujinlongxa的技术博客">
+<meta property="og:description" content="从2号决定要做博客，到现在，总共折腾了两天半，总算把这个博客整好了，这篇文章算我对这个过程的一个总结。 准备工作 安装Git，熟悉Git的常用操作（必须） 注册一个Github账号，熟悉Github的操作（必须） 注册一个多说账号，可以为你的博客增加评论功能（可选）  开始搭建个人博客 安装jekyll，这个网上教程很多，基本上就是先安装ruby，在安装gem，然后安装jekyll。此处就略过了，">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/2015-10-04_16-46-21.jpg">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/2015-10-04_16-54-30.jpg">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/2015-10-04_17-10-06.jpg">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/2015-10-04_17-25-46.jpg">
+<meta property="og:updated_time" content="2019-01-13T04:01:04.456Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用jekyll+Github Pages搭建个人博客">
+<meta name="twitter:description" content="从2号决定要做博客，到现在，总共折腾了两天半，总算把这个博客整好了，这篇文章算我对这个过程的一个总结。 准备工作 安装Git，熟悉Git的常用操作（必须） 注册一个Github账号，熟悉Github的操作（必须） 注册一个多说账号，可以为你的博客增加评论功能（可选）  开始搭建个人博客 安装jekyll，这个网上教程很多，基本上就是先安装ruby，在安装gem，然后安装jekyll。此处就略过了，">
+<meta name="twitter:image" content="http://oldblog.shicishuzhai.com/2015-10-04_16-46-21.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://liujinlongxa.com/2015/10/04/使用jekyll+GithubPage搭建个人博客系统/">
+
+  <title> 使用jekyll+Github Pages搭建个人博客 | liujinlongxa的技术博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">liujinlongxa的技术博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                使用jekyll+Github Pages搭建个人博客
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-04T00:00:00+08:00" content="2015-10-04">
+              2015-10-04
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/其他/" itemprop="url" rel="index">
+                    <span itemprop="name">其他</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>从2号决定要做博客，到现在，总共折腾了两天半，总算把这个博客整好了，这篇文章算我对这个过程的一个总结。</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ol>
+<li>安装Git，熟悉Git的常用操作（必须）</li>
+<li>注册一个Github账号，熟悉Github的操作（必须）</li>
+<li>注册一个多说账号，可以为你的博客增加评论功能（可选）</li>
+</ol>
+<h2 id="开始搭建个人博客"><a href="#开始搭建个人博客" class="headerlink" title="开始搭建个人博客"></a>开始搭建个人博客</h2><ol>
+<li>安装jekyll，这个网上教程很多，基本上就是先安装ruby，在安装gem，然后安装jekyll。此处就略过了，大家可以在网上找教程。<br>推荐：<a href="http://jekyll.bootcss.com/" target="_blank" rel="noopener">http://jekyll.bootcss.com/</a></li>
+<li>寻找jekyll模板，当然，有能力的可以自己制作模板，推荐几个寻找模板的好地方：<ul>
+<li><a href="http://jekyllthemes.org/" target="_blank" rel="noopener">jekyllthemes</a>，我的模板就是在这找的</li>
+<li><a href="http://www.zhihu.com/question/20223939" target="_blank" rel="noopener">知乎：有推荐的简洁明快的jekyll模板吗？</a></li>
+</ul>
+</li>
+<li><p>把找好的模板源码下载下来，然后在Github上创建一个空项目，把模板源码上传上去，下面以我用的模板Pithy说明一下具体的过程：</p>
+<ul>
+<li><p>下载模板源码，如下图点击Download下载源码并解压</p>
+<p><img src="http://oldblog.shicishuzhai.com/2015-10-04_16-46-21.jpg" alt="image"></p>
+</li>
+<li><p>登录Github，创建一个空项目，取名为：&lt;你的用户名&gt;.github.io</p>
+</li>
+<li><p>然后把这个空项目clone到本地，把下载好的模板源码拷进去，然后再push到Github上，完成后的效果如下图</p>
+<p><img src="http://oldblog.shicishuzhai.com/2015-10-04_16-54-30.jpg" alt="image"></p>
+</li>
+</ul>
+</li>
+<li><p>修改模板内容，主要有以下几点</p>
+<ul>
+<li>修改_config.yml，具体修改方法可以参照 <a href="http://higrid.net/c-art-blog_jekyll.htm#--3" target="_blank" rel="noopener">http://higrid.net/c-art-blog_jekyll.htm</a></li>
+<li><p>修改多说账号，这个一般在_layouts/post.html文件中，有的模板中集成了多说，你只需要更改一下shortname即可，有的模板中没有集成多说，添加如下图的代码即可</p>
+<p><img src="http://oldblog.shicishuzhai.com/2015-10-04_17-10-06.jpg" alt="image"></p>
+</li>
+<li><p>删除_posts文件夹下的内容，这个文件夹下存放的就是你要发表的博客，大多数模板在这个文件夹中都会有几篇博客，你可以删除他们，<br>添加你自己的博客，注意文件名的命名规范：yyyy-MM-dd-博客标题.md，博客的头（两个—之间的内容）可以参考模板自带的博客，<br>把title改为自己博客的title</p>
+</li>
+</ul>
+</li>
+<li><p>测试博客，此时，博客就已经搭建好了，你可以在_posts文件夹中添加新的博客</p>
+<ul>
+<li>打开终端，进入博客目录，输入命令<code>jekyll server -w</code></li>
+<li><p>打开浏览器，输入<code>http://localhost:4000/</code>，这样就可以看到你的博客啦</p>
+<p><img src="http://oldblog.shicishuzhai.com/2015-10-04_17-25-46.jpg" alt="image"></p>
+</li>
+</ul>
+</li>
+<li>把刚才的修改push到Github上，这样你就有了一个域名为：&lt;你的用户名&gt;.github.io的博客</li>
+</ol>
+<h2 id="其他的一些优化"><a href="#其他的一些优化" class="headerlink" title="其他的一些优化"></a>其他的一些优化</h2><ul>
+<li><p>添加Rakefile</p>
+<ul>
+<li>用常规的方法创建博客，需要在_posts文件夹下创建一个.md文件，还要符合相应的命名规范，还要手动添加文件的头，非常麻烦，<br>  使用Rakefile可以直接通过命令<code>rake post title=&quot;&lt;博客标题&gt;&quot;</code>，直接创建一篇博客，非常便捷</li>
+<li>很多模板不带有Rakefile, 你可以从<a href="https://github.com/liujinlongxa/liujinlongxa.github.io" target="_blank" rel="noopener">我的博客仓库</a>里下载Rakefile文件，<br>拷贝到自己博客的根目录下</li>
+</ul>
+</li>
+<li><p>定制博客文件头：根据自己的需求，修改Rakefile，定制博客的头，下面是我定制的内容，默认支持标题和分类，命令格式:<br>  <code>rake post title=&quot;&lt;博客标题&gt; categories=&quot;&lt;博客分类&gt;&quot;</code></p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#</span> Usage: rake post title="A Title" [categories="post categories"] [date="2012-02-09"]</span><br><span class="line">desc "Begin a new post in #&#123;CONFIG['posts']&#125;"</span><br><span class="line">task :post do</span><br><span class="line">  abort("rake aborted: '#&#123;CONFIG['posts']&#125;' directory not found.") unless FileTest.directory?(CONFIG['posts'])</span><br><span class="line">  title = ENV["title"] || "无题"</span><br><span class="line">  categories = ENV["categories"] || "其他" # 添加分类参数，默认为“其他”分类</span><br><span class="line"><span class="meta">  #</span> slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')</span><br><span class="line">  slug = title.gsub(' ', '') # 修改博客标题，使其支持中文</span><br><span class="line">  begin</span><br><span class="line">    date = (ENV['date'] ? Time.parse(ENV['date']) : Time.now).strftime('%Y-%m-%d')</span><br><span class="line">  rescue Exception =&gt; e</span><br><span class="line">    puts "Error - date format must be YYYY-MM-DD, please check you typed it correctly!"</span><br><span class="line">    exit -1</span><br><span class="line">  end</span><br><span class="line">  filename = File.join(CONFIG['posts'], "#&#123;date&#125;-#&#123;slug&#125;.#&#123;CONFIG['post_ext']&#125;")</span><br><span class="line">  if File.exist?(filename)</span><br><span class="line">    abort("rake aborted!") if ask("#&#123;filename&#125; already exists. Do you want to overwrite?", ['y', 'n']) == 'n'</span><br><span class="line">  end</span><br><span class="line"></span><br><span class="line">  puts "Creating new post: #&#123;filename&#125;"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 下面就是具体的博客头的内容</span><br><span class="line">  open(filename, 'w') do |post|</span><br><span class="line">    post.puts "---"</span><br><span class="line">    post.puts "layout: post"</span><br><span class="line">    post.puts "title: \"#&#123;title.gsub(/-/,' ')&#125;\""</span><br><span class="line">    post.puts "categories: \"#&#123;categories.gsub(/-/,' ')&#125;\""</span><br><span class="line">    post.puts "---"</span><br><span class="line">  end</span><br><span class="line">end # task :post</span><br></pre></td></tr></table></figure>
+<ul>
+<li>简化创建博客的命令：每次创建博客输入<code>rake post title=&quot;&lt;博客标题&gt; categories=&quot;&lt;博客分类&gt;&quot;</code>这么一长串命令还是有些繁琐，可以在<code>~/.zshrc</code><br>  文件（如果没有装Oh-my-zsh，应该是<code>~/.bashrc</code>）添加如下代码，这样，以后你就可以直接输入命令 <code>rpt &quot;&lt;博客标题&gt;&quot; &quot;&lt;博客分类&gt;&quot;</code>创建博客，<br>  怎么样，是不是非常方便</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rpt() &#123;</span><br><span class="line">        rake post title=$1 categories=$2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用七牛存储图片。博客空间是有限的（200M），建议将博客中的图片上传到第三方图床上（这里推荐七牛），博客中直接使用图片的外链，<br>节省博客空间。</li>
+</ul>
+<h2 id="接下来要做的"><a href="#接下来要做的" class="headerlink" title="接下来要做的"></a>接下来要做的</h2><ul>
+<li>目前，我写博客使用的是Atom，平时都是用Xcode，这种编辑器还是第一次用，感觉它对jekyll的markdown支持的不是很好，特别是<br><code>% highlight objectiveC %</code>代码块，打算以后看看有什么解决办法，不行的话就换个编辑器</li>
+<li>当前博客使用的还是github的域名，打算以后买个独立域名</li>
+<li>最后，当然是开始写博客啦！！！！</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/04/iOS中的多线程编程/" rel="next" title="iOS中的多线程编程">
+                <i class="fa fa-chevron-left"></i> iOS中的多线程编程
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/10/04/iOS运行时初探-使用运行时机制向Category中添加属性/" rel="prev" title="iOS运行时初探 使用运行时机制向Category中添加属性">
+                iOS运行时初探 使用运行时机制向Category中添加属性 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/smallhead.png" alt="liujinlongxa">
+          <p class="site-author-name" itemprop="name">liujinlongxa</p>
+          <p class="site-description motion-element" itemprop="description">生命永不息，Coding永不止</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">76</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/liujinlongxa" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://stackoverflow.com/users/5238100/jinlong-liu" target="_blank" title="Stackoverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                  Stackoverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/JaylonLiu" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始搭建个人博客"><span class="nav-number">2.</span> <span class="nav-text">开始搭建个人博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他的一些优化"><span class="nav-number">3.</span> <span class="nav-text">其他的一些优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接下来要做的"><span class="nav-number">4.</span> <span class="nav-text">接下来要做的</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">liujinlongxa</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+<!--
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+  -->
+  <a href="http://www.miitbeian.gov.cn">
+            粤ICP证17133280号
+        </a>
+</div>
+<br>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
