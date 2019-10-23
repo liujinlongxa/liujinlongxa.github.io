@@ -1,11 +1,13 @@
 ---
-title: "SwiftUI:在SwiftUI中使用UIKit"
+title: "SwiftUI:SwiftUI与UIKit互相调用"
 categories: SwiftUI
 tags:
   - SwiftUI
   - Swift
 date: 2019-07-18 00:11:22
 ---
+
+# 在 SwiftUI 中调用 UIKit
 
 在 SwiftUI 中使用 UIKit 需要用到`UIViewRepresentable`和`UIViewControllerRepresentable`两个协议，分别对应在 SwiftUI 中使用`UIView`和`UIViewController`。
 
@@ -77,3 +79,13 @@ struct ContentView : View {
     }
 }
 ```
+
+# 在 UIKit 中调用 SwiftUI
+
+在 UIKit 中使用 SwiftUI 要比在 SwiftUI 中使用 SwiftUI 简单很多，只需要使用`UIHostingController`对 SwiftUI 的控件进行一下包装就可以，代码如下：
+
+```swift
+let vc = UIHostingController(rootView: Text("Hello World"))
+```
+
+包装出来的结果是一个`UIViewController`，这样就可以在其他`UIView`或`UIViewController`中使用了。可以将这个`UIViewController`作为一个`childViewController`加到其他的`UIView`或`UIViewController`中去
