@@ -1549,7 +1549,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #7ebf28;
+  background: #ffdaa6;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2452,6 +2452,7 @@ body {
   clear: both;
 }
 .links-of-author-item {
+  float: left;
   margin: 5px 0 0;
   width: 50%;
 }
@@ -2500,6 +2501,7 @@ body {
   clear: both;
 }
 .links-of-blogroll-inline .links-of-blogroll-item {
+  float: left;
   margin: 5px 0 0;
   width: 50%;
 }

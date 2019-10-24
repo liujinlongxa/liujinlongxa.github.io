@@ -1,0 +1,739 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="liujinlongxa的技术博客" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/source/favicon.ico?v=5.0.1">
+
+
+
+
+
+
+<meta name="description" content="toc{:toc}  第八章 确认访问身份的认证何为认证认证 即为了弄清坐在电脑前的用户的真实身份，需要对用户的信息进行核实的过程 常见的几种认证方式：  BASIC认证（基本认证） DIGEST认证（摘要认证） SSL客户端认证 FormBase认证（基于表单的认证）  BASIC认证基本步骤  请求的资源需要BASIC认证时，服务器返回401，告知客户端需要认证信息 客户端在接收到401后，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《图解HTTP》读书笔记(3)">
+<meta property="og:url" content="http://liujinlongxa.com/2015/10/07/《图解HTTP》读书笔记(3)/index.html">
+<meta property="og:site_name" content="liujinlongxa的技术博客">
+<meta property="og:description" content="toc{:toc}  第八章 确认访问身份的认证何为认证认证 即为了弄清坐在电脑前的用户的真实身份，需要对用户的信息进行核实的过程 常见的几种认证方式：  BASIC认证（基本认证） DIGEST认证（摘要认证） SSL客户端认证 FormBase认证（基于表单的认证）  BASIC认证基本步骤  请求的资源需要BASIC认证时，服务器返回401，告知客户端需要认证信息 客户端在接收到401后，">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-24T04:39:58.406Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《图解HTTP》读书笔记(3)">
+<meta name="twitter:description" content="toc{:toc}  第八章 确认访问身份的认证何为认证认证 即为了弄清坐在电脑前的用户的真实身份，需要对用户的信息进行核实的过程 常见的几种认证方式：  BASIC认证（基本认证） DIGEST认证（摘要认证） SSL客户端认证 FormBase认证（基于表单的认证）  BASIC认证基本步骤  请求的资源需要BASIC认证时，服务器返回401，告知客户端需要认证信息 客户端在接收到401后，">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://liujinlongxa.com/2015/10/07/《图解HTTP》读书笔记(3)/">
+
+  <title> 《图解HTTP》读书笔记(3) | liujinlongxa的技术博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">liujinlongxa的技术博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                《图解HTTP》读书笔记(3)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-07T00:00:00+08:00" content="2015-10-07">
+              2015-10-07
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li>toc<br>{:toc}</li>
+</ul>
+<h2 id="第八章-确认访问身份的认证"><a href="#第八章-确认访问身份的认证" class="headerlink" title="第八章 确认访问身份的认证"></a>第八章 确认访问身份的认证</h2><h3 id="何为认证"><a href="#何为认证" class="headerlink" title="何为认证"></a>何为认证</h3><p><strong>认证</strong> 即为了弄清坐在电脑前的用户的真实身份，需要对用户的信息进行核实的过程</p>
+<p>常见的几种认证方式：</p>
+<ul>
+<li>BASIC认证（基本认证）</li>
+<li>DIGEST认证（摘要认证）</li>
+<li>SSL客户端认证</li>
+<li>FormBase认证（基于表单的认证）</li>
+</ul>
+<h3 id="BASIC认证"><a href="#BASIC认证" class="headerlink" title="BASIC认证"></a>BASIC认证</h3><p>基本步骤</p>
+<ol>
+<li>请求的资源需要BASIC认证时，服务器返回401，告知客户端需要认证信息</li>
+<li>客户端在接收到401后，将用户名和密码组成<code>username:password</code>形式，并进行Base64编码，然后以<code>BASIC &lt;编码后的字符串&gt;</code>形式赋给请求头的<br>Authorization字段，然后再发送给服务器</li>
+<li>服务器收到验证信息后，进行验证，如果验证通过，则返回200，并返回相应的资源</li>
+</ol>
+<p>Base64并非真正的加密，如果具有BASIC认证的请求被窃听，用户名和密钥泄露的几率还是很大的</p>
+<h3 id="DIGEST认证"><a href="#DIGEST认证" class="headerlink" title="DIGEST认证"></a>DIGEST认证</h3><p>DIGEST认证使用质询/响应的方式进行认证，但不会像BASIC认证那样明文传输密码。因此DIGEST认证的安全等级要高于BASIC认证。</p>
+<h3 id="SSL客户端认证"><a href="#SSL客户端认证" class="headerlink" title="SSL客户端认证"></a>SSL客户端认证</h3><p>SSL客户端认证是借由HTTPS的客户端证书完成认证的方式。</p>
+<h3 id="基于表单的认证"><a href="#基于表单的认证" class="headerlink" title="基于表单的认证"></a>基于表单的认证</h3><p>表单认证即我们通常用的在网页上输入密码和账号的认证方式</p>
+<p>基本步骤：</p>
+<ol>
+<li>客户端将用户填写的用户名和密码（会做加密处理）发送给服务器，通常使用POST请求</li>
+<li>服务器在接收到用户名和密码后，会去和已经登录在服务器上的用户名和密码做匹配，如果匹配通过，则服务器会在Set-Cookie字段中加入用以<br>识别用户的SessionID</li>
+<li>客户端接收到SessionID会将其作为Cookie保存在本地，下次发送请求时会自动带上Cookie字段，这样服务器就能识别用户身份，不用重新登录认证了</li>
+</ol>
+<h2 id="第九章-基于HTTP的功能追加协议"><a href="#第九章-基于HTTP的功能追加协议" class="headerlink" title="第九章 基于HTTP的功能追加协议"></a>第九章 基于HTTP的功能追加协议</h2><p>随着时代的发展，HTTP协议上的限制和自身性能有限的缺点越来越明显，因此产生许多基于HTTP协议的功能追加协议</p>
+<h3 id="消除HTTP瓶颈的SPDY"><a href="#消除HTTP瓶颈的SPDY" class="headerlink" title="消除HTTP瓶颈的SPDY"></a>消除HTTP瓶颈的SPDY</h3><p>Google发布了SPDY，旨在消除HTTP的性能瓶颈。</p>
+<p><strong>HTTP协议的瓶颈</strong></p>
+<ol>
+<li>一条连接上只可以发送一个请求</li>
+<li>请求只能从客户端开始，客户端不可以接收除响应以外的任何指令</li>
+<li>请求/响应未经压缩就发送，首部信息越多延迟越大</li>
+<li>每次互相发送相同的首部造成浪费</li>
+<li>可任意选择数据压缩格式，非强制压缩发送</li>
+</ol>
+<p><strong>解决方式</strong></p>
+<ul>
+<li>Ajax（异步Javascript与XML技术）的解决方法<ul>
+<li>只更新一部分页面，因此传输的数据量大大减少</li>
+<li>Ajax仍未解决HTTP协议本身存在的问题</li>
+</ul>
+</li>
+<li>Comet的解决方式<ul>
+<li>一旦服务器有内容更新，Comet不会让请求等待，而是直接给客户端返回响应，这是一种延迟应答，模拟实现服务器向客户端推送的功能</li>
+<li>客户端发送请求后，不会立即得到响应，相应的请求会在服务器挂起，等到有内容更新时，响应才会返回客户端</li>
+<li>服务器为了维持链接会消耗更多资源</li>
+</ul>
+</li>
+<li>SPDY的目标<ul>
+<li>从协议层面消除HTTP的瓶颈</li>
+</ul>
+</li>
+</ul>
+<h3 id="SPDY的设计与功能"><a href="#SPDY的设计与功能" class="headerlink" title="SPDY的设计与功能"></a>SPDY的设计与功能</h3><p>SPDY没有完全改写HTTP协议，而是在TCP和HTTP之间加入了一个会话层。SPDY的功能</p>
+<ul>
+<li><strong>多路复用</strong> 单一的TCP链接可以处理多个HTTP请求</li>
+<li><strong>赋予请求优先级</strong> 给请求追加优先级，解决因带宽低而导致响应变慢的问题</li>
+<li><strong>压缩HTTP首部</strong></li>
+<li><strong>推送功能</strong> 支持服务器主动向客户端推送数据的功能</li>
+<li><strong>服务器提示功能</strong> 服务器可主动提示客户端请求所需的资源</li>
+</ul>
+<h3 id="使用浏览器进行双工通信的WebSocket"><a href="#使用浏览器进行双工通信的WebSocket" class="headerlink" title="使用浏览器进行双工通信的WebSocket"></a>使用浏览器进行双工通信的WebSocket</h3><p>一旦建立WebSocket链接，不论是服务器还是客户端，任何一方都可以直接向对方发送报文。</p>
+<p>WebSocket的特定：</p>
+<ul>
+<li>推送功能</li>
+<li>减少通信量，WebSocket的首部信息量很少</li>
+</ul>
+<h3 id="HTTP2-0"><a href="#HTTP2-0" class="headerlink" title="HTTP2.0"></a>HTTP2.0</h3><h2 id="第十章-构建Web内容的技术"><a href="#第十章-构建Web内容的技术" class="headerlink" title="第十章 构建Web内容的技术"></a>第十章 构建Web内容的技术</h2><ul>
+<li>HTML</li>
+<li>CSS</li>
+<li>动态HTML</li>
+<li>Web应用</li>
+<li>XML</li>
+<li>JSON</li>
+</ul>
+<h2 id="第十一章-Web的攻击技术"><a href="#第十一章-Web的攻击技术" class="headerlink" title="第十一章 Web的攻击技术"></a>第十一章 Web的攻击技术</h2><h3 id="针对Web的攻击技术"><a href="#针对Web的攻击技术" class="headerlink" title="针对Web的攻击技术"></a>针对Web的攻击技术</h3><p>攻击模式</p>
+<ul>
+<li>主动攻击：SQL注入，OS命令注入</li>
+<li>被动攻击：</li>
+</ul>
+<p>攻击方式</p>
+<ul>
+<li>跨站脚本攻击</li>
+<li>SQL注入攻击</li>
+<li>OS命令注入攻击</li>
+<li>HTTP首部注入攻击</li>
+<li>邮件首部注入攻击</li>
+<li>目录遍历攻击</li>
+<li>远程文件包含漏洞<br>…</li>
+</ul>
+<p>-</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/06/《图解HTTP》读书笔记(2)/" rel="next" title="《图解HTTP》读书笔记(2)">
+                <i class="fa fa-chevron-left"></i> 《图解HTTP》读书笔记(2)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/10/16/最近开发中遇到的一些问题/" rel="prev" title="最近开发中遇到的一些问题">
+                最近开发中遇到的一些问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/smallhead.png" alt="liujinlongxa">
+          <p class="site-author-name" itemprop="name">liujinlongxa</p>
+          <p class="site-description motion-element" itemprop="description">生命永不息，Coding永不止</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">68</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/liujinlongxa" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/JaylonLiu" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1523828165" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://mrscorpion.github.io" title="泊" target="_blank">泊</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第八章-确认访问身份的认证"><span class="nav-number">1.</span> <span class="nav-text">第八章 确认访问身份的认证</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#何为认证"><span class="nav-number">1.1.</span> <span class="nav-text">何为认证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BASIC认证"><span class="nav-number">1.2.</span> <span class="nav-text">BASIC认证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DIGEST认证"><span class="nav-number">1.3.</span> <span class="nav-text">DIGEST认证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSL客户端认证"><span class="nav-number">1.4.</span> <span class="nav-text">SSL客户端认证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于表单的认证"><span class="nav-number">1.5.</span> <span class="nav-text">基于表单的认证</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第九章-基于HTTP的功能追加协议"><span class="nav-number">2.</span> <span class="nav-text">第九章 基于HTTP的功能追加协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#消除HTTP瓶颈的SPDY"><span class="nav-number">2.1.</span> <span class="nav-text">消除HTTP瓶颈的SPDY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SPDY的设计与功能"><span class="nav-number">2.2.</span> <span class="nav-text">SPDY的设计与功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用浏览器进行双工通信的WebSocket"><span class="nav-number">2.3.</span> <span class="nav-text">使用浏览器进行双工通信的WebSocket</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP2-0"><span class="nav-number">2.4.</span> <span class="nav-text">HTTP2.0</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第十章-构建Web内容的技术"><span class="nav-number">3.</span> <span class="nav-text">第十章 构建Web内容的技术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第十一章-Web的攻击技术"><span class="nav-number">4.</span> <span class="nav-text">第十一章 Web的攻击技术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#针对Web的攻击技术"><span class="nav-number">4.1.</span> <span class="nav-text">针对Web的攻击技术</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">liujinlongxa</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

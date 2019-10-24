@@ -1,0 +1,684 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="liujinlongxa的技术博客" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/source/favicon.ico?v=5.0.1">
+
+
+
+
+
+
+<meta name="description" content="最近在使用Autolayout遇到了一个问题，我设置了一个UILabel的宽度约束，希望这个UILabel在显示时，如果内容宽度没有超过约束的宽度，则以约束的宽度显示，如果内容宽度超过约束的宽度，则以内容的宽度显示，这时，如果只设置宽度约束，UILabel会始终以约束的宽度显示，如果降低宽度约束，则UILabel就会使用以内容的宽度显示，始终无法达到我想要的效果，于是一番Google，便发现了Co">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Content Hugging与Content Compression Resistance">
+<meta property="og:url" content="http://liujinlongxa.com/2015/11/07/ContentHugging与ContentCompressionResistance/index.html">
+<meta property="og:site_name" content="liujinlongxa的技术博客">
+<meta property="og:description" content="最近在使用Autolayout遇到了一个问题，我设置了一个UILabel的宽度约束，希望这个UILabel在显示时，如果内容宽度没有超过约束的宽度，则以约束的宽度显示，如果内容宽度超过约束的宽度，则以内容的宽度显示，这时，如果只设置宽度约束，UILabel会始终以约束的宽度显示，如果降低宽度约束，则UILabel就会使用以内容的宽度显示，始终无法达到我想要的效果，于是一番Google，便发现了Co">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/Screen%20Shot%202015-11-07%20at%2022.46.17.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/Screen%20Shot%202015-11-07%20at%2022.15.10.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/Screen%20Shot%202015-11-07%20at%2022.30.26.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/Screen%20Shot%202015-11-07%20at%2022.44.05.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/Screen%20Shot%202015-11-07%20at%2022.46.17.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/Screen%20Shot%202015-11-07%20at%2022.44.05.png">
+<meta property="og:image" content="http://oldblog.shicishuzhai.com/Screen%20Shot%202015-11-07%20at%2023.02.49.png">
+<meta property="og:updated_time" content="2019-10-24T04:39:58.406Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Content Hugging与Content Compression Resistance">
+<meta name="twitter:description" content="最近在使用Autolayout遇到了一个问题，我设置了一个UILabel的宽度约束，希望这个UILabel在显示时，如果内容宽度没有超过约束的宽度，则以约束的宽度显示，如果内容宽度超过约束的宽度，则以内容的宽度显示，这时，如果只设置宽度约束，UILabel会始终以约束的宽度显示，如果降低宽度约束，则UILabel就会使用以内容的宽度显示，始终无法达到我想要的效果，于是一番Google，便发现了Co">
+<meta name="twitter:image" content="http://oldblog.shicishuzhai.com/Screen%20Shot%202015-11-07%20at%2022.46.17.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://liujinlongxa.com/2015/11/07/ContentHugging与ContentCompressionResistance/">
+
+  <title> Content Hugging与Content Compression Resistance | liujinlongxa的技术博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">liujinlongxa的技术博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Content Hugging与Content Compression Resistance
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-11-07T00:00:00+08:00" content="2015-11-07">
+              2015-11-07
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近在使用Autolayout遇到了一个问题，我设置了一个UILabel的宽度约束，希望这个UILabel在显示时，如果内容宽度没有超过约束的宽度，则以约束的宽度显示，如果<br>内容宽度超过约束的宽度，则以内容的宽度显示，这时，如果只设置宽度约束，UILabel会始终以约束的宽度显示，如果降低宽度约束，则UILabel就会使用以内容的宽度显示，<br>始终无法达到我想要的效果，于是一番Google，便发现了Content Hugging与Content Compression Resistance两个概念。</p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><strong>Content Hugging Priority</strong> 字面意思为内容紧缩，通过改变它的优先级，可以设置当View的大小大于实际内容的大小时，是否将View缩小，使其紧紧包裹住内容</p>
+<p><strong>Content Compression Resistance Priority</strong> 字面意思为阻止内容紧缩，通过改变它的优先级，可以设置当View的大小小于实际内容的大小时，是否将View扩大，使其紧紧包裹内容</p>
+<h2 id="实例应用"><a href="#实例应用" class="headerlink" title="实例应用"></a>实例应用</h2><p>本例将以一个UILabel为例，来说明一下ContentHugging与ContentCompressionResistance的具体设置方法。</p>
+<p>首先创建一个空项目，打开SB，拖入一个UILabel，然后设置一下三个约束：</p>
+<blockquote>
+<ol>
+<li>水平居中对齐</li>
+<li>垂直居中对齐</li>
+<li>宽度为100</li>
+</ol>
+</blockquote>
+<p>为类方便观察，给Label加一个背景颜色，设置完运行如下图：</p>
+<p><img src="http://oldblog.shicishuzhai.com/Screen%20Shot%202015-11-07%20at%2022.46.17.png" alt="image"></p>
+<p>然后改变宽度约束的优先级为500，如图：</p>
+<p><img src="http://oldblog.shicishuzhai.com/Screen%20Shot%202015-11-07%20at%2022.15.10.png" alt="image"></p>
+<p>然后就可以开始设置ContentHuggingPriority与ContentCompressionResistancePriority了，设置界面如下：</p>
+<p><img src="http://oldblog.shicishuzhai.com/Screen%20Shot%202015-11-07%20at%2022.30.26.png" alt="image"></p>
+<p>首先设置水平方向上的ContentHuggingPriority为501，运行项目，显示效果如下：</p>
+<p><img src="http://oldblog.shicishuzhai.com/Screen%20Shot%202015-11-07%20at%2022.44.05.png" alt="image"></p>
+<p>如果设置水平方向上的ContentHuggingPriority为499，运行项目，显示效果如下：</p>
+<p><img src="http://oldblog.shicishuzhai.com/Screen%20Shot%202015-11-07%20at%2022.46.17.png" alt="image"></p>
+<p>这是因为当宽度约束的优先级大于ContentHuggingPriority，优先以约束的宽度显示，当宽度约束的优先级小于ContentHuggingPriority时，如果Label的大小<br>大于内容的大小，则会按实际内容的大小显示。</p>
+<p>接下来改变Label的宽度约束值为30，然后运行项目，显示效果如下：</p>
+<p><img src="http://oldblog.shicishuzhai.com/Screen%20Shot%202015-11-07%20at%2022.44.05.png" alt="image"></p>
+<p>水平方向上ContentCompressionResistancePriority的默认值为750，将其改为499，则显示效果如下：</p>
+<p><img src="http://oldblog.shicishuzhai.com/Screen%20Shot%202015-11-07%20at%2023.02.49.png" alt="image"></p>
+<p>这是因为当宽度约束的优先级大于ContentCompressionResistancePriority，优先以约束的宽度显示，当宽度约束的优先级小于ContentCompressionResistancePriority<br>时，如果Label的大小小于内容的大小，则会按实际内容的大小显示</p>
+<p>除了在SB中设置外，还可以在代码中设置，代码如下：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 设置水平方向上内容紧缩的优先级为高</span></span><br><span class="line">[<span class="keyword">self</span>.label setContentHuggingPriority:<span class="built_in">UILayoutPriorityDefaultHigh</span> forAxis:<span class="built_in">UILayoutConstraintAxisHorizontal</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置垂直方向上阻止内容紧缩的优先级为低</span></span><br><span class="line">[<span class="keyword">self</span>.label setContentCompressionResistancePriority:<span class="built_in">UILayoutPriorityDefaultLow</span> forAxis:<span class="built_in">UILayoutConstraintAxisVertical</span>];</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/27/UIScrollView与Autolayout/" rel="next" title="UIScrollView与Autolayout">
+                <i class="fa fa-chevron-left"></i> UIScrollView与Autolayout
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/12/06/CoreAnimation编程指南学习笔记(1)/" rel="prev" title="CoreAnimation编程指南学习笔记(1)">
+                CoreAnimation编程指南学习笔记(1) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/smallhead.png" alt="liujinlongxa">
+          <p class="site-author-name" itemprop="name">liujinlongxa</p>
+          <p class="site-description motion-element" itemprop="description">生命永不息，Coding永不止</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">68</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/liujinlongxa" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/JaylonLiu" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1523828165" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://mrscorpion.github.io" title="泊" target="_blank">泊</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例应用"><span class="nav-number">2.</span> <span class="nav-text">实例应用</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">liujinlongxa</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
