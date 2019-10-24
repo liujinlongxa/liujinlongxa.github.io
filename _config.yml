@@ -71,6 +71,7 @@ theme: next
 deploy:
   type: git
   repo: git@github.com:liujinlongxa/liujinlongxa.github.io.git
+  branch: gh-pages
 
 include:
   - .nojekyll
