@@ -52,3 +52,116 @@ class ProfileViewController: UIViewController {
 在之前的 `ProfileViewController` 示例中，我们已经可以看到这 3 个问题的迹象了。`ProfileViewController`需要依赖`UserManager`中的可选属性`currentUser`，但是我们无法保证在编译时`currentUser`一定有值，也就是当`ProfileViewController`视图控制器展现时是否一定有数据。这种情况听起来像一个随时都可能发生的 Bug 😬！
 
 ## 依赖注入
+
+与其让`ProfileViewController`依赖单例对象，不如将这些对象注入到`ProfileViewController`的初始化方法中。 在这里，我们将当前用户作为非可选对象，和一个用于执行注销操作的`LogOutService`对象一起注入到`ProfileViewController`中。
+
+```swift
+class ProfileViewController: UIViewController {
+    private let user: User
+    private let logOutService: LogOutService
+    private lazy var nameLabel = UILabel()
+
+    init(user: User, logOutService: LogOutService) {
+        self.user = user
+        self.logOutService = logOutService
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        nameLabel.text = user.name
+    }
+
+    private func handleLogOutButtonTap() {
+        logOutService.logOut()
+    }
+}
+```
+
+上面的代码看上去更加清晰，更易于管理。 现在，我们的代码可以安全地访问始终存在的对象，并且登出操作也有了很清晰的 API。 通常，为了使程序的核心对象之间的关系更加清晰，将各种单例和管理器重构为清晰的相互分离的服务是一种很好方法。
+
+## 服务
+
+作为示例，让我们仔细看看`LogOutService`是如何实现。 为了完成“注销”这一个操作，它依然使用依赖项注入的方式提供了一个清晰明确的 API。
+
+```swift
+class LogOutService {
+    private let user: User
+    private let networkService: NetworkService
+    private let navigationService: NavigationService
+
+    init(user: User,
+         networkService: NetworkService,
+         navigationService: NavigationService) {
+        self.user = user
+        self.networkService = networkService
+        self.navigationService = navigationService
+    }
+
+    func logOut() {
+        networkService.request(.logout(user)) { [weak self] in
+            self?.navigationService.showLoginScreen()
+        }
+    }
+}
+```
+
+## 封装
+
+从大量使用单例转变为充分利用服务，依赖项注入和本地状态可能需要花费很多时间，有时甚至需要巨大的重构。
+
+幸运的是，我们可以运用[Testing Swift code that uses system singletons in 3 easy steps](https://www.swiftbysundell.com/articles/testing-swift-code-that-uses-system-singletons-in-3-easy-steps)提到的技术，使我们能够以更简单的方式摆脱单例。 就像在许多其他情况下一样-协议可以挽救！
+
+无需一次性重构所有单例并创建新的服务类，我们可以简单地将服务定义为协议，如下所示：
+
+```swift
+protocol LogOutService {
+    func logOut()
+}
+
+protocol NetworkService {
+    func request(_ endpoint: Endpoint, completionHandler: @escaping () -> Void)
+}
+
+protocol NavigationService {
+    func showLoginScreen()
+    func showProfile(for user: User)
+    ...
+}
+```
+
+然后，我们可能轻松的将单例改造为实现了这些协议的服务类。 在许多情况下，我们甚至不需要进行任何改动，只需将其共享实例作为服务传递即可。
+
+同样的技术也可以用于改造我们应用程序中的其他”类似单例“的核心对象，例如使用 AppDelegate 进行导航。
+
+```swift
+extension UserManager: LoginService, LogOutService {}
+
+extension AppDelegate: NavigationService {
+    func showLoginScreen() {
+        navigationController.viewControllers = [
+            LoginViewController(
+                loginService: UserManager.shared,
+                navigationService: self
+            )
+        ]
+    }
+
+    func showProfile(for user: User) {
+        let viewController = ProfileViewController(
+            user: user,
+            logOutService: UserManager.shared
+        )
+
+        navigationController.pushViewController(viewController, animated: true)
+    }
+}
+```
+
+现在，我们可以通过使用依赖项注入和服务的方式使所有视图控制器都不再依赖单例，而无需进行大量的重构！ 然后，我们可以使用[Replacing legacy code using Swift protocols](https://www.swiftbysundell.com/articles/replacing-legacy-code-using-swift-protocols/)中提到的技术逐一替换代码中的单例和其他类似单例的类型。
+
+## 总结
+
+单例并不总是有问题的，但是在许多情况下，单例所导致的问题都可以通过在对象之间使用依赖注入的方式来避免这些问题。
+
+如果您正在开发的项目中大量使用了单例模式，并且遇到一些相关的问题，那么希望这篇文章能对您有所启发。
