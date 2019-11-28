@@ -1,0 +1,682 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="其他,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="liujinlongxa的技术博客" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/source/favicon.ico?v=5.0.1">
+
+
+
+
+
+
+<meta name="description" content="原文地址：Avoiding singletons in Swift  “我知道单例不好，但是…”，这是开发者在讨论代码时经常会说的一句话。单例模式用多了不好似乎已经成为了一种社区的共识，但与此人同时，包括苹果以及诸多第三方开发者在他们的内部应用以及开源框架中都在使用单例模式。 这周，让我们来看一下使用单例模式会遇到哪些问题以及如何通过一些技术来避免这些问题。让我们开始吧。 为什么单例模式这么流行">
+<meta name="keywords" content="其他">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(译)避免在Swift中使用单例">
+<meta property="og:url" content="http://liujinlongxa.com/2019/10/28/译-避免在Swift中使用单例/index.html">
+<meta property="og:site_name" content="liujinlongxa的技术博客">
+<meta property="og:description" content="原文地址：Avoiding singletons in Swift  “我知道单例不好，但是…”，这是开发者在讨论代码时经常会说的一句话。单例模式用多了不好似乎已经成为了一种社区的共识，但与此人同时，包括苹果以及诸多第三方开发者在他们的内部应用以及开源框架中都在使用单例模式。 这周，让我们来看一下使用单例模式会遇到哪些问题以及如何通过一些技术来避免这些问题。让我们开始吧。 为什么单例模式这么流行">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-11-28T22:41:11.542Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="(译)避免在Swift中使用单例">
+<meta name="twitter:description" content="原文地址：Avoiding singletons in Swift  “我知道单例不好，但是…”，这是开发者在讨论代码时经常会说的一句话。单例模式用多了不好似乎已经成为了一种社区的共识，但与此人同时，包括苹果以及诸多第三方开发者在他们的内部应用以及开源框架中都在使用单例模式。 这周，让我们来看一下使用单例模式会遇到哪些问题以及如何通过一些技术来避免这些问题。让我们开始吧。 为什么单例模式这么流行">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://liujinlongxa.com/2019/10/28/译-避免在Swift中使用单例/">
+
+  <title> (译)避免在Swift中使用单例 | liujinlongxa的技术博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">liujinlongxa的技术博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                (译)避免在Swift中使用单例
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2019-10-28T23:06:51+08:00" content="2019-10-28">
+              2019-10-28
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/其他/" itemprop="url" rel="index">
+                    <span itemprop="name">其他</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>原文地址：<a href="https://www.swiftbysundell.com/articles/avoiding-singletons-in-swift/" target="_blank" rel="noopener">Avoiding singletons in Swift</a></p>
+</blockquote>
+<p>“我知道单例不好，但是…”，这是开发者在讨论代码时经常会说的一句话。单例模式用多了不好似乎已经成为了一种社区的共识，但与此人同时，包括苹果以及诸多第三方开发者在他们的内部应用以及开源框架中都在使用单例模式。</p>
+<p>这周，让我们来看一下使用单例模式会遇到哪些问题以及如何通过一些技术来避免这些问题。让我们开始吧。</p>
+<h2 id="为什么单例模式这么流行"><a href="#为什么单例模式这么流行" class="headerlink" title="为什么单例模式这么流行"></a>为什么单例模式这么流行</h2><p>首页，我们要讨论一下为什么单例模式会这么流行。如果大多数开发者都认为单例模式是有害的，为什么还要持续不断的使用单例模式。</p>
+<p>我想主要有两方面的原因。第一，我认为开发者在开发苹果平台应用时不断的使用单例模式的一个最大原因是因为苹果自己也在大量使用单例模式。作为第三方开发者，我们经常会期待苹果定义出所谓的“最佳实践”，任何苹果自己常用的的设计模式也都会在整个社区广泛传播。</p>
+<p>第二点，我认为是便捷性。单例通常可以用作访问某些核心值或对象的捷径，因为它们基本上可以从任何地方被访问。看一下这个例子，我们想在<code>ProfileViewController</code>中展示当前登录的用户的名字，并且可以点击按钮退出当前用户。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProfileViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">lazy</span> <span class="keyword">var</span> nameLabel = <span class="type">UILabel</span>()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">        nameLabel.text = <span class="type">UserManager</span>.shared.currentUser?.name</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">handleLogOutButtonTap</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="type">UserManager</span>.shared.logOut()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>完成像上面这样的任务，非常方便（而且很常见）的做法就是使用<code>UserManager</code>这样一个单例来封装用户和账号的处理逻辑。那么单例模式究竟有什么缺点呢？🤔</p>
+<h2 id="单例模式的缺点"><a href="#单例模式的缺点" class="headerlink" title="单例模式的缺点"></a>单例模式的缺点</h2><p>在讨论诸如模式和架构之类的问题时，我们很容易陷入过于理论化的陷阱。使我们的代码在理论上是“正确的“并遵循所有最佳实践和原则，这是很好的做好。但现实往往会打击我们，我们需要在两者之间寻求某种平衡。</p>
+<p>那么单例模式通常会引起什么具体问题，为什么要避免这些问题？ 我倾向于避免使用单例模式的三个主要原因是：</p>
+<ul>
+<li><strong>它们是全局可变的共享状态。</strong>它们的状态会自动在整个应用程序中共享，通常很多 Bug 都是由于程序状态发生意外改变而导致的。</li>
+<li><strong>单例和依赖于它们的代码之间的关系通常没有很好地定义。</strong>由于单例非常方便且全局可访问，大量使用单例模式通常会导致对象之间耦合太重，从而导致代码很难维护。</li>
+<li><strong>管理单例对象的生命周期通常很困难。</strong> 由于单例对象在应用程序的整个生命周期中都不会被销毁，因此对其进行管理可能非常困难，并且它们通常会依赖很多变量。 这也使得依赖单例对象的代码变得很难测试，因为你很难使得每一个测试用例都从”干净的初始状态“开始执行。</li>
+</ul>
+<p>在之前的 <code>ProfileViewController</code> 示例中，我们已经可以看到这 3 个问题的迹象了。<code>ProfileViewController</code>需要依赖<code>UserManager</code>中的可选属性<code>currentUser</code>，但是我们无法保证在编译时<code>currentUser</code>一定有值，也就是当<code>ProfileViewController</code>视图控制器展现时是否一定有数据。这种情况听起来像一个随时都可能发生的 Bug 😬！</p>
+<h2 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h2><p>与其让<code>ProfileViewController</code>依赖单例对象，不如将这些对象注入到<code>ProfileViewController</code>的初始化方法中。 在这里，我们将当前用户作为非可选对象，和一个用于执行注销操作的<code>LogOutService</code>对象一起注入到<code>ProfileViewController</code>中。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProfileViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">let</span> user: <span class="type">User</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">let</span> logOutService: <span class="type">LogOutService</span></span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">lazy</span> <span class="keyword">var</span> nameLabel = <span class="type">UILabel</span>()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">init</span>(user: <span class="type">User</span>, logOutService: <span class="type">LogOutService</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.user = user</span><br><span class="line">        <span class="keyword">self</span>.logOutService = logOutService</span><br><span class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>(nibName: <span class="literal">nil</span>, bundle: <span class="literal">nil</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">        nameLabel.text = user.name</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">handleLogOutButtonTap</span><span class="params">()</span></span> &#123;</span><br><span class="line">        logOutService.logOut()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的代码看上去更加清晰，更易于管理。 现在，我们的代码可以安全地访问始终存在的对象，并且登出操作也有了很清晰的 API。 通常，为了使程序的核心对象之间的关系更加清晰，将各种单例和管理器重构为清晰的相互分离的服务是一种很好方法。</p>
+<h2 id="服务"><a href="#服务" class="headerlink" title="服务"></a>服务</h2><p>作为示例，让我们仔细看看<code>LogOutService</code>是如何实现。 为了完成“注销”这一个操作，它依然使用依赖项注入的方式提供了一个清晰明确的 API。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LogOutService</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">let</span> user: <span class="type">User</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">let</span> networkService: <span class="type">NetworkService</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">let</span> navigationService: <span class="type">NavigationService</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">init</span>(user: <span class="type">User</span>,</span><br><span class="line">         networkService: <span class="type">NetworkService</span>,</span><br><span class="line">         navigationService: <span class="type">NavigationService</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.user = user</span><br><span class="line">        <span class="keyword">self</span>.networkService = networkService</span><br><span class="line">        <span class="keyword">self</span>.navigationService = navigationService</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">logOut</span><span class="params">()</span></span> &#123;</span><br><span class="line">        networkService.request(.logout(user)) &#123; [<span class="keyword">weak</span> <span class="keyword">self</span>] <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">self</span>?.navigationService.showLoginScreen()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><p>从大量使用单例转变为充分利用服务，依赖项注入和本地状态可能需要花费很多时间，有时甚至需要巨大的重构。</p>
+<p>幸运的是，我们可以运用<a href="https://www.swiftbysundell.com/articles/testing-swift-code-that-uses-system-singletons-in-3-easy-steps" target="_blank" rel="noopener">Testing Swift code that uses system singletons in 3 easy steps</a>提到的技术，使我们能够以更简单的方式摆脱单例。 就像在许多其他情况下一样-协议可以挽救！</p>
+<p>无需一次性重构所有单例并创建新的服务类，我们可以简单地将服务定义为协议，如下所示：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">LogOutService</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">logOut</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">NetworkService</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">request</span><span class="params">(<span class="number">_</span> endpoint: Endpoint, completionHandler: @escaping <span class="params">()</span></span></span> -&gt; <span class="type">Void</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">NavigationService</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">showLoginScreen</span><span class="params">()</span></span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">showProfile</span><span class="params">(<span class="keyword">for</span> user: User)</span></span></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后，我们可能轻松的将单例改造为实现了这些协议的服务类。 在许多情况下，我们甚至不需要进行任何改动，只需将其共享实例作为服务传递即可。</p>
+<p>同样的技术也可以用于改造我们应用程序中的其他”类似单例“的核心对象，例如使用 AppDelegate 进行导航。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UserManager</span>: <span class="title">LoginService</span>, <span class="title">LogOutService</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">AppDelegate</span>: <span class="title">NavigationService</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">showLoginScreen</span><span class="params">()</span></span> &#123;</span><br><span class="line">        navigationController.viewControllers = [</span><br><span class="line">            <span class="type">LoginViewController</span>(</span><br><span class="line">                loginService: <span class="type">UserManager</span>.shared,</span><br><span class="line">                navigationService: <span class="keyword">self</span></span><br><span class="line">            )</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">showProfile</span><span class="params">(<span class="keyword">for</span> user: User)</span></span> &#123;</span><br><span class="line">        <span class="keyword">let</span> viewController = <span class="type">ProfileViewController</span>(</span><br><span class="line">            user: user,</span><br><span class="line">            logOutService: <span class="type">UserManager</span>.shared</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">        navigationController.pushViewController(viewController, animated: <span class="literal">true</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在，我们可以通过使用依赖项注入和服务的方式使所有视图控制器都不再依赖单例，而无需进行大量的重构！ 然后，我们可以使用<a href="https://www.swiftbysundell.com/articles/replacing-legacy-code-using-swift-protocols/" target="_blank" rel="noopener">Replacing legacy code using Swift protocols</a>中提到的技术逐一替换代码中的单例和其他类似单例的类型。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>单例并不总是有问题的，但是在许多情况下，单例所导致的问题都可以通过在对象之间使用依赖注入的方式来避免这些问题。</p>
+<p>如果您正在开发的项目中大量使用了单例模式，并且遇到一些相关的问题，那么希望这篇文章能对您有所启发。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/其他/" rel="tag">#其他</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/09/Swift标准库：Collection协议/" rel="next" title="Swift标准库：Collection协议">
+                <i class="fa fa-chevron-left"></i> Swift标准库：Collection协议
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/smallhead.png" alt="liujinlongxa">
+          <p class="site-author-name" itemprop="name">liujinlongxa</p>
+          <p class="site-description motion-element" itemprop="description">生命永不息，Coding永不止</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">69</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/liujinlongxa" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/JaylonLiu" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1523828165" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://mrscorpion.github.io" title="泊" target="_blank">泊</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么单例模式这么流行"><span class="nav-number">1.</span> <span class="nav-text">为什么单例模式这么流行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单例模式的缺点"><span class="nav-number">2.</span> <span class="nav-text">单例模式的缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖注入"><span class="nav-number">3.</span> <span class="nav-text">依赖注入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务"><span class="nav-number">4.</span> <span class="nav-text">服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#封装"><span class="nav-number">5.</span> <span class="nav-text">封装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">liujinlongxa</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
